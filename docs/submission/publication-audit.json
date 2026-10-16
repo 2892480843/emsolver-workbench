@@ -1,8 +1,8 @@
 {
   "status": "passed",
   "scope": "Explicit publication candidates; live credentials checked without publishing their values. This is not a comprehensive security or legal audit.",
-  "candidate_files": 583,
-  "candidate_bytes": 6377568,
+  "candidate_files": 585,
+  "candidate_bytes": 6382466,
   "known_secret_values_checked": 8,
   "findings": [],
   "excluded": [

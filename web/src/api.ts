@@ -1,5 +1,5 @@
 export type Entity = Record<string, any>;
-export { activeStatuses } from "./models/jobs";
+export { activeStatuses } from "./models/jobs.js";
 export class ApiError extends Error {
   constructor(
     message: string,
@@ -134,7 +134,7 @@ export function defaultConfig(matrixId = ""): Entity {
     },
     resources: {
       memory_limit_gib: 16,
-      threads: 2,
+      threads: 1,
       mpi_ranks: 1,
       device: "cpu",
       walltime_seconds: 300,

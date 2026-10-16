@@ -99,7 +99,7 @@ def render(document, root, output, font_path):
         if kind=='pagebreak':story.append(PageBreak())
         elif kind in ('body','h1','h2'):story.append(para(text,kind))
         elif kind=='formula':
-            story.append(Paragraph(escape(text).replace('_i','<sub>i</sub>').replace('_2','<sub>2</sub>'),styles['formula']))
+            story.append(Paragraph(escape(text).replace('_i','<sub>i</sub>').replace('_2','<sub>2</sub>').replace('_∞','<sub>∞</sub>'),styles['formula']))
         elif kind=='bullet':story.append(para('• '+text))
         elif kind=='code':story.append(Paragraph(escape(text).replace(' ','&#160;').replace('\n','<br/>'),styles['code']))
         elif kind=='table':

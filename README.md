@@ -23,6 +23,8 @@
 
 要求Python3.11至3.14，推荐3.12；构建界面需要Node22及npm。以下命令从项目根目录运行。仓库中旧`.venv`保留不动，本项目使用独立环境。
 
+新配置、示例和界面草稿默认申请 **1 个 CPU 线程**，可在低核数机器上完成最小流程。显式填写的线程数会原样保存；本地规划仍拒绝超过可用 CPU 数的请求，集群则按计算节点实报容量匹配。历史实验及已冻结配置中的线程值不变。
+
 ```bash
 uv venv --python 3.12 .venv-emsolver
 uv pip install --python .venv-emsolver/bin/python -r requirements.lock

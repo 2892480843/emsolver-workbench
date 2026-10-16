@@ -21,7 +21,7 @@ validation:
   completeness_required: true
 resources:
   memory_limit_gib: 16
-  threads: 8
+  threads: 1
   walltime_seconds: 1800
 output:
   format: both

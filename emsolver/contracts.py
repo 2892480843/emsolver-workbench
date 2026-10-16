@@ -137,7 +137,9 @@ class Validation(StrictModel):
 
 class Resources(StrictModel):
     memory_limit_gib: float = Field(default=16, gt=0, le=1024)
-    threads: int = Field(default=8, ge=1, le=256)
+    # A portable default must fit even a single-CPU control/workstation host.
+    # Explicit requests remain unchanged and are checked by planning/admission.
+    threads: int = Field(default=1, ge=1, le=256)
     mpi_ranks: int = Field(default=1, ge=1, le=256)
     device: Literal["cpu", "gpu"] = "cpu"
     walltime_seconds: float = Field(default=1800, gt=0, le=86400)
