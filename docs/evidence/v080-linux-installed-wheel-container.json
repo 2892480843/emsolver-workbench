@@ -1,0 +1,36 @@
+{
+  "container_id": "da58b6b19bc229f549aef9cdfa139f9142417628dd98f9716802d1482c27ccf5",
+  "exit_code": 0,
+  "docker_start_exit_code": 0,
+  "oom_killed": false,
+  "seconds": 0.31031558299991957,
+  "isolation": {
+    "network_mode": "none",
+    "readonly_rootfs": true,
+    "cap_drop": [
+      "ALL"
+    ],
+    "pids_limit": 128,
+    "memory_limit_bytes": 2147483648,
+    "memory_swap_bytes": 2147483648,
+    "nano_cpus": 2000000000,
+    "security_opt": [
+      "no-new-privileges"
+    ],
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/v080-linux-final-delivery-data",
+        "Destination": "/data",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  "command": [
+    "-c",
+    "from pathlib import Path\nimport hashlib, importlib.metadata, json, os, platform\nimport emsolver\nbase=Path(emsolver.__file__).parent\nassert str(base).startswith('/usr/local/lib/python3.13/site-packages/emsolver'), str(base)\nassert not os.environ.get('PYTHONPATH')\nresult={'version':importlib.metadata.version('emsolver-workbench'),'system':platform.system(),'machine':platform.machine(),'python':platform.python_version(),'package_path':str(base),'pythonpath':os.environ.get('PYTHONPATH'),'modules':{'emsolver/'+str(p.relative_to(base)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(base.rglob('*.py'))},'cgroup':{name:Path('/sys/fs/cgroup',name).read_text().strip() for name in ('memory.max','memory.swap.max','pids.max','cpu.max')}}\nassert result['version']=='0.8.0'\nassert result['cgroup']=={'memory.max':'2147483648','memory.swap.max':'0','pids.max':'128','cpu.max':'200000 100000'},result['cgroup']\nPath('/data/installed-modules.json').write_text(json.dumps(result,indent=2)+'\\n')\nprint(json.dumps({key:value for key,value in result.items() if key!='modules'},indent=2))\n"
+  ],
+  "log": "docs/evidence/v080-linux-installed-wheel.log"
+}

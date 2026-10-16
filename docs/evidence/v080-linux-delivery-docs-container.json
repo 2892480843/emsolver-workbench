@@ -1,0 +1,36 @@
+{
+  "container_id": "80d8d594b16fd1fd9b2242f254d9d78189639776bfd485f51e626d81a063c74d",
+  "exit_code": 0,
+  "docker_start_exit_code": 0,
+  "oom_killed": false,
+  "seconds": 0.2115329999999176,
+  "isolation": {
+    "network_mode": "none",
+    "readonly_rootfs": true,
+    "cap_drop": [
+      "ALL"
+    ],
+    "pids_limit": 128,
+    "memory_limit_bytes": 2147483648,
+    "memory_swap_bytes": 2147483648,
+    "nano_cpus": 2000000000,
+    "security_opt": [
+      "no-new-privileges"
+    ],
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/v080-linux-final-delivery-data",
+        "Destination": "/data",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  "command": [
+    "-c",
+    "import hashlib,json;from pathlib import Path\nexpected={'README.md': 'c9249f8c6705e91ce68550f860f641a5abf378269b0ff921724ce50c3153ebaf', 'docs/feature-coverage.json': '4950fe1a673fe169af6c3daccd372b776731b734538960ee843bd4d39526fbb9'}\nactual={name:hashlib.sha256((Path('/app')/name).read_bytes()).hexdigest() for name in expected}\nassert actual==expected,(actual,expected)\nprint(json.dumps(actual,indent=2))\n"
+  ],
+  "log": "docs/evidence/v080-linux-delivery-docs.log"
+}

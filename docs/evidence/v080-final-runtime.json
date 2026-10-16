@@ -1,0 +1,58 @@
+{
+  "version": "0.8.0",
+  "source_unchanged": true,
+  "source_files": 105,
+  "source_tree_sha256": "85bdf238141bf51b336863268a36466406aeaa784b32efdb81d74613a94166e2",
+  "runtime_provenance": {
+    "tree_sha256": "4843101edc9eb8a5b797d1cf82b0b27f53f03b044ceba1a7f3caa4fc05c05287",
+    "file_count": 104,
+    "scope": "emsolver/*.py recursively; web/src TS/TSX/CSS; Python and web dependency manifests",
+    "complete": true,
+    "git_commit": null,
+    "git_dirty": null
+  },
+  "health": {
+    "status": "ok",
+    "service_alive": true,
+    "queue_available": true,
+    "storage_writable": true,
+    "storage_free_bytes": 122118873088,
+    "backend_runnable": true,
+    "mode": "local",
+    "project_rbac": true,
+    "worker_isolation": "independent process; optional container harness provides filesystem isolation",
+    "precise_resume": true,
+    "precise_resume_profile": "fixed-shift SciPy block; same config/input/source/environment; no fallback",
+    "backup_restore": "new-empty-destination-only",
+    "version": "0.8.0",
+    "storage_schema": 2
+  },
+  "supported_backends": {
+    "scipy": {
+      "available": true,
+      "supported": true,
+      "reason": null
+    },
+    "slepc": {
+      "available": true,
+      "supported": true,
+      "reason": null
+    },
+    "mpi": {
+      "available": true,
+      "supported": true,
+      "reason": null
+    },
+    "gpu": {
+      "available": true,
+      "supported": true,
+      "reason": null
+    }
+  },
+  "prd_status": {
+    "implemented": 65,
+    "conditional": 1,
+    "conditional_item": "F48",
+    "external_acceptance": "NOT_CERTIFIED"
+  }
+}

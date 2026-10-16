@@ -1,0 +1,34 @@
+{
+  "passed": false,
+  "scope": "Every pre-iteration SQLite row preserved; new rows allowed.",
+  "tables": {
+    "entities": {
+      "baseline_rows": 98,
+      "current_rows": 103,
+      "changed_old_keys": [
+        [
+          285
+        ]
+      ],
+      "all_original_rows_equal": false
+    },
+    "events": {
+      "baseline_rows": 328,
+      "current_rows": 344,
+      "changed_old_keys": [],
+      "all_original_rows_equal": true
+    },
+    "audit": {
+      "baseline_rows": 83,
+      "current_rows": 84,
+      "changed_old_keys": [],
+      "all_original_rows_equal": true
+    },
+    "idempotency": {
+      "baseline_rows": 35,
+      "current_rows": 36,
+      "changed_old_keys": [],
+      "all_original_rows_equal": true
+    }
+  }
+}

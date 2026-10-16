@@ -1,0 +1,50 @@
+{
+  "recorded_at": "2026-10-16T13:10:38.753996+00:00",
+  "platform": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.12.13"
+  },
+  "tests": {
+    "backend": {
+      "passed": 1071,
+      "skipped": 23,
+      "failed": 0,
+      "real_postgresql_included": true
+    },
+    "frontend": {
+      "passed": 78,
+      "failed": 0,
+      "production_build": true
+    },
+    "real_network": {
+      "checks": 63,
+      "all_passed": true,
+      "physical_hosts": 1
+    },
+    "linux_arm64_container": {
+      "checks": 13,
+      "all_passed": true,
+      "job_status": "SUCCEEDED",
+      "certification": "CERTIFIED",
+      "image": "sha256:4c2d7c3d375b8473b920795bd6b8ec07cd0e5f46e2e290e12cddde7821353fd2",
+      "non_root": true,
+      "read_only_root": true
+    }
+  },
+  "preservation": {
+    "frozen_assets_checked": 8,
+    "all_frozen_assets_unchanged": true,
+    "numerical_source_files_unchanged": true,
+    "container_python_files_equal": 77
+  },
+  "limits": [
+    "Remote SciPy CPU and one MPI rank only",
+    "Task distribution across nodes; no multi-node matrix partitioning",
+    "No S3 adapter or accepted multi-API high availability",
+    "Returned remote checkpoints and unverified derived formats withheld",
+    "External multi-physical-host HTTPS deployment and cross-machine performance not verified",
+    "Frozen 0.9.0 archives preserved and do not contain this development upgrade"
+  ],
+  "note": "Historical acceptance record from this source iteration. Physical hosts=1. Optional tests skipped are not counted as passing. Fresh checkout verification is recorded separately."
+}

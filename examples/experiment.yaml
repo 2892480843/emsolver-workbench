@@ -1,0 +1,22 @@
+# Replace project_id and matrix_ids with existing IDs from `emsolver projects list`
+# and `emsolver matrix list`, using the same --data-dir for every command.
+# Freeze: emsolver --data-dir data experiments plan --spec examples/experiment.yaml --json
+# Submit the returned ep_... ID with: emsolver --data-dir data experiments submit --plan ep_... --json
+project_id: p_REPLACE_WITH_PROJECT_ID
+matrix_ids:
+  - m_REPLACE_WITH_MATRIX_ID
+base_config:
+  resources:
+    threads: 1
+    walltime_seconds: 60
+    disk_limit_gib: 1
+k_values: [2, 3]
+sigma_values: [0.0]
+threads_values: [1]
+memory_limit_gib_values: [16.0]
+adaptive_shift_values: [true]
+repeats: 2
+budget:
+  max_runs: 4
+  max_total_walltime_seconds: 240
+  max_total_disk_gib: 4

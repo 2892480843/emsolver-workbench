@@ -1,0 +1,35 @@
+........................................................................ [  6%]
+........................................................................ [ 13%]
+........................................................................ [ 19%]
+........................................................................ [ 26%]
+........................................................................ [ 32%]
+........................................................................ [ 39%]
+........................................................................ [ 46%]
+........................................................................ [ 52%]
+...........s..s......................................................... [ 59%]
+........................................................................ [ 65%]
+...sssssssssss.......................................................... [ 72%]
+........................................................................ [ 78%]
+...................................................................ssss. [ 85%]
+...........sss..ss...s.................................................. [ 92%]
+........................................................................ [ 98%]
+..............                                                           [100%]
+=============================== warnings summary ===============================
+tests/test_fetch_dataset.py::test_conversion_retains_original_and_reconstructs_only_declared_storage
+tests/test_fetch_dataset.py::test_conversion_rejects_changed_shape_or_nonzero_count[3-3]
+tests/test_fetch_dataset.py::test_conversion_rejects_changed_shape_or_nonzero_count[2-4]
+  <source-checkout>/scripts/fetch_dataset.py:127: DeprecationWarning: The default value for `spmatrix` is changing to `False` in v1.20.
+               That means the default return type will be a sparse array.
+               Unless you use * instead of @, ** for matrix power, or you depend
+               on 2D shapes from e.g. `A.sum(axis=0)` it may not matter to you.
+               See the spmatrix to sparray migration guide for details.
+               https://docs.scipy.org/doc/scipy/reference/sparse.migration_to_sparray.html
+               
+    matrix = io.mmread(matrix_market)
+
+tests/test_industrial_reference.py::test_container_rejects_duplicate_symlink_and_oversized_declared_shape
+  <home>/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/zipfile/__init__.py:1624: UserWarning: Duplicate name: 'eigenvalues.npy'
+    return self._open_to_write(zinfo, force_zip64=force_zip64)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1071 passed, 23 skipped, 4 warnings in 80.41s (0:01:20)

@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "version": "0.9.0",
+  "image_tag": "emsolver-slepc:bookworm-arm64-v090",
+  "image_id": "sha256:586b521134202f7e709ddf9c2353b7f85906dac22cc7e4685686acb0421ef592",
+  "os": "linux",
+  "architecture": "arm64",
+  "archive": "emsolver-slepc-bookworm-arm64-v090.docker.tar.gz",
+  "bytes": 336213251,
+  "sha256": "a1dcd595de9a49cf49431d36cf4b1633e1aec99b8294dafc5da0487256e9ad70",
+  "docker_load_passed": true,
+  "docker_load_output": "Loaded image: emsolver-slepc:bookworm-arm64-v090",
+  "seconds": 9.255283915999826,
+  "driver_sha256": "2892e1e1efe2d3d1c30107ef6b67548628eb8957040b4b95b8703323bd8dc872",
+  "retained_debian_copyright_files": 278,
+  "historical_ooc_archive_unchanged": true,
+  "historical_ooc_archive_sha256": "c685a224dc3943fda7452081cc9a57cd9d83390431897ab5b7d003e71cff9843",
+  "scope": "Optional Linux ARM64 SLEPc/PETSc/MUMPS image. Separate from CPU Mac wheel and Linux AMD64 runtime; actual backend regression and full original-matrix run bind this exact image ID.",
+  "license_note": "Retains Debian /usr/share/doc/<package>/copyright and base-image license files; see docs/slepc-backend.md."
+}

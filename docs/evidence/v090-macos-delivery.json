@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "version": "0.9.0",
+  "passed": true,
+  "runtime": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.12.13"
+  },
+  "installation": {
+    "fresh_venv": true,
+    "outside_source_tree": true,
+    "pip_no_index": true,
+    "local_wheels_only": true,
+    "wheel_sha256": "982211468aab5c7cbf97727ec55e940ce43aa8ba6934002158a48aa8ad00a5f3",
+    "module_count": 69,
+    "source_wheel_installed_hashes_match": true,
+    "pythonpath_unset": true
+  },
+  "checks": [
+    "frontend",
+    "solver",
+    "independent_validation",
+    "report",
+    "public_bundle",
+    "backup_restore",
+    "restored_rerun"
+  ],
+  "server_runs": 2,
+  "server_processes_stopped": true,
+  "external_http_requests": 0,
+  "os_network_disabled": false,
+  "performance_claim": null,
+  "scope": "Native macOS ARM64 local-wheel cold install and local service flow. pip used no index; no OS-enforced network isolation or industrial performance claim.",
+  "evidence_sha256": {
+    "docs/evidence/v090-macos-installed-modules.json": "1bb7517d75c7895ef75fe38a58410abfe13085ddf750f28d161b841963be1592",
+    "docs/evidence/v090-macos-runtime-cold.json": "0e79704229c12913f7ce2e8c03d4df39626fe362cc4149ef621798de84038a00",
+    "docs/evidence/v090-macos-cold-install.log": "8d4db7c4be429368b707b59d5711bd8022e6d682bc6e9675af8bc99ff83a2ac1",
+    "docs/evidence/v090-macos-runtime-cold.log": "0e79704229c12913f7ce2e8c03d4df39626fe362cc4149ef621798de84038a00"
+  },
+  "release_freeze_sha256": "5a11a4c394d35d3c89e36641c90960366292e5d580aa0030d25789d79c8473c2"
+}

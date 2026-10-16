@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "checks": {
+    "entities": {
+      "baseline_rows": 82,
+      "current_rows": 82,
+      "baseline_rows_unchanged": true
+    },
+    "events": {
+      "baseline_rows": 285,
+      "current_rows": 285,
+      "baseline_rows_unchanged": true
+    },
+    "audit": {
+      "baseline_rows": 70,
+      "current_rows": 70,
+      "baseline_rows_unchanged": true
+    },
+    "idempotency": {
+      "baseline_rows": 34,
+      "current_rows": 34,
+      "baseline_rows_unchanged": true
+    }
+  },
+  "all_original_rows_unchanged": true,
+  "phase": "After upgrading production server to0.4.0 and refreshing actual browser",
+  "scope": "All baseline row bytes preserved; new projections can be added without rewriting original rows."
+}

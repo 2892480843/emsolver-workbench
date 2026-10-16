@@ -1,0 +1,24 @@
+Looking in links: /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/emsolver_workbench-0.9.0-py3-none-any.whl
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/numpy-2.5.4-cp312-cp312-macosx_14_0_arm64.whl (from emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/scipy-1.18.1-cp312-cp312-macosx_14_0_arm64.whl (from emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/fastapi-0.143.2-py3-none-any.whl (from emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/uvicorn-0.54.0-py3-none-any.whl (from emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/pydantic-2.14.1-py3-none-any.whl (from emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/python_multipart-0.0.32-py3-none-any.whl (from emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/psutil-7.2.2-cp36-abi3-macosx_11_0_arm64.whl (from emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/pyyaml-6.0.3-cp312-cp312-macosx_11_0_arm64.whl (from emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/threadpoolctl-3.7.0-py3-none-any.whl (from emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/starlette-1.8.0-py3-none-any.whl (from fastapi<1,>=0.115->emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/typing_extensions-4.16.0-py3-none-any.whl (from fastapi<1,>=0.115->emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/typing_inspection-0.4.4-py3-none-any.whl (from fastapi<1,>=0.115->emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/annotated_doc-0.0.5-py3-none-any.whl (from fastapi<1,>=0.115->emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/opentelemetry_api-1.45.1-py3-none-any.whl (from fastapi<1,>=0.115->emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/annotated_types-0.8.0-py3-none-any.whl (from pydantic<3,>=2.9->emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/pydantic_core-2.50.1-cp312-cp312-macosx_11_0_arm64.whl (from pydantic<3,>=2.9->emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/click-8.5.0-py3-none-any.whl (from uvicorn<1,>=0.30->emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/h11-0.16.0-py3-none-any.whl (from uvicorn<1,>=0.30->emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/anyio-4.15.1-py3-none-any.whl (from starlette>=0.46.0->fastapi<1,>=0.115->emsolver-workbench==0.9.0)
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/offline-macos-arm64-py312-v090/wheels/idna-3.20-py3-none-any.whl (from anyio<5,>=4.0.0->starlette>=0.46.0->fastapi<1,>=0.115->emsolver-workbench==0.9.0)
+Installing collected packages: typing-extensions, threadpoolctl, PyYAML, python-multipart, psutil, numpy, idna, h11, click, annotated-types, annotated-doc, uvicorn, typing-inspection, scipy, pydantic-core, opentelemetry-api, anyio, starlette, pydantic, fastapi, emsolver-workbench
+Successfully installed PyYAML-6.0.3 annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.15.1 click-8.5.0 emsolver-workbench-0.9.0 fastapi-0.143.2 h11-0.16.0 idna-3.20 numpy-2.5.4 opentelemetry-api-1.45.1 psutil-7.2.2 pydantic-2.14.1 pydantic-core-2.50.1 python-multipart-0.0.32 scipy-1.18.1 starlette-1.8.0 threadpoolctl-3.7.0 typing-extensions-4.16.0 typing-inspection-0.4.4 uvicorn-0.54.0

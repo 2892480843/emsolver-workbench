@@ -1,0 +1,192 @@
+{
+  "schema_version": "1.0",
+  "version": "0.7.0",
+  "host": {
+    "system": "Darwin",
+    "machine": "arm64"
+  },
+  "target": {
+    "os": "linux",
+    "architecture": "amd64",
+    "execution": "translated amd64 container on arm64 Docker Desktop; no native amd64 performance claim"
+  },
+  "image_id_before": "sha256:d37ff2b0b636844debc5b97d0549ba5c19d9e070f4ed17450c106710264ec3e0",
+  "image_os": "linux",
+  "image_architecture": "amd64",
+  "build_network": "none",
+  "base_image": "emsolver-dependencies:py313",
+  "checks": {
+    "installed-wheel": {
+      "container_id": "83403d1080472989cb5b018938798804bedc99c9445787b7320c11ed1ca628e1",
+      "exit_code": 0,
+      "docker_start_exit_code": 0,
+      "oom_killed": false,
+      "seconds": 0.2684009170043282,
+      "isolation": {
+        "network_mode": "none",
+        "readonly_rootfs": true,
+        "cap_drop": [
+          "ALL"
+        ],
+        "pids_limit": 128,
+        "memory_limit_bytes": 2147483648,
+        "memory_swap_bytes": 2147483648,
+        "nano_cpus": 2000000000,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "mounts": [
+          {
+            "Type": "bind",
+            "Source": "/Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/v070-linux-delivery-data",
+            "Destination": "/data",
+            "Mode": "",
+            "RW": true,
+            "Propagation": "rprivate"
+          }
+        ]
+      },
+      "command": [
+        "-c",
+        "from pathlib import Path\nimport hashlib, importlib.metadata, json, os, platform, sys\nimport emsolver\nbase=Path(emsolver.__file__).parent\nassert str(base).startswith('/usr/local/lib/python3.13/site-packages/emsolver'), str(base)\nassert not os.environ.get('PYTHONPATH')\nresult={'version':importlib.metadata.version('emsolver-workbench'),'system':platform.system(),'machine':platform.machine(),'python':platform.python_version(),'package_path':str(base),'pythonpath':os.environ.get('PYTHONPATH'),'modules':{'emsolver/'+str(path.relative_to(base)):hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted(base.rglob('*.py'))},'cgroup':{name:Path('/sys/fs/cgroup',name).read_text().strip() for name in ('memory.max','memory.swap.max','pids.max','cpu.max')}}\nassert result['version']=='0.7.0'\nassert len(result['modules'])==68\nPath('/data/installed-modules.json').write_text(json.dumps(result,indent=2)+'\\n')\nprint(json.dumps({key:value for key,value in result.items() if key!='modules'},indent=2))\n"
+      ],
+      "log": "docs/evidence/v070-linux-installed-wheel.log"
+    },
+    "focused-tests": {
+      "container_id": "74d703b7d6853bc8495bdf7fb876048619d8c1d5165ee09c6b86d2bdfac9b586",
+      "exit_code": 0,
+      "docker_start_exit_code": 0,
+      "oom_killed": false,
+      "seconds": 19.02151175000472,
+      "isolation": {
+        "network_mode": "none",
+        "readonly_rootfs": true,
+        "cap_drop": [
+          "ALL"
+        ],
+        "pids_limit": 128,
+        "memory_limit_bytes": 2147483648,
+        "memory_swap_bytes": 2147483648,
+        "nano_cpus": 2000000000,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "mounts": [
+          {
+            "Type": "bind",
+            "Source": "/Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/v070-linux-delivery-data",
+            "Destination": "/data",
+            "Mode": "",
+            "RW": true,
+            "Propagation": "rprivate"
+          },
+          {
+            "Type": "bind",
+            "Source": "/Users/a111/chen/竞赛/上海开源软件应用创新大赛/tests",
+            "Destination": "/checks/tests",
+            "Mode": "",
+            "RW": false,
+            "Propagation": "rprivate"
+          }
+        ]
+      },
+      "command": [
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp=/tmp/pytest",
+        "--junitxml=/data/focused-tests.xml",
+        "/checks/tests/test_ilu_preconditioning.py",
+        "/checks/tests/test_independent_counts.py",
+        "/checks/tests/test_certification_routing.py",
+        "/checks/tests/test_numerics_certification.py",
+        "/checks/tests/test_numerics.py",
+        "/checks/tests/test_backend_protocol.py",
+        "/checks/tests/test_contracts.py",
+        "/checks/tests/test_protocols.py",
+        "/checks/tests/test_shift_policy.py"
+      ],
+      "log": "docs/evidence/v070-linux-focused-tests.log",
+      "test_counts": {
+        "tests": 212,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 212
+      }
+    },
+    "runtime-cold": {
+      "container_id": "2406041e78e89713c389b427c655f452a1ed50e409a0c5ab3f9dbef38585e0f1",
+      "exit_code": 0,
+      "docker_start_exit_code": 0,
+      "oom_killed": false,
+      "seconds": 5.1549165829783306,
+      "isolation": {
+        "network_mode": "none",
+        "readonly_rootfs": true,
+        "cap_drop": [
+          "ALL"
+        ],
+        "pids_limit": 128,
+        "memory_limit_bytes": 2147483648,
+        "memory_swap_bytes": 2147483648,
+        "nano_cpus": 2000000000,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "mounts": [
+          {
+            "Type": "bind",
+            "Source": "/Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/v070-linux-delivery-data",
+            "Destination": "/data",
+            "Mode": "",
+            "RW": true,
+            "Propagation": "rprivate"
+          }
+        ]
+      },
+      "command": [
+        "/app/scripts/verify_offline_instance.py",
+        "--output",
+        "/data/runtime-cold.json",
+        "--work-dir",
+        "/data/cold-work"
+      ],
+      "log": "docs/evidence/v070-linux-runtime-cold.log"
+    }
+  },
+  "installed_module_count": 68,
+  "installed_source_wheel_hashes_match": true,
+  "wheel_sha256": "1adfae0926011f1a524832833963dc1fe3a8bb14876cb724def2c697d94b328b",
+  "focused_tests": {
+    "tests": 212,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 212
+  },
+  "cold_passed": true,
+  "image_id_after": "sha256:d37ff2b0b636844debc5b97d0549ba5c19d9e070f4ed17450c106710264ec3e0",
+  "save_load_image_id_unchanged": true,
+  "archive": "artifacts/emsolver-linux-amd64-0.7.0.docker.tar.gz",
+  "archive_bytes": 124863663,
+  "archive_sha256": "7ff068411c5ad68708bb9a3591f3b654da66285065a4480d9f3dc33003ee1024",
+  "source_unchanged_after_checks": true,
+  "passed": true,
+  "cgroup_constraints_verified": true,
+  "served_frontend_assets_match_frozen_local_dist": true,
+  "offline_cold_checks": [
+    "frontend",
+    "solver",
+    "independent_validation",
+    "report",
+    "public_bundle",
+    "backup_restore",
+    "restored_rerun"
+  ],
+  "build_config_sha256": "sha256:bd30d54a6f08248150f81ef445b75d23e8b8f526f71797ce32dde3c8a54b7e4f",
+  "build_manifest_sha256": "sha256:ce761344cf84e28c14ffb602daf919d47a14a835ee2ade29c96bf8be3fd47986",
+  "preserved_v060_archive_sha256": "2f2901f4ab186cf8297e707fc8db22bd0b82e7405e9c52de4de817d5b1b852fb"
+}

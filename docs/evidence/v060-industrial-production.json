@@ -1,0 +1,578 @@
+{
+  "version": "0.6.0",
+  "ids": {
+    "project_id": "p_44e051036f48439484034f5866cac24b",
+    "matrix_id": "m_74c8777af2f0488aa18a33dab7023eb3",
+    "plan_id": "plan_32b317000def4c3eb2c8e3c79c6dd50c",
+    "job_id": "j_080c19c41b0f4568911ac0f4bc06df3d",
+    "matrix_sha256": "b56c5bac7fde872951153508eb0641b17e0f52876445d59d4ec8d3ff7687f268",
+    "case_id": "ic_5f0616b7fd114112b1a1c244973e64ba",
+    "check_id": "ick_2b4146f12c58423b8af478b18570ceb8"
+  },
+  "job": {
+    "id": "j_080c19c41b0f4568911ac0f4bc06df3d",
+    "status": "FAILED",
+    "error": {
+      "code": "NO_VALID_MODES",
+      "message": "No valid modes"
+    },
+    "metrics": {
+      "n": 589446,
+      "nnz": 21758924,
+      "backend": "scipy",
+      "method": "jacobi_davidson",
+      "prepare_seconds": 0.9275935830082744,
+      "import_seconds": 1.040093625022564,
+      "solve_seconds": 10.540011125034653,
+      "validation_seconds": 0.15562374994624406,
+      "export_seconds": 5.73034391697729,
+      "elapsed_seconds": 18.40112279204186,
+      "peak_memory_bytes": 1590984704,
+      "peak_memory_gib": 1.481719970703125,
+      "memory_measurement": "sampled current process and descendants; worker enforces and samples full lifetime",
+      "event_history_limit": 4096,
+      "events_emitted": 8,
+      "event_history_byte_limit": 8388608,
+      "retained_event_bytes": 7240,
+      "secondary_observation_enabled": true,
+      "events_suppressed": 0,
+      "memory_sample_interval_seconds": 0.05,
+      "runtime_check_seconds": 1.3228465875145048,
+      "event_emission_seconds": 0.07458854198921472,
+      "events_retained": 8,
+      "events_dropped": 0,
+      "unavailable_metrics": {
+        "outer_iterations": null,
+        "linear_iterations": null,
+        "matrix_vector_products": null
+      },
+      "matrix_vector_products_scope": "Candidate iteration and candidate residual checks; final independent verifier excluded",
+      "matrix_vector_products_total": null,
+      "threads_requested": 2,
+      "effective_threadpools": [],
+      "factorizations": 0,
+      "linear_solves": 1,
+      "linear_iterations": 200,
+      "outer_iterations": 1,
+      "matrix_vector_products": 235,
+      "shifted_residual_matvecs": 0,
+      "max_linear_residual": 0.3669425562050399,
+      "residual_checks": 1,
+      "residual_check_seconds": 0.8622166250133887,
+      "restarts": 0,
+      "soft_locked_modes": 0,
+      "warm_start": false,
+      "inner_tolerance_min_used": 0.001,
+      "inner_tolerance_max_used": 0.001,
+      "inner_failures": 1,
+      "inner_accuracy_adaptive": false,
+      "float32_linear_solves": 0,
+      "float64_linear_solves": 1,
+      "float32_failures": 0,
+      "precision_promotions": 0,
+      "preconditioner_applications": 210,
+      "matrix_vector_products_float32": 0,
+      "inner_precision_policy": "float64",
+      "fallbacks_executed": 0,
+      "periodic_checkpoints_written": 0,
+      "walltime_seconds": 18.805043416970875,
+      "peak_rss_tree_bytes": 1618477056,
+      "disk_bytes": 40929604,
+      "sampling_interval_seconds": 0.1,
+      "measurement_scope": "worker process and descendants; sampled peak; excludes optional container",
+      "job_memory_partitions": {
+        "total_bytes": 4294967296,
+        "host_bytes": 4294967296,
+        "container_bytes": 0
+      },
+      "recovery_observation_gap": false,
+      "peak_is_lower_bound": false
+    },
+    "result": {
+      "status": "FAILED",
+      "error_code": "NO_VALID_MODES",
+      "eigenvalues": [],
+      "residuals": [],
+      "validation": {
+        "numerical_status": "FAILED",
+        "residual_definition": "scaled_inf_v1",
+        "residuals": [],
+        "absolute_residuals_2": [],
+        "orthogonality_error": 0.0,
+        "n_validated": 0,
+        "normalization": "unit_2_norm",
+        "target_certification": "UNVERIFIED",
+        "certification_source": "bounded_exact_rational_inertia_v1",
+        "boundary_cluster_cut": false,
+        "expected_count": null,
+        "missing_count": null,
+        "endpoint_ambiguous": false,
+        "certification_limit": "dimension_budget",
+        "certification_arithmetic": {
+          "budgets": {
+            "max_n": 64,
+            "max_nnz": 4096,
+            "max_entries": 4096,
+            "max_bits": 16384,
+            "max_updates": 2000000,
+            "max_inertias": 256,
+            "max_seconds": 5.0
+          }
+        }
+      },
+      "metrics": {
+        "n": 589446,
+        "nnz": 21758924,
+        "backend": "scipy",
+        "method": "jacobi_davidson",
+        "prepare_seconds": 0.9275935830082744,
+        "import_seconds": 1.040093625022564,
+        "solve_seconds": 10.540011125034653,
+        "validation_seconds": 0.15562374994624406,
+        "export_seconds": 5.73034391697729,
+        "elapsed_seconds": 18.40112279204186,
+        "peak_memory_bytes": 1590984704,
+        "peak_memory_gib": 1.481719970703125,
+        "memory_measurement": "sampled current process and descendants; worker enforces and samples full lifetime",
+        "event_history_limit": 4096,
+        "events_emitted": 8,
+        "event_history_byte_limit": 8388608,
+        "retained_event_bytes": 7240,
+        "secondary_observation_enabled": true,
+        "events_suppressed": 0,
+        "memory_sample_interval_seconds": 0.05,
+        "runtime_check_seconds": 1.3228465875145048,
+        "event_emission_seconds": 0.07458854198921472,
+        "events_retained": 8,
+        "events_dropped": 0,
+        "unavailable_metrics": {
+          "outer_iterations": null,
+          "linear_iterations": null,
+          "matrix_vector_products": null
+        },
+        "matrix_vector_products_scope": "Candidate iteration and candidate residual checks; final independent verifier excluded",
+        "matrix_vector_products_total": null,
+        "threads_requested": 2,
+        "effective_threadpools": [],
+        "factorizations": 0,
+        "linear_solves": 1,
+        "linear_iterations": 200,
+        "outer_iterations": 1,
+        "matrix_vector_products": 235,
+        "shifted_residual_matvecs": 0,
+        "max_linear_residual": 0.3669425562050399,
+        "residual_checks": 1,
+        "residual_check_seconds": 0.8622166250133887,
+        "restarts": 0,
+        "soft_locked_modes": 0,
+        "warm_start": false,
+        "inner_tolerance_min_used": 0.001,
+        "inner_tolerance_max_used": 0.001,
+        "inner_failures": 1,
+        "inner_accuracy_adaptive": false,
+        "float32_linear_solves": 0,
+        "float64_linear_solves": 1,
+        "float32_failures": 0,
+        "precision_promotions": 0,
+        "preconditioner_applications": 210,
+        "matrix_vector_products_float32": 0,
+        "inner_precision_policy": "float64",
+        "fallbacks_executed": 0,
+        "periodic_checkpoints_written": 0,
+        "walltime_seconds": 18.805043416970875,
+        "peak_rss_tree_bytes": 1618477056,
+        "disk_bytes": 40929604,
+        "sampling_interval_seconds": 0.1,
+        "measurement_scope": "worker process and descendants; sampled peak; excludes optional container",
+        "job_memory_partitions": {
+          "total_bytes": 4294967296,
+          "host_bytes": 4294967296,
+          "container_bytes": 0
+        },
+        "recovery_observation_gap": false,
+        "peak_is_lower_bound": false
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "method": "jacobi_davidson",
+          "sigma_target": 0.0,
+          "sigma_work": null,
+          "status": "INNER_NOT_CONVERGED",
+          "error_code": "LINEAR_NO_CONVERGENCE",
+          "n_accepted": 0,
+          "seconds": 9.748547124967445,
+          "outer_iterations": 1
+        }
+      ],
+      "n_accepted": 0,
+      "strategy": {
+        "schema_version": "1.0",
+        "backend_protocol": "prepare/solve/monitor/finalize",
+        "requested_backend": "scipy",
+        "requested_method": "jacobi_davidson",
+        "actual_backend": "scipy",
+        "actual_method": "jacobi_davidson",
+        "backend_version": "1.18.1",
+        "problem_type": "standard_hermitian",
+        "precision": "float64_or_complex128",
+        "requested_device": "cpu",
+        "compute_device": "cpu",
+        "transform": "projected_correction_equation",
+        "reordering": "none",
+        "verification_input": "original_unpermuted_matrix",
+        "linear_solver": {
+          "method": "projected_GMRES",
+          "preconditioner": "jacobi",
+          "residual_tolerance": 0.001,
+          "adaptive_tolerance": false,
+          "accuracy_policy": {
+            "enabled": false,
+            "rtol_min": 1e-10,
+            "rtol_max": 0.01,
+            "forcing_factor": 0.1
+          },
+          "precision": "float64",
+          "mixed_precision": false,
+          "sparse_product_device": "CPU",
+          "promotion_rule": "FP64 residual fails, or requested tolerance is below 64*float32_epsilon"
+        },
+        "shift_policy": {
+          "enabled": true,
+          "max_attempts": 4,
+          "policy": "observed_ritz_gap_v2",
+          "applies": false,
+          "actual_controller": null
+        },
+        "fallback_profiles": [],
+        "execution_profiles": [
+          {
+            "id": "primary",
+            "condition": "initial",
+            "config": {
+              "schema_version": "1.0",
+              "problem": {
+                "type": "standard_hermitian",
+                "matrix_id": "m_74c8777af2f0488aa18a33dab7023eb3",
+                "matrix_b_id": null,
+                "storage": "full",
+                "scalar": "auto",
+                "hermitian_rtol": 1e-12,
+                "reordering": "none",
+                "nullspace": {
+                  "basis_indices": [],
+                  "interpretation": "unspecified",
+                  "source": ""
+                }
+              },
+              "target": {
+                "mode": "nearest_k",
+                "k": 4,
+                "sigma": 0.0,
+                "interval": null,
+                "sort": "distance_then_value",
+                "cluster_policy": "fixed_k",
+                "max_modes": 200
+              },
+              "solver": {
+                "backend": "scipy",
+                "method": "jacobi_davidson",
+                "transform": "precond",
+                "subspace_max": 24,
+                "max_outer_iterations": 60,
+                "random_seed": 20261016,
+                "fallback_profiles": [],
+                "adaptive_shift": {
+                  "enabled": true,
+                  "max_attempts": 4,
+                  "policy": "observed_ritz_gap_v2"
+                },
+                "linear": {
+                  "method": "gmres",
+                  "preconditioner": "jacobi",
+                  "rtol_initial": 0.001,
+                  "max_iterations": 200,
+                  "adaptive_accuracy": {
+                    "enabled": false,
+                    "rtol_min": 1e-10,
+                    "rtol_max": 0.01,
+                    "forcing_factor": 0.1
+                  },
+                  "precision": "float64"
+                },
+                "block": {
+                  "oversampling": 4,
+                  "residual_check_interval": 1,
+                  "max_restarts": 2,
+                  "stagnation_checks": 20,
+                  "checkpoint_interval": 0,
+                  "checkpoint_kind": "subspace"
+                }
+              },
+              "validation": {
+                "residual_definition": "scaled_inf_v1",
+                "residual_scaled_max": 1e-08,
+                "absolute_residual_max": null,
+                "orthogonality_max": 1e-06,
+                "completeness_required": true
+              },
+              "resources": {
+                "memory_limit_gib": 4.0,
+                "threads": 2,
+                "mpi_ranks": 1,
+                "device": "cpu",
+                "walltime_seconds": 120.0,
+                "disk_limit_gib": 1.0
+              },
+              "observability": {
+                "enabled": true,
+                "metrics_interval_ms": 1000,
+                "redact_sensitive_fields": true
+              },
+              "output": {
+                "eigenvectors": true,
+                "format": "numpy",
+                "atomic_write": true
+              }
+            }
+          }
+        ],
+        "fallback_history": [],
+        "monitoring": {
+          "original_residual_at_attempt_boundary": true,
+          "original_residual_at_output": true,
+          "outer_iteration_count": true,
+          "linear_solve_count": true,
+          "outer_iteration_residual_history": true,
+          "event_history_limit": 4096,
+          "residual_check_interval": 1,
+          "locking": "residual_revalidated_soft_lock",
+          "max_restarts": 2,
+          "secondary_observation_enabled": true,
+          "event_history_byte_limit": 8388608
+        },
+        "checkpoint": {
+          "exact_resume": false,
+          "warm_start": true,
+          "kind": "subspace",
+          "supports_exact_resume": false,
+          "periodic_interval": 0,
+          "reason": "New task initialized from a validated subspace; iteration state is not continued"
+        },
+        "implementation": {
+          "candidate_solver": "Project projected Jacobi-Davidson with SciPy GMRES and NumPy Ritz projection",
+          "project_code": [
+            "safe normalization",
+            "bounded shift control",
+            "cluster refinement",
+            "original-problem verification",
+            "conservative structural certification"
+          ]
+        },
+        "limitations": [
+          "Direct factorization fill-in has no guaranteed bound from sparsity statistics",
+          "General sparse nearest-target completeness requires additional independent evidence"
+        ]
+      },
+      "memory_estimate": {
+        "schema_version": "1.0",
+        "n": 589446,
+        "nnz": 21758924,
+        "components": {
+          "input_and_recovery_bytes": 526929752,
+          "working_csr_bytes": 0,
+          "csr_csc_conversion_bytes": 526929752,
+          "scaled_matrix_bytes": 263464876,
+          "permutation_bytes": 4715568,
+          "subspace_bytes": 565868160,
+          "candidate_vectors_bytes": 37724544,
+          "validation_bytes": 37724928,
+          "inner_krylov_bytes": 226347264,
+          "projected_matrix_bytes": 18432,
+          "nullspace_diagnostic_bytes": 0,
+          "mixed_precision_matrix_bytes": 0,
+          "preconditioner_storage_bytes": 18862272,
+          "bounded_event_log_bytes": 33554432,
+          "gpu_coo_scratch_bytes": 0,
+          "mpi_replicated_input_bytes": 0
+        },
+        "minimum_memory_bytes": 2242139980,
+        "estimated_memory_range_bytes": [
+          2242139980,
+          2242139980
+        ],
+        "factorization_fill_in": {
+          "bounded": false,
+          "scenario_storage_multipliers": [
+            0,
+            0
+          ],
+          "reason": "No factorization in projected unpreconditioned GMRES"
+        },
+        "budget_bytes": 4294967296,
+        "job_memory_partitions": {
+          "total_bytes": 4294967296,
+          "host_bytes": 4294967296,
+          "container_bytes": 0
+        },
+        "minimum_fits_budget": true,
+        "risk": "factorization_fill_in_unknown",
+        "is_measured_peak": false,
+        "requires_runtime_process_tree_guard": true
+      },
+      "diagnostics": {
+        "matrix_layer": {
+          "original_n": 589446,
+          "original_nnz": 21758924,
+          "normalization": {
+            "input_format": "csr",
+            "input_stored_nnz": 21758924,
+            "input_stored_zero_entries": 0,
+            "duplicates_merged": 0,
+            "zero_entries_removed": 0,
+            "canonical_nnz_before_reconstruction": 21758924,
+            "declared_storage": "full",
+            "reconstructed_nnz": 21758924,
+            "final_nnz": 21758924,
+            "format": "csr",
+            "indices_sorted": true,
+            "duplicates_merged_policy": "sum",
+            "input_changed_by_symmetrization": false
+          },
+          "hermitian_relative_error": 0.0,
+          "returned_near_zero_count": 0,
+          "near_zero_threshold": 3.16e-322
+        },
+        "nullspace": {
+          "basis_kind": "original_coordinate_vectors",
+          "declared_dimension": 0,
+          "verified_dimension": 0,
+          "scaled_column_residuals": [],
+          "metadata_status": "NOT_PROVIDED",
+          "physical_classification": "unverified",
+          "modes_removed": 0,
+          "interpretation": "unspecified",
+          "source": "",
+          "limitation": "Only declared coordinate basis vectors are checked; no spurious-mode classification without model evidence"
+        }
+      }
+    }
+  },
+  "industrial_check": {
+    "schema_version": "1.0",
+    "id": "ick_2b4146f12c58423b8af478b18570ceb8",
+    "case_id": "ic_5f0616b7fd114112b1a1c244973e64ba",
+    "project_id": "p_44e051036f48439484034f5866cac24b",
+    "created_at": "2026-10-16T04:01:58.261127+00:00",
+    "status": "FAIL",
+    "industrial_accepted": false,
+    "gates": [
+      {
+        "name": "declared_use",
+        "status": "PASS",
+        "reason": "INDUSTRIAL_DECLARATION",
+        "details": {}
+      },
+      {
+        "name": "frozen_binding",
+        "status": "PASS",
+        "reason": "FROZEN_JOB_AND_ENGINEERING_MATCH",
+        "details": {}
+      },
+      {
+        "name": "artifacts",
+        "status": "PASS",
+        "reason": "PUBLISHED_HASHES_MATCH",
+        "details": {}
+      },
+      {
+        "name": "residual",
+        "status": "FAIL",
+        "reason": "FRESH_ORIGINAL_PROBLEM_VALIDATION",
+        "details": {
+          "residual_max": null,
+          "threshold": 1e-08
+        }
+      },
+      {
+        "name": "target_coverage",
+        "status": "UNVERIFIED",
+        "reason": "ORIGINAL_TARGET_CERTIFICATION",
+        "details": {
+          "certification": "UNVERIFIED"
+        }
+      },
+      {
+        "name": "job_outcome",
+        "status": "FAIL",
+        "reason": "CANDIDATE_DID_NOT_SUCCEED",
+        "details": {
+          "status_recorded": "FAILED"
+        }
+      },
+      {
+        "name": "physical_review",
+        "status": "UNVERIFIED",
+        "reason": "PHYSICAL_MODEL_OR_REVIEW_INCOMPLETE_OR_TEACHING_ONLY",
+        "details": {}
+      },
+      {
+        "name": "reference_provenance",
+        "status": "UNVERIFIED",
+        "reason": "NO_INDEPENDENT_REFERENCE",
+        "details": {}
+      },
+      {
+        "name": "reference_comparison",
+        "status": "UNVERIFIED",
+        "reason": "NO_INDEPENDENT_REFERENCE",
+        "details": {}
+      },
+      {
+        "name": "frequency",
+        "status": "PASS",
+        "reason": "NO_FREQUENCY_CLAIM_MATRIX_SCOPE",
+        "details": {}
+      },
+      {
+        "name": "performance",
+        "status": "PASS",
+        "reason": "DECLARED_RESOURCE_AND_TIMING_LIMITS",
+        "details": {
+          "checks": [
+            {
+              "status": "PASS",
+              "reason": "walltime_seconds_LIMIT"
+            },
+            {
+              "status": "PASS",
+              "reason": "peak_rss_tree_bytes_LIMIT"
+            }
+          ],
+          "speedup": null
+        }
+      }
+    ],
+    "dossier_sha256": "5cbda138d7240181bd9341d123beb2abf09e76da453f1b2a4e687aeb52e7dd2d",
+    "binding": {
+      "acceptance_scope": "matrix_eigenproblem",
+      "baseline_job_id": null,
+      "candidate_job_id": "j_080c19c41b0f4568911ac0f4bc06df3d",
+      "declared_use": "industrial",
+      "engineering_sha256": null,
+      "matrix_sha256": "b56c5bac7fde872951153508eb0641b17e0f52876445d59d4ec8d3ff7687f268",
+      "physical_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "reference_asset_id": null,
+      "reference_asset_sha256": null,
+      "reference_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "target_sha256": "3525ef2c97103cc36deb4d898e6ca6d9f2bf8ef3062cf431a57ed6156fb17869"
+    },
+    "acceptance_scope": "matrix_eigenproblem",
+    "claim_scope": "Internal bounded matrix_eigenproblem acceptance for this frozen input and configured issuer assertions; no official certification or independently proven physical truth.",
+    "limitations": [
+      "Reference evaluation is limited to supplied target modes: inline 50000 vector entries, external artifact limits are recorded with that asset.",
+      "Physical mesh and material truth depend on the configured independent authority; hashes alone do not prove origin.",
+      "Sampled process memory is not an exact operating system peak; unrequested speedup is never inferred."
+    ]
+  }
+}

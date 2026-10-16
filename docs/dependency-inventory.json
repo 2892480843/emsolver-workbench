@@ -1,0 +1,211 @@
+[
+  {
+    "name": "numpy",
+    "version": "2.5.4",
+    "license_expression": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+    "license_metadata": "",
+    "home_page": null,
+    "project_urls": [
+      "homepage, https://numpy.org",
+      "documentation, https://numpy.org/doc/",
+      "source, https://github.com/numpy/numpy",
+      "download, https://pypi.org/project/numpy/#files",
+      "tracker, https://github.com/numpy/numpy/issues",
+      "release notes, https://numpy.org/doc/stable/release"
+    ]
+  },
+  {
+    "name": "scipy",
+    "version": "1.18.1",
+    "license_expression": null,
+    "license_metadata": "Copyright (c) 2001-2002 Enthought, Inc. 2003, SciPy Developers.\n All rights reserved.\n\n Redistribution and use in source and binary forms, with or without\n modification, are permitted provided that the following conditions\n are met:\n\n 1. Redistributions of source code must retain the above copyright\n    notice, this list of conditions and the following disclaimer.\n\n 2. Redistributions in binary form must reproduce the above\n    copyright notice, this list of conditions and the following\n    disc",
+    "home_page": null,
+    "project_urls": [
+      "homepage, https://scipy.org/",
+      "documentation, https://docs.scipy.org/doc/scipy/",
+      "source, https://github.com/scipy/scipy",
+      "download, https://github.com/scipy/scipy/releases",
+      "tracker, https://github.com/scipy/scipy/issues"
+    ]
+  },
+  {
+    "name": "fastapi",
+    "version": "0.143.2",
+    "license_expression": "MIT",
+    "license_metadata": "",
+    "home_page": null,
+    "project_urls": [
+      "Homepage, https://github.com/fastapi/fastapi",
+      "Documentation, https://fastapi.tiangolo.com/",
+      "Repository, https://github.com/fastapi/fastapi",
+      "Issues, https://github.com/fastapi/fastapi/issues",
+      "Changelog, https://fastapi.tiangolo.com/release-notes/"
+    ]
+  },
+  {
+    "name": "uvicorn",
+    "version": "0.54.0",
+    "license_expression": "BSD-3-Clause",
+    "license_metadata": "",
+    "home_page": null,
+    "project_urls": [
+      "Changelog, https://uvicorn.dev/release-notes",
+      "Funding, https://github.com/sponsors/Kludex",
+      "Homepage, https://uvicorn.dev/",
+      "Source, https://github.com/Kludex/uvicorn"
+    ]
+  },
+  {
+    "name": "pydantic",
+    "version": "2.14.1",
+    "license_expression": "MIT",
+    "license_metadata": "",
+    "home_page": null,
+    "project_urls": [
+      "Homepage, https://github.com/pydantic/pydantic",
+      "Documentation, https://pydantic.dev/docs/validation/latest/get-started/",
+      "Funding, https://github.com/sponsors/samuelcolvin",
+      "Source, https://github.com/pydantic/pydantic",
+      "Changelog, https://pydantic.dev/docs/validation/latest/get-started/changelog/"
+    ]
+  },
+  {
+    "name": "python-multipart",
+    "version": "0.0.32",
+    "license_expression": "Apache-2.0",
+    "license_metadata": "",
+    "home_page": null,
+    "project_urls": [
+      "Homepage, https://github.com/Kludex/python-multipart",
+      "Documentation, https://kludex.github.io/python-multipart/",
+      "Changelog, https://github.com/Kludex/python-multipart/blob/master/CHANGELOG.md",
+      "Source, https://github.com/Kludex/python-multipart"
+    ]
+  },
+  {
+    "name": "psutil",
+    "version": "7.2.2",
+    "license_expression": null,
+    "license_metadata": "BSD-3-Clause",
+    "home_page": "https://github.com/giampaolo/psutil",
+    "project_urls": []
+  },
+  {
+    "name": "PyYAML",
+    "version": "6.0.3",
+    "license_expression": null,
+    "license_metadata": "MIT",
+    "home_page": "https://pyyaml.org/",
+    "project_urls": [
+      "Bug Tracker, https://github.com/yaml/pyyaml/issues",
+      "CI, https://github.com/yaml/pyyaml/actions",
+      "Documentation, https://pyyaml.org/wiki/PyYAMLDocumentation",
+      "Mailing lists, http://lists.sourceforge.net/lists/listinfo/yaml-core",
+      "Source Code, https://github.com/yaml/pyyaml"
+    ]
+  },
+  {
+    "name": "threadpoolctl",
+    "version": "3.7.0",
+    "license_expression": "BSD-3-Clause",
+    "license_metadata": "",
+    "home_page": null,
+    "project_urls": [
+      "homepage, https://github.com/joblib/threadpoolctl"
+    ]
+  },
+  {
+    "name": "pytest",
+    "version": "9.1.1",
+    "license_expression": "MIT",
+    "license_metadata": "",
+    "home_page": null,
+    "project_urls": [
+      "Changelog, https://docs.pytest.org/en/stable/changelog.html",
+      "Contact, https://docs.pytest.org/en/stable/contact.html",
+      "Funding, https://docs.pytest.org/en/stable/sponsor.html",
+      "Homepage, https://docs.pytest.org/en/latest/",
+      "Source, https://github.com/pytest-dev/pytest",
+      "Tracker, https://github.com/pytest-dev/pytest/issues"
+    ]
+  },
+  {
+    "name": "httpx",
+    "version": "0.28.1",
+    "license_expression": null,
+    "license_metadata": "BSD-3-Clause",
+    "home_page": null,
+    "project_urls": [
+      "Changelog, https://github.com/encode/httpx/blob/master/CHANGELOG.md",
+      "Documentation, https://www.python-httpx.org",
+      "Homepage, https://github.com/encode/httpx",
+      "Source, https://github.com/encode/httpx"
+    ]
+  },
+  {
+    "name": "lucide-react",
+    "version": "0.468.0",
+    "ecosystem": "npm",
+    "license_expression": "ISC",
+    "license_metadata": "",
+    "home_page": "https://lucide.dev",
+    "project_urls": [
+      "Source, https://github.com/lucide-icons/lucide.git"
+    ],
+    "metadata_source": "installed package metadata and web/package-lock.json"
+  },
+  {
+    "name": "react",
+    "version": "19.3.1",
+    "ecosystem": "npm",
+    "license_expression": "MIT",
+    "license_metadata": "",
+    "home_page": "https://react.dev/",
+    "project_urls": [
+      "Source, https://github.com/react/react.git"
+    ],
+    "metadata_source": "installed package metadata and web/package-lock.json"
+  },
+  {
+    "name": "react-dom",
+    "version": "19.3.1",
+    "ecosystem": "npm",
+    "license_expression": "MIT",
+    "license_metadata": "",
+    "home_page": "https://react.dev/",
+    "project_urls": [
+      "Source, https://github.com/react/react.git"
+    ],
+    "metadata_source": "installed package metadata and web/package-lock.json"
+  },
+  {
+    "name": "psycopg",
+    "version": "3.3.6",
+    "license_expression": "LGPL-3.0-only",
+    "license_metadata": "",
+    "home_page": null,
+    "project_urls": [
+      "Homepage, https://psycopg.org/",
+      "Documentation, https://psycopg.org/psycopg3/docs/",
+      "Changes, https://psycopg.org/psycopg3/docs/news.html",
+      "Code, https://github.com/psycopg/psycopg",
+      "Issue Tracker, https://github.com/psycopg/psycopg/issues",
+      "Funding, https://github.com/sponsors/dvarrazzo"
+    ]
+  },
+  {
+    "name": "psycopg-binary",
+    "version": "3.3.6",
+    "license_expression": "LGPL-3.0-only",
+    "license_metadata": "",
+    "home_page": null,
+    "project_urls": [
+      "Homepage, https://psycopg.org/",
+      "Documentation, https://psycopg.org/psycopg3/docs/",
+      "Changes, https://psycopg.org/psycopg3/docs/news.html",
+      "Code, https://github.com/psycopg/psycopg",
+      "Issue Tracker, https://github.com/psycopg/psycopg/issues",
+      "Funding, https://github.com/sponsors/dvarrazzo"
+    ]
+  }
+]

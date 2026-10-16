@@ -1,0 +1,95 @@
+{
+  "passed": true,
+  "archives": [
+    {
+      "name": "emsolver-source-0.4.0.zip",
+      "sha256": "e0331b9addde794c19867379404557b87419b5e3c4bb0c3e4b406315dace3de2",
+      "matches_pinned_release": true,
+      "version_manifest": "RELEASE-0.4.0.json"
+    },
+    {
+      "name": "emsolver-offline-macos-arm64-py312-0.4.0.zip",
+      "sha256": "204896b01073fc0929d95dc36d39886b565ebe42812558662d9cc67eced862dd",
+      "matches_pinned_release": true,
+      "version_manifest": "RELEASE-0.4.0.json"
+    },
+    {
+      "name": "emsolver-linux-amd64-0.4.0.docker.tar.gz",
+      "sha256": "5816419043bb75c159595628bc95b726711f5dd7ab7d2aadb6cf7d435fb60e89",
+      "matches_pinned_release": true,
+      "version_manifest": "RELEASE-0.4.0.json"
+    },
+    {
+      "name": "emsolver-source-0.5.0.zip",
+      "sha256": "db0c64de3ddc3938abd9093693fc3f293b26c4dd03c9b5b6600b1d448794cb55",
+      "matches_pinned_release": true,
+      "version_manifest": "RELEASE-0.5.0.json"
+    },
+    {
+      "name": "emsolver-offline-macos-arm64-py312-0.5.0.zip",
+      "sha256": "c2851cd4e4b4d0cfbe5ba6f91c382e0c1e0d17248fd92db3bc27caa3209e219f",
+      "matches_pinned_release": true,
+      "version_manifest": "RELEASE-0.5.0.json"
+    },
+    {
+      "name": "emsolver-linux-amd64-0.5.0.docker.tar.gz",
+      "sha256": "52c39b79a517e1c1785d1c3ad41851e87cefd675b45679a2ac16fc5bc329d61d",
+      "matches_pinned_release": true,
+      "version_manifest": "RELEASE-0.5.0.json"
+    },
+    {
+      "name": "emsolver-slepc-bookworm-arm64-v1.docker.tar.gz",
+      "sha256": "c685a224dc3943fda7452081cc9a57cd9d83390431897ab5b7d003e71cff9843",
+      "matches_pinned_release": true,
+      "version_manifest": "RELEASE-0.5.0.json"
+    },
+    {
+      "name": "emsolver-optional-metal-local-ai-macos26-arm64-py312-0.5.0.zip",
+      "sha256": "1e26015e8874f21025a7d874feaae19b93aec6c1af91b80508b197e4f96f92e1",
+      "matches_pinned_release": true,
+      "version_manifest": "RELEASE-0.5.0.json"
+    },
+    {
+      "name": "emsolver-source-0.6.0.zip",
+      "sha256": "9fcacc544313cc2e39986bcac29dc189bb8e91fc99aa9b3daf54dc6a6d7bb97f",
+      "matches_pinned_release": true,
+      "version_manifest": "RELEASE-0.6.0.json"
+    },
+    {
+      "name": "emsolver-offline-macos-arm64-py312-0.6.0.zip",
+      "sha256": "fe5226308f2c523aebd8df4b3a175af3686047ecd59dbffbb2590943f230cd18",
+      "matches_pinned_release": true,
+      "version_manifest": "RELEASE-0.6.0.json"
+    },
+    {
+      "name": "emsolver-linux-amd64-0.6.0.docker.tar.gz",
+      "sha256": "2f2901f4ab186cf8297e707fc8db22bd0b82e7405e9c52de4de817d5b1b852fb",
+      "matches_pinned_release": true,
+      "version_manifest": "RELEASE-0.6.0.json"
+    },
+    {
+      "name": "emsolver-public-industrial-gsm-106857-v1.zip",
+      "sha256": "ae0977ae6043dc7a5318ede164ec7f211d175a9a2868ef72a19cde28578f70c7",
+      "matches_pinned_release": true,
+      "version_manifest": "RELEASE-0.6.0.json"
+    },
+    {
+      "name": "emsolver-source-0.7.0.zip",
+      "sha256": "bed6a428cbf7be49f5dc667612260301baf3e41c4c437fa72c890ad2c95e3ecd",
+      "matches_pinned_release": true,
+      "version_manifest": "RELEASE-0.7.0.json"
+    },
+    {
+      "name": "emsolver-offline-macos-arm64-py312-0.7.0.zip",
+      "sha256": "175aa363b2e4e1b78318d7bb33ede4e006dcd2517a4ff5ce30a4099cdd9a6f42",
+      "matches_pinned_release": true,
+      "version_manifest": "RELEASE-0.7.0.json"
+    },
+    {
+      "name": "emsolver-linux-amd64-0.7.0.docker.tar.gz",
+      "sha256": "7ff068411c5ad68708bb9a3591f3b654da66285065a4480d9f3dc33003ee1024",
+      "matches_pinned_release": true,
+      "version_manifest": "RELEASE-0.7.0.json"
+    }
+  ]
+}

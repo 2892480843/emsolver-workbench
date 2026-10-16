@@ -1,0 +1,157 @@
+{
+  "version": "0.3.0",
+  "module_from_installed_wheel": true,
+  "install_network": "--no-index",
+  "runtime_scope": "fresh macOS arm64 Python3.12 venv; network not blocked at OS level",
+  "summary": {
+    "total": 4,
+    "terminal": 4,
+    "failed": 0,
+    "partial": 0,
+    "certified": 4,
+    "time_median_seconds": 1.1613109585014172,
+    "time_range_seconds": [
+      1.1415592079865746,
+      1.166426749958191
+    ],
+    "timing_denominator": 4,
+    "aggregation_scope": "All recorded completed timings including failures; all rows retained",
+    "certified_time_median_seconds": 1.1613109585014172,
+    "certified_time_range_seconds": [
+      1.1415592079865746,
+      1.166426749958191
+    ],
+    "certified_timing_denominator": 4
+  },
+  "checks": [
+    {
+      "numerical_status": "PASSED",
+      "residual_definition": "scaled_inf_v1",
+      "residuals": [
+        9.401698375566247e-18,
+        1.143310949435972e-17,
+        1.5176439179305255e-17,
+        1.3081527973784329e-17
+      ],
+      "absolute_residuals_2": [
+        6.325297039267341e-17,
+        1.3195899599620514e-16,
+        1.7220543181504122e-16,
+        6.919487424229941e-17
+      ],
+      "orthogonality_error": 3.5115327625175955e-16,
+      "n_validated": 4,
+      "normalization": "unit_2_norm",
+      "target_certification": "CERTIFIED",
+      "certification_source": "tridiagonal_sturm_lapack_stebz",
+      "boundary_cluster_cut": false,
+      "expected_count": 4,
+      "missing_count": 0,
+      "endpoint_ambiguous": false,
+      "certification_window_count": 4,
+      "certification_absolute_tolerance": 7.258719077325983e-14,
+      "mode_subspace_angle_bound_max": 1.4699564647921805e-06,
+      "mode_subspace_angle_threshold": 0.0001,
+      "artifact_integrity": "PASSED"
+    },
+    {
+      "numerical_status": "PASSED",
+      "residual_definition": "scaled_inf_v1",
+      "residuals": [
+        9.401698375566247e-18,
+        1.143310949435972e-17,
+        1.5176439179305255e-17,
+        1.3081527973784329e-17
+      ],
+      "absolute_residuals_2": [
+        6.325297039267341e-17,
+        1.3195899599620514e-16,
+        1.7220543181504122e-16,
+        6.919487424229941e-17
+      ],
+      "orthogonality_error": 3.5115327625175955e-16,
+      "n_validated": 4,
+      "normalization": "unit_2_norm",
+      "target_certification": "CERTIFIED",
+      "certification_source": "tridiagonal_sturm_lapack_stebz",
+      "boundary_cluster_cut": false,
+      "expected_count": 4,
+      "missing_count": 0,
+      "endpoint_ambiguous": false,
+      "certification_window_count": 4,
+      "certification_absolute_tolerance": 7.258719077325983e-14,
+      "mode_subspace_angle_bound_max": 1.4699564647921805e-06,
+      "mode_subspace_angle_threshold": 0.0001,
+      "artifact_integrity": "PASSED"
+    },
+    {
+      "numerical_status": "PASSED",
+      "residual_definition": "scaled_inf_v1",
+      "residuals": [
+        1.3146337293144787e-17,
+        1.6712100791755444e-17,
+        1.3974529119370724e-17,
+        1.535187580394525e-17,
+        6.352000472920692e-17,
+        5.124486950214787e-17
+      ],
+      "absolute_residuals_2": [
+        1.4652360096154547e-16,
+        1.6914141500895023e-16,
+        1.7019739627249978e-16,
+        1.0067808565933797e-16,
+        9.157751038596802e-16,
+        6.269647239791655e-16
+      ],
+      "orthogonality_error": 6.407372958804217e-16,
+      "n_validated": 6,
+      "normalization": "unit_2_norm",
+      "target_certification": "CERTIFIED",
+      "certification_source": "tridiagonal_sturm_lapack_stebz",
+      "boundary_cluster_cut": false,
+      "expected_count": 6,
+      "missing_count": 0,
+      "endpoint_ambiguous": false,
+      "certification_window_count": 6,
+      "certification_absolute_tolerance": 7.258719077325983e-14,
+      "mode_subspace_angle_bound_max": 1.2573732052536052e-05,
+      "mode_subspace_angle_threshold": 0.0001,
+      "artifact_integrity": "PASSED"
+    },
+    {
+      "numerical_status": "PASSED",
+      "residual_definition": "scaled_inf_v1",
+      "residuals": [
+        1.3146337293144787e-17,
+        1.6712100791755444e-17,
+        1.3974529119370724e-17,
+        1.535187580394525e-17,
+        6.352000472920692e-17,
+        5.124486950214787e-17
+      ],
+      "absolute_residuals_2": [
+        1.4652360096154547e-16,
+        1.6914141500895023e-16,
+        1.7019739627249978e-16,
+        1.0067808565933797e-16,
+        9.157751038596802e-16,
+        6.269647239791655e-16
+      ],
+      "orthogonality_error": 6.407372958804217e-16,
+      "n_validated": 6,
+      "normalization": "unit_2_norm",
+      "target_certification": "CERTIFIED",
+      "certification_source": "tridiagonal_sturm_lapack_stebz",
+      "boundary_cluster_cut": false,
+      "expected_count": 6,
+      "missing_count": 0,
+      "endpoint_ambiguous": false,
+      "certification_window_count": 6,
+      "certification_absolute_tolerance": 7.258719077325983e-14,
+      "mode_subspace_angle_bound_max": 1.2573732052536052e-05,
+      "mode_subspace_angle_threshold": 0.0001,
+      "artifact_integrity": "PASSED"
+    }
+  ],
+  "backup_restore_idempotent": true
+}

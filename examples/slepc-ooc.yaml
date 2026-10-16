@@ -1,0 +1,72 @@
+observability:
+  enabled: true
+  metrics_interval_ms: 1000
+  redact_sensitive_fields: true
+output:
+  atomic_write: true
+  eigenvectors: true
+  format: numpy
+problem:
+  hermitian_rtol: 1.0e-12
+  matrix_b_id: null
+  matrix_id: ''
+  nullspace:
+    basis_indices: []
+    interpretation: unspecified
+    source: ''
+  reordering: none
+  scalar: auto
+  storage: full
+  type: standard_hermitian
+resources:
+  device: cpu
+  disk_limit_gib: 8.0
+  memory_limit_gib: 8.0
+  mpi_ranks: 1
+  threads: 1
+  walltime_seconds: 300.0
+schema_version: '1.0'
+solver:
+  adaptive_shift:
+    enabled: true
+    max_attempts: 4
+    policy: observed_ritz_gap_v2
+  backend: slepc
+  block:
+    checkpoint_interval: 0
+    checkpoint_kind: subspace
+    max_restarts: 2
+    oversampling: 4
+    residual_check_interval: 1
+    stagnation_checks: 20
+  fallback_profiles: []
+  linear:
+    adaptive_accuracy:
+      enabled: false
+      forcing_factor: 0.1
+      rtol_max: 0.01
+      rtol_min: 1.0e-10
+    max_iterations: 1000
+    method: sparse_lu
+    precision: float64
+    preconditioner: mumps_ooc_symmetric_v1
+    rtol_initial: 1.0e-10
+  max_outer_iterations: 200
+  method: krylovschur
+  random_seed: 20261016
+  subspace_max: 16
+  transform: shift_invert
+target:
+  cluster_policy: fixed_k
+  interval: null
+  k: 2
+  max_modes: 200
+  mode: nearest_k
+  sigma: 0.0
+  sort: distance_then_value
+validation:
+  absolute_residual_max: null
+  completeness_required: true
+  orthogonality_max: 1.0e-06
+  residual_definition: scaled_inf_v1
+  residual_scaled_max: 1.0e-08

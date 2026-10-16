@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "package": {
+    "name": "emsolver-workbench",
+    "version": "0.4.0"
+  },
+  "python": {
+    "version": "3.12.13",
+    "implementation": "CPython"
+  },
+  "platform": {
+    "system": "Darwin",
+    "release": "25.6.0",
+    "machine": "arm64",
+    "python_platform": "darwin",
+    "cpu_count": 10
+  },
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "fastapi": "0.143.2",
+    "uvicorn": "0.54.0",
+    "pydantic": "2.14.1",
+    "python-multipart": "0.0.32",
+    "psutil": "7.2.2",
+    "PyYAML": "6.0.3",
+    "threadpoolctl": "3.7.0"
+  },
+  "source": {
+    "tree_sha256": "98dc55483ec40cb480fb6f0fff520a9b2dae6907c0c64919476f287504c72315",
+    "file_count": 74,
+    "scope": "emsolver/*.py recursively; web/src TS/TSX/CSS; Python and web dependency manifests",
+    "complete": true,
+    "git_commit": null,
+    "git_dirty": null
+  },
+  "container": {
+    "status": "unknown",
+    "image_digest": null,
+    "evidence": "No verifiable image digest supplied"
+  },
+  "reproducible_commands": {
+    "solve": "emsolver solve --matrix INPUT.npz --config run/config.resolved.yaml --output rerun",
+    "validate": "emsolver validate --matrix INPUT.npz --run rerun",
+    "input_requirement": "Supply the authorized input matching the frozen matrix hash; INPUT.npz is a portable placeholder."
+  }
+}

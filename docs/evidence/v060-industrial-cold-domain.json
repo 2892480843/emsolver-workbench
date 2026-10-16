@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "version": "0.6.0",
+  "installed_package": "/Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/industrial-v060-cold-install/lib/python3.12/site-packages/emsolver/__init__.py",
+  "scope": "Installed CPU wheel; diagonal teaching fixture, not industrial physics",
+  "candidate_status": "SUCCEEDED",
+  "reference_comparison": "PASS",
+  "industrial_status": "UNVERIFIED",
+  "restored_status": "UNVERIFIED",
+  "backup_restore": true,
+  "external_http_requests": 0
+}

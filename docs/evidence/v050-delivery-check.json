@@ -1,0 +1,780 @@
+{
+  "schema_version": "1.0",
+  "source_delivery_complete": true,
+  "functional_acceptance": "NOT_CERTIFIED",
+  "meaning": "Required source materials passed bounded semantic checks; this does not certify every PRD feature or competition submission.",
+  "missing": [],
+  "checks": [
+    {
+      "category": "license",
+      "path": "LICENSE",
+      "passed": true
+    },
+    {
+      "category": "license",
+      "path": "NOTICE.md",
+      "passed": true
+    },
+    {
+      "category": "installation",
+      "path": "README.md",
+      "passed": true
+    },
+    {
+      "category": "installation",
+      "path": "pyproject.toml",
+      "passed": true
+    },
+    {
+      "category": "installation",
+      "path": "requirements.lock",
+      "passed": true
+    },
+    {
+      "category": "installation",
+      "path": "scripts/start.sh",
+      "passed": true
+    },
+    {
+      "category": "installation",
+      "path": "scripts/prepare_offline.sh",
+      "passed": true
+    },
+    {
+      "category": "core",
+      "path": "emsolver/numerics/core.py",
+      "passed": true
+    },
+    {
+      "category": "core",
+      "path": "emsolver/contracts.py",
+      "passed": true
+    },
+    {
+      "category": "core",
+      "path": "emsolver/execution.py",
+      "passed": true
+    },
+    {
+      "category": "core",
+      "path": "emsolver/cli.py",
+      "passed": true
+    },
+    {
+      "category": "core",
+      "path": "emsolver/jobs.py",
+      "passed": true
+    },
+    {
+      "category": "core",
+      "path": "emsolver/events.py",
+      "passed": true
+    },
+    {
+      "category": "core",
+      "path": "emsolver/backup.py",
+      "passed": true
+    },
+    {
+      "category": "core",
+      "path": "emsolver/experiments.py",
+      "passed": true
+    },
+    {
+      "category": "core",
+      "path": "emsolver/advice.py",
+      "passed": true
+    },
+    {
+      "category": "core",
+      "path": "emsolver/reporting.py",
+      "passed": true
+    },
+    {
+      "category": "core",
+      "path": "emsolver/protocols.py",
+      "passed": true
+    },
+    {
+      "category": "application",
+      "path": "emsolver/api.py",
+      "passed": true
+    },
+    {
+      "category": "application",
+      "path": "emsolver/service.py",
+      "passed": true
+    },
+    {
+      "category": "application",
+      "path": "emsolver/store.py",
+      "passed": true
+    },
+    {
+      "category": "application",
+      "path": "web/package-lock.json",
+      "passed": true
+    },
+    {
+      "category": "application",
+      "path": "web/src/App.tsx",
+      "passed": true
+    },
+    {
+      "category": "example",
+      "path": "examples/default.yaml",
+      "passed": true
+    },
+    {
+      "category": "example",
+      "path": "examples/interval.yaml",
+      "passed": true
+    },
+    {
+      "category": "example",
+      "path": "benchmarks/required.yaml",
+      "passed": true
+    },
+    {
+      "category": "example",
+      "path": "scripts/demo.sh",
+      "passed": true
+    },
+    {
+      "category": "example",
+      "path": "scripts/run_protocol.py",
+      "passed": true
+    },
+    {
+      "category": "verification",
+      "path": "tests/test_numerics.py",
+      "passed": true
+    },
+    {
+      "category": "verification",
+      "path": "tests/test_service_core.py",
+      "passed": true
+    },
+    {
+      "category": "verification",
+      "path": "tests/test_api_integration.py",
+      "passed": true
+    },
+    {
+      "category": "verification",
+      "path": "tests/test_cli_integration.py",
+      "passed": true
+    },
+    {
+      "category": "verification",
+      "path": "tests/test_store.py",
+      "passed": true
+    },
+    {
+      "category": "verification",
+      "path": "tests/test_architecture_service.py",
+      "passed": true
+    },
+    {
+      "category": "verification",
+      "path": "tests/test_experiments.py",
+      "passed": true
+    },
+    {
+      "category": "verification",
+      "path": "tests/test_experiment_integration.py",
+      "passed": true
+    },
+    {
+      "category": "traceability",
+      "path": "docs/feature-coverage.json",
+      "passed": true
+    },
+    {
+      "category": "traceability",
+      "path": "docs/numerical-implementation.md",
+      "passed": true
+    },
+    {
+      "category": "traceability",
+      "path": "docs/backend-implementation.md",
+      "passed": true
+    },
+    {
+      "category": "traceability",
+      "path": "docs/dependency-inventory.json",
+      "passed": true
+    },
+    {
+      "category": "traceability",
+      "path": "docs/datasets.md",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "emsolver/numerics/core.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "emsolver/contracts.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "emsolver/execution.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "emsolver/cli.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "emsolver/jobs.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "emsolver/events.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "emsolver/backup.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "emsolver/experiments.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "emsolver/advice.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "emsolver/reporting.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "emsolver/protocols.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "emsolver/api.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "emsolver/service.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "emsolver/store.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "scripts/run_protocol.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "tests/test_numerics.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "tests/test_service_core.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "tests/test_api_integration.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "tests/test_cli_integration.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "tests/test_store.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "tests/test_architecture_service.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "tests/test_experiments.py",
+      "passed": true
+    },
+    {
+      "category": "source_syntax",
+      "path": "tests/test_experiment_integration.py",
+      "passed": true
+    },
+    {
+      "category": "core_semantics",
+      "path": "emsolver/numerics/core.py",
+      "passed": true
+    },
+    {
+      "category": "core_semantics",
+      "path": "emsolver/contracts.py",
+      "passed": true
+    },
+    {
+      "category": "core_semantics",
+      "path": "emsolver/execution.py",
+      "passed": true
+    },
+    {
+      "category": "core_semantics",
+      "path": "emsolver/cli.py",
+      "passed": true
+    },
+    {
+      "category": "core_semantics",
+      "path": "emsolver/reporting.py",
+      "passed": true
+    },
+    {
+      "category": "core_semantics",
+      "path": "scripts/run_protocol.py",
+      "passed": true
+    },
+    {
+      "category": "script_semantics",
+      "path": "scripts/start.sh",
+      "passed": true
+    },
+    {
+      "category": "script_semantics",
+      "path": "scripts/demo.sh",
+      "passed": true
+    },
+    {
+      "category": "script_semantics",
+      "path": "scripts/prepare_offline.sh",
+      "passed": true
+    },
+    {
+      "category": "installation_semantics",
+      "path": "pyproject.toml",
+      "passed": true
+    },
+    {
+      "category": "example_semantics",
+      "path": "examples/default.yaml",
+      "passed": true
+    },
+    {
+      "category": "example_semantics",
+      "path": "examples/interval.yaml",
+      "passed": true
+    },
+    {
+      "category": "example_semantics",
+      "path": "benchmarks/required.yaml",
+      "passed": true
+    },
+    {
+      "category": "runnable_sample",
+      "path": "delivered CLI sample + inspect + solve default example, n=20",
+      "passed": true
+    },
+    {
+      "category": "document_semantics",
+      "path": "LICENSE",
+      "passed": true
+    },
+    {
+      "category": "document_semantics",
+      "path": "NOTICE.md",
+      "passed": true
+    },
+    {
+      "category": "document_semantics",
+      "path": "README.md",
+      "passed": true
+    },
+    {
+      "category": "document_semantics",
+      "path": "docs/numerical-implementation.md",
+      "passed": true
+    },
+    {
+      "category": "document_semantics",
+      "path": "docs/backend-implementation.md",
+      "passed": true
+    },
+    {
+      "category": "document_semantics",
+      "path": "docs/datasets.md",
+      "passed": true
+    },
+    {
+      "category": "license_inventory",
+      "path": "docs/dependency-inventory.json",
+      "passed": true,
+      "reason": "Direct Python/frontend dependencies need exact lock versions, license metadata and source URLs."
+    },
+    {
+      "category": "built_assets",
+      "path": "web/dist/index.html and referenced local assets",
+      "passed": true
+    },
+    {
+      "category": "coverage",
+      "path": "66 unique F01–F66 entries",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F01",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F02",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F03",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F04",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F05",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F06",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F07",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F08",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F09",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F10",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F11",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F12",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F13",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F14",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F15",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F16",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F17",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F18",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F19",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F20",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F21",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F22",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F23",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F24",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F25",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F26",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F27",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F28",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F29",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F30",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F31",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F32",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F33",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F34",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F35",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F36",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F37",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F38",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F39",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F40",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F41",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F42",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F43",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F44",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F45",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F46",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F47",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F48",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F49",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F50",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F51",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F52",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F53",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F54",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F55",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F56",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F57",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F58",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F59",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F60",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F61",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F62",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F63",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F64",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F65",
+      "passed": true
+    },
+    {
+      "category": "coverage_evidence",
+      "path": "F66",
+      "passed": true
+    }
+  ],
+  "feature_status_counts": {
+    "implemented": 65,
+    "partial": 0,
+    "conditional": 1
+  }
+}

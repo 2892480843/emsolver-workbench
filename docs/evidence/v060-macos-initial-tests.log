@@ -1,0 +1,124 @@
+........................................................................ [ 10%]
+........................................................................ [ 20%]
+........................................................................ [ 31%]
+........................................................................ [ 41%]
+........................................................................ [ 51%]
+....FFFsFFs............................................................. [ 62%]
+..................................................................ssssss [ 72%]
+sssss................................................................... [ 82%]
+...............................................s........................ [ 93%]
+..............................................                           [100%]
+=================================== FAILURES ===================================
+_ test_reference_rejects_values_that_are_not_losslessly_promoted_to_float64[uint64] _
+
+ledger = (<emsolver.service.Service object at 0x1107885c0>, {'id': 'p_b742326206244554835afee0fb9fadaf', 'name': 'Independent r...ription': '', 'archived': False, ...}, <emsolver.industrial_reference.IndustrialReferenceAssets object at 0x1107c7980>)
+scalar = 'uint64'
+
+    @pytest.mark.parametrize('scalar', ['uint64', 'int64', 'float16', 'longdouble'])
+    def test_reference_rejects_values_that_are_not_losslessly_promoted_to_float64(ledger, scalar):
+        service, project, assets = ledger
+        source = service.root / 'inbox' / 'inexact-reference.npz'
+        dtype = np.dtype(scalar)
+        if scalar == 'longdouble' and dtype.itemsize <= 8: pytest.skip('No extended precision on this platform')
+        value = 2**53 + 1 if dtype.kind in 'iu' else 1.
+        np.savez(source, eigenvalues=np.array([value], dtype=dtype), eigenvectors=np.ones((1, 1), dtype=np.float64))
+>       with pytest.raises(ServiceError): header_metadata(source)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ServiceError
+
+tests/test_industrial_reference.py:204: Failed
+_ test_reference_rejects_values_that_are_not_losslessly_promoted_to_float64[int64] _
+
+ledger = (<emsolver.service.Service object at 0x1200989b0>, {'id': 'p_778f7ee42e344e9f902ed4b8726fbd35', 'name': 'Independent r...ription': '', 'archived': False, ...}, <emsolver.industrial_reference.IndustrialReferenceAssets object at 0x11078bf80>)
+scalar = 'int64'
+
+    @pytest.mark.parametrize('scalar', ['uint64', 'int64', 'float16', 'longdouble'])
+    def test_reference_rejects_values_that_are_not_losslessly_promoted_to_float64(ledger, scalar):
+        service, project, assets = ledger
+        source = service.root / 'inbox' / 'inexact-reference.npz'
+        dtype = np.dtype(scalar)
+        if scalar == 'longdouble' and dtype.itemsize <= 8: pytest.skip('No extended precision on this platform')
+        value = 2**53 + 1 if dtype.kind in 'iu' else 1.
+        np.savez(source, eigenvalues=np.array([value], dtype=dtype), eigenvectors=np.ones((1, 1), dtype=np.float64))
+>       with pytest.raises(ServiceError): header_metadata(source)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ServiceError
+
+tests/test_industrial_reference.py:204: Failed
+_ test_reference_rejects_values_that_are_not_losslessly_promoted_to_float64[float16] _
+
+ledger = (<emsolver.service.Service object at 0x120099310>, {'id': 'p_0f38a9e5a3fd42c391c5a8c190227621', 'name': 'Independent r...ription': '', 'archived': False, ...}, <emsolver.industrial_reference.IndustrialReferenceAssets object at 0x1107c44a0>)
+scalar = 'float16'
+
+    @pytest.mark.parametrize('scalar', ['uint64', 'int64', 'float16', 'longdouble'])
+    def test_reference_rejects_values_that_are_not_losslessly_promoted_to_float64(ledger, scalar):
+        service, project, assets = ledger
+        source = service.root / 'inbox' / 'inexact-reference.npz'
+        dtype = np.dtype(scalar)
+        if scalar == 'longdouble' and dtype.itemsize <= 8: pytest.skip('No extended precision on this platform')
+        value = 2**53 + 1 if dtype.kind in 'iu' else 1.
+        np.savez(source, eigenvalues=np.array([value], dtype=dtype), eigenvectors=np.ones((1, 1), dtype=np.float64))
+>       with pytest.raises(ServiceError): header_metadata(source)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ServiceError
+
+tests/test_industrial_reference.py:204: Failed
+_ test_reference_vector_and_restored_metadata_reject_lossy_scalar_types[int64] _
+
+ledger = (<emsolver.service.Service object at 0x110789f40>, {'id': 'p_9a8a224206c64f459d364b6bfdc0a74e', 'name': 'Independent r...ription': '', 'archived': False, ...}, <emsolver.industrial_reference.IndustrialReferenceAssets object at 0x10f0afcb0>)
+scalar = 'int64'
+
+    @pytest.mark.parametrize('scalar', ['int64', 'float16', 'longdouble'])
+    def test_reference_vector_and_restored_metadata_reject_lossy_scalar_types(ledger, scalar):
+        service, project, assets = ledger
+        dtype = np.dtype(scalar)
+        if scalar == 'longdouble' and dtype.itemsize <= 8: pytest.skip('No extended precision on this platform')
+        valid = assets.create(project['id'], reference_file(service, n=8))
+        record = assets.record(valid['id'])
+>       with pytest.raises(ServiceError): validate_record({**record, 'dtype': str(dtype)}, None)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ServiceError
+
+tests/test_industrial_reference.py:215: Failed
+_ test_reference_vector_and_restored_metadata_reject_lossy_scalar_types[float16] _
+
+ledger = (<emsolver.service.Service object at 0x1107c67b0>, {'id': 'p_77b5242582164d92b9c1001a528e3ea4', 'name': 'Independent r...ription': '', 'archived': False, ...}, <emsolver.industrial_reference.IndustrialReferenceAssets object at 0x120043ec0>)
+scalar = 'float16'
+
+    @pytest.mark.parametrize('scalar', ['int64', 'float16', 'longdouble'])
+    def test_reference_vector_and_restored_metadata_reject_lossy_scalar_types(ledger, scalar):
+        service, project, assets = ledger
+        dtype = np.dtype(scalar)
+        if scalar == 'longdouble' and dtype.itemsize <= 8: pytest.skip('No extended precision on this platform')
+        valid = assets.create(project['id'], reference_file(service, n=8))
+        record = assets.record(valid['id'])
+>       with pytest.raises(ServiceError): validate_record({**record, 'dtype': str(dtype)}, None)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ServiceError
+
+tests/test_industrial_reference.py:215: Failed
+=============================== warnings summary ===============================
+tests/test_fetch_dataset.py::test_conversion_retains_original_and_reconstructs_only_declared_storage
+tests/test_fetch_dataset.py::test_conversion_rejects_changed_shape_or_nonzero_count[3-3]
+tests/test_fetch_dataset.py::test_conversion_rejects_changed_shape_or_nonzero_count[2-4]
+  /Users/a111/chen/竞赛/上海开源软件应用创新大赛/scripts/fetch_dataset.py:127: DeprecationWarning: The default value for `spmatrix` is changing to `False` in v1.20.
+               That means the default return type will be a sparse array.
+               Unless you use * instead of @, ** for matrix power, or you depend
+               on 2D shapes from e.g. `A.sum(axis=0)` it may not matter to you.
+               See the spmatrix to sparray migration guide for details.
+               https://docs.scipy.org/doc/scipy/reference/sparse.migration_to_sparray.html
+               
+    matrix = io.mmread(matrix_market)
+
+tests/test_industrial_reference.py::test_container_rejects_duplicate_symlink_and_oversized_declared_shape
+  /Users/a111/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/zipfile/__init__.py:1624: UserWarning: Duplicate name: 'eigenvalues.npy'
+    return self._open_to_write(zinfo, force_zip64=force_zip64)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_industrial_reference.py::test_reference_rejects_values_that_are_not_losslessly_promoted_to_float64[uint64]
+FAILED tests/test_industrial_reference.py::test_reference_rejects_values_that_are_not_losslessly_promoted_to_float64[int64]
+FAILED tests/test_industrial_reference.py::test_reference_rejects_values_that_are_not_losslessly_promoted_to_float64[float16]
+FAILED tests/test_industrial_reference.py::test_reference_vector_and_restored_metadata_reject_lossy_scalar_types[int64]
+FAILED tests/test_industrial_reference.py::test_reference_vector_and_restored_metadata_reject_lossy_scalar_types[float16]
+5 failed, 675 passed, 14 skipped, 4 warnings in 263.99s (0:04:23)

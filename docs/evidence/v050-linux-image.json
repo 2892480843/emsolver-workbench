@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "version": "0.5.0",
+  "image": "emsolver-runtime:0.5.0",
+  "image_id": "sha256:a5193cfe4c951bf148104170735ff817b0f30d75c8eabb8da0c81eb758a511c2",
+  "platform": "linux/amd64",
+  "host": "macOS arm64, translated amd64 container execution; no native performance claim",
+  "build_command": "docker build --network=none --platform=linux/amd64 --pull=false -f Dockerfile.runtime -t emsolver-runtime:0.5.0 .",
+  "wheel": {
+    "path": "build/runtime-wheel/emsolver_workbench-0.5.0-py3-none-any.whl",
+    "bytes": 204223,
+    "sha256": "3665d7096093b90e1f91cd542ae71300eee7e176ac8319b0d34a487c9f4ecfa7",
+    "all_57_modules_match_installed_and_current_source": true
+  },
+  "source": {
+    "tree_sha256": "8dfea757d9bc983e47cfd1a05c2a25f579b8035656ae9c42363a1ea381f43e7a",
+    "file_count": 90,
+    "scope": "emsolver/*.py recursively; web/src TS/TSX/CSS; Python and web dependency manifests",
+    "complete": true,
+    "git_commit": null,
+    "git_dirty": null
+  },
+  "build_inputs_sha256": {
+    "Dockerfile.runtime": "818ef64caeb2da816e3171b4e12d9807bfeaacb247a2f2fdd201f004ac997342",
+    "scripts/verify_offline_instance.py": "11c10fbaecfb882bffbd58d4964d7b2d4bdb32b2dd383937b18f286f05ed1afb",
+    "docs/feature-coverage.json": "35f6df01c3897f5ecfba7af7dc2670a8112dc1dd7639f2de544f95ceb2c27efe",
+    "web/src/models/workspace.ts": "12c0019a3fb36ab6f82ae5cbafebc6d8b23fcad5d75993c295a9fb4a5f857d66",
+    "web/dist/index.html": "fa076af9e197a5f48ceee486bdfe120447f6567c950ff6e1729d9bd5e8a6628e"
+  },
+  "archive": {
+    "path": "artifacts/emsolver-linux-amd64-0.5.0.docker.tar.gz",
+    "bytes": 124706731,
+    "sha256": "52c39b79a517e1c1785d1c3ad41851e87cefd675b45679a2ac16fc5bc329d61d",
+    "docker_load_passed": true,
+    "loaded_image_id": "sha256:a5193cfe4c951bf148104170735ff817b0f30d75c8eabb8da0c81eb758a511c2"
+  },
+  "offline_instance": "docs/evidence/v050-linux-offline-instance.json",
+  "isolated_solver": "docs/evidence/v050-linux-isolation.json",
+  "numerical_regression": {
+    "passed": 42,
+    "failed": 0,
+    "seconds": 11.46,
+    "scope": "Original failing exact Service recovery, exact resume/controller regressions, independent certification"
+  },
+  "full_suite": {
+    "status": "PASSED",
+    "scope": "Current explicit source/test/script/document/example/benchmark/frontend whitelist, including public synthetic documentation evidence; private workspace data and virtual environments excluded. This source test mount is distinct from the no-source installed-instance and solver isolation proofs.",
+    "passed": 616,
+    "failed": 0,
+    "skipped": 21,
+    "warnings": 1,
+    "seconds": 121.74,
+    "log": "docs/evidence/v050-linux-tests.log",
+    "command": "docker run --rm --network=none --platform=linux/amd64 --cap-drop=ALL --security-opt=no-new-privileges --pids-limit=256 --memory=4g --memory-swap=4g --cpus=4 --env PYTHONDONTWRITEBYTECODE=1 --mount type=bind,source=EXPLICIT_WHITELIST_STAGE,target=/work,readonly --workdir /work --entrypoint python emsolver-runtime:0.5.0 -m pytest -q -p no:cacheprovider",
+    "skip_scope": "Optional platform/hardware/backend checks were skipped; native Linux arm64 SLEPc real/complex MPI1/2 and actual cancellation are separately verified in docs/evidence/slepc/.",
+    "warning_scope": "FastAPI/Starlette test-client deprecation warning only",
+    "source_at_test": {
+      "tree_sha256": "2e66cb7813e1f2cd4266f65210d5abc49a8f6217ac92481c9ced1d56f0cd8b68",
+      "file_count": 90,
+      "scope": "emsolver/*.py recursively; web/src TS/TSX/CSS; Python and web dependency manifests",
+      "complete": true,
+      "git_commit": null,
+      "git_dirty": null
+    },
+    "after_test_change": "Frontend-only GPU profile default and its frontend regression; all57 Python source modules and final wheel unchanged. The616-pass Linux backend suite remains scoped to unchanged Python. No full Linux rerun was performed after this frontend-only patch."
+  },
+  "frontend": {
+    "assets": [
+      {
+        "name": "assets/index-CggSa4hZ.css",
+        "bytes": 53065,
+        "sha256": "a736ce36c1f9bd711e088fc43d7608f246ce457c69a86f56ee7a0a28bb69f58d"
+      },
+      {
+        "name": "assets/index-DqS9U9VS.js",
+        "bytes": 428229,
+        "sha256": "b12a7884eca0d988a9597d7b698c06eb8c57deaffe84d326b7bc9557b6afbdc9"
+      }
+    ],
+    "served_assets_match_current_dist": true,
+    "change": "GPU UI selection raises initial correction rtol to at least1e-3; final original-problem validation remains unchanged"
+  }
+}

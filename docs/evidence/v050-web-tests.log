@@ -1,0 +1,374 @@
+
+> emsolver-workbench@0.5.0 test
+> tsc -p tsconfig.test.json && node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: rank histories use measured residuals, original event sequence and explicit lock indices
+ok 1 - rank histories use measured residuals, original event sequence and explicit lock indices
+  ---
+  duration_ms: 1.152167
+  type: 'test'
+  ...
+# Subtest: bounded curves retain narrow per-bucket residual spikes and troughs
+ok 2 - bounded curves retain narrow per-bucket residual spikes and troughs
+  ---
+  duration_ms: 1.859916
+  type: 'test'
+  ...
+# Subtest: failures, shifts, lock changes, restarts and fallback markers are never decimated
+ok 3 - failures, shifts, lock changes, restarts and fallback markers are never decimated
+  ---
+  duration_ms: 0.540916
+  type: 'test'
+  ...
+# Subtest: ARPACK attempt maxima do not invent per-mode histories or lock status
+ok 4 - ARPACK attempt maxima do not invent per-mode histories or lock status
+  ---
+  duration_ms: 0.1425
+  type: 'test'
+  ...
+# Subtest: only explicit stagnation observations produce intervals; absent values remain unavailable
+ok 5 - only explicit stagnation observations produce intervals; absent values remain unavailable
+  ---
+  duration_ms: 0.296166
+  type: 'test'
+  ...
+# Subtest: rank paging includes later ranks and ignores malformed numeric fields without fabricating zeros
+ok 6 - rank paging includes later ranks and ignores malformed numeric fields without fabricating zeros
+  ---
+  duration_ms: 0.144417
+  type: 'test'
+  ...
+# Subtest: restart closes the observed stagnation interval and preserves its actual reason
+ok 7 - restart closes the observed stagnation interval and preserves its actual reason
+  ---
+  duration_ms: 0.254125
+  type: 'test'
+  ...
+# Subtest: a changed lock set is visible even when the aggregate count stays unchanged
+ok 8 - a changed lock set is visible even when the aggregate count stays unchanged
+  ---
+  duration_ms: 0.131458
+  type: 'test'
+  ...
+# Subtest: number axes trim tokens and deduplicate numeric values in input order
+ok 9 - number axes trim tokens and deduplicate numeric values in input order
+  ---
+  duration_ms: 0.990792
+  type: 'test'
+  ...
+# Subtest: number axes reject empty tokens, partial numbers and non-finite values
+ok 10 - number axes reject empty tokens, partial numbers and non-finite values
+  ---
+  duration_ms: 0.2495
+  type: 'test'
+  ...
+# Subtest: integer axes accept inclusive bounds and reject fractional or out-of-range values
+ok 11 - integer axes accept inclusive bounds and reject fractional or out-of-range values
+  ---
+  duration_ms: 0.245167
+  type: 'test'
+  ...
+# Subtest: fractional axes apply inclusive numeric limits
+ok 12 - fractional axes apply inclusive numeric limits
+  ---
+  duration_ms: 0.085917
+  type: 'test'
+  ...
+# Subtest: number axes enforce the default and custom token limits before deduplication
+ok 13 - number axes enforce the default and custom token limits before deduplication
+  ---
+  duration_ms: 0.080333
+  type: 'test'
+  ...
+# Subtest: configuration differences recurse into objects and sort full dot paths
+ok 14 - configuration differences recurse into objects and sort full dot paths
+  ---
+  duration_ms: 0.140209
+  type: 'test'
+  ...
+# Subtest: configuration additions and deletions preserve leaf values and use null for absence
+ok 15 - configuration additions and deletions preserve leaf values and use null for absence
+  ---
+  duration_ms: 0.095917
+  type: 'test'
+  ...
+# Subtest: configuration arrays are compared as leaves while equal content produces no difference
+ok 16 - configuration arrays are compared as leaves while equal content produces no difference
+  ---
+  duration_ms: 0.454917
+  type: 'test'
+  ...
+# Subtest: batch polling follows every active job status even when the batch reports terminal
+ok 17 - batch polling follows every active job status even when the batch reports terminal
+  ---
+  duration_ms: 0.633583
+  type: 'test'
+  ...
+# Subtest: batch polling honors active summary counts, derived counts and active batch status
+ok 18 - batch polling honors active summary counts, derived counts and active batch status
+  ---
+  duration_ms: 0.584583
+  type: 'test'
+  ...
+# Subtest: failed and fully terminal batches stop polling
+ok 19 - failed and fully terminal batches stop polling
+  ---
+  duration_ms: 0.1265
+  type: 'test'
+  ...
+# Subtest: benchmark detail reads forward the abort signal and encode the batch id
+ok 20 - benchmark detail reads forward the abort signal and encode the batch id
+  ---
+  duration_ms: 0.089459
+  type: 'test'
+  ...
+# Subtest: benchmark detail reads stop scheduling after a terminal response
+ok 21 - benchmark detail reads stop scheduling after a terminal response
+  ---
+  duration_ms: 0.05025
+  type: 'test'
+  ...
+# Subtest: benchmark detail reads cannot publish a response after selection cancellation
+ok 22 - benchmark detail reads cannot publish a response after selection cancellation
+  ---
+  duration_ms: 0.099833
+  type: 'test'
+  ...
+# Subtest: benchmark page paths encode project and cursor with a fixed page limit
+ok 23 - benchmark page paths encode project and cursor with a fixed page limit
+  ---
+  duration_ms: 0.654792
+  type: 'test'
+  ...
+# Subtest: experiment summaries preserve explicit timing denominators including failed measurements
+ok 24 - experiment summaries preserve explicit timing denominators including failed measurements
+  ---
+  duration_ms: 0.069125
+  type: 'test'
+  ...
+# Subtest: experiment summaries default missing counters to zero without guessing timing denominators
+ok 25 - experiment summaries default missing counters to zero without guessing timing denominators
+  ---
+  duration_ms: 0.038584
+  type: 'test'
+  ...
+# Subtest: experiment summaries derive nonnegative active counts only when active is absent
+ok 26 - experiment summaries derive nonnegative active counts only when active is absent
+  ---
+  duration_ms: 0.029292
+  type: 'test'
+  ...
+# Subtest: field projections use supplied coordinates, preserve spatial aspect and signed measurements
+ok 27 - field projections use supplied coordinates, preserve spatial aspect and signed measurements
+  ---
+  duration_ms: 1.425292
+  type: 'test'
+  ...
+# Subtest: coincident geometry stays finite without invented displacement; missing phase and invalid samples rejected
+ok 28 - coincident geometry stays finite without invented displacement; missing phase and invalid samples rejected
+  ---
+  duration_ms: 1.089959
+  type: 'test'
+  ...
+# Subtest: field selection requires a frozen model and available terminal payload
+ok 29 - field selection requires a frozen model and available terminal payload
+  ---
+  duration_ms: 0.195167
+  type: 'test'
+  ...
+# Subtest: engineering upload requires explicit authorization and exact original matrix hash
+ok 30 - engineering upload requires explicit authorization and exact original matrix hash
+  ---
+  duration_ms: 5.325291
+  type: 'test'
+  ...
+# Subtest: a supplied collinear mesh retains distance along its nonconstant axis
+ok 31 - a supplied collinear mesh retains distance along its nonconstant axis
+  ---
+  duration_ms: 0.23075
+  type: 'test'
+  ...
+# Subtest: row histogram preserves actual edge ranges, row counts and inclusive final endpoint
+ok 32 - row histogram preserves actual edge ranges, row counts and inclusive final endpoint
+  ---
+  duration_ms: 1.577917
+  type: 'test'
+  ...
+# Subtest: histogram refuses malformed or oversized bins without drawing invented data
+ok 33 - histogram refuses malformed or oversized bins without drawing invented data
+  ---
+  duration_ms: 0.33525
+  type: 'test'
+  ...
+# Subtest: event window sorts, deduplicates and retains the newest 1000 sequences
+ok 34 - event window sorts, deduplicates and retains the newest 1000 sequences
+  ---
+  duration_ms: 2.443333
+  type: 'test'
+  ...
+# Subtest: server filter path encodes project and cursor, while ALL omits status
+ok 35 - server filter path encodes project and cursor, while ALL omits status
+  ---
+  duration_ms: 0.400083
+  type: 'test'
+  ...
+# Subtest: refreshes first page, preserves loaded history and removes filter mismatches
+ok 36 - refreshes first page, preserves loaded history and removes filter mismatches
+  ---
+  duration_ms: 1.145917
+  type: 'test'
+  ...
+# Subtest: event catch-up reads at most five pages per cycle and schedules a short continuation
+ok 37 - event catch-up reads at most five pages per cycle and schedules a short continuation
+  ---
+  duration_ms: 0.317
+  type: 'test'
+  ...
+# Subtest: terminal job drains all events and reads numerical result before stopping
+ok 38 - terminal job drains all events and reads numerical result before stopping
+  ---
+  duration_ms: 0.103875
+  type: 'test'
+  ...
+# Subtest: failed/cancelled/timeout 404 or 409 is a settled result, successful job errors retry
+ok 39 - failed/cancelled/timeout 404 or 409 is a settled result, successful job errors retry
+  ---
+  duration_ms: 0.445125
+  type: 'test'
+  ...
+# Subtest: switch cancellation reaches every fetch and cannot publish a completed old cycle
+ok 40 - switch cancellation reaches every fetch and cannot publish a completed old cycle
+  ---
+  duration_ms: 0.077916
+  type: 'test'
+  ...
+# Subtest: idle list polling slows down when workspace has no active jobs
+ok 41 - idle list polling slows down when workspace has no active jobs
+  ---
+  duration_ms: 0.090333
+  type: 'test'
+  ...
+# Subtest: first-page refresh wins over stale overlapping history and append updates without duplication
+ok 42 - first-page refresh wins over stale overlapping history and append updates without duplication
+  ---
+  duration_ms: 0.22325
+  type: 'test'
+  ...
+# Subtest: incremental cycles resume after the last sequence and a replay never creates duplicate rows
+ok 43 - incremental cycles resume after the last sequence and a replay never creates duplicate rows
+  ---
+  duration_ms: 0.396459
+  type: 'test'
+  ...
+# Subtest: a stalled event cursor and unexpected failed-result errors surface instead of silently stopping
+ok 44 - a stalled event cursor and unexpected failed-result errors surface instead of silently stopping
+  ---
+  duration_ms: 0.124292
+  type: 'test'
+  ...
+# Subtest: terminal event drain observes events published with the terminal job state before stopping
+ok 45 - terminal event drain observes events published with the terminal job state before stopping
+  ---
+  duration_ms: 0.065875
+  type: 'test'
+  ...
+# Subtest: matrix metadata trims editable fields and excludes unknown/private properties
+ok 46 - matrix metadata trims editable fields and excludes unknown/private properties
+  ---
+  duration_ms: 0.827625
+  type: 'test'
+  ...
+# Subtest: project patches validate finite quotas, preserve role distinctions and encode search text
+ok 47 - project patches validate finite quotas, preserve role distinctions and encode search text
+  ---
+  duration_ms: 1.078167
+  type: 'test'
+  ...
+# Subtest: import reads poll only unfinished tasks and reject an asynchronously cancelled response
+ok 48 - import reads poll only unfinished tasks and reject an asynchronously cancelled response
+  ---
+  duration_ms: 0.20325
+  type: 'test'
+  ...
+# Subtest: public matrix metadata requires a license and only permits supported frequency mappings
+ok 49 - public matrix metadata requires a license and only permits supported frequency mappings
+  ---
+  duration_ms: 0.126792
+  type: 'test'
+  ...
+# Subtest: source URLs reject active protocols and malformed addresses
+ok 50 - source URLs reject active protocols and malformed addresses
+  ---
+  duration_ms: 0.094042
+  type: 'test'
+  ...
+# Subtest: project roles fail closed until identity is known and distinguish analysts from administrators
+ok 51 - project roles fail closed until identity is known and distinguish analysts from administrators
+  ---
+  duration_ms: 0.06325
+  type: 'test'
+  ...
+# Subtest: declared nullspace coordinates are bounded original nonnegative integer indices
+ok 52 - declared nullspace coordinates are bounded original nonnegative integer indices
+  ---
+  duration_ms: 0.200208
+  type: 'test'
+  ...
+# Subtest: mode matching sends explicitly chosen computed-run IDs and rejects an obsolete response
+ok 53 - mode matching sends explicitly chosen computed-run IDs and rejects an obsolete response
+  ---
+  duration_ms: 0.444333
+  type: 'test'
+  ...
+# Subtest: method changes make the linear solver coherent without changing target or hard limits
+ok 54 - method changes make the linear solver coherent without changing target or hard limits
+  ---
+  duration_ms: 0.629916
+  type: 'test'
+  ...
+# Subtest: warm starts require a finished supported method and intact artifact state
+ok 55 - warm starts require a finished supported method and intact artifact state
+  ---
+  duration_ms: 0.475041
+  type: 'test'
+  ...
+# Subtest: leaving JD disables approximate correction precision while preserving the original contract
+ok 56 - leaving JD disables approximate correction precision while preserving the original contract
+  ---
+  duration_ms: 0.697084
+  type: 'test'
+  ...
+# Subtest: cleanup enables execution for expired job outputs even without temporary file candidates
+ok 57 - cleanup enables execution for expired job outputs even without temporary file candidates
+  ---
+  duration_ms: 0.086958
+  type: 'test'
+  ...
+# Subtest: recording advice effects uses explicit POST then reads the current detail
+ok 58 - recording advice effects uses explicit POST then reads the current detail
+  ---
+  duration_ms: 0.147625
+  type: 'test'
+  ...
+# Subtest: operations identity grants no project role and policy edits contain only opaque id and quotas
+ok 59 - operations identity grants no project role and policy edits contain only opaque id and quotas
+  ---
+  duration_ms: 0.229
+  type: 'test'
+  ...
+# Subtest: Metal profile selects compatible JD while method changes reset device and MPI
+ok 60 - Metal profile selects compatible JD while method changes reset device and MPI
+  ---
+  duration_ms: 0.251459
+  type: 'test'
+  ...
+1..60
+# tests 60
+# suites 0
+# pass 60
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 60.3035

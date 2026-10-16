@@ -1,0 +1,26 @@
+{
+  "original_rows_preserved": true,
+  "tables": {
+    "entities": {
+      "baseline_rows": 90,
+      "current_rows": 98,
+      "all_original_rows_equal": true
+    },
+    "events": {
+      "baseline_rows": 299,
+      "current_rows": 328,
+      "all_original_rows_equal": true
+    },
+    "audit": {
+      "baseline_rows": 78,
+      "current_rows": 83,
+      "all_original_rows_equal": true
+    },
+    "idempotency": {
+      "baseline_rows": 34,
+      "current_rows": 35,
+      "all_original_rows_equal": true
+    }
+  },
+  "historical_release_manifests_unchanged": true
+}

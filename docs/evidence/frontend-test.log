@@ -1,0 +1,86 @@
+
+> emsolver-workbench@0.1.0 test
+> tsc -p tsconfig.test.json && node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: event window sorts, deduplicates and retains the newest 1000 sequences
+ok 1 - event window sorts, deduplicates and retains the newest 1000 sequences
+  ---
+  duration_ms: 1.36525
+  type: 'test'
+  ...
+# Subtest: server filter path encodes project and cursor, while ALL omits status
+ok 2 - server filter path encodes project and cursor, while ALL omits status
+  ---
+  duration_ms: 0.18725
+  type: 'test'
+  ...
+# Subtest: refreshes first page, preserves loaded history and removes filter mismatches
+ok 3 - refreshes first page, preserves loaded history and removes filter mismatches
+  ---
+  duration_ms: 0.575042
+  type: 'test'
+  ...
+# Subtest: event catch-up reads at most five pages per cycle and schedules a short continuation
+ok 4 - event catch-up reads at most five pages per cycle and schedules a short continuation
+  ---
+  duration_ms: 0.273041
+  type: 'test'
+  ...
+# Subtest: terminal job drains all events and reads numerical result before stopping
+ok 5 - terminal job drains all events and reads numerical result before stopping
+  ---
+  duration_ms: 0.099417
+  type: 'test'
+  ...
+# Subtest: failed/cancelled/timeout 404 or 409 is a settled result, successful job errors retry
+ok 6 - failed/cancelled/timeout 404 or 409 is a settled result, successful job errors retry
+  ---
+  duration_ms: 0.507125
+  type: 'test'
+  ...
+# Subtest: switch cancellation reaches every fetch and cannot publish a completed old cycle
+ok 7 - switch cancellation reaches every fetch and cannot publish a completed old cycle
+  ---
+  duration_ms: 0.087541
+  type: 'test'
+  ...
+# Subtest: idle list polling slows down when workspace has no active jobs
+ok 8 - idle list polling slows down when workspace has no active jobs
+  ---
+  duration_ms: 0.131834
+  type: 'test'
+  ...
+# Subtest: first-page refresh wins over stale overlapping history and append updates without duplication
+ok 9 - first-page refresh wins over stale overlapping history and append updates without duplication
+  ---
+  duration_ms: 0.461042
+  type: 'test'
+  ...
+# Subtest: incremental cycles resume after the last sequence and a replay never creates duplicate rows
+ok 10 - incremental cycles resume after the last sequence and a replay never creates duplicate rows
+  ---
+  duration_ms: 0.391209
+  type: 'test'
+  ...
+# Subtest: a stalled event cursor and unexpected failed-result errors surface instead of silently stopping
+ok 11 - a stalled event cursor and unexpected failed-result errors surface instead of silently stopping
+  ---
+  duration_ms: 0.173542
+  type: 'test'
+  ...
+# Subtest: terminal event drain observes events published with the terminal job state before stopping
+ok 12 - terminal event drain observes events published with the terminal job state before stopping
+  ---
+  duration_ms: 0.079542
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 55.404042

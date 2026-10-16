@@ -1,0 +1,7 @@
+Processing ./build/runtime-wheel-v080/emsolver_workbench-0.8.0-py3-none-any.whl
+Installing collected packages: emsolver-workbench
+  Attempting uninstall: emsolver-workbench
+    Found existing installation: emsolver-workbench 0.7.0
+    Uninstalling emsolver-workbench-0.7.0:
+      Successfully uninstalled emsolver-workbench-0.7.0
+Successfully installed emsolver-workbench-0.8.0

@@ -1,0 +1,22 @@
+{
+  "entities": {
+    "baseline": 82,
+    "current": 82,
+    "identical": true
+  },
+  "events": {
+    "baseline": 285,
+    "current": 285,
+    "identical": true
+  },
+  "audit": {
+    "baseline": 70,
+    "current": 70,
+    "identical": true
+  },
+  "idempotency": {
+    "baseline": 34,
+    "current": 34,
+    "identical": true
+  }
+}

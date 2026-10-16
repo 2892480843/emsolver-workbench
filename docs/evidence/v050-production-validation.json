@@ -1,0 +1,30 @@
+{
+  "version": "0.5.0",
+  "demo_status": "SUCCEEDED",
+  "numerical_status": "PASSED",
+  "target_certification": "CERTIFIED",
+  "field_nodes": 16,
+  "frequency_count": 6,
+  "original_data": {
+    "entities": {
+      "baseline": 82,
+      "current": 89,
+      "all_original_rows_unchanged": true
+    },
+    "events": {
+      "baseline": 285,
+      "current": 299,
+      "all_original_rows_unchanged": true
+    },
+    "audit": {
+      "baseline": 70,
+      "current": 76,
+      "all_original_rows_unchanged": true
+    },
+    "idempotency": {
+      "baseline": 34,
+      "current": 34,
+      "all_original_rows_unchanged": true
+    }
+  }
+}

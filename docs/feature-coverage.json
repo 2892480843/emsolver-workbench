@@ -1,0 +1,1184 @@
+[
+  {
+    "id": "F01",
+    "title": "项目管理",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "创建、重命名、检索、归档项目，维护成员/分级/配额；独立operations_admin默认无业务权限，仅操作脱敏资源策略，global_admin明确为显式工作台所有者。",
+    "limitation": "身份由服务端配置；无自助账号生命周期或同项目内逐文件ACL。归档拒绝新业务；运维账号另获显式成员资格才可读取对应项目，完整备份仍仅所有者可下载。",
+    "evidence": [
+      "emsolver/access.py",
+      "emsolver/operations.py",
+      "emsolver/governance.py",
+      "web/src/components/ProjectWorkspace.tsx",
+      "web/src/components/OperationsCenter.tsx",
+      "tests/test_operations_access.py",
+      "tests/test_project_governance.py"
+    ],
+    "prd_requirement": "创建、重命名、检索、归档项目，字段包含名称、说明、成员、数据分级和存储配额；重名不影响内部唯一标识。验收：归档项目禁止新增任务，历史结果仍可按权限读取。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F02",
+    "title": "不可变实验快照",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "运行冻结原输入哈希、规范化记录、完整配置、算法策略、源码树摘要、可得提交号、依赖、平台和随机种子；新配置不覆盖旧任务。",
+    "limitation": "无可核验Git提交或镜像摘要时保留null/unknown；源码内容摘要不冒充已发布提交或镜像签名。",
+    "evidence": [
+      "emsolver/provenance.py",
+      "emsolver/service.py",
+      "emsolver/numerics/core.py",
+      "tests/test_provenance.py",
+      "tests/test_service_core.py::test_project_archive_blocks_plan_and_config_is_immutable"
+    ],
+    "prd_requirement": "每次运行绑定矩阵内容哈希、规范化记录、完整配置、策略版本、代码提交、依赖和环境。修改任意配置创建新快照。验收：原任务配置无法覆盖；导出后可定位所有依赖。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F03",
+    "title": "实验复制与对比",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "从原运行复制配置生成新版本，逐字段展示输入、目标、精度、算法和资源差异；服务端仅对同输入、预算、环境且认证通过的运行计算耗时比。",
+    "limitation": "跨运行模式对齐仅比较两个计算结果，不能把用户选中的对照运行当成独立真值。",
+    "evidence": [
+      "emsolver/service.py",
+      "web/src/App.tsx",
+      "web/src/components/ModeComparison.tsx",
+      "tests/test_service_core.py::test_compare_rejects_unfair_speedup",
+      "tests/test_evaluation.py"
+    ],
+    "prd_requirement": "从已有任务复制配置，明确显示输入、σ、精度、算法和资源差异。验收：存在硬件或精度差异时，禁止默认生成直接加速比结论。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F04",
+    "title": "操作审计",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "审计记录身份、时间、操作、对象及结果，覆盖授权拒绝、导入、运行、取消、下载、导出和清理；运维仅获得最近1000条的操作/结果聚合，不返回他人主体或业务对象。",
+    "limitation": "本实例应用级审计，不是不可抵赖外部审计或完整操作系统访问跟踪；所有者可查看完整记录，普通成员只见自身记录。",
+    "evidence": [
+      "emsolver/access.py",
+      "emsolver/store.py",
+      "emsolver/service.py",
+      "tests/test_project_governance.py::test_project_roles_filter_data_and_audit_denied_calls",
+      "tests/test_reporting.py",
+      "tests/test_operations_access.py"
+    ],
+    "prd_requirement": "记录上传、授权、运行、取消、下载、导出和删除的主体、时间、对象与结果，不记录矩阵数值。验收：越权请求被拒绝并产生审计记录。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F05",
+    "title": "输入格式",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "安全读取SciPy实/复CSR、CSC、COO npz、明确规范的NumPy稀疏数组包及预算内二维npy；稠密npy按分块扫描建立稀疏存储。",
+    "limitation": "大规模稠密输入可因展开预算拒绝；未知或歧义npz字段不自动猜测，要求按明确格式重新提交。",
+    "evidence": [
+      "emsolver/numerics/core.py",
+      "tests/test_numerics.py::test_safe_numpy_and_structure_validation",
+      "tests/test_numerics.py::test_sample_sparse_and_numpy_exports"
+    ],
+    "prd_requirement": "支持SciPy `save_npz`产生的稀疏`.npz`和NumPy数组文件；稠密`.npy`只接受已是稠密输入且低于显式导入预算的数据，以分块扫描建立稀疏存储，不能将稀疏对象转为全矩阵。对十万阶大规模数据推荐SciPy稀疏`.npz`；NumPy稀疏数组包的字段约定见第8章。验收：实数和复数CSR/CSC/COO均能归一化，歧义`.npz`必须要求指定格式。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F06",
+    "title": "安全读取",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "读取时禁用pickle，检查扩展名、ZIP成员、压缩展开体积、NPY分配头及稀疏字段白名单；拒绝对象数组、路径穿越和损坏文件。",
+    "limitation": "不承诺修复未知第三方解析库漏洞；应用进程隔离和Linux容器隔离的范围分开记录。",
+    "evidence": [
+      "emsolver/numerics/core.py",
+      "emsolver/import_worker.py",
+      "tests/test_numerics.py::test_safe_header_rejects_false_allocation_and_unknown_config_behavior",
+      "tests/test_imports.py::test_changed_input_and_pickle_are_rejected_by_the_real_worker"
+    ],
+    "prd_requirement": "默认`allow_pickle=False`，禁止任意对象反序列化；校验扩展名、文件签名、压缩前后大小、路径和字段白名单。验收：对象数组、压缩炸弹、路径穿越和损坏文件被拒绝，进程不异常退出。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F07",
+    "title": "结构校验",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "检查方阵、维度、索引与指针、有限值、空输入及非零计数，合并重复项并移除显式零，保存输入/规范化/恢复后的计数与错误位置。",
+    "limitation": "错误只定位字段及索引，不回显敏感矩阵数值；稀疏格式转换仍受导入预算限制。",
+    "evidence": [
+      "emsolver/numerics/core.py",
+      "tests/test_numerics.py::test_malformed_sparse_structure_rejected_without_constructing",
+      "tests/test_backend_protocol.py::test_normalization_reports_original_stored_entries_and_bounded_row_histogram",
+      "tests/test_backend_protocol.py::test_normalization_records_triangle_reconstruction_and_index_error_location"
+    ],
+    "prd_requirement": "验证方阵、行列索引范围、指针单调性、类型、NaN/Inf、空矩阵和非零元计数；排序索引、合并重复坐标并记录规范化统计。验收：每类非法结构给出错误码与字段位置；合法重复项合并结果可复核。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F08",
+    "title": "三角恢复",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "完整、上三角和下三角由用户声明；复数使用共轭转置恢复，对角只计一次，拒绝三角之外非零；显式提取三角创建带来源的新资产。",
+    "limitation": "派生只改变存储表示并保留原资产；不执行未经授权的对称化或非厄密问题变换。",
+    "evidence": [
+      "emsolver/numerics/core.py",
+      "emsolver/service.py",
+      "web/src/components/MatrixProvenance.tsx",
+      "tests/test_numerics.py::test_triangle_complex_restores_conjugate_and_rejects_wrong_half",
+      "tests/test_product_integrations.py::test_knowledge_rules_effects_provenance_and_triangular_derivation"
+    ],
+    "prd_requirement": "用户必须声明完整、上三角或下三角；复数三角使用共轭转置恢复，主对角只计算一次。结构对角含显著虚部时拒绝厄密模式；缺失三角不能依靠“自动猜测”静默补全。验收：恢复前后非零元数量符合预期，复数输入不误用普通转置。\n\n声明三角之外若包含非零项，默认拒绝，不能忽略或重复相加。用户显式请求从全矩阵提取三角时，创建新的派生资产并保留原矩阵和变换记录。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F09",
+    "title": "厄密性诊断",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "按原问题无穷范数计算共轭对称相对偏差，默认容差1e-12；包含复对角虚部和极小尺度检查，非厄密输入启动前拒绝。",
+    "limitation": "该诊断仅证明声明容差内的矩阵结构，不证明物理模型正确或PML离散算子适用。",
+    "evidence": [
+      "emsolver/numerics/core.py",
+      "tests/test_numerics.py::test_tiny_scale_residual_and_nonhermitian_diagonal_are_checked",
+      "tests/test_numerics.py::test_subnormal_hermitian_scale_does_not_underflow_or_accept_asymmetry"
+    ],
+    "prd_requirement": "计算稀疏结构和数值共轭对称偏差；默认相对容差`1e-12`为内部目标，可配置并写入报告。不通过时返回拒绝或由用户显式选择另一个已验证后端；禁止偷偷取`(A+Aᴴ)/2`改变问题。验收：非厄密样例不进入厄密求解器。\n\n统一偏差定义为`h = ||A − Aᴴ||∞ / ||A||∞`；A恰为零时h记0，非有限数已在结构检查中拒绝。对极小尺度采用稳定计算防止下溢，不引入没有单位说明的绝对常数替代分母；复数对角线的虚部纳入同一尺度检查。数值容差不等于允许丢弃任意缺失结构。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F10",
+    "title": "来源与数据分级",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "登记来源URL、许可证、用途、生成脚本、种子、单位、分级和公开范围；公开声明需项目管理员及许可，保密项目强制非公开，运行冻结元数据版本。",
+    "limitation": "数据负责人仍需确认权属；UNKNOWN或未确认授权的数据不进入公开数值样例，不凭URL推断再分发许可。",
+    "evidence": [
+      "emsolver/service.py",
+      "emsolver/reporting.py",
+      "web/src/components/MatrixProvenance.tsx",
+      "tests/test_product_integrations.py",
+      "tests/test_service_core.py::test_public_bundle_uses_frozen_permission_and_excludes_private_results"
+    ],
+    "prd_requirement": "为矩阵登记来源链接、许可证、用途、生成脚本、种子、单位和可公开范围；未确认权限的数据禁止进入公开样例包。验收：报告默认展示数据别名和哈希，不输出本地敏感路径。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F11",
+    "title": "矩阵概览",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "提供阶数、非零元、密度、对角范围、行非零范围/有限直方图和有限采样稀疏预览，界面使用有界输入绘图。",
+    "limitation": "预览最多1500个点、直方图最多64个桶，不代表全部非零结构；不生成n×n位图。",
+    "evidence": [
+      "emsolver/numerics/core.py",
+      "web/src/charts.tsx",
+      "tests/test_backend_protocol.py::test_normalization_reports_original_stored_entries_and_bounded_row_histogram",
+      "tests/test_numerics.py::test_hundred_thousand_diagonal_case_actual_cpu"
+    ],
+    "prd_requirement": "显示阶数、非零元、稀疏率、对角范围、行非零分布和采样稀疏图。预览受采样上限约束，不能为绘图分配全尺寸位图。验收：十万阶输入预览开销随采样预算增长。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F12",
+    "title": "导入取消与去重",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "流式上传后由独立进程分阶段校验；支持上传中止、排队/运行导入取消、临时回收和哈希去重，登记与取消互斥，项目元数据权限隔离。",
+    "limitation": "不是可恢复的分片上传协议；取消只保证本任务的未登记临时文件清理，不撤销此前已成功登记的资产。",
+    "evidence": [
+      "emsolver/imports.py",
+      "emsolver/import_worker.py",
+      "emsolver/api.py",
+      "web/src/components/MatrixImportWorkspace.tsx",
+      "tests/test_imports.py"
+    ],
+    "prd_requirement": "长导入可取消，临时文件自动回收；相同哈希可复用只读数据而不重复占盘；元数据权限保持项目隔离。验收：中断上传不产生可用矩阵记录，其他项目不会因此获得读取权限。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F13",
+    "title": "最近k个模式",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "接收k和原请求位移，按原目标距离稳定排序；拒绝非法k和子空间冲突；固定k边界簇单独标记，受限cluster_complete保留重数，不足进入PARTIAL。",
+    "limitation": "正确排序候选不等于证明一般稀疏最近性；完整目标证据另由F45判定，不能只凭返回k个通过认证。",
+    "evidence": [
+      "emsolver/numerics/core.py",
+      "emsolver/numerics/block.py",
+      "tests/test_numerics.py::test_original_distance_sort_exactly_resolves_rounded_ties_and_overflow",
+      "tests/test_numerics.py::test_repeated_eigenvalues_preserve_independent_modes_and_boundary"
+    ],
+    "prd_requirement": "接收`k`和请求位移`σ_target`，按与原位移的距离排序，记录并列策略；返回数量不足时标记部分成功。`k>=n`或与子空间预算冲突时拒绝或给出合法值，不能静默改成另一目标。验收：可解析样例的排序和数量正确。\n\n若第k个落在重根或无法分离的谱簇内部，默认保持固定k但输出“边界子空间不唯一”，不强制与参考的某k列逐向量比对。可选`cluster_complete`策略返回整个簇，必须预先设置最大返回数量和资源预算；不能在运行后临时改变k以获得更好成绩。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F14",
+    "title": "区间模式",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "半开区间、端点与上限语义保持严格；新增实/复一般稀疏精确惯性独立计数与候选子空间覆盖检查，超预算或歧义保留未认证。 v0.7增加分离圆盘的精确独立计数、候选分组重数及整体子空间角度检查，结构分类采用有界分块。 v0.8新增精确二次幂带权圆盘，以正对角相似变换扩展可分离情形；原矩阵残差、分组重数、秩及整体子空间角度仍独立验证。",
+    "limitation": "一般精确消元仍限64阶/4096非零；新增圆盘证明仅适用于严格分离的目标，默认100万阶/3000万非零/16模式/200万向量项及5秒、位长、运算预算；重叠、复杂重根或超限保持UNVERIFIED，不承诺任意工业输入认证。 带权预扫描计入500万运算预算，n+nnz已超限时提前拒绝；每种证明独立限时，整体仍受任务/独立验证父进程限制。",
+    "evidence": [
+      "emsolver/numerics/certification.py",
+      "tests/test_numerics_certification.py",
+      "docs/bounded-sparse-certification.md",
+      "emsolver/numerics/independent_counts.py",
+      "tests/test_independent_counts.py",
+      "tests/test_certification_routing.py",
+      "docs/v070-numerical-architecture.md",
+      "tests/test_weighted_counts.py",
+      "docs/independent-target-counts.md"
+    ],
+    "prd_requirement": "以半开区间`[a,b)`表达需求，独立设置模式上限和计数能力；区间端点容差、重数和工作位移必须可追溯。验收：没有谱计数或其他可信完整性证据时，结果仅声明“已找到集合”，不得声称全谱。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。",
+    "software_implementation": "implemented",
+    "external_acceptance": "NOT_CERTIFIED"
+  },
+  {
+    "id": "F15",
+    "title": "频率映射",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "工程模型提供四种审核后的特征值到频率映射，冻结单位、适用条件及必要波速；未知映射或不满足物理条件不显示Hz，负谱返回空频率并保留零模态。",
+    "limitation": "需要合法模型来源及模型负责人确认；不支持任意公式代码执行，频率展示不增加物理认证。",
+    "evidence": [
+      "emsolver/engineering_contracts.py",
+      "emsolver/service.py",
+      "tests/test_engineering.py",
+      "tests/test_cavity_case.py"
+    ],
+    "prd_requirement": "允许绑定已知离散方程的特征值到频率公式、单位及适用条件。未提供映射时只显示λ与σ，不把σ直接当作Hz。负特征值和零模态按模型解释，不默认删除。验收：不满足物理条件时禁用频率数值并说明原因。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。",
+    "software_implementation": "implemented",
+    "external_acceptance": "NOT_CERTIFIED"
+  },
+  {
+    "id": "F16",
+    "title": "配置校验与导出",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "图形界面/API/CLI共同调用版本化resolve_config，拒绝未知字段、非法类型、非有限值和配置冲突，保存及导出解析后的完整配置与哈希。",
+    "limitation": "只允许当前明确支持的配置，不把Schema中可表达但后端未验证的组合自动列为可运行。",
+    "evidence": [
+      "emsolver/contracts.py",
+      "emsolver/cli.py",
+      "emsolver/api.py",
+      "web/src/api.ts",
+      "tests/test_contracts.py",
+      "tests/test_experiment_cli.py"
+    ],
+    "prd_requirement": "图形界面、CLI和API共用同一版本化配置规范；校验类型、范围、冲突和未知字段，输出解析后完整配置。验收：相同配置经三入口产生相同配置哈希。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F17",
+    "title": "算法计划",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "预检冻结实际方法、精度、变换、线性求解、重排、残差检查、位移策略及完整回退配置序列；界面展示strategy/estimate，未验证后端启动前拒绝。 v0.9显式磁盘分解配置经独立后端自检才可选择，实际复数输入和不支持资源组合预检拒绝。",
+    "limitation": "计划不是收敛、分解填充或完整目标的保证；实际结构对角快捷路径和回退方法在结果中另行记录。",
+    "evidence": [
+      "emsolver/numerics/backend.py",
+      "emsolver/service.py",
+      "web/src/components/NumericalControls.tsx",
+      "tests/test_backend_protocol.py::test_backend_plan_describes_actual_capabilities_and_no_fake_outer_iterations",
+      "tests/test_product_integrations.py::test_project_priority_fifo_and_new_backend_plan",
+      "tests/test_slepc_ooc_service.py"
+    ],
+    "prd_requirement": "提交前呈现实际后端、问题类型、数值精度、内外迭代、预处理、位移重试和回退顺序；禁止将未安装能力显示为可用。验收：后端缺失时启动前失败或经明确配置降级，报告记录实际后端。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F18",
+    "title": "批量参数实验",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "冻结矩阵、k、sigma、线程、内存、位移开关及重复次数的有界组合；去重并预检整批最坏预算，幂等提交，保留独立失败、取消和全部统计分母。",
+    "limitation": "最多30矩阵、每数值轴10个输入项、100组合/运行；不同资源或目标的组不自动生成加速比。",
+    "evidence": [
+      "emsolver/experiments.py",
+      "web/src/components/ExperimentWorkspace.tsx",
+      "tests/test_experiments.py",
+      "tests/test_experiment_integration.py"
+    ],
+    "prd_requirement": "对矩阵、k、σ和资源建立有界组合清单，预估作业数和总预算；重复项去重，单项失败不取消无依赖项。验收：批量报告包含所有组合和失败记录。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F19",
+    "title": "内存估计",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "逐项估计输入/恢复、CSR/CSC、重排、子空间、候选与验证、置换、日志及填充情景；最低工作集明显超预算则拒绝，运行仍由实际资源守卫保护。 v0.9区分宿主/容器半预算和磁盘因子；64–768MiB MUMPS工作区不冒充总内存上界，私有目录启动前、运行中及结束后受磁盘和日志检查。",
+    "limitation": "2–20倍填充仅为风险情景，不是可证明上界或实测峰值；未对任意稀疏图保证LU可装入内存。",
+    "evidence": [
+      "emsolver/numerics/backend.py",
+      "emsolver/service.py",
+      "tests/test_backend_protocol.py::test_memory_estimate_lists_live_storage_fill_risk_and_does_not_promise_peak",
+      "tests/test_numerics.py::test_budget_guard_prevents_diagonal_vector_allocation",
+      "tests/test_ooc_resource_plan.py",
+      "tests/test_monitor_cleanup.py"
+    ],
+    "prd_requirement": "纳入输入与恢复副本、CSR/CSC转换、子空间、向量、因子填充、验证器和日志；对未知填充率输出风险区间。验收：预算明显不足时启动前拒绝，估计不冒充实际峰值。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F20",
+    "title": "禁止全矩阵稠密化",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "原输入、重排与移位算子始终保持稀疏；生产路径不调用toarray/todense，不形成n×n投影；仅分配预算内n×m向量块和小投影矩阵。",
+    "limitation": "受限测试里的小型独立稠密参考不进入生产路径；不将允许的小投影矩阵与禁止的原矩阵稠密化混同。",
+    "evidence": [
+      "emsolver/numerics/core.py",
+      "emsolver/numerics/block.py",
+      "emsolver/numerics/correction.py",
+      "tests/test_numerics.py::test_no_sparse_dense_conversion_even_for_general_complex",
+      "tests/test_backend_protocol.py::test_block_iteration_never_densifies_original_or_shifted_sparse_matrices"
+    ],
+    "prd_requirement": "对A、B、A减工作位移后的矩阵禁止`toarray`、`todense`和等价全尺寸分配；稀疏审计覆盖绘图、验证和报告路径。子空间向量是受预算限制的`n×m`稠密块；小投影矩阵见第7章边界。验收：静态审计和运行内存证据均通过。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F21",
+    "title": "稀疏规范化与排序",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "稀疏规范化、重复合并、CSR/CSC转换及可选反向Cuthill–McKee重排，保存permutation.npy；候选和热启动均恢复/使用原始自由度顺序后独立验证。",
+    "limitation": "只提供已验证的none/RCM重排；不声明所有排序法或任意工程自由度映射已实现。",
+    "evidence": [
+      "emsolver/numerics/backend.py",
+      "emsolver/numerics/core.py",
+      "tests/test_backend_protocol.py::test_reordering_saves_mapping_and_validation_uses_original_input",
+      "tests/test_backend_protocol.py::test_block_reordering_warm_start_restores_original_coordinates"
+    ],
+    "prd_requirement": "支持CSR/CSC转换、重复合并和可选重排序；保存置换映射并把向量恢复到原始自由度顺序。验收：置换前后残差等价，输出行索引保持用户原始语义。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F22",
+    "title": "预处理管理",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "能力计划明确选择精确稀疏LU，或JD投影GMRES的none/Jacobi及两个显式CPU双精度ILU策略；v2固定四次对称均衡、1%行和对角补偿，每次求解分解一次，每个外层缓存约束逆供全部修正列复用。原坐标双精度修正方程残差仍独立检查，不兼容组合启动前拒绝。 v0.9增加实数CPU单秩单线程SLEPc/MUMPS磁盘外带主元LDLᵀ分解，既有默认LU不变；正定假设关闭。",
+    "limitation": "JD不完全分解仅支持CPU float64/complex128；OOC仅支持实数float64、CPU、单MPI单线程。PETSc的cholesky接口在此明确选择MUMPS sym=2不定LDLᵀ，并不声称矩阵正定。磁盘填充和MUMPS工作区均非完整资源上界；奇异目标结构化失败，不自动回退。",
+    "evidence": [
+      "emsolver/numerics/backend.py",
+      "emsolver/numerics/correction.py",
+      "tests/test_backend_protocol.py::test_jd_jacobi_preconditioning_and_float32_corrections_preserve_fp64_acceptance",
+      "emsolver/numerics/preconditioning.py",
+      "tests/test_robust_preconditioning.py",
+      "tests/test_accuracy_refinement.py",
+      "docs/preconditioning-v2.md",
+      "docs/slepc-ooc-profile.md",
+      "tests/test_slepc_ooc.py"
+    ],
+    "prd_requirement": "按矩阵与后端能力选择稀疏分解、可用不完全分解或适配的迭代预处理；记录失败原因和可复用条件。不能假设不定移位系统可用CG或Cholesky。验收：不兼容组合在运行前拒绝或转到有依据的替代路线。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F23",
+    "title": "资源守卫",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "对内存、时间、线程、磁盘及单工作进程并发设硬界，监督整个进程树；最低缓冲预拒绝，实际导出含检查点和原子替换副本复核，超限不发布清单。",
+    "limitation": "采样内存峰值有采样间隔；Linux容器硬限制仅在隔离执行路径启用，普通本地路径依赖父进程监督。",
+    "evidence": [
+      "emsolver/execution.py",
+      "emsolver/service.py",
+      "emsolver/numerics/core.py",
+      "tests/test_backend_protocol.py::test_full_internal_checkpoint_is_included_in_disk_budget_before_publication",
+      "tests/test_imports.py::test_timeout_and_memory_monitor_terminate_without_registering"
+    ],
+    "prd_requirement": "设置内存、时间、线程、磁盘和并发上限；整个进程树计费；接近预算时缩减可释放缓存、降低子空间或停止，不能靠超限抢救。验收：受控内存不足产生`RESOURCE_EXHAUSTED`，服务仍可接新任务。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F24",
+    "title": "可替换算法接口",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "统一prepare/solve/monitor/finalize生命周期提供SciPy ARPACK基线、自研块位移反演和JD修正方程路径；无界面可调用核心或CLI并保存验证产物。 v0.7为CPU双精度JD接入固定通用ILU预处理、构建前内存预检、一次分解复用、实际工作量及结构化失败事件；原始残差复验不变。 v0.8接入固定均衡补偿与约束逆策略，资源模型新增稀疏临时副本、缩放向量及前后外层缓存并存。",
+    "limitation": "SuperLU、ARPACK、QR及GMRES等底层库来源明确；不将第三方实现或一般算法理论冒称全部自研。 ILU填充参数不是峰值内存保证；分解失败保持失败，不按公开输入调参或暗中回退。",
+    "evidence": [
+      "emsolver/numerics/backend.py",
+      "emsolver/numerics/block.py",
+      "emsolver/numerics/correction.py",
+      "emsolver/numerics/__init__.py",
+      "tests/test_backend_protocol.py::test_backend_protocol_enforces_lifecycle_and_returns_original_order",
+      "emsolver/numerics/preconditioning.py",
+      "tests/test_ilu_preconditioning.py",
+      "web/src/components/NumericalControls.tsx",
+      "tests/test_robust_preconditioning.py",
+      "docs/preconditioning-v2.md"
+    ],
+    "prd_requirement": "以统一`prepare/solve/monitor/finalize`协议接入基线和主算法；核心模块提供可读实现、策略解释和单独调用示例。包装第三方库时明确创新代码位置，不将调用库冒称自研全部算法。验收：不启动界面也能调用并保存特征对。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F25",
+    "title": "收敛控制",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "块/JD按配置频率复算原问题残差并记录真实锁定、停滞、重启和工作量；SLEPc提供明确标注的后端误差估计，全部路径用CPU双精度原问题独立验收。",
+    "limitation": "ARPACK不公开逐外层原问题历史；SLEPc内部误差不是原问题残差，需要该历史时选块/JD。",
+    "evidence": [
+      "emsolver/numerics/block.py",
+      "emsolver/numerics/correction.py",
+      "emsolver/numerics/slepc.py",
+      "tests/test_backend_protocol.py",
+      "tests/test_slepc_integration.py"
+    ],
+    "prd_requirement": "持续监控后端残差，在锁定候选、位移切换、停止和最终输出时重新计算原问题残差；可配置的完整校验频率与计算成本必须记录。结合正交性、停滞和重根簇状态决定锁定、扩展或重启；报告外层和线性内层迭代。验收：后端报告成功但原问题不合格时最终判定失败或部分成功。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。",
+    "software_implementation": "implemented",
+    "external_acceptance": "NOT_CERTIFIED"
+  },
+  {
+    "id": "F26",
+    "title": "自适应位移",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "默认observed_ritz_gap_v2按矩阵尺度、实际线性失败/残差及已观察Ritz谱间隙有界选择下一工作位移；旧v1保持可选，记录反馈来源并始终围绕原目标筛选。",
+    "limitation": "只有已观察候选能提供谱反馈；无候选时退回有界尺度扰动，次数/时间/资源耗尽停止。JD修正路径不把该开关冒充另一工作位移算法。",
+    "evidence": [
+      "emsolver/numerics/shift_policy.py",
+      "emsolver/numerics/core.py",
+      "emsolver/numerics/block.py",
+      "tests/test_backend_protocol.py::test_arpack_retry_uses_observed_refined_ritz_gap_and_preserves_original_target",
+      "tests/test_backend_protocol.py::test_block_retry_learns_ritz_feedback_after_a_real_linear_failure"
+    ],
+    "prd_requirement": "分离`σ_target`与`σ_work`，用矩阵尺度、线性求解反馈和已有谱间隙生成工作位移，限制尝试次数和时间；不得使用参考答案或矩阵名称选择参数。验收：目标恰等于已知特征值时仍能受控恢复或正确失败，最终筛选仍围绕原目标。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F27",
+    "title": "子空间与重根",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "块/JD支持受限初始子空间、双重正交化、残差复验软锁定、有限重启和模式簇处理；重根保留独立向量，完整簇/截断边界单独认证。",
+    "limitation": "当前采用软锁定；超出预设候选/子空间/模式上限的完整簇不保证自动扩容，缺失时不认证完整。",
+    "evidence": [
+      "emsolver/numerics/block.py",
+      "emsolver/numerics/correction.py",
+      "emsolver/numerics/core.py",
+      "tests/test_backend_protocol.py::test_block_iteration_recovers_singular_shift_and_preserves_selected_repeated_subspace",
+      "tests/test_evaluation.py::test_missing_or_duplicate_direction_cannot_pass"
+    ],
+    "prd_requirement": "支持块初始向量、重正交化、锁定、重启和成簇检测；保留重数，不按特征值近似相等就删掉向量。验收：完整选中簇输出正确维度的独立子空间，截断边界遵循F13并单独认证。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F28",
+    "title": "自适应内外精度",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "JD按外层残差有界收紧内层容差，可关闭复跑；float32/complex64近似修正按原64位投影方程残差复验，失败或精度不足提升64位，最终原问题始终双精度验证。 v0.8在全部目标候选数值合格后进行一次有界精确探测，仅因值包围过宽拒绝时继续提高精度；迭代/重启预算耗尽保留数值合格候选，最终重新独立认证。",
+    "limitation": "混合精度只适用声明支持的JD修正路径；不降低验收阈值，精确LU/ARPACK与块反演拒绝近似修正配置，不承诺一般性能收益。 精度提示不是证书；几何不适用或认证预算不足不会触发无效精度追逐，内存/墙钟强杀不保证产物导出。",
+    "evidence": [
+      "emsolver/numerics/correction.py",
+      "emsolver/contracts.py",
+      "web/src/components/NumericalControls.tsx",
+      "tests/test_backend_protocol.py::test_jd_correction_equation_adapts_inner_accuracy_with_final_double_validation",
+      "tests/test_backend_protocol.py::test_jd_jacobi_preconditioning_and_float32_corrections_preserve_fp64_acceptance",
+      "tests/test_backend_protocol.py::test_strict_inner_tolerance_bypasses_float32_and_exact_inverse_rejects_mixed_precision",
+      "emsolver/numerics/accuracy.py",
+      "tests/test_accuracy_refinement.py"
+    ],
+    "prd_requirement": "根据外层残差调整修正方程等适用路径的线性内层容差；精确位移反演路线不能任意放宽内层精度而改变外层算法前提。任何混合精度路径最终回到双精度原问题验证。验收：不放宽最终验收阈值，失败可关闭该策略复跑。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F29",
+    "title": "受控回退",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "冻结主算法和一次block_to_arpack_v1回退的完整合法配置；记录触发原因、方法、尝试与额外成本，保留更充分的合格候选，次数耗尽停止。",
+    "limitation": "仅支持明确验证过的单次块到ARPACK回退；JD为独立合法precond/GMRES路线，不伪装为换名后的shift-invert回退。",
+    "evidence": [
+      "emsolver/numerics/backend.py",
+      "emsolver/numerics/core.py",
+      "tests/test_backend_protocol.py::test_explicit_bounded_fallback_uses_frozen_complete_arpack_profile",
+      "tests/test_backend_protocol.py::test_unvalidated_or_unbounded_fallback_profiles_are_rejected"
+    ],
+    "prd_requirement": "预先定义后端、算法、谱变换、线性求解与预处理共同组成的完整配置序列；每次回退标注原因、额外成本和适用性。Jacobi Davidson等替代路线必须使用适配的修正方程/预条件变换，不能只替换算法名并继承不兼容的shift-invert设置。验收：回退次数耗尽后停止，不无限循环，不将失败伪装为成功。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F30",
+    "title": "零模态与物理诊断",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "保留零模态与近零模式；除有界坐标基外，工程侧车支持最多16个稀疏声明基，独立工作进程验证线性独立性与原问题作用残差，冻结工程含义及来源。",
+    "limitation": "稀疏基总非零上限100000；数值零空间不决定物理伪模态，声明与验证均不会自动删模式。",
+    "evidence": [
+      "emsolver/engineering_worker.py",
+      "emsolver/engineering_contracts.py",
+      "tests/test_engineering.py"
+    ],
+    "prd_requirement": "接收已知零空间或约束元数据；未经模型授权不自动移除接近零的谱。矩阵层与物理层诊断分开。验收：正常零特征值保留；缺少物理元数据时不宣称识别了伪模式。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。",
+    "software_implementation": "implemented",
+    "external_acceptance": "NOT_CERTIFIED"
+  },
+  {
+    "id": "F31",
+    "title": "任务队列",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "项目配额/优先级/FIFO及独立进程持久队列；按PID出生时间、命令、解释器和完整spec核验后接管。已发布结果另以有界子进程从原输入独立复验，真实6000阶复数任务跨旧服务退出继续完成且仅一个终态。",
+    "limitation": "接管要求解释器、PID出生时间及文件身份可核验；macOS原生已实测。翻译Linux无法核验Rosetta解释器时安全拒绝，不证明Linux原生接管已验收；观测缺口峰值明确为下界。",
+    "evidence": [
+      "emsolver/recovery.py",
+      "emsolver/reconcile.py",
+      "emsolver/validation_process.py",
+      "tests/test_recovery.py",
+      "tests/test_product_integrations.py::test_reconcile_recomputes_original_residual_after_manifest_hash_laundering",
+      "tests/test_validation_process.py",
+      "docs/evidence/live-worker-reattachment.json",
+      "docs/evidence/v040-recovery-platform.json"
+    ],
+    "prd_requirement": "按项目配额和作业资源排队，遵循提交顺序与管理员配置的优先级；数值计算在独立进程运行。验收：Web服务重启后可恢复任务记录，运行进程状态经核验后重新接管。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F32",
+    "title": "生命周期与取消",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "排队取消、运行停止、超时及进程树回收具有终态规则；重复取消幂等，先终止请求并给予有限退出时间，必要时杀死进程树，原结果不改为通过。",
+    "limitation": "不提供暂停；强制终止可能只有最近周期检查点或诊断，恢复必须创建新任务。",
+    "evidence": [
+      "emsolver/service.py",
+      "emsolver/execution.py",
+      "emsolver/jobs.py",
+      "tests/test_service_core.py::test_worker_timeout_and_cancel_are_terminal_and_retriable",
+      "tests/test_architecture_service.py::test_repeated_cancellation_is_idempotent_while_worker_exits"
+    ],
+    "prd_requirement": "支持排队取消、执行中请求停止和超时回收；先要求协作退出，再按超时终止进程树。验收：取消后资源释放、输出标记取消，不能生成“验证通过”。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F33",
+    "title": "部分成功",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "保存独立验证合格候选、实际数量、请求数量、目标/完整性状态与原因；目标未认证即使达到k仍PARTIAL，未知漏失量不填0，CLI退出码区别成功。",
+    "limitation": "候选有效不证明目标完整；被取消/超时任务仍保留其权威终态，不因部分产物存在改写为成功。",
+    "evidence": [
+      "emsolver/numerics/core.py",
+      "emsolver/cli.py",
+      "tests/test_numerics.py::test_arpack_partial_convergence_is_preserved_and_validated",
+      "tests/test_numerics.py::test_bounded_generic_sparse_target_is_independently_certified",
+      "tests/test_cli_failure_regressions.py"
+    ],
+    "prd_requirement": "保存已通过独立验证的特征对、缺失数量和失败原因；业务状态为`PARTIAL`，退出码与成功不同。最近性、区间完整性或边界簇未认证时，即使达到k也属于PARTIAL；无法确定漏失数量时填未知，不填0。验收：请求20个仅合格18个时声明18/20，合格20个但目标未认证时也不能标完整成功。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F34",
+    "title": "检查点与恢复",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "子空间热启动与完整块状态精确恢复采用不同入口和固定文件；完整状态冻结控制器、随机数、已消耗预算及源码/已加载代码/环境绑定，预检后在新任务实际恢复。",
+    "limitation": "精确恢复仅固定工作位移、无回退SciPy块算法；重算LU且计入真实成本，ARPACK/JD/SLEPc不声称精确恢复。",
+    "evidence": [
+      "emsolver/numerics/exact_checkpoint.py",
+      "emsolver/resumption.py",
+      "emsolver/recovery.py",
+      "tests/test_numerics_exact_resume.py",
+      "tests/test_exact_resume_service.py",
+      "docs/exact-block-checkpoint.md"
+    ],
+    "prd_requirement": "保存输入与配置哈希、策略阶段、已锁定向量及可序列化迭代状态。仅对后端真实支持且版本兼容的状态进行精确续算；其他情况称为带初始子空间的新任务。验收：哈希或后端版本不匹配时拒绝恢复，绝不虚构断点续算能力。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。",
+    "software_implementation": "implemented",
+    "external_acceptance": "NOT_CERTIFIED"
+  },
+  {
+    "id": "F35",
+    "title": "实时订阅",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "事件单调序号/时间、分页补取和终态前排空，前端按序去重且断开不停止任务；工作事件字节游标与追加记录事务保存，数据库回滚时读取器显式回退，接管后不重放已入库记录。",
+    "limitation": "界面仅保留最新1000条事件，完整历史通过授权JSONL下载；断连期间的观测无法凭空补造，权威终态以持久记录为准。",
+    "evidence": [
+      "emsolver/events.py",
+      "emsolver/service.py",
+      "web/src/models/jobs.ts",
+      "tests/test_event_journal.py",
+      "tests/test_product_integrations.py::test_worker_event_reader_rewinds_after_database_rollback",
+      "tests/test_product_integrations.py::test_recovered_event_cursor_does_not_replay_worker_records"
+    ],
+    "prd_requirement": "事件携带单调序号和时间，支持断线后补取；界面断开不停止任务。验收：网络中断恢复后无重复终态，日志可按序还原。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F36",
+    "title": "幂等提交",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "事务内按幂等键及请求摘要提交；重复相同请求返回原作业，摘要冲突拒绝，跨连接和实验批次均避免重复提交。",
+    "limitation": "幂等性作用于同实例持久化状态；更换独立数据根不会共享幂等键。",
+    "evidence": [
+      "emsolver/service.py",
+      "emsolver/experiments.py",
+      "tests/test_service_core.py::test_capability_rejections_and_cross_connection_idempotency",
+      "tests/test_experiment_integration.py::test_regular_job_cannot_capture_an_experiment_idempotency_key"
+    ],
+    "prd_requirement": "API支持幂等键并校验请求摘要；重复网络重试返回原任务，键相同内容不同则冲突。验收：相同请求只产生一个计算作业。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F37",
+    "title": "指标采集",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "输出总时长、导入/准备/求解/验证/导出、进程树采样峰值、分解及线性求解、块/JD真实内外迭代和合格数量；缺失计数为null并说明范围。",
+    "limitation": "ARPACK外层次数/完整矩阵向量乘及精确全程峰值不可观测；候选阶段计数不冒充包含独立验证的全流程总计。",
+    "evidence": [
+      "emsolver/numerics/core.py",
+      "emsolver/numerics/block.py",
+      "emsolver/numerics/correction.py",
+      "emsolver/service.py",
+      "tests/test_backend_protocol.py",
+      "web/src/App.tsx"
+    ],
+    "prd_requirement": "输出总耗时、导入/预处理/求解/验证/导出耗时、进程树峰值内存、矩阵向量乘次数、分解数、线性迭代数、外层迭代数和收敛数。验收：指标缺失标记不可用并解释，不以零代替。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F38",
+    "title": "收敛与位移视图",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "块/JD逐候选排序位置残差按页绘制并保留桶极值，真实工作位移、软锁定、停滞、重启、故障和回退标记独立保留；末态验证与事件原始JSONL可查看下载。",
+    "limitation": "ARPACK/旧事件不具备的逐外层历史明确不可用；SLEPc估计仅后端观测；排序位置不是永久物理模式ID，界面仅保留最近1000事件。",
+    "evidence": [
+      "web/src/components/ConvergenceHistory.tsx",
+      "web/src/components/convergence.ts",
+      "web/tests/convergence.test.mjs",
+      "tests/test_backend_protocol.py"
+    ],
+    "prd_requirement": "展示每个模式或模式簇的残差历史、锁定状态、工作位移、停滞区间和回退事件；曲线采样不得丢失失败事件和峰值。验收：图与原始结构化事件一致。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。",
+    "software_implementation": "implemented",
+    "external_acceptance": "NOT_CERTIFIED"
+  },
+  {
+    "id": "F39",
+    "title": "结构化日志",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "JSONL和数据库规范事件记录作业、阶段、错误码与经白名单过滤的数值观测；日志及公开报告不含凭据、参考路径或原始矩阵数据。",
+    "limitation": "数值残差、耗时和受限计数是允许的观测数据；不把敏感数值矩阵写入错误文本或次要采样。",
+    "evidence": [
+      "emsolver/worker.py",
+      "emsolver/events.py",
+      "emsolver/reporting.py",
+      "tests/test_event_journal.py::test_worker_reader_skips_invalid_complete_lines_and_filters_worker_fields",
+      "tests/test_reporting.py"
+    ],
+    "prd_requirement": "JSONL日志包含作业、阶段、错误码和脱敏上下文；禁止输出矩阵原值、令牌和参考路径。验收：受保护样例的日志扫描无敏感值。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F40",
+    "title": "故障诊断规则",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "规则覆盖非厄密、近奇异、内层不收敛、子空间、重根、资源、超时和后端缺失等，记录触发真假、观察证据、出处与白名单建议，具逐规则正反例。",
+    "limitation": "规则属于受约束诊断，不保证每个问题都可自动修复或每条建议均提升收敛/性能。",
+    "evidence": [
+      "emsolver/knowledge.py",
+      "emsolver/advice.py",
+      "tests/test_knowledge.py::test_rules_have_positive_negative_evidence_and_safe_changes",
+      "tests/test_knowledge.py::test_missing_numerical_evidence_is_not_invented"
+    ],
+    "prd_requirement": "覆盖输入非厄密、近奇异、内层不收敛、子空间不足、重根退化、内存不足、超时和后端缺失，输出触发证据与可操作建议。验收：每条规则均有正反例，建议不改变原目标语义。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F41",
+    "title": "观测开销与离线导出",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "本地规范事件为默认底座，次要遥测有界非阻塞队列，满载/导出失败计数且不阻断求解；提供OpenMetrics及真实开关观测配对基准。",
+    "limitation": "外部采集器为可选可信消费者；本地短耗时配对测量不构成普遍开销保证，关键审计/终态不进入可丢失采样队列。",
+    "evidence": [
+      "emsolver/telemetry.py",
+      "scripts/benchmark_observability.py",
+      "tests/test_telemetry.py",
+      "docs/operations-completion.md"
+    ],
+    "prd_requirement": "本地文件为默认观测底座，可选接入开源指标、追踪和看板；观测服务失效采用有界缓冲，不阻断求解。验收：同条件开关观测的开销单独报告，缓冲满时丢弃非关键采样并记录数量。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F42",
+    "title": "结果文件",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "可选numpy/scipy/both结果、JSON指标和哈希清单；实复向量列语义保留，支持受体积限制的所选列分块下载，重新读取原问题验证后最后原子发布清单。",
+    "limitation": "SciPy向量导出可能近乎满存储，额外空间受预算拒绝；没有成功清单的中间文件不能作为已完成结果。",
+    "evidence": [
+      "emsolver/numerics/core.py",
+      "emsolver/service.py",
+      "tests/test_numerics.py::test_sample_sparse_and_numpy_exports",
+      "tests/test_service_core.py::test_selected_export_preview_metadata_and_protected_cleanup",
+      "tests/test_cli_integration.py::test_cli_solve_supervision_does_not_invalidate_published_artifacts"
+    ],
+    "prd_requirement": "提供NumPy数组结果及SciPy `.npz`兼容导出，格式可选`numpy`、`scipy`、`both`；同时导出JSON指标及清单。NumPy特征值形状为r，SciPy特征值可用1×r稀疏行，向量为n×r按列对应；矩阵读取后必须恢复相同语义。SciPy结果存储不假设向量稀疏，估计额外空间并允许分块导出；这不构造原始n×n全矩阵。文件先写临时路径，校验后原子发布。验收：两类格式重读残差和排序一致，未完成文件无成功清单。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F43",
+    "title": "独立原问题验证",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "独立入口重新读取原输入、保存的特征值/向量和阈值，复算原问题残差、正交性、目标证据与清单哈希；不复用后端内部残差。最近k任务没有候选模式时数值验证为FAILED；独立计数认证的空区间仍可通过。",
+    "limitation": "独立重新计算不等于对所有一般稀疏目标都有独立计数参考；该边界在F45单独记录。",
+    "evidence": [
+      "emsolver/numerics/core.py",
+      "emsolver/evaluation.py",
+      "tests/test_numerics.py::test_diagonal_certifies_original_target_and_revalidates_artifacts",
+      "tests/test_numerics.py::test_tiny_absolute_residual_does_not_underflow_into_passing_validation",
+      "tests/test_industrial_numerical_status.py"
+    ],
+    "prd_requirement": "验证器只接收原始输入、候选结果和阈值，重新计算残差和正交性；不复用后端内部残差当作最终证据。验收：篡改一个结果向量后能够检出。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F44",
+    "title": "模式簇与参考对齐",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "隔离评测器按一对一匹配处理排序，以簇子空间夹角及秩检查处理重根；符号、相位及簇内旋转不构成错误，缺维/重复方向不能通过。",
+    "limitation": "外部参考的精度、目标集合和覆盖性须独立建立；用户跨运行对齐不自动升级为可信参考认证。",
+    "evidence": [
+      "emsolver/evaluation.py",
+      "scripts/evaluate.py",
+      "tests/test_evaluation.py::test_repeated_eigenspace_rotation_and_order_do_not_fail",
+      "tests/test_evaluation.py::test_missing_or_duplicate_direction_cannot_pass"
+    ],
+    "prd_requirement": "以一对一匹配处理不同排序，以子空间夹角处理重根和近重根；允许相位、符号与簇内基旋转。验收：同一重根子空间换基后仍通过，缺少一维时失败。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F45",
+    "title": "目标覆盖与完整性",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "数值有效、合格数量、原目标最近性、边界簇及区间完整性分别判定；增加有限预算的通用精确有理惯性与子空间覆盖证据，反例可拒绝错误邻域、漏重根及错向量。 v0.7增加分离圆盘的精确独立计数、候选分组重数及整体子空间角度检查，结构分类采用有界分块。 v0.8新增精确二次幂带权圆盘，以正对角相似变换扩展可分离情形；原矩阵残差、分组重数、秩及整体子空间角度仍独立验证。",
+    "limitation": "一般精确消元仍限64阶/4096非零；新增圆盘证明仅适用于严格分离的目标，默认100万阶/3000万非零/16模式/200万向量项及5秒、位长、运算预算；重叠、复杂重根或超限保持UNVERIFIED，不承诺任意工业输入认证。 带权预扫描计入500万运算预算，n+nnz已超限时提前拒绝；每种证明独立限时，整体仍受任务/独立验证父进程限制。",
+    "evidence": [
+      "emsolver/numerics/certification.py",
+      "tests/test_numerics_certification.py",
+      "docs/evidence/inertia-review.json",
+      "docs/evidence/v050-numerical-summary.json",
+      "emsolver/numerics/independent_counts.py",
+      "tests/test_independent_counts.py",
+      "tests/test_certification_routing.py",
+      "docs/v070-numerical-architecture.md",
+      "tests/test_weighted_counts.py",
+      "docs/independent-target-counts.md"
+    ],
+    "prd_requirement": "将合格数量、目标符合性和区间完整性分别呈现；最近k个的准确排序通过隔离参考或可靠邻域证据验证，区间全谱需要独立计数。验收：残差小但目标模式漏失时不能通过完整性验收。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。",
+    "software_implementation": "implemented",
+    "external_acceptance": "NOT_CERTIFIED"
+  },
+  {
+    "id": "F46",
+    "title": "模式工程解释",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "有授权来源/许可的工程坐标与自由度侧车按内容寻址，版本随计划与任务冻结；浏览实际分量、模长、二维坐标投影、真实采样值及审核频率，明确显示认证状态。",
+    "limitation": "无映射不生成物理场；只显示已有分量与采样内完整单元，不补造三维器件、缺失场分量或新的物理认证。",
+    "evidence": [
+      "emsolver/engineering.py",
+      "web/src/components/EngineeringWorkspace.tsx",
+      "web/src/components/FieldMapping.tsx",
+      "web/tests/field-mapping.test.mjs",
+      "tests/test_engineering.py",
+      "tests/test_cavity_case.py"
+    ],
+    "prd_requirement": "用户可浏览特征值、模型授权的频率、簇和误差。场分布图必须有自由度到网格/坐标的合法映射；无映射仅显示向量分量，注明不能解释为物理场图。验收：不会凭向量索引生成虚假器件几何。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。",
+    "software_implementation": "implemented",
+    "external_acceptance": "NOT_CERTIFIED"
+  },
+  {
+    "id": "F47",
+    "title": "结果比较与下载",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "提供同输入跨运行模式匹配、误差与受条件约束的性能比较、受授权及内存/磁盘预算限制的所选模式导出和清单校验和。",
+    "limitation": "比较对象都是计算结果时明确非独立真值；二进制实虚部保留，显示CSV或分量采样不替代原始精度。",
+    "evidence": [
+      "emsolver/service.py",
+      "emsolver/evaluation.py",
+      "web/src/components/ModeComparison.tsx",
+      "tests/test_service_core.py::test_compare_rejects_unfair_speedup",
+      "tests/test_service_core.py::test_selected_export_preview_metadata_and_protected_cleanup"
+    ],
+    "prd_requirement": "支持模式匹配、误差与性能对比、所选列下载和校验和；下载受授权和体积限制。验收：复数向量保留实虚部，不因CSV展示损失原始二进制精度。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F48",
+    "title": "数据集登记",
+    "status": "conditional",
+    "version": "0.9.0",
+    "implemented_scope": "登记解析、合成与真实公开电磁输入及来源/许可/摘要；新增CC0二维PEC教学模型完整正向流程，并实际下载Bai/dwg961b波导与Lee/fem_filter微波滤波器，核对原始头部、CC-BY-4.0来源与哈希，原样检测为非厄密并拒绝。v0.6新增官方Dziekonski/gsm_106857完整589446阶真实微波矩阵，原系数不变、精确实对称；登记原包/MTX/NPZ摘要及许可，并提供不可变工业验收档案、独立参考资产和逐项检查。 v0.7新增固定ILU和分离谱证明路径，公开原矩阵的资源预检拒绝与分解失败分别留存，未将合成大矩阵证据计为工业通过。 v0.8固定均衡补偿ILU在完整原矩阵上仍报分解零主元，一次尝试、0合格模式；冻结协议与失败记录全部保留。 v0.9独立冻结外存试验已在完整原矩阵上得到2个原问题残差合格候选，另用隔离ARPACK计算4个参考模式并交叉核对；正式系统任务在原矩阵上约84秒得到2个合格候选，原矩阵独立复验和参考数值比较通过；严格目标覆盖仍未认证。",
+    "limitation": "完整真实微波矩阵已有合格数值候选和独立外层算法参考；两条路线共用MUMPS逆算子，均未证明目标无遗漏，保持有条件。GSM原作者未公开滤波器尺寸，无法据矩阵重建物理频率与完整几何。可选审签不属于原赛题强制条件，不充当数值证明。",
+    "evidence": [
+      "scripts/generate_cavity_case.py",
+      "tests/test_cavity_case.py",
+      "docs/cavity-case.md",
+      "docs/datasets.md",
+      "docs/evidence/v050-public-datasets.json",
+      "examples/public-em/Bai_dwg961b/provenance.json",
+      "docs/evidence/v060-public-industrial-dataset.json",
+      "emsolver/industrial.py",
+      "emsolver/industrial_reference.py",
+      "tests/test_industrial.py",
+      "tests/test_industrial_reference.py",
+      "web/src/components/IndustrialWorkspace.tsx",
+      "docs/v070-numerical-architecture.md",
+      "docs/evidence/v080-industrial-experiment.json",
+      "docs/v080-delivery.md",
+      "docs/industrial-source-evidence-v090.md",
+      "docs/v090-delivery.md",
+      "docs/evidence/v090-industrial-experiment.json"
+    ],
+    "prd_requirement": "分开管理解析可解矩阵、合成压力矩阵和真实公开电磁矩阵；登记来源、许可证、尺寸、非零元、生成种子和适用目标。验收：合成矩阵不冒充真实工程数据，失效链接保留可用获取指引或换为合法来源。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。",
+    "software_implementation": "implemented",
+    "external_acceptance": "NOT_CERTIFIED"
+  },
+  {
+    "id": "F49",
+    "title": "固定基准协议",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "预先冻结不重叠开发/保留输入哈希、全配置、源码与环境摘要及全部运行行；逐项执行并保留失败/超时/阻断，名称和路径不参与策略选择。",
+    "limitation": "当前固定协议证明执行机制与内部分割，不代表获得官方保留集；没有参考的行明确参考不可用，不能伪造评分。",
+    "evidence": [
+      "emsolver/protocols.py",
+      "scripts/run_protocol.py",
+      "tests/test_protocols.py"
+    ],
+    "prd_requirement": "预先冻结训练/开发与保留测试划分、配置和环境；基准程序自动执行全部规定用例并记录超时与失败。验收：修改公开用例名称或路径不改变自动策略。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F50",
+    "title": "隔离参考评测",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "Linux隔离入口与SLEPc候选容器明确禁网、只读根、去能力且不挂载参考；主系统在候选返回后独立验证，可信参考评测在隔离求解退出后进行，强杀有本任务容器清理。",
+    "limitation": "OS文件隔离适用于声明的容器路径；普通本地SciPy/Metal工作进程不是文件沙箱。参考隔离实测不代表原生赛事性能或全系统恶意代码隔离。",
+    "evidence": [
+      "scripts/run_isolated.py",
+      "emsolver/optional_backends.py",
+      "tests/test_isolation_harness.py",
+      "tests/test_slepc_service.py",
+      "docs/slepc-backend.md"
+    ],
+    "prd_requirement": "求解进程无参考文件访问权限；评测器在求解结束后读取参考并生成误差，不向策略控制器反馈参考数值。验收：访问审计证明求解期间未读取参考，候选代码不能挂载参考目录。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。",
+    "software_implementation": "implemented",
+    "external_acceptance": "NOT_CERTIFIED"
+  },
+  {
+    "id": "F51",
+    "title": "可复现实验包",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "0.4.0提供一条独立命令完成已安装服务启动、真实构建资源、N40样例求解、原输入独立验证、报告/公开包哈希扫描、备份、新空实例恢复与认证重跑；macOS新wheel安装及Linux无网络镜像冷运行均成功。",
+    "limitation": "源码/依赖/配置/种子及产物摘要可追溯；无可核验Git提交时保留unknown。Linux amd64为arm64宿主翻译功能证据，不是原生赛事硬件性能或工业目标证明。",
+    "evidence": [
+      "scripts/verify_offline_instance.py",
+      "scripts/prepare_offline.sh",
+      "tests/test_offline_instance.py",
+      "requirements.lock",
+      "docs/evidence/v040-macos-installation.json",
+      "docs/evidence/v040-macos-offline-instance.json",
+      "docs/evidence/v040-linux-offline-instance.json"
+    ],
+    "prd_requirement": "一条命令完成环境检查、样例获取或生成、求解、校验和报告；锁定依赖、源码版本、镜像摘要、配置和随机种子。验收：全新CPU环境离线运行随包样例成功。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F52",
+    "title": "消融与基线比较",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "固定协议按各适用路线真实执行工作位移、Jacobi预条件、子空间有界重启、混合精度的逐项关闭对照；冻结相同输入/目标/精度/资源，保留全部规定/执行/失败/超时/阻断及失败率分母。",
+    "limitation": "JD不适用工作位移重试，已关闭或当前后端不支持的策略明确阻断；各路线分别选合法基线，不把无作用开关、最佳单例或配置差异冒充性能收益。",
+    "evidence": [
+      "emsolver/protocols.py",
+      "scripts/run_protocol.py",
+      "tests/test_protocols.py::test_real_jd_ablations_execute_actual_none_float64_and_no_restart_configs",
+      "tests/test_protocols.py::test_jd_target_sigma_is_not_mislabeled_as_a_working_shift_ablation",
+      "tests/test_protocols.py::test_block_subspace_ablation_disables_restarts_without_relaxing_the_cap",
+      "tests/test_protocols.py::test_unsupported_ablations_failures_and_timeouts_stay_in_denominator"
+    ],
+    "prd_requirement": "对自适应位移、预处理、子空间控制、混合精度逐项关闭进行对照；比较条件一致，统计失败率。验收：报告能说明改进由哪项策略产生，不只展示最优样本。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F53",
+    "title": "可解释策略建议",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "离线规则依据矩阵声明、资源、配置及运行错误输出可解释理由和知识前提；采用仅允许求解字段白名单，无模型也可诊断和求解。",
+    "limitation": "建议是探索性候选，不自动改变目标、验收阈值、资源硬界或数值状态，也不保证性能收益。",
+    "evidence": [
+      "emsolver/knowledge.py",
+      "emsolver/advice.py",
+      "tests/test_knowledge.py",
+      "tests/test_experiment_integration.py::test_advice_rejects_protected_or_invalid_changes_without_writes"
+    ],
+    "prd_requirement": "规则引擎根据矩阵结构、预算和运行反馈给出参数建议与依据；建议输出只允许修改配置白名单。验收：无任何模型时仍可完成诊断和求解。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F54",
+    "title": "本地AI解释",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "提供固定仓库/revision/权重与分词器摘要及Apache-2.0许可档案，回环MLX本地服务关闭自动下载/远程代码；严格解释JSON、规则编号白名单、总截止与异常降级。",
+    "limitation": "模型只产生展示文字，不能改数值/配置/认证；模型权重和可选运行依赖按平台独立提供，不作为求解依赖或宣称诊断质量普适通过。",
+    "evidence": [
+      "emsolver/model_runtime.py",
+      "emsolver/ai_explainer.py",
+      "scripts/local_model.py",
+      "scripts/download_local_model.py",
+      "tests/test_model_runtime.py",
+      "tests/test_ai_explainer.py",
+      "docs/evidence/v050-local-model.json",
+      "tests/test_model_download.py",
+      "docs/local-model.md"
+    ],
+    "prd_requirement": "可选接入经许可证审核的本地开源模型，对脱敏诊断摘要生成解释；保存模型版本、提示模板版本和规则出处。模型输出经过结构校验，禁止生成可执行代码并直接运行。验收：模型缺失、超时或格式错误时返回规则解释。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。",
+    "software_implementation": "implemented",
+    "external_acceptance": "NOT_CERTIFIED"
+  },
+  {
+    "id": "F55",
+    "title": "建议采用与效果追踪",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "人工比较逐字段建议后创建派生配置；追加来源、受保护条件、关联新运行及效果记录，公平条件不足不报加速；GET只预览，显式POST有写权限且幂等记录。",
+    "limitation": "不提供默认开启的自动采用执行器；未变化观测不重复追加，效果只适用于所关联的真实运行与冻结条件。",
+    "evidence": [
+      "emsolver/advice.py",
+      "emsolver/effects.py",
+      "emsolver/service.py",
+      "web/src/components/AssistantGovernance.tsx",
+      "tests/test_effects.py",
+      "tests/test_product_integrations.py"
+    ],
+    "prd_requirement": "用户比较建议前后配置再创建新实验；自动采用仅限预先批准的策略边界，必须可关闭。验收：建议不能扩大内存和时间硬上限，不能读取参考、改变目标或将失败改为通过。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F56",
+    "title": "知识条目与风险提示",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "版本化知识条目提供适用前提、风险、官方来源/文档版本及核对日期，支持检索和规则关联；LOBPCG、PML与广义问题显示必要前提。",
+    "limitation": "知识登记不代表对应扩展算法已经实现；条目是人工维护的受限知识库，不声称自动完成物理模型审查。",
+    "evidence": [
+      "emsolver/knowledge.py",
+      "web/src/components/AssistantGovernance.tsx",
+      "tests/test_knowledge.py::test_special_advice_shows_prerequisites_and_does_not_rewrite_problem",
+      "tests/test_knowledge.py::test_registry_versions_sources_search_and_copy_isolation"
+    ],
+    "prd_requirement": "管理算法适用条件、故障处置和官方文档链接；注明出处与版本。验收：涉及LOBPCG、PML或广义问题的建议必须显示适用前提，AI文字不得覆盖数值状态。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F57",
+    "title": "单次运行报告",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "成功/部分/失败报告保留目标、来源/哈希、完整配置、环境/源码/依赖、实际策略、尝试、精度、资源、异常、产物状态和可移植复现命令，所有数字来自原始记录。",
+    "limitation": "报告只能复述记录范围；未知提交、镜像或参考保持未知，受限输入仍须合法提供，报告存在不等于官方验收通过。",
+    "evidence": [
+      "emsolver/reporting.py",
+      "emsolver/provenance.py",
+      "tests/test_reporting.py::test_report_escapes_untrusted_names_and_keeps_partial_state",
+      "tests/test_cli_failure_regressions.py::test_missing_input_keeps_config_and_generates_failure_report"
+    ],
+    "prd_requirement": "包含目标、数据来源与哈希、环境、完整配置、实际算法、位移历史、精度、资源、异常、支持边界和复现命令。验收：失败运行也能生成报告，所有数字均可定位原始指标。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F58",
+    "title": "基准报告",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "HTML基准报告逐例保留状态、残差、参考/子空间误差或无参考原因、耗时/峰值、内外迭代及规则处置建议，并附原始验证/评价/指标；所有失败、超时和计时分母保留。",
+    "limitation": "缺外部参考明确NOT_AVAILABLE/未认证；未知迭代不填0。报告支持归因检查，不因生成报告而证明某策略有效或工业目标已认证。",
+    "evidence": [
+      "emsolver/reporting.py",
+      "emsolver/experiments.py",
+      "tests/test_reporting.py::test_benchmark_report_has_per_case_accuracy_iterations_and_disposition",
+      "tests/test_reporting.py::test_batch_report_retains_failed_rows_and_denominators"
+    ],
+    "prd_requirement": "汇总每个用例的状态、残差、参考误差、子空间误差、耗时、峰值内存、迭代和处置建议；缺参考的项目标明未认证。验收：分母、失败和超时不被省略。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F59",
+    "title": "材料完整性检查",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "材料检查器验证源码/入口/脚本语义、CLI命令、配置Schema、可运行样例、许可证与锁定清单、构建引用及66条可追溯证据；缺核心内容退出2。",
+    "limitation": "source_delivery_complete只表示所列源码材料及受限语义检查通过；functional_acceptance保持NOT_CERTIFIED，不证明官方提交材料或每条PRD全部通过。",
+    "evidence": [
+      "scripts/check_delivery.py",
+      "tests/test_delivery.py",
+      "docs/dependency-inventory.json"
+    ],
+    "prd_requirement": "检查源码、构建、许可证、数据说明、README、配置、报告和演示脚本，输出缺项阻断清单。验收：缺失核心脚本或可运行样例时不生成“交付完整”状态。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F60",
+    "title": "脱敏与打包",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "内部备份与公开复现包分开；公开包按冻结许可排除受限输入/结果，流式写入二进制并重建哈希；剥离身份、私有路径、凭据字段、URL用户信息/敏感查询与片段，生成后扫描失败则拒绝发布。",
+    "limitation": "公开授权和数据权属仍需负责人提供；UNKNOWN许可的NIST输入不可再分发，运行时文本扫描不构成源码任意语义或法律许可审查。",
+    "evidence": [
+      "emsolver/reporting.py",
+      "emsolver/public_export.py",
+      "tests/test_reporting.py::test_public_bundle_redacts_embedded_identity_paths_and_streams_binary",
+      "tests/test_reporting.py::test_public_bundle_url_query_credentials_are_redacted_and_raw_scanner_rejects_them",
+      "tests/test_offline_instance.py::test_public_archive_checks_hashes_and_refuses_unsafe_or_private_runtime_data"
+    ],
+    "prd_requirement": "分别导出内部复现包和公开参赛包；公开包默认移除私有数据、用户身份、凭据、绝对路径和受限结果。验收：公开包解压扫描通过，清单列明被排除的数据和替代样例。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F61",
+    "title": "能力探测",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "探测CPU/核数、内存、磁盘、NumPy/SciPy与数值库版本、实复能力、安装与支持状态，区分CPU可用和未验证MPI/GPU/SLEPc，记录实际线程池。",
+    "limitation": "安装可发现不等于后端受支持；CPU路径不保证在任意稀疏分解上获得多核加速。",
+    "evidence": [
+      "emsolver/numerics/core.py",
+      "emsolver/service.py",
+      "web/src/App.tsx",
+      "tests/test_api_integration.py::test_api_auth_all_routes_and_strict_payload",
+      "docs/evidence/doctor.json"
+    ],
+    "prd_requirement": "启动时检测CPU、内存、可用磁盘、数值库类型、复数支持、MPI/GPU和后端版本。验收：没有GPU时选择CPU基线，并在摘要中明确降级。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F62",
+    "title": "离线安装",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "0.5.0锁定Python与前端依赖，制作按平台wheelhouse及无索引安装包；macOS全新环境从安装wheel运行，Linux本地wheel镜像在network=none、只读根、去能力及2GiB限制下完成服务/验证/导出/恢复重跑。",
+    "limitation": "macOS安装为--no-index，运行只请求回环但宿主网络未关闭；Linux实际无网络但为amd64翻译环境。wheel受系统/架构/Python ABI约束，不声称跨平台wheel通用或原生赛事性能。",
+    "evidence": [
+      "scripts/prepare_offline.sh",
+      "scripts/verify_offline_instance.py",
+      "tests/test_offline_instance.py",
+      "requirements.lock",
+      "web/package-lock.json",
+      "Dockerfile",
+      "docs/evidence/v040-macos-installation.json",
+      "docs/evidence/v040-macos-offline-instance.json",
+      "docs/evidence/v040-linux-offline-instance.json"
+    ],
+    "prd_requirement": "提供源码构建和已锁定依赖的离线包方案；区分Linux评测基准与macOS开发验证，不能把开发机结果冒称比赛环境结果。验收：无外网且无外部API密钥可运行最小闭环。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F63",
+    "title": "多核与扩展后端",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "CPU线程仍受控；按真实构建档案启用Linux SLEPc/PETSc/MUMPS标准实数/复数Krylov-Schur单秩/双秩，以及macOS ARM64 Metal JD低精度修正并由CPU双精度复核。",
+    "limitation": "仅声明逐组合实测支持；无CUDA、多节点或任意MPI规模承诺，不声明普遍加速。SLEPc复制输入、宿主/容器各占任务半额内存；Metal为软建议加实际分配守卫。",
+    "evidence": [
+      "emsolver/resource_budgets.py",
+      "emsolver/optional_backends.py",
+      "emsolver/numerics/gpu.py",
+      "tests/test_gpu_metal.py",
+      "tests/test_optional_backends.py",
+      "tests/test_slepc_integration.py",
+      "docs/evidence/v050-numerical-summary.json",
+      "docs/slepc-backend.md"
+    ],
+    "prd_requirement": "P0提供可配置CPU线程并控制数值库嵌套线程；MPI/GPU按构建矩阵独立启用，记录支持的数据类型、算法和硬件。验收：每种声称支持的组合有实际运行日志，不兼容组合启动前拒绝。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。",
+    "software_implementation": "implemented",
+    "external_acceptance": "NOT_CERTIFIED"
+  },
+  {
+    "id": "F64",
+    "title": "存储与回收",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "输入按哈希只读、输出按作业隔离，项目配额与显式保留周期可配置；只回收明确不保留且到期的终态结果，保护活动/保留后代依赖链，事务隔离回收可恢复。",
+    "limitation": "不自动删除已登记输入；物理清理失败保留pending并不声称已腾盘，未知文件及规范元数据/事件继续保留。",
+    "evidence": [
+      "emsolver/governance.py",
+      "emsolver/retention.py",
+      "emsolver/service.py",
+      "web/src/components/JobLifecycleControls.tsx",
+      "tests/test_retention.py",
+      "tests/test_backend_protocol.py::test_actual_disk_usage_is_rechecked_after_export_and_before_manifest"
+    ],
+    "prd_requirement": "输入只读，任务输出分目录；设配额、保留周期和失败临时文件清理。验收：回收不能删除被保留运行依赖的数据，磁盘不足不产生伪成功文件。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F65",
+    "title": "备份恢复",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "备份在跨Store写事务锁内先恢复未完成回收再捕获独立SQLite快照，活动求解/导入返回BUSY；恢复到新空根核对哈希/引用及所有已发布清单载荷，显式allow_missing才允许降级并剥离待导入私有身份。",
+    "limitation": "默认缺文件或未声明遗漏均拒绝；降级不允许运行缺输入任务。备份等待活动任务结束，不覆盖当前实例；恢复后用新进程/任务重新验证，不冒充原进程精确续算。",
+    "evidence": [
+      "emsolver/backup.py",
+      "emsolver/service.py",
+      "tests/test_backup_consistency.py",
+      "tests/test_product_integrations.py::test_backup_serializes_retention_with_snapshot",
+      "tests/test_product_integrations.py::test_backup_missing_payload_requires_explicit_degraded_restore_and_pending_import_is_safe",
+      "tests/test_offline_instance.py::test_standalone_offline_verifier_runs_real_http_solver_exports_restore_and_rerun"
+    ],
+    "prd_requirement": "备份项目元数据、配置、清单及按策略保留的输入输出；恢复后核对哈希和引用关系。验收：抽样项目能在干净实例恢复并重跑，缺失大文件时显示缺失状态。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  },
+  {
+    "id": "F66",
+    "title": "健康与版本",
+    "status": "implemented",
+    "version": "0.9.0",
+    "implemented_scope": "健康接口区分服务、队列、数值后端和存储可写，展示版本、身份模式及支持边界；数值后端缺失时保留历史查询与降级状态。",
+    "limitation": "仅反映本实例当前探测结果；不等于所有PRD、官方环境、分布式高可用或工业数据性能已验收。",
+    "evidence": [
+      "emsolver/service.py",
+      "emsolver/api.py",
+      "web/src/App.tsx",
+      "tests/test_api_integration.py::test_api_auth_all_routes_and_strict_payload"
+    ],
+    "prd_requirement": "区分服务存活、队列可用、后端可运行和存储可写；展示当前版本和支持范围。验收：数值后端故障时Web仍可查看历史结果，健康接口能反映降级原因。",
+    "acceptanceNote": "本条记录所列支持范围的软件能力与可追溯测试，不构成官方验收、工业性能或一般稀疏目标完整性证明；条件与未完成项不得省略。"
+  }
+]

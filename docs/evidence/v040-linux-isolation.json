@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "image": "emsolver-solver:v040",
+  "image_id": "sha256:98c9510fb9ed2ce2860b2f9de950673bc91e48af877c02b368498021d1faed68",
+  "image_platform": {
+    "os": "linux",
+    "architecture": "amd64"
+  },
+  "input_sha256": "70573749c47a99700ed18a7d0850076432479eaf31cdcae9e6067824d80c61c4",
+  "config_sha256": "a0ab70923ae2152ff1b633f14c67183644c867fec19b2c3e5a6e0ae3096dfbf5",
+  "reference_mounted": false,
+  "reference_evaluation_phase": "after_candidate_exit",
+  "scope": "Linux container functionality; host emulation is not native competition performance",
+  "access_probe": {
+    "reference": "DENIED",
+    "docker_socket": "DENIED",
+    "network_connect_errno": 101
+  },
+  "security": {
+    "NetworkMode": "none",
+    "ReadonlyRootfs": true,
+    "CapDrop": [
+      "ALL"
+    ],
+    "SecurityOpt": [
+      "no-new-privileges"
+    ],
+    "Memory": 1073741824,
+    "MemorySwap": 1073741824,
+    "NanoCpus": 1000000000,
+    "PidsLimit": 64,
+    "Privileged": false
+  },
+  "mounts": [
+    {
+      "destination": "/input/matrix.npz",
+      "read_only": true,
+      "kind": "bind"
+    },
+    {
+      "destination": "/input/config.yaml",
+      "read_only": true,
+      "kind": "bind"
+    },
+    {
+      "destination": "/output",
+      "read_only": false,
+      "kind": "bind"
+    }
+  ],
+  "container_exit_code": 0,
+  "oom_killed": false,
+  "end_to_end_seconds": 1.5650478330207989,
+  "evaluation": {
+    "passed": true,
+    "matched_count": 4,
+    "candidate_count": 4,
+    "reference_count": 4,
+    "max_eigenvalue_absolute_error": 0.0,
+    "max_subspace_sine": 0.0,
+    "clusters": [
+      [
+        3
+      ],
+      [
+        1
+      ],
+      [
+        0
+      ],
+      [
+        2
+      ]
+    ],
+    "cluster_ranks_valid": true,
+    "orthogonality_error": 0.0,
+    "matching": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "reference_scope": "provided target set only",
+    "limitations": [
+      "Reference accuracy and target coverage must be established independently; no feedback to solver"
+    ]
+  },
+  "candidate_manifest_present": true,
+  "candidate_status": "SUCCEEDED"
+}

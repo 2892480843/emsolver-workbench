@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "archives": [
+    {
+      "name": "emsolver-source-0.6.0.zip",
+      "matches_pinned_v060": true,
+      "sha256": "9fcacc544313cc2e39986bcac29dc189bb8e91fc99aa9b3daf54dc6a6d7bb97f"
+    },
+    {
+      "name": "emsolver-offline-macos-arm64-py312-0.6.0.zip",
+      "matches_pinned_v060": true,
+      "sha256": "fe5226308f2c523aebd8df4b3a175af3686047ecd59dbffbb2590943f230cd18"
+    },
+    {
+      "name": "emsolver-linux-amd64-0.6.0.docker.tar.gz",
+      "matches_pinned_v060": true,
+      "sha256": "2f2901f4ab186cf8297e707fc8db22bd0b82e7405e9c52de4de817d5b1b852fb"
+    },
+    {
+      "name": "emsolver-public-industrial-gsm-106857-v1.zip",
+      "matches_pinned_v060": true,
+      "sha256": "ae0977ae6043dc7a5318ede164ec7f211d175a9a2868ef72a19cde28578f70c7"
+    }
+  ]
+}

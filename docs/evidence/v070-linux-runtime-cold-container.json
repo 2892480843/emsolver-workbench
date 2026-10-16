@@ -1,0 +1,39 @@
+{
+  "container_id": "2406041e78e89713c389b427c655f452a1ed50e409a0c5ab3f9dbef38585e0f1",
+  "exit_code": 0,
+  "docker_start_exit_code": 0,
+  "oom_killed": false,
+  "seconds": 5.1549165829783306,
+  "isolation": {
+    "network_mode": "none",
+    "readonly_rootfs": true,
+    "cap_drop": [
+      "ALL"
+    ],
+    "pids_limit": 128,
+    "memory_limit_bytes": 2147483648,
+    "memory_swap_bytes": 2147483648,
+    "nano_cpus": 2000000000,
+    "security_opt": [
+      "no-new-privileges"
+    ],
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/Users/a111/chen/\u7ade\u8d5b/\u4e0a\u6d77\u5f00\u6e90\u8f6f\u4ef6\u5e94\u7528\u521b\u65b0\u5927\u8d5b/artifacts/v070-linux-delivery-data",
+        "Destination": "/data",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  "command": [
+    "/app/scripts/verify_offline_instance.py",
+    "--output",
+    "/data/runtime-cold.json",
+    "--work-dir",
+    "/data/cold-work"
+  ],
+  "log": "docs/evidence/v070-linux-runtime-cold.log"
+}

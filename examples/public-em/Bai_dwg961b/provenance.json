@@ -1,0 +1,39 @@
+{
+  "spdx": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "collection_license_source": "https://sparse.tamu.edu/about",
+  "verified_date": "2026-10-16",
+  "scope": "SuiteSparse collection matrices; preserve original matrix headers and author credits; unchanged originals copied. Does not apply to separately downloaded NIST data.",
+  "evidence_boundary": "Official current collection pages, official legacy UF mirror, and downloaded headers agree. These are one collection lineage, not two independent institutions. SHA-256 is locally computed over TLS-downloaded files, not an upstream signed checksum.",
+  "collection_citations": [
+    "Davis and Hu (2011), DOI:10.1145/2049662.2049663",
+    "Kolodziej et al. (2019), DOI:10.21105/joss.01244"
+  ],
+  "identity": "Bai/dwg961b",
+  "original_authors": [
+    "S. Gedney",
+    "U. Navasariwala"
+  ],
+  "original_date": "1996",
+  "editors": [
+    "Z. Bai",
+    "D. Day",
+    "J. Demmel",
+    "J. Dongarra"
+  ],
+  "source_url": "https://sparse.tamu.edu/Bai/dwg961b",
+  "legacy_official_page": "https://www.cise.ufl.edu/research/sparse/matrices/Bai/dwg961b.html",
+  "download_url": "https://www.cise.ufl.edu/research/sparse/MM/Bai/dwg961b.tar.gz",
+  "files": {
+    "dwg961b.tar.gz": {
+      "bytes": 36572,
+      "sha256": "7dacd01bc25822c8e9222a89b0888b2230a8bd757a92b7d74eab56ec2799f556"
+    },
+    "dwg961b.mtx": {
+      "bytes": 137021,
+      "sha256": "9ca38872ccea1b9843f94f959c9b92e0c6947dc9bb3101a6c1939b0528e3f49e"
+    }
+  },
+  "modifications": "None to redistributed archive or Matrix Market. The original header is preserved.",
+  "role": "Negative input-validation example: complex symmetric is not Hermitian."
+}

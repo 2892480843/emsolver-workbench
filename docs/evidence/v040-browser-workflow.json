@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "version": "0.4.0",
+  "environment": "Isolated local browser acceptance instance; production data untouched",
+  "browser": "Codex in-app browser",
+  "checks": [
+    {
+      "flow": "project policy edit",
+      "verified_in_browser": true
+    },
+    {
+      "flow": "asynchronous file upload and completed structural diagnostics",
+      "verified_in_browser": true
+    },
+    {
+      "flow": "frozen preflight and real diagonal solve",
+      "verified_in_browser": true
+    },
+    {
+      "flow": "complex block inverse iteration residual curves and soft lock markers",
+      "verified_in_browser": true,
+      "outer_iterations": 16,
+      "validated_candidates": 4,
+      "status": "PARTIAL",
+      "numerical_status": "PASSED",
+      "target_certification": "UNVERIFIED"
+    },
+    {
+      "flow": "validated subspace checkpoint creates a distinct linked warm-start job",
+      "verified_in_browser": true,
+      "exact_resume": false
+    },
+    {
+      "flow": "unconfigured local model returns deterministic rules explanation",
+      "verified_in_browser": true
+    },
+    {
+      "flow": "adopt advice creates a new config; derived real run linked into effect record",
+      "verified_in_browser": true,
+      "performance_comparison_allowed": false,
+      "reasons": [
+        "runtime provenance differed during development",
+        "both results not target-certified"
+      ]
+    },
+    {
+      "flow": "operations center reads aggregate counts and saves quota without granting membership",
+      "verified_in_browser": true
+    },
+    {
+      "flow": "production instance restarted at version0.4.0 and still displays34original jobs",
+      "verified_in_browser": true
+    }
+  ],
+  "screenshot": "docs/screenshots/workbench-prd-v040.png",
+  "scope": "Actual local product workflows, not an official competition or industrial-data acceptance.",
+  "operations_screenshot": "docs/screenshots/workbench-operations-v040.png"
+}

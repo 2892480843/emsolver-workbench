@@ -1,0 +1,212 @@
+{
+  "schema_version": "1.0",
+  "version": "0.9.0",
+  "passed": true,
+  "host": {
+    "system": "Darwin",
+    "machine": "arm64"
+  },
+  "target": {
+    "os": "linux",
+    "architecture": "amd64",
+    "execution": "translated amd64 container on arm64 Docker Desktop; no native amd64 performance claim"
+  },
+  "build_network": "none",
+  "base_image": "emsolver-dependencies:py313",
+  "release_freeze_sha256": "5a11a4c394d35d3c89e36641c90960366292e5d580aa0030d25789d79c8473c2",
+  "source_map_sha256": "280b2c209023fdcdd9e7e700c55d6a65b691b00261c7bc52d7a52aea766c1ed2",
+  "optional_slepc_dependency": {
+    "image_tag": "emsolver-slepc:bookworm-arm64-v090",
+    "image_id": "sha256:586b521134202f7e709ddf9c2353b7f85906dac22cc7e4685686acb0421ef592",
+    "os": "linux",
+    "architecture": "arm64",
+    "included_in_cpu_runtime_image": false,
+    "separate_archive": "emsolver-slepc-bookworm-arm64-v090.docker.tar.gz",
+    "delivery_evidence": "docs/evidence/v090-slepc-image-delivery.json",
+    "scope": "Separate optional Docker dependency for OOC; CPU AMD64 checks do not validate it"
+  },
+  "checks": {
+    "installed-wheel": {
+      "container_id": "303b34c6aeb334500e18810cc3148fd9b6bb0234dac7abe0b7cd1a650c2825ba",
+      "exit_code": 0,
+      "docker_start_exit_code": 0,
+      "oom_killed": false,
+      "seconds": 0.4339001670005018,
+      "isolation": {
+        "network_mode": "none",
+        "readonly_rootfs": true,
+        "cap_drop": [
+          "ALL"
+        ],
+        "pids_limit": 128,
+        "memory_limit_bytes": 2147483648,
+        "memory_swap_bytes": 2147483648,
+        "nano_cpus": 2000000000,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "mounts": [
+          {
+            "Type": "bind",
+            "Source": "/Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/v090-linux-delivery-data",
+            "Destination": "/data",
+            "Mode": "",
+            "RW": true,
+            "Propagation": "rprivate"
+          }
+        ]
+      },
+      "command": [
+        "-c",
+        "from pathlib import Path\nimport hashlib, importlib.metadata, json, os, platform\nimport emsolver\nbase=Path(emsolver.__file__).parent\nassert str(base).startswith('/usr/local/lib/python3.13/site-packages/emsolver'), str(base)\nassert not os.environ.get('PYTHONPATH')\nresult={'version':importlib.metadata.version('emsolver-workbench'),'system':platform.system(),'machine':platform.machine(),'python':platform.python_version(),'package_path':str(base),'pythonpath':os.environ.get('PYTHONPATH'),'modules':{'emsolver/'+str(p.relative_to(base)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(base.rglob('*.py'))},'cgroup':{name:Path('/sys/fs/cgroup',name).read_text().strip() for name in ('memory.max','memory.swap.max','pids.max','cpu.max')}}\nassert result['version']=='0.9.0'\nassert result['cgroup']=={'memory.max':'2147483648','memory.swap.max':'0','pids.max':'128','cpu.max':'200000 100000'},result['cgroup']\nPath('/data/installed-modules.json').write_text(json.dumps(result,indent=2)+'\\n')\nprint(json.dumps({key:value for key,value in result.items() if key!='modules'},indent=2))\n"
+      ],
+      "log": "docs/evidence/v090-linux-installed-wheel.log"
+    },
+    "focused-tests": {
+      "container_id": "14326094b967e3794eb2930ed935405e6b52dbbe4d78bc83df4caa58bf25e5f2",
+      "exit_code": 0,
+      "docker_start_exit_code": 0,
+      "oom_killed": false,
+      "seconds": 18.267914459000167,
+      "isolation": {
+        "network_mode": "none",
+        "readonly_rootfs": true,
+        "cap_drop": [
+          "ALL"
+        ],
+        "pids_limit": 128,
+        "memory_limit_bytes": 2147483648,
+        "memory_swap_bytes": 2147483648,
+        "nano_cpus": 2000000000,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "mounts": [
+          {
+            "Type": "bind",
+            "Source": "/Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/v090-linux-delivery-data",
+            "Destination": "/data",
+            "Mode": "",
+            "RW": true,
+            "Propagation": "rprivate"
+          },
+          {
+            "Type": "bind",
+            "Source": "/Users/a111/chen/竞赛/上海开源软件应用创新大赛/tests",
+            "Destination": "/checks/tests",
+            "Mode": "",
+            "RW": false,
+            "Propagation": "rprivate"
+          }
+        ]
+      },
+      "command": [
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp=/tmp/pytest",
+        "--junitxml=/data/focused-tests.xml",
+        "-k",
+        "not test_actual_ooc",
+        "/checks/tests/test_ilu_preconditioning.py",
+        "/checks/tests/test_robust_preconditioning.py",
+        "/checks/tests/test_accuracy_refinement.py",
+        "/checks/tests/test_independent_counts.py",
+        "/checks/tests/test_weighted_counts.py",
+        "/checks/tests/test_certification_routing.py",
+        "/checks/tests/test_numerics_certification.py",
+        "/checks/tests/test_numerics.py",
+        "/checks/tests/test_backend_protocol.py",
+        "/checks/tests/test_contracts.py",
+        "/checks/tests/test_protocols.py",
+        "/checks/tests/test_shift_policy.py",
+        "/checks/tests/test_slepc_workspace_budget.py",
+        "/checks/tests/test_slepc_ooc.py",
+        "/checks/tests/test_slepc_driver.py"
+      ],
+      "log": "docs/evidence/v090-linux-focused-tests.log",
+      "test_counts": {
+        "tests": 310,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 310
+      }
+    },
+    "runtime-cold": {
+      "container_id": "f8311cae652176b4ed320f1927b4a2f7559a9694db83b82fe294229939c7138e",
+      "exit_code": 0,
+      "docker_start_exit_code": 0,
+      "oom_killed": false,
+      "seconds": 5.38836474999971,
+      "isolation": {
+        "network_mode": "none",
+        "readonly_rootfs": true,
+        "cap_drop": [
+          "ALL"
+        ],
+        "pids_limit": 128,
+        "memory_limit_bytes": 2147483648,
+        "memory_swap_bytes": 2147483648,
+        "nano_cpus": 2000000000,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "mounts": [
+          {
+            "Type": "bind",
+            "Source": "/Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/v090-linux-delivery-data",
+            "Destination": "/data",
+            "Mode": "",
+            "RW": true,
+            "Propagation": "rprivate"
+          }
+        ]
+      },
+      "command": [
+        "/app/scripts/verify_offline_instance.py",
+        "--output",
+        "/data/runtime-cold.json",
+        "--work-dir",
+        "/data/cold-work"
+      ],
+      "log": "docs/evidence/v090-linux-runtime-cold.log"
+    }
+  },
+  "image_id_before": "sha256:5133f5947a50ada8507f7684e632b13e68ed8669e37f0151ad3b303602f94700",
+  "image_os": "linux",
+  "image_architecture": "amd64",
+  "installed_module_count": 69,
+  "installed_source_wheel_hashes_match": true,
+  "wheel_sha256": "982211468aab5c7cbf97727ec55e940ce43aa8ba6934002158a48aa8ad00a5f3",
+  "cgroup_constraints_verified": true,
+  "focused_tests": {
+    "tests": 310,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 310
+  },
+  "image_id_after": "sha256:5133f5947a50ada8507f7684e632b13e68ed8669e37f0151ad3b303602f94700",
+  "save_load_image_id_unchanged": true,
+  "archive": "artifacts/emsolver-linux-amd64-0.9.0.docker.tar.gz",
+  "archive_bytes": 124911709,
+  "archive_sha256": "464408b63e0f3a8fcb21239b19878d59f8f46213486a6412632c352963119329",
+  "cold_passed": true,
+  "served_frontend_assets_match_frozen_local_dist": true,
+  "offline_cold_checks": [
+    "frontend",
+    "solver",
+    "independent_validation",
+    "report",
+    "public_bundle",
+    "backup_restore",
+    "restored_rerun"
+  ],
+  "cold_checks_after_image_load": true,
+  "preserved_v080_archive_sha256": "25d33770f9e79f13f13eee3b66573090b5de351b7afb7959a97acf07399674bc",
+  "source_unchanged_after_checks": true,
+  "release_frozen_source_unchanged": true
+}

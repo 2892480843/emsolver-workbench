@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "reviewed_at": "2026-10-16T05:59:28.865361+00:00",
+  "platform": "macOS arm64",
+  "scope": "Rigorous, bounded independent target counting for separated Hermitian row disks; no actual industrial positive claim",
+  "source_sha256": {
+    "emsolver/numerics/independent_counts.py": "2535e8b3128d04492569b7bbc769d887331c4999de3ca0991a43658508724301",
+    "tests/test_independent_counts.py": "a495c28cb7ca4de73695b2bbcf503bf74b6e31dbbe69a6067fffa7ec53d5d520",
+    "docs/independent-target-counts.md": "c5826c4f475963d2dee2c33f109c6814b3433ea39397335f41d1ea00cebbc23d"
+  },
+  "implementation_contract": {
+    "module": "emsolver.numerics.independent_counts",
+    "function": "certify_gapped(matrix, values, vectors, config, *, budget=None, check=None)",
+    "source": "exact_dyadic_gapped_gershgorin_v1",
+    "input": "Strictly Hermitian canonical CSR and bounded NumPy candidate arrays; float32/float64/complex64/complex128",
+    "result": "CERTIFIED only after independent count, per-group association, exact residual and local/global subspace proofs; otherwise UNVERIFIED"
+  },
+  "proof_chain": [
+    "Exact IEEE dyadic coefficients; conservative rational row radius sum(abs(real)+abs(imag)); exact Hermitian equality, no symmetrization.",
+    "Separated union of k enlarged Gershgorin disks contains exactly k eigenvalues counting multiplicity; no pivot signs or candidate eigensolver used.",
+    "Nearest window is selected solely from original matrix row disks: inner maximal radial extent strictly below all remaining disks nearest radial extent. Two independently countable boundaries contain exactly k roots.",
+    "Interval targets use a strict partition of every disk into inside/left/right; only isolated radius-zero rows can resolve exact zero/endpoints. Ambiguous disks refuse.",
+    "Exact original residual L1 upper bound divided by component norm lower bound encloses a true root; value enclosure radius retains the prior stringent relative fidelity guard.",
+    "Candidate enclosures form disjoint groups. Inter-group midpoints must be independently countable and root-free; each partition count equals group column count.",
+    "Any group with multiple candidates additionally needs an independent count in its tight residual enclosure union. Whole-target counts cannot substitute for cluster multiplicity.",
+    "Exact Gram diagonal-dominance lower bound delta and residual leakage B prove projection rank when B^2<delta. B^2/delta<=1e-8 proves the whole-span principal-angle threshold 1e-4, locally and globally.",
+    "Angle display uses an integer upward square-root bound and outward floating rounding. Empty certificates perform a final cancellation/time guard."
+  ],
+  "findings_fixed": [
+    {
+      "id": "association",
+      "severity": "high",
+      "reproduction": "A=diag(1,2,100); sigma=1.5; k=2; values=[1,1]; X=[e1+2^-44 e2,e1-2^-44 e2]",
+      "before": "Standalone CERTIFIED reproduced; integrated numerical orthogonality gate rejected, so no full-system false acceptance was demonstrated.",
+      "after": "UNVERIFIED / candidate_cluster_count_mismatch",
+      "verification": "Failing red regression observed before fix; now passes."
+    },
+    {
+      "id": "principal_angle",
+      "severity": "high",
+      "reproduction": "A=diag(1,1,100); values=[1,1]; X=[e1+eps*(e2+0.5e3),e1-eps*(e2+0.5e3)]; eps=2^-48",
+      "before": "Per-column angles can be tiny while whole-space maximum principal angle is atan(0.5); rank injectivity alone is not an angle bound.",
+      "after": "UNVERIFIED / mode_subspace_not_verified",
+      "verification": "Derived exact B^2/delta gate and dedicated regression."
+    },
+    {
+      "id": "csr_flags",
+      "severity": "high",
+      "reproduction": "CSR duplicate diagonal entries with has_canonical_format=True and has_sorted_indices=True manually overwritten",
+      "before": "Standalone oracle accepted actual noncanonical structure in an observed failing test.",
+      "after": "Rejected invalid_canonical_ieee_input using actual index ordering and uniqueness checks."
+    },
+    {
+      "id": "resource_cancellation",
+      "severity": "medium",
+      "after": "Final empty-result guard, pre-CSC guard, candidate element limit before isfinite, bounded exact arithmetic and callback propagation."
+    }
+  ],
+  "verification": {
+    "focused_command": ".venv-emsolver/bin/python -m pytest tests/test_independent_counts.py tests/test_numerics_certification.py -q",
+    "focused_result": {
+      "passed": 61,
+      "failed": 0,
+      "seconds": 1.9
+    },
+    "new_test_count": 41,
+    "previous_exact_certification_test_count": 20,
+    "independent_dense_reference_cases": "10 seeds each for real and complex small gapped matrices; eigenvalue count cross-checks at eight points plus interval count.",
+    "adversarial_run": {
+      "comparisons": 320,
+      "correct_cases_certified": 80,
+      "false_certified": 0,
+      "description": "80 independent real/complex small matrices, each with correct candidates, wrong vector assignment, duplicate values, and unrelated random vectors."
+    },
+    "large_synthetic_positive": {
+      "n": 100003,
+      "target_modes": 2,
+      "matrix": "Sparse nontridiagonal three-row low block plus disjoint gapped band; only three-row block uses a dense test reference. No large eigensolve."
+    },
+    "independent_reviewer": "industrial_ilu agent independently verified association counterexample refusal, whole-angle counterexample refusal and correct degenerate nonorthogonal basis acceptance; 40 focused tests passed with large synthetic test deselected.",
+    "real_gsm_probe": "NOT_RUN: root requested no concurrent probe while resource-guarded ILU diagnostic was active.",
+    "full_suite": "Not run by this subagent; root controls full regression and release."
+  },
+  "budgets": {
+    "max_n": 1000000,
+    "max_nnz": 30000000,
+    "max_modes": 16,
+    "max_vector_entries": 2000000,
+    "max_operations": 5000000,
+    "max_bits": 16384,
+    "max_count_calls": 32,
+    "max_seconds": 5
+  },
+  "limitations": [
+    "Requires separated exact row-disk unions and independently countable candidate separators; overlapping disks cause conservative UNVERIFIED.",
+    "Repeated non-diagonal clusters whose tight enclosures cannot be counted remain UNVERIFIED; no generic large sparse completeness guarantee.",
+    "Fixed-k certification only; no silent cluster expansion, target change or coefficient modification.",
+    "In-process time limits are cooperative, checked between bounded operations. Caller must retain existing worker memory/deadline guards.",
+    "Numerical acceptance is a separate original-problem validation gate; this module proves target association/coverage under its explicit conditions.",
+    "No floating MUMPS inertia is promoted to an exact certificate, no independent reference file or known matrix name enters the proof."
+  ],
+  "primary_sources": [
+    {
+      "url": "https://petsc.org/release/manualpages/Mat/MatGetInertia/",
+      "supports": "Inertia API requires the appropriate factored matrix, not generic LU."
+    },
+    {
+      "url": "https://petsc.org/main/src/mat/impls/aij/mpi/mumps/impl/imumps.c.html",
+      "supports": "MUMPS complex Hermitian Cholesky restriction and inertia options."
+    },
+    {
+      "url": "https://www.mumps-solver.org/index.php?page=faq",
+      "supports": "Parallel-root ScaLAPACK inertia lower-bound limitation and ICNTL(13)=1."
+    },
+    {
+      "url": "https://people.cas.uab.edu/~mosya/teaching/660new3.pdf",
+      "supports": "Second Gershgorin theorem, separated unions count multiplicity."
+    },
+    {
+      "url": "https://sites.math.rutgers.edu/~falk/math574/lecture7.pdf",
+      "supports": "Independent Gershgorin row-radius and separated-union count theorem."
+    },
+    {
+      "url": "https://www.cs.cornell.edu/courses/cs6210/2025fa/lec/2025-12-01.html",
+      "supports": "Hermitian residual and spectral proximity relationship."
+    }
+  ]
+}

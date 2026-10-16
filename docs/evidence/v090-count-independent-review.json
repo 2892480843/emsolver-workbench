@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "review_id": "v090-count-independent-review",
+  "review_date": "2026-10-16",
+  "reviewer": "independent development subagent industrial_sources; not external human or institution",
+  "review_scope": "Research prototype only, no production integration or GSM run",
+  "status": "REVIEW_PASSED_WITH_RESOURCE_FINDING_FIXED",
+  "source": {
+    "path": "artifacts/v090-count-reference-research/verified_inertia_sandwich.py",
+    "sha256": "89bafd5df2c33cda679eb84aa5f33c308ae80d7909b8f2526e02fa5f03dd9ebc"
+  },
+  "test_source_sha256": "36447c99c4b5b649a25101cf191fe296ce745f941fcfaf59984420692984a73d",
+  "math_review": {
+    "two_by_two_hermitian_block": "For D=[[a,c],[c*,b]], det=ab-|c|^2 and trace=a+b exactly classify signs. Hermitian check guarantees real diagonal; disjoint adjacent blocks are structurally enforced. Positive determinant with zero trace cannot occur for a Hermitian 2x2 block.",
+    "permutation": "permutation[i] gives original row index of factor row i; inverse[original_j] maps original column to factor column. Thus streamed residual uses A[permutation,permutation]. L D L* construction correctly conjugates sparse columns.",
+    "residual_norm": "All stored real/imaginary components are exact rational values; the row bound sums |Re|+|Im|. The exact residual is Hermitian, so ||E||2 <= sqrt(||E||1 ||E||inf)=||E||inf <= delta.",
+    "bracketing": "With B- approximating P(H-eta I)P* and B+ approximating P(H+eta I)P*, exact residual bounds delta±<eta and equal nonzero inertias force exactly m negative roots of H. Ordered Hermitian eigenvalue inequalities give gap>=eta-max(delta-,delta+). An inverse-norm bound is unnecessary for this two-sided argument.",
+    "edge_counts": "m=0 and m=n are valid with the corresponding one-sided gap inequality; separately verified at exponents -1000 through +1000.",
+    "no_dense_or_product_in_verifier": "Read implementation and reran original monkeypatched tests. Factor provider/test construction may use tiny dense LAPACK or sparse products; verifier itself uses sparse row/column indexes, never a dense original matrix or full sparse factor product.",
+    "input_memory": "Entire bounded inputs/factors are converted to rational dictionaries. Only factor-product/residual rows stream. This is not a zero-copy input or industrial memory guarantee.",
+    "result_scope": "An endpoint inertia certificate alone does not certify selected candidate eigenvectors, nearest-k target order, cluster multiplicity or complete physical mode coverage."
+  },
+  "findings": [
+    {
+      "priority": "P2",
+      "id": "delayed_row_fill_budget",
+      "path": "artifacts/v090-count-reference-research/verified_inertia_sandwich.py",
+      "function": "_Verifier.rows",
+      "observation": "Original reviewed version checked row fill only after converting the entire row, allowing a low configured row limit to allocate up to n exact entries before refusal.",
+      "action": "Owner moved guard(row=row) immediately after each nonzero row insertion and retained final guard.",
+      "status": "FIXED_AND_INDEPENDENTLY_VERIFIED",
+      "red_evidence": "artifacts/v090-count-reference-research/review-row-budget-red.log",
+      "independent_regression": "artifacts/v090-source-audit/test_count_independent_review.py::test_low_row_budget_stops_before_converting_full_input_row",
+      "observed_probe_updates": 2,
+      "observed_probe_peak_row_entries": 2
+    }
+  ],
+  "verification": [
+    {
+      "command": ".venv-emsolver/bin/python -m pytest artifacts/v090-count-reference-research/test_verified_inertia_sandwich.py -q",
+      "result": "26 passed",
+      "log": "artifacts/v090-source-audit/count-independent-tests.log"
+    },
+    {
+      "command": ".venv-emsolver/bin/python -m pytest artifacts/v090-source-audit/test_count_independent_review.py -q",
+      "result": "108 passed",
+      "log": "artifacts/v090-source-audit/count-supplemental-tests.log",
+      "details": [
+        "96 independent exact dyadic real/complex congruences with 2x2 blocks, random permutations and scales 2^-400,1,2^400",
+        "10 scalar all-negative/all-positive edge counts at scales 2^-1000 through 2^1000",
+        "smallest positive subnormal conservative refusal",
+        "early row-budget refusal"
+      ]
+    }
+  ],
+  "industrial_input_loaded": false,
+  "production_modified": false,
+  "heavy_compute_performed": false,
+  "open_production_preconditions": [
+    "Actual sparse factor export must preserve all scaling, permutations and 1x1/2x2 block structure",
+    "Preflight factor-product update counts and row fill before industrial verification",
+    "Explicit subprocess memory/time/disk hard guards",
+    "Audited outward-rounding bulk arithmetic or sufficient exact-rational budget for industrial size",
+    "Integrate endpoint proof with candidate residual, rank, multiplicity and target selection checks",
+    "Run a full untouched industrial matrix without substituting synthetic evidence"
+  ],
+  "external_human_attestation": null,
+  "industrial_acceptance_claim": false
+}

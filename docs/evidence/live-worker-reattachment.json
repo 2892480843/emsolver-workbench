@@ -1,0 +1,47 @@
+{
+  "job_id": "j_ed764d3c951f45eb99cc55d92f15aec3",
+  "status": "PARTIAL",
+  "error": {
+    "code": "TARGET_UNVERIFIED",
+    "message": "Target unverified"
+  },
+  "validation": {
+    "numerical_status": "PASSED",
+    "residual_definition": "scaled_inf_v1",
+    "residuals": [
+      7.6868258428061e-09,
+      3.1586364650658494e-09,
+      6.567917391332713e-09,
+      8.23761290499999e-09,
+      5.836673937154805e-09
+    ],
+    "absolute_residuals_2": [
+      3.907966524824445e-08,
+      2.3946854314685868e-08,
+      5.702085056536402e-08,
+      7.076777040334338e-08,
+      4.562115258992542e-08
+    ],
+    "orthogonality_error": 5.463588836605195e-16,
+    "n_validated": 5,
+    "normalization": "unit_2_norm",
+    "target_certification": "UNVERIFIED",
+    "certification_source": "tridiagonal_sturm_lapack_stebz",
+    "boundary_cluster_cut": false,
+    "expected_count": 5,
+    "missing_count": null,
+    "endpoint_ambiguous": false,
+    "certification_window_count": 5,
+    "certification_absolute_tolerance": 7.287869212880237e-14,
+    "mode_subspace_angle_bound_max": 921.048455813825,
+    "mode_subspace_angle_threshold": 0.0001,
+    "certification_limit": "mode_subspace_not_verified"
+  },
+  "recovered": true,
+  "reconciled": false,
+  "recovery_observation_gap": true,
+  "event_count": 37,
+  "event_sequences_monotonic": true,
+  "terminal_event_count": 1,
+  "worker_event_offset": 21437
+}

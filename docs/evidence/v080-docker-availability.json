@@ -1,0 +1,28 @@
+{
+  "host": {
+    "system": "Darwin",
+    "machine": "arm64"
+  },
+  "docker_context": "desktop-linux",
+  "initial_failure": "Docker socket missing; daemon unavailable",
+  "recovery_command": [
+    "open",
+    "-a",
+    "Docker"
+  ],
+  "recovery_exit_code": 0,
+  "server_version": "29.7.2",
+  "socket": "/Users/a111/.docker/run/docker.sock",
+  "existing_images": {
+    "emsolver-slepc:bookworm-arm64-v1": {
+      "id": "sha256:04a9337651ebae49cffb40b0fdce800aadb5cbc15325de53ba73acbbbb486f11",
+      "platform": "linux/arm64"
+    },
+    "emsolver-dependencies:py313": {
+      "id": "sha256:3adbdfb917c0ad721ae731e91c8980089a0447743645a703625c006e082c4daf",
+      "platform": "linux/amd64"
+    }
+  },
+  "downloaded_or_installed": false,
+  "daemon_ready": true
+}

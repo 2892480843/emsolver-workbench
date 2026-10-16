@@ -1,0 +1,28 @@
+name: emsolver-compute
+services:
+  worker:
+    image: ${EMSOLVER_WORKER_IMAGE:-emsolver-team:local}
+    restart: unless-stopped
+    user: "${EMSOLVER_UID:-1000}:${EMSOLVER_GID:-1000}"
+    command:
+      - remote-worker
+      - --server
+      - ${EMSOLVER_SERVER_URL:?Set the HTTPS control-plane URL}
+      - --token-file
+      - /run/emsolver/worker.token
+      - --work-dir
+      - /work
+      - --threads
+      - ${EMSOLVER_WORKER_THREADS:-1}
+      - --memory-gib
+      - ${EMSOLVER_WORKER_MEMORY_GIB:-2}
+      - --disk-gib
+      - ${EMSOLVER_WORKER_DISK_GIB:-4}
+    volumes:
+      # A dedicated directory preserves credential ownership on Docker Desktop.
+      # It must contain only this node's owned 0600 worker.token.
+      - ${EMSOLVER_WORKER_CREDENTIAL_DIR:?Set private directory containing worker.token}:/run/emsolver:ro
+      - ${EMSOLVER_WORKER_WORK_DIR:?Set private work directory}:/work
+    read_only: true
+    tmpfs:
+      - /tmp:mode=1777

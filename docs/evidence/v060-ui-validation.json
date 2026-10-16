@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "browser": "Codex in-app browser",
+  "version": "0.6.0",
+  "scope": "Manual browser workflow on isolated teaching fixture; final production view separately checked",
+  "steps": [
+    "select project and completed candidate",
+    "create server-side evidence template",
+    "freeze initial dossier",
+    "run check preserving UNVERIFIED",
+    "create revision keeping parent",
+    "upload independent analytic NPZ through filechooser",
+    "bind asset and declared analytic source",
+    "freeze revision 2",
+    "compare reference with PASS while industrial status remains UNVERIFIED",
+    "download actual JSON report",
+    "view final production industrial failure gates"
+  ],
+  "download": {
+    "name": "ic_8f6ce9041bf9428a8ee87cd689d70002-acceptance.json",
+    "bytes": 31591,
+    "sha256": "bd0bd49fa55d9f246220c1a4bf55bd799397acb5ada40ea6f711b5d79b389023",
+    "verified_case_id": "ic_8f6ce9041bf9428a8ee87cd689d70002",
+    "industrial_accepted": false
+  },
+  "production_script": "assets/index-BQ-BdhYk.js",
+  "screenshot": "docs/evidence/v060-industrial-workspace.png"
+}

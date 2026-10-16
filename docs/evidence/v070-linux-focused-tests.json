@@ -1,0 +1,65 @@
+{
+  "container_id": "74d703b7d6853bc8495bdf7fb876048619d8c1d5165ee09c6b86d2bdfac9b586",
+  "exit_code": 0,
+  "docker_start_exit_code": 0,
+  "oom_killed": false,
+  "seconds": 19.02151175000472,
+  "isolation": {
+    "network_mode": "none",
+    "readonly_rootfs": true,
+    "cap_drop": [
+      "ALL"
+    ],
+    "pids_limit": 128,
+    "memory_limit_bytes": 2147483648,
+    "memory_swap_bytes": 2147483648,
+    "nano_cpus": 2000000000,
+    "security_opt": [
+      "no-new-privileges"
+    ],
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/Users/a111/chen/\u7ade\u8d5b/\u4e0a\u6d77\u5f00\u6e90\u8f6f\u4ef6\u5e94\u7528\u521b\u65b0\u5927\u8d5b/artifacts/v070-linux-delivery-data",
+        "Destination": "/data",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/a111/chen/\u7ade\u8d5b/\u4e0a\u6d77\u5f00\u6e90\u8f6f\u4ef6\u5e94\u7528\u521b\u65b0\u5927\u8d5b/tests",
+        "Destination": "/checks/tests",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  "command": [
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp=/tmp/pytest",
+    "--junitxml=/data/focused-tests.xml",
+    "/checks/tests/test_ilu_preconditioning.py",
+    "/checks/tests/test_independent_counts.py",
+    "/checks/tests/test_certification_routing.py",
+    "/checks/tests/test_numerics_certification.py",
+    "/checks/tests/test_numerics.py",
+    "/checks/tests/test_backend_protocol.py",
+    "/checks/tests/test_contracts.py",
+    "/checks/tests/test_protocols.py",
+    "/checks/tests/test_shift_policy.py"
+  ],
+  "log": "docs/evidence/v070-linux-focused-tests.log",
+  "test_counts": {
+    "tests": 212,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 212
+  }
+}

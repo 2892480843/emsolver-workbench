@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "host": {
+    "system": "Darwin",
+    "architecture": "arm64"
+  },
+  "container": {
+    "image": "emsolver-dependencies:py313",
+    "image_id": "sha256:3adbdfb917c0ad721ae731e91c8980089a0447743645a703625c006e082c4daf",
+    "system": "Linux",
+    "architecture": "amd64",
+    "python_version": "3.13.15",
+    "workspace_readonly": true
+  },
+  "observed_worker_identity": {
+    "command_prefix": ["/usr/local/bin/python", "-m", "emsolver.worker"],
+    "executable": "/run/rosetta/rosetta",
+    "executable_samefile_check": "FileNotFoundError",
+    "pythonpath": "/workspace",
+    "verified_worker_returned_none": true,
+    "production_security_checks_changed": false
+  },
+  "verification": {
+    "linux_focused_command": "python -m pytest tests/test_backend_protocol.py tests/test_plan_actual_strategy.py tests/test_recovery.py -q -p no:cacheprovider -rs",
+    "linux_focused_passed": 79,
+    "linux_focused_skipped": 1,
+    "skip_condition": "Actual executable exactly /run/rosetta/rosetta, its samefile check raises FileNotFoundError, and verified_worker again returns None",
+    "macos_focused_command": ".venv-emsolver/bin/python -m pytest tests/test_backend_protocol.py tests/test_plan_actual_strategy.py tests/test_recovery.py tests/test_service_core.py tests/test_architecture_service.py -q",
+    "macos_focused_passed": 103,
+    "macos_focused_skipped": 0
+  },
+  "conclusion": "The translated Linux worker is rejected safely because its interpreter identity cannot be verified. This is not evidence of successful native Linux worker adoption.",
+  "remaining_boundary": "Native Linux hardware worker adoption has not been verified by this evidence."
+}

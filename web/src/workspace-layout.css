@@ -1,0 +1,149 @@
+/* Operational grids sit on the paper typography and palette in paper.css. */
+.sidebar { width: 224px; }
+.sidebar .brand { padding: 18px 20px 15px; font-size: 27px; line-height: 1.25; }
+.sidebar .brand small { margin-top: 5px; font-size: 13px; line-height: 1.6; }
+.sidebar .workspace-switch { display: none; }
+.sidebar .nav-section { padding: 8px 20px 6px; font-size: 13px; line-height: 1.5; }
+.sidebar .nav-section.secondary { margin: 8px 0 0; padding: 8px 20px 6px; }
+.sidebar nav { padding: 0 0 12px; }
+.sidebar .nav-item { min-height: 33px; padding: 5px 8px; font-size: 14px; line-height: 1.6; }
+.sidebar .sidebar-bottom { padding: 12px 20px; }
+.sidebar .privacy { margin-top: 4px; font-size: 12px; }
+.workspace { margin-left: 224px; }
+.topbar { position: sticky; top: 0; z-index: 20; min-height: 52px; padding: 9px 32px; }
+
+main.paper-document { max-width: 1240px; padding: 24px 32px 16px; }
+.page-heading { position: relative; max-width: none; margin: 0 auto 18px; padding-inline: 158px; }
+.page-heading > div:first-child { max-width: 768px; margin-inline: auto; }
+.page-heading h1 { font-size: 32px; line-height: 1.3; }
+.page-heading .paper-authors { margin-top: 7px; font-size: 13px; line-height: 1.6; }
+.page-heading .paper-edition { margin-top: 2px; font-size: 13px; line-height: 1.6; }
+.paper-abstract { margin-top: 8px; }
+.paper-abstract > strong { margin-bottom: 2px; font-size: 13px; }
+.page-heading .paper-abstract p { line-height: 1.7; }
+.page-heading .heading-actions { position: absolute; right: 0; top: 3px; margin: 0; max-width: 150px; flex-direction: column; align-items: stretch; gap: 8px; }
+.heading-actions:empty { display: none; }
+.project-bar { margin-bottom: 14px; padding: 7px 0; align-items: center; }
+.project-bar > div { flex: 0 1 340px; }
+.project-bar > span { flex: 1 1 250px; }
+.project-bar select { width: 100%; }
+.panel { margin-bottom: 30px; }
+.panel-heading { margin-bottom: 14px; }
+.paper-document > .metrics-row { grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 18px 0 24px; gap: 20px; }
+.paper-document > .metrics-row .metric { padding: 12px 0; }
+.paper-document > .metrics-row .metric:nth-child(-n+2) { border-bottom: 0; }
+.metric > div { font-size: 30px; }
+.paper-document > .two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.paper-document > .two-col > *, .overview-grid > *, .config-layout > *, .matrix-layout > * { min-width: 0; }
+
+/* Overview: workflow and environment first; administration follows recent work. */
+.overview-grid { grid-template-columns: minmax(0, 1.7fr) minmax(260px, 1fr); gap: 32px; }
+.overview-grid .panel { margin-bottom: 28px; }
+.workflow-panel .paper-equation { font-size: 25px; padding-block: 5px; margin: 8px 0 12px; }
+.workflow-panel .paper-definition { padding: 12px 15px; margin-bottom: 8px; font-size: 14px; line-height: 1.7; }
+.workflow-steps button { padding-block: 8px; }
+.workflow-steps small { margin-top: 2px; }
+.environment-panel .runtime-head { padding-bottom: 10px; }
+.environment-panel .runtime-row { padding-block: 8px; }
+.environment-panel .link-button { margin-top: 12px; }
+.project-management-grid { grid-template-columns: minmax(240px, .65fr) minmax(0, 1.5fr); gap: 28px; }
+.project-management-grid > * { min-width: 0; }
+.project-directory { max-height: 560px; overflow-y: auto; }
+.project-directory-item small { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.project-editor .section-title { align-items: flex-start; }
+.project-editor .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* Matrix and configuration pages keep context beside the active work. */
+.paper-document > .matrix-layout { grid-template-columns: 280px minmax(0, 1fr); gap: 32px; align-items: start; }
+.matrix-layout .matrix-list { max-height: 460px; overflow-y: auto; }
+.matrix-layout .matrix-item { padding: 12px 0; }
+.matrix-layout .matrix-item b { font-size: 15px; overflow-wrap: anywhere; }
+.matrix-layout .matrix-item .asset-icon { display: none; }
+.matrix-layout > div:first-child .form-grid { grid-template-columns: minmax(0, 1fr); }
+.matrix-layout .diagnostic-stats { margin: 16px 0 24px; }
+.matrix-layout .diagnostic-stats .metric { padding: 12px 8px 12px 0; }
+.matrix-layout .diagnostic-stats .metric > div { font-size: 25px; }
+.matrix-layout .details-list dd { overflow-wrap: anywhere; }
+.config-layout { grid-template-columns: minmax(0, 1fr) 304px; gap: 32px; align-items: start; }
+.config-aside { position: static; min-width: 0; }
+.config-aside > .panel:first-child { border-block: 1px solid var(--line); padding-block: 18px; }
+.config-aside .plan-illustration { display: none; }
+.config-aside .panel > h3 { margin: 0 0 12px; font-size: 18px; }
+.config-aside .plan-status { margin-inline: 0; }
+.config-aside .button { width: 100%; }
+.config-aside .notice { padding: 13px; }
+.config-layout .form-grid.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.config-layout .segmented { margin-inline: 0; }
+.config-layout .aside-note { margin-inline: 0; }
+.config-layout .config-json { padding-inline: 0; }
+.config-layout .config-json .json { max-height: 300px; }
+
+/* Results place conclusions first, plots together, and full tables below. */
+.result-banner { gap: 24px; }
+.result-banner > div:not(.validation-status) { flex: 1; min-width: 0; }
+.validation-status { flex-shrink: 0; }
+.paper-document > .result-charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
+.result-charts .panel { margin-bottom: 26px; }
+.result-charts figure.paper-figure { margin: 16px 0; }
+.result-charts .paper-figure svg text { font-size: 16px; }
+.result-charts .spectrum-copy { margin-inline: 0; flex-wrap: wrap; }
+.result-charts .panel-copy { margin-inline: 0; }
+.job-headline, .queue-actions, .selection-toolbar, .download-strip { gap: 12px; }
+.selection-toolbar, .download-strip { margin-block: 18px; }
+.paper-document table td details { margin: 6px 0 0; padding: 0; border: 0; }
+.paper-document table td details > summary { padding: 2px 0; font-size: 13px; line-height: 1.7; }
+.report-preview { padding: 24px 18px; }
+.workspace-footer { margin-top: 28px; padding-block: 18px; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 1279px) {
+  .paper-document > .matrix-layout { grid-template-columns: 250px minmax(0, 1fr); gap: 26px; }
+  .config-layout { grid-template-columns: minmax(0, 1fr) 280px; gap: 26px; }
+  .overview-grid { grid-template-columns: minmax(0, 1.5fr) minmax(240px, 1fr); gap: 28px; }
+}
+@media (max-width: 1100px) {
+  .sidebar { width: 204px; }
+  .workspace { margin-left: 204px; }
+  main.paper-document { padding-inline: 24px; }
+  .page-heading { padding-inline: 0; }
+  .page-heading .heading-actions { position: static; margin-top: 12px; max-width: none; flex-direction: row; justify-content: center; }
+  .paper-document > .matrix-layout, .config-layout, .overview-grid, .project-management-grid { grid-template-columns: minmax(0, 1fr); }
+  .paper-document > .result-charts, .paper-document > .two-col:not(.matrix-layout) { grid-template-columns: minmax(0, 1fr); }
+  .matrix-layout > div:first-child { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .matrix-layout > div:first-child > .panel { min-width: 0; }
+  .project-directory { max-height: 360px; }
+  .paper-document > .metrics-row { gap: 14px; }
+  .paper-document > .metrics-row .metric > div { font-size: 27px; }
+}
+@media (max-width: 900px) {
+  .sidebar { width: 252px; }
+  .workspace { margin-left: 0; }
+  .sidebar .workspace-switch { display: flex; margin: 0 20px 7px; padding: 7px 0; }
+  .topbar { padding-inline: 22px; }
+  main.paper-document { padding-top: 22px; }
+}
+@media (max-width: 600px) {
+  .topbar { padding: 8px 16px; }
+  main.paper-document { padding: 22px 18px 12px; }
+  .page-heading { margin-bottom: 22px; }
+  .page-heading h1 { font-size: 29px; }
+  .paper-abstract { padding-inline: 12px; margin-top: 14px; }
+  .page-heading .heading-actions { margin-top: 16px; }
+  .project-bar { align-items: stretch; }
+  .project-bar > div, .project-bar > span { flex-basis: 100%; }
+  .paper-document > .metrics-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 18px; margin-block: 18px 24px; }
+  .paper-document > .metrics-row .metric { padding-block: 12px; }
+  .matrix-layout > div:first-child, .project-editor .form-grid, .config-layout .form-grid.four { grid-template-columns: minmax(0, 1fr); }
+  .matrix-layout .matrix-list { max-height: 320px; }
+  .project-directory { max-height: none; }
+  .config-aside > .panel:first-child { margin-top: 8px; }
+  .result-banner { gap: 14px; }
+  .result-banner > div:not(.validation-status) { flex: none; }
+  .workspace-footer { margin-top: 18px; }
+}
+@media print {
+  .topbar { display: none; }
+  .workspace { margin: 0; }
+  main.paper-document { max-width: none; padding: 0; }
+  .matrix-layout, .config-layout, .overview-grid, .project-management-grid, .paper-document > .result-charts { display: block; }
+  .matrix-layout .matrix-list, .project-directory, .config-layout .config-json .json { max-height: none; overflow: visible; }
+}

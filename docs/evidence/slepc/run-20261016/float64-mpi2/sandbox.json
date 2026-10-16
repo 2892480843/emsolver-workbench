@@ -1,0 +1,25 @@
+{
+  "image_id": "sha256:04a9337651ebae49cffb40b0fdce800aadb5cbc15325de53ba73acbbbb486f11",
+  "network_mode": "none",
+  "readonly_rootfs": true,
+  "memory_bytes": 1073741824,
+  "memory_swap_bytes": 1073741824,
+  "pids_limit": 128,
+  "nano_cpus": 2000000000,
+  "cap_drop": [
+    "ALL"
+  ],
+  "security_options": [
+    "no-new-privileges"
+  ],
+  "mounts": [
+    {
+      "destination": "/input",
+      "read_write": false
+    },
+    {
+      "destination": "/output",
+      "read_write": true
+    }
+  ]
+}

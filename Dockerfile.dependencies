@@ -1,0 +1,5 @@
+# Online preparation stage; export the resulting runtime for offline hosts.
+ARG PYTHON_IMAGE=python:3.13-slim-bookworm
+FROM ${PYTHON_IMAGE}
+COPY requirements.lock /opt/emsolver/requirements.lock
+RUN pip install --no-cache-dir -r /opt/emsolver/requirements.lock

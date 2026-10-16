@@ -1,0 +1,59 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.runtime
+#1 transferring dockerfile: 1.05kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/emsolver-dependencies:py313
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 160B done
+#3 DONE 0.0s
+
+#4 [ 1/11] FROM docker.io/library/emsolver-dependencies:py313@sha256:3adbdfb917c0ad721ae731e91c8980089a0447743645a703625c006e082c4daf
+#4 resolve docker.io/library/emsolver-dependencies:py313@sha256:3adbdfb917c0ad721ae731e91c8980089a0447743645a703625c006e082c4daf 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 499.97kB 0.0s done
+#5 DONE 0.0s
+
+#6 [ 2/11] WORKDIR /app
+#6 CACHED
+
+#7 [ 3/11] COPY build/runtime-wheel-v060/*.whl /opt/emsolver-wheels/
+#7 CACHED
+
+#8 [ 4/11] RUN pip install --no-index --no-deps /opt/emsolver-wheels/*.whl && rm -rf /opt/emsolver-wheels
+#8 CACHED
+
+#9 [ 5/11] COPY web/dist/ ./web/dist/
+#9 DONE 0.0s
+
+#10 [ 6/11] COPY docs/feature-coverage.json docs/dependency-inventory.json ./docs/
+#10 DONE 0.0s
+
+#11 [ 7/11] COPY docs/third-party-licenses/ ./docs/third-party-licenses/
+#11 DONE 0.0s
+
+#12 [ 8/11] COPY examples/ ./examples/
+#12 DONE 0.0s
+
+#13 [ 9/11] COPY benchmarks/ ./benchmarks/
+#13 DONE 0.0s
+
+#14 [10/11] COPY scripts/verify_offline_instance.py ./scripts/
+#14 DONE 0.0s
+
+#15 [11/11] COPY LICENSE NOTICE.md README.md pyproject.toml requirements.lock ./
+#15 DONE 0.0s
+
+#16 exporting to image
+#16 exporting layers 0.1s done
+#16 exporting manifest sha256:06a52164242c53ae9dda441a6fd77f7dd3fba23a1e95dbe0f89f721824c20a61 done
+#16 exporting config sha256:2de3117866a7303563b815f9154c37f69de03c5c36ce0e559cc19568614cc5d7 done
+#16 exporting attestation manifest sha256:99a69212caa13afbd2cb683bd8d38b4c2651f024c420d0a4dd11ff39b4049d48 done
+#16 exporting manifest list sha256:d3243ec924d73b2be47282db3f1cd12e2a15e5b2794c8228917f97dfd4057e25 done
+#16 naming to docker.io/library/emsolver-runtime:0.6.0 done
+#16 DONE 0.2s

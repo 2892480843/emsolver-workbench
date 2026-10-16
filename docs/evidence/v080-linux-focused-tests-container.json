@@ -1,0 +1,61 @@
+{
+  "container_id": "94d1c977dacb9f0275f3492128130df0e389cca5d2a7725ceaaeb0e32de4ad78",
+  "exit_code": 0,
+  "docker_start_exit_code": 0,
+  "oom_killed": false,
+  "seconds": 17.119561750000003,
+  "isolation": {
+    "network_mode": "none",
+    "readonly_rootfs": true,
+    "cap_drop": [
+      "ALL"
+    ],
+    "pids_limit": 128,
+    "memory_limit_bytes": 2147483648,
+    "memory_swap_bytes": 2147483648,
+    "nano_cpus": 2000000000,
+    "security_opt": [
+      "no-new-privileges"
+    ],
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/v080-linux-delivery-data",
+        "Destination": "/data",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/a111/chen/竞赛/上海开源软件应用创新大赛/tests",
+        "Destination": "/checks/tests",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  "command": [
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp=/tmp/pytest",
+    "--junitxml=/data/focused-tests.xml",
+    "/checks/tests/test_ilu_preconditioning.py",
+    "/checks/tests/test_robust_preconditioning.py",
+    "/checks/tests/test_accuracy_refinement.py",
+    "/checks/tests/test_independent_counts.py",
+    "/checks/tests/test_weighted_counts.py",
+    "/checks/tests/test_certification_routing.py",
+    "/checks/tests/test_numerics_certification.py",
+    "/checks/tests/test_numerics.py",
+    "/checks/tests/test_backend_protocol.py",
+    "/checks/tests/test_contracts.py",
+    "/checks/tests/test_protocols.py",
+    "/checks/tests/test_shift_policy.py"
+  ],
+  "log": "docs/evidence/v080-linux-focused-tests.log"
+}

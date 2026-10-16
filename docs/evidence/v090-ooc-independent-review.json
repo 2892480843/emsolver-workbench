@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "review_id": "v090-ooc-independent-review",
+  "review_date": "2026-10-16",
+  "timezone": "Asia/Shanghai",
+  "reviewer": "independent development subagent industrial_sources, not external human/institution",
+  "scope": "Read-only production OOC integration review; contract/resource/candidate-acceptance paths; no large matrix or container launched by reviewer",
+  "status": "REVIEW_PASSED_ALL_THREE_RESOURCE_FINDINGS_FIXED",
+  "source_files": {
+    "emsolver/optional_backends.py": "54564fcf2abec6b300f5680f0231c49776f16080d26286936d133bc6c346fc1a",
+    "emsolver/numerics/slepc_driver.py": "2892e1e1efe2d3d1c30107ef6b67548628eb8957040b4b95b8703323bd8dc872",
+    "emsolver/numerics/slepc.py": "ba1e890d43d8c6c4db0af1f019cc58b90ebd44370fd259b5350ba8a6f64a9b30",
+    "emsolver/numerics/backend.py": "754f1908dd7672ff44bbccee5fe58bd12e84f533e5d3147276f47ed214419a99",
+    "emsolver/service.py": "4aaf907893364365c557de9ee1c14cf520f4cc2081a60a695878286f8cf50038",
+    "emsolver/numerics/core.py": "98022af483528f476ffc8258a9bd6c13e3d4ff8814e7d85f2f0c3518768a4700",
+    "emsolver/resource_budgets.py": "e7ff9811de525fb172228b21c5492a79fbd536cd6bf3eeca2b90af2c2d5d546e",
+    "tests/test_slepc_ooc.py": "d5e0caf3efcc19d978e0ec33596fb5d589bb0a628d5fd0db506f932620cb9823",
+    "tests/test_slepc_ooc_service.py": "7c54d146bb8292224da31bf56e943d358fe3ef5b6b4da691e147d896082e370d",
+    "tests/test_ooc_resource_plan.py": "422c3fe3e4002b656d235a4a8ca063b7230e352b805b6fbb52dfa3a6ff785cc9",
+    "tests/test_slepc_workspace_budget.py": "7066d5782fe4b2ecfbb7bb591742708ef44a9879ee7fa8e81589657319b902b3",
+    "tests/test_monitor_cleanup.py": "05a80f0691a0916fdd8f975353692847eb91f229557576392ec106fbdfd73869"
+  },
+  "findings": [
+    {
+      "id": "ooc_small_workspace_service_exception",
+      "priority": "P2",
+      "path": "emsolver/service.py",
+      "function": "Service.create_plan",
+      "before": "OOC legal low-memory config raised uncaught RuntimeError RESOURCE_EXHAUSTED; API generic handler returned 500 INTERNAL_ERROR rather than resource rejection. Independently reproduced with n20 temporary service and memory_limit_gib=0.1.",
+      "resolution": "Root added narrow RESOURCE_EXHAUSTED prefix mapping to ServiceError RESOURCE_ESTIMATE_EXCEEDED; unexpected RuntimeError still propagates.",
+      "status": "FIXED_AND_FOCUSED_TESTS_RERUN"
+    },
+    {
+      "id": "ooc_fast_exit_private_budget_bypass",
+      "priority": "P2",
+      "path": "emsolver/optional_backends.py",
+      "function": "solve_slepc",
+      "before": "An already-completed child skipped all while-loop private disk/log checks. Independently reproduced private directory 2558 bytes versus 1073.7 byte configured budget returning candidates.",
+      "resolution": "Owner added private_directory_bytes with early stop and deleted-file tolerance, unified private disk/log checks before launch, while running, and after exit before result parsing.",
+      "status": "FIXED_AND_INDEPENDENTLY_VERIFIED",
+      "regression": "tests/test_slepc_workspace_budget.py"
+    },
+    {
+      "id": "parent_monitor_factor_deletion_race",
+      "priority": "P2",
+      "path": "emsolver/service.py",
+      "function": "Service._monitor_worker",
+      "before": "Parent run-directory scan calls is_file then stat without deleted-file tolerance; MUMPS factor/workspace teardown can remove an entry in between. Independently reproduced FileNotFoundError escaping monitor with a disappearing-entry fixture and no solver work.",
+      "recommended_resolution": "Reuse private_directory_bytes(directory, disk_limit) or an equivalent deletion-tolerant non-symlink directory counter, with a parent-monitor regression.",
+      "status": "FIXED_AND_INDEPENDENTLY_VERIFIED",
+      "resolution": "Parent monitor now reuses deletion-tolerant private_directory_bytes with configured limit; independent focused regression reaches ordinary WORKER_LOST finalization instead of escaping FileNotFoundError.",
+      "regression": "tests/test_monitor_cleanup.py::test_parent_monitor_survives_private_factor_removal",
+      "owner_red_evidence": "artifacts/v090-independent-solver/parent-budget-red.log"
+    }
+  ],
+  "accepted_design_checks": {
+    "explicit_profile": "mumps_ooc_symmetric_v1 has its own real single-rank runtime self-test; capability seed binds image id, driver hash, local Docker endpoint and known profile. Legacy LU combinations remain separate.",
+    "restriction": "Rejects GPU, complex input, multiple MPI ranks, multiple threads, adaptive linear precision, unsupported target/transform/checkpoint combinations. Matrix dtype is checked again at actual input load.",
+    "mumps_factorization": "Real symmetric indefinite path explicitly sets SPD false and requests PETSc PCCHOLESKY/MUMPS; API name alone does not claim positive definiteness. Work area ICNTL(22/23) is verified after solve.",
+    "memory": "One configured job memory budget split between host worker tree and container. Docker memory-swap equals memory share. MUMPS workspace 64–768 MiB is only part of container RSS; estimate does not call it total-memory bound.",
+    "disk": "Factors are task-private output data subject to monitored budget and cleanup, not automatically public artifacts. This is sampled enforcement, not an operating-system disk quota or guarantee of exact transient peak.",
+    "isolation": "Candidate container network none, read-only root, dropped capabilities, no-new-privileges, user identity, bounded pids/cpus/tmpfs, only input snapshot and private outputs mounted; watchdog limits orphan lifetime.",
+    "cleanup": "Finally kills live docker client and removes named owned container/workspace. If removal cannot complete, marker retained for controlled recovery.",
+    "failure": "Known OOC failure reasons and bounded diagnostic fields preserved; no arbitrary native error text promoted into result.",
+    "candidate_acceptance": "SLEPc output remains candidates only; adapter validates residuals and maps row order, core independently recomputes original-matrix residuals and certification. Convergence reason/INFOG inertia do not produce CERTIFIED.",
+    "industrial_claim": "Passing this code review or small self-test does not establish GSM modes, complete target coverage, physical frequency or official contest acceptance."
+  },
+  "verification": [
+    {
+      "command": ".venv-emsolver/bin/python -m pytest tests/test_monitor_cleanup.py tests/test_slepc_workspace_budget.py tests/test_slepc_ooc.py tests/test_slepc_ooc_service.py tests/test_ooc_resource_plan.py -q",
+      "result": "24 passed, 5 skipped in 0.45s",
+      "log": "artifacts/v090-source-audit/ooc-independent-tests.log",
+      "skips": "5 actual-container tests skipped without explicit rebuilt image/flag; root separately coordinates actual-container verification."
+    }
+  ],
+  "reviewer_production_edits": false,
+  "reviewer_large_computation": false,
+  "recorded_ldl_research_review": "Separate research review completed after requested/effective shift binding fix; see docs/evidence/v090-recorded-ldl-independent-review.json. Disabled in production and no industrial count claim.",
+  "remaining_production_blockers_found": []
+}

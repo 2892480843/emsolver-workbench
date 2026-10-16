@@ -1,0 +1,148 @@
+...............ssssssssssssFFFF..                                        [100%]
+=================================== FAILURES ===================================
+_ test_real_slepc_backend_uses_isolated_candidate_and_authoritative_original_validation[1-indefinite] _
+
+tmp_path = PosixPath('/private/var/folders/rh/36crg_tn3r3gnv0s_w9376_80000gn/T/pytest-of-a111/pytest-5/test_real_slepc_backend_uses_i0')
+kind = 'indefinite', ranks = 1
+
+    @pytest.mark.parametrize('kind', ['indefinite', 'complex'])
+    @pytest.mark.parametrize('ranks', [1, 2])
+    def test_real_slepc_backend_uses_isolated_candidate_and_authoritative_original_validation(tmp_path, kind, ranks):
+        if not os.environ.get('EMSOLVER_SLEPC_IMAGE'):
+            pytest.skip('Explicit tested optional SLEPc image is required')
+        from emsolver.numerics import core
+        path = tmp_path / 'input.npz'
+        core.generate_sample(path, kind, n=20, seed=20261016)
+        config = {'solver': {'backend': 'slepc', 'method': 'krylovschur', 'subspace_max': 15},
+                  'target': {'k': 2, 'sigma': .1}, 'resources': {'threads': 1, 'mpi_ranks': ranks,
+                  'memory_limit_gib': 2, 'walltime_seconds': 30, 'disk_limit_gib': .1}}
+>       result = core.run_solver(path, config, tmp_path / 'output')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_slepc_integration.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+emsolver/numerics/core.py:1060: in run_solver
+    _check_config_support(config)
+emsolver/numerics/core.py:1005: in _check_config_support
+    if not probe_slepc()['supported']:_error('BACKEND_UNAVAILABLE','Validated SLEPc image is not configured')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+code = 'BACKEND_UNAVAILABLE', detail = 'Validated SLEPc image is not configured'
+
+    def _error(code, detail):
+>       raise ValueError(f'{code}: {detail}')
+E       ValueError: BACKEND_UNAVAILABLE: Validated SLEPc image is not configured
+
+emsolver/numerics/core.py:35: ValueError
+_ test_real_slepc_backend_uses_isolated_candidate_and_authoritative_original_validation[1-complex] _
+
+tmp_path = PosixPath('/private/var/folders/rh/36crg_tn3r3gnv0s_w9376_80000gn/T/pytest-of-a111/pytest-5/test_real_slepc_backend_uses_i1')
+kind = 'complex', ranks = 1
+
+    @pytest.mark.parametrize('kind', ['indefinite', 'complex'])
+    @pytest.mark.parametrize('ranks', [1, 2])
+    def test_real_slepc_backend_uses_isolated_candidate_and_authoritative_original_validation(tmp_path, kind, ranks):
+        if not os.environ.get('EMSOLVER_SLEPC_IMAGE'):
+            pytest.skip('Explicit tested optional SLEPc image is required')
+        from emsolver.numerics import core
+        path = tmp_path / 'input.npz'
+        core.generate_sample(path, kind, n=20, seed=20261016)
+        config = {'solver': {'backend': 'slepc', 'method': 'krylovschur', 'subspace_max': 15},
+                  'target': {'k': 2, 'sigma': .1}, 'resources': {'threads': 1, 'mpi_ranks': ranks,
+                  'memory_limit_gib': 2, 'walltime_seconds': 30, 'disk_limit_gib': .1}}
+>       result = core.run_solver(path, config, tmp_path / 'output')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_slepc_integration.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+emsolver/numerics/core.py:1060: in run_solver
+    _check_config_support(config)
+emsolver/numerics/core.py:1005: in _check_config_support
+    if not probe_slepc()['supported']:_error('BACKEND_UNAVAILABLE','Validated SLEPc image is not configured')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+code = 'BACKEND_UNAVAILABLE', detail = 'Validated SLEPc image is not configured'
+
+    def _error(code, detail):
+>       raise ValueError(f'{code}: {detail}')
+E       ValueError: BACKEND_UNAVAILABLE: Validated SLEPc image is not configured
+
+emsolver/numerics/core.py:35: ValueError
+_ test_real_slepc_backend_uses_isolated_candidate_and_authoritative_original_validation[2-indefinite] _
+
+tmp_path = PosixPath('/private/var/folders/rh/36crg_tn3r3gnv0s_w9376_80000gn/T/pytest-of-a111/pytest-5/test_real_slepc_backend_uses_i2')
+kind = 'indefinite', ranks = 2
+
+    @pytest.mark.parametrize('kind', ['indefinite', 'complex'])
+    @pytest.mark.parametrize('ranks', [1, 2])
+    def test_real_slepc_backend_uses_isolated_candidate_and_authoritative_original_validation(tmp_path, kind, ranks):
+        if not os.environ.get('EMSOLVER_SLEPC_IMAGE'):
+            pytest.skip('Explicit tested optional SLEPc image is required')
+        from emsolver.numerics import core
+        path = tmp_path / 'input.npz'
+        core.generate_sample(path, kind, n=20, seed=20261016)
+        config = {'solver': {'backend': 'slepc', 'method': 'krylovschur', 'subspace_max': 15},
+                  'target': {'k': 2, 'sigma': .1}, 'resources': {'threads': 1, 'mpi_ranks': ranks,
+                  'memory_limit_gib': 2, 'walltime_seconds': 30, 'disk_limit_gib': .1}}
+>       result = core.run_solver(path, config, tmp_path / 'output')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_slepc_integration.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+emsolver/numerics/core.py:1060: in run_solver
+    _check_config_support(config)
+emsolver/numerics/core.py:1005: in _check_config_support
+    if not probe_slepc()['supported']:_error('BACKEND_UNAVAILABLE','Validated SLEPc image is not configured')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+code = 'BACKEND_UNAVAILABLE', detail = 'Validated SLEPc image is not configured'
+
+    def _error(code, detail):
+>       raise ValueError(f'{code}: {detail}')
+E       ValueError: BACKEND_UNAVAILABLE: Validated SLEPc image is not configured
+
+emsolver/numerics/core.py:35: ValueError
+_ test_real_slepc_backend_uses_isolated_candidate_and_authoritative_original_validation[2-complex] _
+
+tmp_path = PosixPath('/private/var/folders/rh/36crg_tn3r3gnv0s_w9376_80000gn/T/pytest-of-a111/pytest-5/test_real_slepc_backend_uses_i3')
+kind = 'complex', ranks = 2
+
+    @pytest.mark.parametrize('kind', ['indefinite', 'complex'])
+    @pytest.mark.parametrize('ranks', [1, 2])
+    def test_real_slepc_backend_uses_isolated_candidate_and_authoritative_original_validation(tmp_path, kind, ranks):
+        if not os.environ.get('EMSOLVER_SLEPC_IMAGE'):
+            pytest.skip('Explicit tested optional SLEPc image is required')
+        from emsolver.numerics import core
+        path = tmp_path / 'input.npz'
+        core.generate_sample(path, kind, n=20, seed=20261016)
+        config = {'solver': {'backend': 'slepc', 'method': 'krylovschur', 'subspace_max': 15},
+                  'target': {'k': 2, 'sigma': .1}, 'resources': {'threads': 1, 'mpi_ranks': ranks,
+                  'memory_limit_gib': 2, 'walltime_seconds': 30, 'disk_limit_gib': .1}}
+>       result = core.run_solver(path, config, tmp_path / 'output')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_slepc_integration.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+emsolver/numerics/core.py:1060: in run_solver
+    _check_config_support(config)
+emsolver/numerics/core.py:1005: in _check_config_support
+    if not probe_slepc()['supported']:_error('BACKEND_UNAVAILABLE','Validated SLEPc image is not configured')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+code = 'BACKEND_UNAVAILABLE', detail = 'Validated SLEPc image is not configured'
+
+    def _error(code, detail):
+>       raise ValueError(f'{code}: {detail}')
+E       ValueError: BACKEND_UNAVAILABLE: Validated SLEPc image is not configured
+
+emsolver/numerics/core.py:35: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_slepc_integration.py::test_real_slepc_backend_uses_isolated_candidate_and_authoritative_original_validation[1-indefinite]
+FAILED tests/test_slepc_integration.py::test_real_slepc_backend_uses_isolated_candidate_and_authoritative_original_validation[1-complex]
+FAILED tests/test_slepc_integration.py::test_real_slepc_backend_uses_isolated_candidate_and_authoritative_original_validation[2-indefinite]
+FAILED tests/test_slepc_integration.py::test_real_slepc_backend_uses_isolated_candidate_and_authoritative_original_validation[2-complex]
+4 failed, 17 passed, 12 skipped in 0.30s

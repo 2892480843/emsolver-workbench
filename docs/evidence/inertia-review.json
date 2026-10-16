@@ -1,0 +1,8090 @@
+{
+  "schema_version": "1.0",
+  "seed": 2026101601,
+  "rng": "numpy.random.default_rng/PCG64",
+  "matrix_distribution": "Strict upper real and optional imaginary integers in [-4,4]/8; conjugate transpose; even repeats diagonal integers in [-8,8]/8, odd repeats zero diagonal",
+  "n_range": [
+    2,
+    8
+  ],
+  "matrices_per_n_per_scalar": 8,
+  "matrix_count": 112,
+  "shifts": [
+    -2.125,
+    0.0,
+    0.375,
+    3.25
+  ],
+  "checks": 448,
+  "passed": 448,
+  "reference": "numpy.linalg.eigvalsh on dense matrix, sign tolerance 1e-10; explicit ambiguity rejection for gaps between 1e-12 and 1e-8",
+  "source_sha256": "e039a3092e6c34385cd8cf2569b45550161616605121b59d9d01e11c1795e54c",
+  "scope": "Independent bounded mathematical cross-check only; not proof of every certification budget or full application acceptance",
+  "command": ".venv-emsolver/bin/python docs/evidence/inertia-review.py",
+  "records": [
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 0,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 0,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 0,
+      "shift": 0.375,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 0,
+      "shift": 3.25,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 1,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 1,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 1,
+      "shift": 0.375,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 1,
+      "shift": 3.25,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 2,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 2,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 2,
+      "shift": 0.375,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 2,
+      "shift": 3.25,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 3,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 3,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 3,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 3,
+      "shift": 3.25,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 4,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 4,
+      "shift": 0.0,
+      "exact_inertia": [
+        0,
+        1,
+        1
+      ],
+      "reference_inertia": [
+        0,
+        1,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 4,
+      "shift": 0.375,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 4,
+      "shift": 3.25,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 5,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 5,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 5,
+      "shift": 0.375,
+      "exact_inertia": [
+        1,
+        1,
+        0
+      ],
+      "reference_inertia": [
+        1,
+        1,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 5,
+      "shift": 3.25,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 6,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 6,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 6,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 6,
+      "shift": 3.25,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 7,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 7,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 7,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 2,
+      "repeat": 7,
+      "shift": 3.25,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 0,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 0,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 0,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 0,
+      "shift": 3.25,
+      "exact_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 1,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 1,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 1,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 1,
+      "shift": 3.25,
+      "exact_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 2,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 2,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 2,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 2,
+      "shift": 3.25,
+      "exact_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 3,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 3,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 3,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 3,
+      "shift": 3.25,
+      "exact_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 4,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 4,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 4,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 4,
+      "shift": 3.25,
+      "exact_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 5,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 5,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 5,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 5,
+      "shift": 3.25,
+      "exact_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 6,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 6,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 6,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 6,
+      "shift": 3.25,
+      "exact_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 7,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 7,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 7,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 3,
+      "repeat": 7,
+      "shift": 3.25,
+      "exact_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 0,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 0,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 0,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 0,
+      "shift": 3.25,
+      "exact_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 1,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 1,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 1,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 1,
+      "shift": 3.25,
+      "exact_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 2,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 2,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 2,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 2,
+      "shift": 3.25,
+      "exact_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 3,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 3,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 3,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 3,
+      "shift": 3.25,
+      "exact_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 4,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 4,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 4,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 4,
+      "shift": 3.25,
+      "exact_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 5,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 5,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 5,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 5,
+      "shift": 3.25,
+      "exact_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 6,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 6,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 6,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 6,
+      "shift": 3.25,
+      "exact_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 7,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 7,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 7,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 4,
+      "repeat": 7,
+      "shift": 3.25,
+      "exact_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 0,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 0,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 0,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 0,
+      "shift": 3.25,
+      "exact_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 1,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 1,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 1,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 1,
+      "shift": 3.25,
+      "exact_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 2,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 2,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 2,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 2,
+      "shift": 3.25,
+      "exact_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 3,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 3,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 3,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 3,
+      "shift": 3.25,
+      "exact_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 4,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 4,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 4,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 4,
+      "shift": 3.25,
+      "exact_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 5,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 5,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 5,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 5,
+      "shift": 3.25,
+      "exact_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 6,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 6,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 6,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 6,
+      "shift": 3.25,
+      "exact_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 7,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 7,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 7,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 5,
+      "repeat": 7,
+      "shift": 3.25,
+      "exact_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 0,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 0,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 0,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 0,
+      "shift": 3.25,
+      "exact_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 1,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 1,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 1,
+      "shift": 0.375,
+      "exact_inertia": [
+        5,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 1,
+      "shift": 3.25,
+      "exact_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 2,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 2,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 2,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 2,
+      "shift": 3.25,
+      "exact_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 3,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 3,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 3,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 3,
+      "shift": 3.25,
+      "exact_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 4,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 4,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 4,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 4,
+      "shift": 3.25,
+      "exact_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 5,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 5,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 5,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 5,
+      "shift": 3.25,
+      "exact_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 6,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 6,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 6,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 6,
+      "shift": 3.25,
+      "exact_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 7,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 7,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 7,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 6,
+      "repeat": 7,
+      "shift": 3.25,
+      "exact_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 0,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 0,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 0,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 0,
+      "shift": 3.25,
+      "exact_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 1,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 1,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 1,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 1,
+      "shift": 3.25,
+      "exact_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 2,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 2,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 2,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 2,
+      "shift": 3.25,
+      "exact_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 3,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 3,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 3,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 3,
+      "shift": 3.25,
+      "exact_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 4,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 4,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 4,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 4,
+      "shift": 3.25,
+      "exact_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 5,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 5,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 5,
+      "shift": 0.375,
+      "exact_inertia": [
+        5,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 5,
+      "shift": 3.25,
+      "exact_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 6,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 6,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 6,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 6,
+      "shift": 3.25,
+      "exact_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 7,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 7,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 7,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 7,
+      "repeat": 7,
+      "shift": 3.25,
+      "exact_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 0,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 0,
+      "shift": 0.0,
+      "exact_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 0,
+      "shift": 0.375,
+      "exact_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 0,
+      "shift": 3.25,
+      "exact_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 1,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 1,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 1,
+      "shift": 0.375,
+      "exact_inertia": [
+        6,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 1,
+      "shift": 3.25,
+      "exact_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 2,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 2,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 2,
+      "shift": 0.375,
+      "exact_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 2,
+      "shift": 3.25,
+      "exact_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 3,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 3,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 3,
+      "shift": 0.375,
+      "exact_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 3,
+      "shift": 3.25,
+      "exact_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 4,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 4,
+      "shift": 0.0,
+      "exact_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 4,
+      "shift": 0.375,
+      "exact_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 4,
+      "shift": 3.25,
+      "exact_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 5,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 5,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 5,
+      "shift": 0.375,
+      "exact_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 5,
+      "shift": 3.25,
+      "exact_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 6,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 6,
+      "shift": 0.0,
+      "exact_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 6,
+      "shift": 0.375,
+      "exact_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 6,
+      "shift": 3.25,
+      "exact_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 7,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 7,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 7,
+      "shift": 0.375,
+      "exact_inertia": [
+        6,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "float64",
+      "n": 8,
+      "repeat": 7,
+      "shift": 3.25,
+      "exact_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 0,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 0,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 0,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 0,
+      "shift": 3.25,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 1,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 1,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 1,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 1,
+      "shift": 3.25,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 2,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 2,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 2,
+      "shift": 0.375,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 2,
+      "shift": 3.25,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 3,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 3,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 3,
+      "shift": 0.375,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 3,
+      "shift": 3.25,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 4,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 4,
+      "shift": 0.0,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 4,
+      "shift": 0.375,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 4,
+      "shift": 3.25,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 5,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 5,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 5,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 5,
+      "shift": 3.25,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 6,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 6,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 6,
+      "shift": 0.375,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 6,
+      "shift": 3.25,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 7,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 7,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 7,
+      "shift": 0.375,
+      "exact_inertia": [
+        1,
+        1,
+        0
+      ],
+      "reference_inertia": [
+        1,
+        1,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 2,
+      "repeat": 7,
+      "shift": 3.25,
+      "exact_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 0,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 0,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 0,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 0,
+      "shift": 3.25,
+      "exact_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 1,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 1,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 1,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 1,
+      "shift": 3.25,
+      "exact_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 2,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 2,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 2,
+      "shift": 0.375,
+      "exact_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 2,
+      "shift": 3.25,
+      "exact_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 3,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 3,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        1,
+        1
+      ],
+      "reference_inertia": [
+        1,
+        1,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 3,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 3,
+      "shift": 3.25,
+      "exact_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 4,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 4,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 4,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 4,
+      "shift": 3.25,
+      "exact_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 5,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 5,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 5,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 5,
+      "shift": 3.25,
+      "exact_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 6,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 6,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 6,
+      "shift": 0.375,
+      "exact_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 6,
+      "shift": 3.25,
+      "exact_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 7,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 7,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 7,
+      "shift": 0.375,
+      "exact_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 3,
+      "repeat": 7,
+      "shift": 3.25,
+      "exact_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 0,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 0,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 0,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 0,
+      "shift": 3.25,
+      "exact_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 1,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 1,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 1,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 1,
+      "shift": 3.25,
+      "exact_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 2,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 2,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 2,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 2,
+      "shift": 3.25,
+      "exact_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 3,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 3,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 3,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 3,
+      "shift": 3.25,
+      "exact_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 4,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 4,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 4,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 4,
+      "shift": 3.25,
+      "exact_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 5,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 5,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 5,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 5,
+      "shift": 3.25,
+      "exact_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 6,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 6,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 6,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 6,
+      "shift": 3.25,
+      "exact_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 7,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 7,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 7,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 4,
+      "repeat": 7,
+      "shift": 3.25,
+      "exact_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 0,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 0,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 0,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 0,
+      "shift": 3.25,
+      "exact_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 1,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 1,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 1,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 1,
+      "shift": 3.25,
+      "exact_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 2,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 2,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 2,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        1
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        1
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 2,
+      "shift": 3.25,
+      "exact_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 3,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 3,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 3,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 3,
+      "shift": 3.25,
+      "exact_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 4,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 4,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 4,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 4,
+      "shift": 3.25,
+      "exact_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 5,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 5,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 5,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 5,
+      "shift": 3.25,
+      "exact_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 6,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 6,
+      "shift": 0.0,
+      "exact_inertia": [
+        1,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 6,
+      "shift": 0.375,
+      "exact_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 6,
+      "shift": 3.25,
+      "exact_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 7,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 7,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 7,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 5,
+      "repeat": 7,
+      "shift": 3.25,
+      "exact_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 0,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 0,
+      "shift": 0.0,
+      "exact_inertia": [
+        2,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        2,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 0,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 0,
+      "shift": 3.25,
+      "exact_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 1,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 1,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 1,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 1,
+      "shift": 3.25,
+      "exact_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 2,
+      "shift": -2.125,
+      "exact_inertia": [
+        1,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 2,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 2,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 2,
+      "shift": 3.25,
+      "exact_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 3,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 3,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 3,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 3,
+      "shift": 3.25,
+      "exact_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 4,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 4,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 4,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 4,
+      "shift": 3.25,
+      "exact_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 5,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 5,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 5,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 5,
+      "shift": 3.25,
+      "exact_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 6,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 6,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 6,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 6,
+      "shift": 3.25,
+      "exact_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 7,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        6
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 7,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 7,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 6,
+      "repeat": 7,
+      "shift": 3.25,
+      "exact_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 0,
+      "shift": -2.125,
+      "exact_inertia": [
+        1,
+        0,
+        6
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        6
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 0,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 0,
+      "shift": 0.375,
+      "exact_inertia": [
+        5,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 0,
+      "shift": 3.25,
+      "exact_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 1,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 1,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 1,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 1,
+      "shift": 3.25,
+      "exact_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 2,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 2,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 2,
+      "shift": 0.375,
+      "exact_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 2,
+      "shift": 3.25,
+      "exact_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 3,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 3,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 3,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 3,
+      "shift": 3.25,
+      "exact_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 4,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 4,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 4,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 4,
+      "shift": 3.25,
+      "exact_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 5,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 5,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 5,
+      "shift": 0.375,
+      "exact_inertia": [
+        5,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 5,
+      "shift": 3.25,
+      "exact_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 6,
+      "shift": -2.125,
+      "exact_inertia": [
+        1,
+        0,
+        6
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        6
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 6,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 6,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 6,
+      "shift": 3.25,
+      "exact_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 7,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        7
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 7,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 7,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 7,
+      "repeat": 7,
+      "shift": 3.25,
+      "exact_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        7,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 0,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 0,
+      "shift": 0.0,
+      "exact_inertia": [
+        3,
+        0,
+        5
+      ],
+      "reference_inertia": [
+        3,
+        0,
+        5
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 0,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 0,
+      "shift": 3.25,
+      "exact_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 1,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 1,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 1,
+      "shift": 0.375,
+      "exact_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 1,
+      "shift": 3.25,
+      "exact_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 2,
+      "shift": -2.125,
+      "exact_inertia": [
+        1,
+        0,
+        7
+      ],
+      "reference_inertia": [
+        1,
+        0,
+        7
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 2,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 2,
+      "shift": 0.375,
+      "exact_inertia": [
+        6,
+        0,
+        2
+      ],
+      "reference_inertia": [
+        6,
+        0,
+        2
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 2,
+      "shift": 3.25,
+      "exact_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 3,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 3,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 3,
+      "shift": 0.375,
+      "exact_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 3,
+      "shift": 3.25,
+      "exact_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 4,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 4,
+      "shift": 0.0,
+      "exact_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 4,
+      "shift": 0.375,
+      "exact_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 4,
+      "shift": 3.25,
+      "exact_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 5,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 5,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 5,
+      "shift": 0.375,
+      "exact_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 5,
+      "shift": 3.25,
+      "exact_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 6,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 6,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 6,
+      "shift": 0.375,
+      "exact_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 6,
+      "shift": 3.25,
+      "exact_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 7,
+      "shift": -2.125,
+      "exact_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_inertia": [
+        0,
+        0,
+        8
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 7,
+      "shift": 0.0,
+      "exact_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_inertia": [
+        4,
+        0,
+        4
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 7,
+      "shift": 0.375,
+      "exact_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_inertia": [
+        5,
+        0,
+        3
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    },
+    {
+      "scalar": "complex128",
+      "n": 8,
+      "repeat": 7,
+      "shift": 3.25,
+      "exact_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_inertia": [
+        8,
+        0,
+        0
+      ],
+      "reference_ambiguity": false,
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "container_id": "f8311cae652176b4ed320f1927b4a2f7559a9694db83b82fe294229939c7138e",
+  "exit_code": 0,
+  "docker_start_exit_code": 0,
+  "oom_killed": false,
+  "seconds": 5.38836474999971,
+  "isolation": {
+    "network_mode": "none",
+    "readonly_rootfs": true,
+    "cap_drop": [
+      "ALL"
+    ],
+    "pids_limit": 128,
+    "memory_limit_bytes": 2147483648,
+    "memory_swap_bytes": 2147483648,
+    "nano_cpus": 2000000000,
+    "security_opt": [
+      "no-new-privileges"
+    ],
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/v090-linux-delivery-data",
+        "Destination": "/data",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  "command": [
+    "/app/scripts/verify_offline_instance.py",
+    "--output",
+    "/data/runtime-cold.json",
+    "--work-dir",
+    "/data/cold-work"
+  ],
+  "log": "docs/evidence/v090-linux-runtime-cold.log"
+}

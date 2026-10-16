@@ -1,0 +1,16 @@
+Processing /Users/a111/chen/竞赛/上海开源软件应用创新大赛
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: emsolver-workbench
+  Building wheel for emsolver-workbench (pyproject.toml): started
+  Building wheel for emsolver-workbench (pyproject.toml): finished with status 'done'
+  Created wheel for emsolver-workbench: filename=emsolver_workbench-0.8.0-py3-none-any.whl size=246178 sha256=c422c5d6bcdac3d9aee40c1c38e816cda5f3364d124ac78c1510d3394f5fcee8
+  Stored in directory: /private/var/folders/rh/36crg_tn3r3gnv0s_w9376_80000gn/T/pip-ephem-wheel-cache-ohc5m7it/wheels/0d/67/c9/ed3cd6c96049ca8e2be3c9032efffa9a8f753b58d791664064
+Successfully built emsolver-workbench
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: /Users/a111/chen/竞赛/上海开源软件应用创新大赛/.venv-emsolver/bin/python -m pip install --upgrade pip

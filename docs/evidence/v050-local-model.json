@@ -1,0 +1,447 @@
+{
+  "schema_version": "1.0",
+  "observed_at": "2026-10-16T02:18:41.753241+00:00",
+  "model": {
+    "schema_version": "1.0",
+    "repository": "mlx-community/Qwen2.5-0.5B-Instruct-4bit",
+    "revision": "a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+    "source": "https://huggingface.co/mlx-community/Qwen2.5-0.5B-Instruct-4bit/tree/a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+    "upstream": "Qwen/Qwen2.5-0.5B-Instruct",
+    "upstream_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "license": "Apache-2.0",
+    "license_source": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct/blob/7ae557604adf67be50417f59c2c2f167def9a775/LICENSE",
+    "quantization": {
+      "bits": 4,
+      "group_size": 64
+    },
+    "remote_code": false,
+    "files": {
+      "model.safetensors": "ddffab9cbc7bf6dde941c6724841eeca8981fcfa81ca20ff8efff1396326d153",
+      "tokenizer_config.json": "f7c61e32b7a17d19bf8e7037dcb74079a833e53ea9801f24008cac68458f03b7",
+      "special_tokens_map.json": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd",
+      "config.json": "b045e57ea90b8f1b35f89f954b176a5c1faa02bd0af2c89bcec191239d66cef4",
+      "tokenizer.json": "a8506e7111b80c6d8635951a02eab0f4e1a8e4e5772da83846579e97b16f61bf",
+      "README.md": "8cd48183a9d10279e02291f12f03a2db5585c222a0cf77f97dca3c87f79bd5e1",
+      "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+      "LICENSE.upstream": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    }
+  },
+  "runtime": {
+    "python": "3.12.13",
+    "system": "Darwin",
+    "machine": "arm64",
+    "mlx": "0.32.4",
+    "mlx_lm": "0.32.1",
+    "metal_available": true,
+    "default_device": "Device(gpu, 0)"
+  },
+  "offline_flags": {
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "HF_HUB_DISABLE_IMPLICIT_TOKEN": "1",
+    "HF_HUB_DISABLE_TELEMETRY": "1"
+  },
+  "transport": "real loopback HTTP _request; witness only records bytes, never changes request or generated response",
+  "successful_model_explanations": 4,
+  "cases": [
+    {
+      "case": "review",
+      "duration_seconds": 0.5959457499557175,
+      "model_contacted": true,
+      "request": {
+        "model": "default_model",
+        "temperature": 0,
+        "max_tokens": 1200,
+        "response_format": {
+          "type": "json_object"
+        },
+        "messages": [
+          {
+            "role": "system",
+            "content": "你只解释最后一条用户消息中的诊断规则，使用简体中文。严格仿照示例回答，只输出一个JSON对象，顶层只有summary和items。每项只有rule_id和text。rule_id只取最后输入中的id。保留适用前提。不要Markdown、代码围栏、命令、新配置、数值答案或通过结论，不能改变数值状态。"
+          },
+          {
+            "role": "user",
+            "content": "{\"rule_version\": \"diagnosis_v2\", \"rules\": [{\"id\": \"non_hermitian\", \"title\": \"核对三角声明和源数据\", \"reason\": \"输入未通过厄密检查；修正数据来源后新建输入版本。\", \"prerequisites\": [\"使用实对称或复厄密输入\", \"上、下三角存储必须明确声明\"]}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "{\"summary\": \"输入的数学结构需要先核对。\", \"items\": [{\"rule_id\": \"non_hermitian\", \"text\": \"先核对矩阵及三角存储声明。只有实对称或复厄密输入适用；修正来源后应创建新输入版本。\"}]}"
+          },
+          {
+            "role": "user",
+            "content": "{\"rule_version\": \"diagnosis_v2\", \"rules\": [{\"id\": \"memory_exhausted\", \"title\": \"检查资源构成\", \"reason\": \"资源使用触及冻结预算；资源硬限额不扩大。\", \"prerequisites\": [\"候选维数满足后端限制\", \"预估与进程树监控满足原资源预算\"]}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "{\"summary\": \"需要在原有资源预算内重新检查计算规模。\", \"items\": [{\"rule_id\": \"memory_exhausted\", \"text\": \"检查哪些资源触及上限，并核对可负担的候选维数。仍须满足后端限制及原资源预算，不能通过提高硬限额来忽略问题。\"}]}"
+          },
+          {
+            "role": "user",
+            "content": "{\"rule_version\": \"diagnosis_v2\", \"rules\": [{\"id\": \"review\", \"title\": \"检查验证与运行证据\", \"reason\": \"未触发已登记的故障规则；这不构成数值通过声明。\", \"prerequisites\": [\"实对称或复厄密结构已通过输入检查\", \"上、下三角存储由用户明确声明\"]}]}"
+          }
+        ]
+      },
+      "request_sha256": "60ec5eea49496efe43f11a81df154a48c8e64b2f67d20982185b9fc37dd12b52",
+      "response_sha256": "2fb5d000b908d241686a3a922f517637f2db266c4e029629383bef70665488cf",
+      "response": {
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": "{\"summary\": \"验证与运行证据未触发故障规则。\", \"items\": [{\"rule_id\": \"review\", \"text\": \"验证与运行证据未触发故障规则。\"}]}"
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 478,
+          "completion_tokens": 40,
+          "total_tokens": 518,
+          "prompt_tokens_details": {
+            "cached_tokens": 5
+          }
+        },
+        "model": "default_model"
+      },
+      "explanation": {
+        "source": "local_model",
+        "summary": "验证与运行证据未触发故障规则。",
+        "items": [
+          {
+            "rule_id": "review",
+            "text": "验证与运行证据未触发故障规则。"
+          }
+        ],
+        "model": {
+          "id": "default_model",
+          "version": "mlx-community/Qwen2.5-0.5B-Instruct-4bit@a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+          "license_id": "Apache-2.0",
+          "license_approved": true
+        },
+        "template_version": "diagnosis_explanation_v3",
+        "fallback_reason": null
+      },
+      "authoritative_rules_unchanged": true,
+      "input_status_unchanged": true,
+      "ai_available": true
+    },
+    {
+      "case": "near_singular",
+      "duration_seconds": 0.30059470899868757,
+      "model_contacted": true,
+      "request": {
+        "model": "default_model",
+        "temperature": 0,
+        "max_tokens": 1200,
+        "response_format": {
+          "type": "json_object"
+        },
+        "messages": [
+          {
+            "role": "system",
+            "content": "你只解释最后一条用户消息中的诊断规则，使用简体中文。严格仿照示例回答，只输出一个JSON对象，顶层只有summary和items。每项只有rule_id和text。rule_id只取最后输入中的id。保留适用前提。不要Markdown、代码围栏、命令、新配置、数值答案或通过结论，不能改变数值状态。"
+          },
+          {
+            "role": "user",
+            "content": "{\"rule_version\": \"diagnosis_v2\", \"rules\": [{\"id\": \"non_hermitian\", \"title\": \"核对三角声明和源数据\", \"reason\": \"输入未通过厄密检查；修正数据来源后新建输入版本。\", \"prerequisites\": [\"使用实对称或复厄密输入\", \"上、下三角存储必须明确声明\"]}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "{\"summary\": \"输入的数学结构需要先核对。\", \"items\": [{\"rule_id\": \"non_hermitian\", \"text\": \"先核对矩阵及三角存储声明。只有实对称或复厄密输入适用；修正来源后应创建新输入版本。\"}]}"
+          },
+          {
+            "role": "user",
+            "content": "{\"rule_version\": \"diagnosis_v2\", \"rules\": [{\"id\": \"memory_exhausted\", \"title\": \"检查资源构成\", \"reason\": \"资源使用触及冻结预算；资源硬限额不扩大。\", \"prerequisites\": [\"候选维数满足后端限制\", \"预估与进程树监控满足原资源预算\"]}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "{\"summary\": \"需要在原有资源预算内重新检查计算规模。\", \"items\": [{\"rule_id\": \"memory_exhausted\", \"text\": \"检查哪些资源触及上限，并核对可负担的候选维数。仍须满足后端限制及原资源预算，不能通过提高硬限额来忽略问题。\"}]}"
+          },
+          {
+            "role": "user",
+            "content": "{\"rule_version\": \"diagnosis_v2\", \"rules\": [{\"id\": \"near_singular\", \"title\": \"启用有界工作位移恢复\", \"reason\": \"分解接近奇异；保持原目标中心并记录每次工作位移。\", \"prerequisites\": [\"移位线性方程可稳定求解\", \"目标中心与工作位移分别记录\"]}]}"
+          }
+        ]
+      },
+      "request_sha256": "10a2aed000c1bc9848c94e18ffff7ea5f3d4c1a6fba4e00d1b3dc0d987d736e0",
+      "response_sha256": "5301613ff1a3aafee71802af05072ff5bf481a2bf244d2780f396236f667db72",
+      "response": {
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": "{\"summary\": \"需要重新检查工作位移的合理性。\", \"items\": [{\"rule_id\": \"near_singular\", \"text\": \"重新检查工作位移的合理性，确保目标中心和工作位移的记录准确。\"}]}"
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 478,
+          "completion_tokens": 51,
+          "total_tokens": 529,
+          "prompt_tokens_details": {
+            "cached_tokens": 411
+          }
+        },
+        "model": "default_model"
+      },
+      "explanation": {
+        "source": "local_model",
+        "summary": "需要重新检查工作位移的合理性。",
+        "items": [
+          {
+            "rule_id": "near_singular",
+            "text": "重新检查工作位移的合理性，确保目标中心和工作位移的记录准确。"
+          }
+        ],
+        "model": {
+          "id": "default_model",
+          "version": "mlx-community/Qwen2.5-0.5B-Instruct-4bit@a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+          "license_id": "Apache-2.0",
+          "license_approved": true
+        },
+        "template_version": "diagnosis_explanation_v3",
+        "fallback_reason": null
+      },
+      "authoritative_rules_unchanged": true,
+      "input_status_unchanged": true,
+      "ai_available": true
+    },
+    {
+      "case": "timeout_diagnosis",
+      "duration_seconds": 0.32153020799160004,
+      "model_contacted": true,
+      "request": {
+        "model": "default_model",
+        "temperature": 0,
+        "max_tokens": 1200,
+        "response_format": {
+          "type": "json_object"
+        },
+        "messages": [
+          {
+            "role": "system",
+            "content": "你只解释最后一条用户消息中的诊断规则，使用简体中文。严格仿照示例回答，只输出一个JSON对象，顶层只有summary和items。每项只有rule_id和text。rule_id只取最后输入中的id。保留适用前提。不要Markdown、代码围栏、命令、新配置、数值答案或通过结论，不能改变数值状态。"
+          },
+          {
+            "role": "user",
+            "content": "{\"rule_version\": \"diagnosis_v2\", \"rules\": [{\"id\": \"non_hermitian\", \"title\": \"核对三角声明和源数据\", \"reason\": \"输入未通过厄密检查；修正数据来源后新建输入版本。\", \"prerequisites\": [\"使用实对称或复厄密输入\", \"上、下三角存储必须明确声明\"]}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "{\"summary\": \"输入的数学结构需要先核对。\", \"items\": [{\"rule_id\": \"non_hermitian\", \"text\": \"先核对矩阵及三角存储声明。只有实对称或复厄密输入适用；修正来源后应创建新输入版本。\"}]}"
+          },
+          {
+            "role": "user",
+            "content": "{\"rule_version\": \"diagnosis_v2\", \"rules\": [{\"id\": \"memory_exhausted\", \"title\": \"检查资源构成\", \"reason\": \"资源使用触及冻结预算；资源硬限额不扩大。\", \"prerequisites\": [\"候选维数满足后端限制\", \"预估与进程树监控满足原资源预算\"]}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "{\"summary\": \"需要在原有资源预算内重新检查计算规模。\", \"items\": [{\"rule_id\": \"memory_exhausted\", \"text\": \"检查哪些资源触及上限，并核对可负担的候选维数。仍须满足后端限制及原资源预算，不能通过提高硬限额来忽略问题。\"}]}"
+          },
+          {
+            "role": "user",
+            "content": "{\"rule_version\": \"diagnosis_v2\", \"rules\": [{\"id\": \"timeout\", \"title\": \"限制下一次数值尝试\", \"reason\": \"运行超过冻结时限；新实验减少外层尝试，目标、误差与时限保持不变。\", \"prerequisites\": [\"候选维数大于目标数量并满足当前后端限制\", \"预估与运行监控均满足冻结资源预算\"]}]}"
+          }
+        ]
+      },
+      "request_sha256": "61bb2ac7780db095868353419eb51226a5441c059a5a45b843bd55abc44e0741",
+      "response_sha256": "8e49c16fcf6cac664dba85c98dbbccc03fa631577d378c7c8184fa881ececd93",
+      "response": {
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": "{\"summary\": \"需要在冻结时限内减少实验次数。\", \"items\": [{\"rule_id\": \"timeout\", \"text\": \"限制下一次数值尝试，减少外层尝试，目标、误差与时限保持不变。\"}]}"
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 484,
+          "completion_tokens": 50,
+          "total_tokens": 534,
+          "prompt_tokens_details": {
+            "cached_tokens": 411
+          }
+        },
+        "model": "default_model"
+      },
+      "explanation": {
+        "source": "local_model",
+        "summary": "需要在冻结时限内减少实验次数。",
+        "items": [
+          {
+            "rule_id": "timeout",
+            "text": "限制下一次数值尝试，减少外层尝试，目标、误差与时限保持不变。"
+          }
+        ],
+        "model": {
+          "id": "default_model",
+          "version": "mlx-community/Qwen2.5-0.5B-Instruct-4bit@a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+          "license_id": "Apache-2.0",
+          "license_approved": true
+        },
+        "template_version": "diagnosis_explanation_v3",
+        "fallback_reason": null
+      },
+      "authoritative_rules_unchanged": true,
+      "input_status_unchanged": true,
+      "ai_available": true
+    },
+    {
+      "case": "target_unverified",
+      "duration_seconds": 0.4204189999727532,
+      "model_contacted": true,
+      "request": {
+        "model": "default_model",
+        "temperature": 0,
+        "max_tokens": 1200,
+        "response_format": {
+          "type": "json_object"
+        },
+        "messages": [
+          {
+            "role": "system",
+            "content": "你只解释最后一条用户消息中的诊断规则，使用简体中文。严格仿照示例回答，只输出一个JSON对象，顶层只有summary和items。每项只有rule_id和text。rule_id只取最后输入中的id。保留适用前提。不要Markdown、代码围栏、命令、新配置、数值答案或通过结论，不能改变数值状态。"
+          },
+          {
+            "role": "user",
+            "content": "{\"rule_version\": \"diagnosis_v2\", \"rules\": [{\"id\": \"non_hermitian\", \"title\": \"核对三角声明和源数据\", \"reason\": \"输入未通过厄密检查；修正数据来源后新建输入版本。\", \"prerequisites\": [\"使用实对称或复厄密输入\", \"上、下三角存储必须明确声明\"]}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "{\"summary\": \"输入的数学结构需要先核对。\", \"items\": [{\"rule_id\": \"non_hermitian\", \"text\": \"先核对矩阵及三角存储声明。只有实对称或复厄密输入适用；修正来源后应创建新输入版本。\"}]}"
+          },
+          {
+            "role": "user",
+            "content": "{\"rule_version\": \"diagnosis_v2\", \"rules\": [{\"id\": \"memory_exhausted\", \"title\": \"检查资源构成\", \"reason\": \"资源使用触及冻结预算；资源硬限额不扩大。\", \"prerequisites\": [\"候选维数满足后端限制\", \"预估与进程树监控满足原资源预算\"]}]}"
+          },
+          {
+            "role": "assistant",
+            "content": "{\"summary\": \"需要在原有资源预算内重新检查计算规模。\", \"items\": [{\"rule_id\": \"memory_exhausted\", \"text\": \"检查哪些资源触及上限，并核对可负担的候选维数。仍须满足后端限制及原资源预算，不能通过提高硬限额来忽略问题。\"}]}"
+          },
+          {
+            "role": "user",
+            "content": "{\"rule_version\": \"diagnosis_v2\", \"rules\": [{\"id\": \"target_unverified\", \"title\": \"检查目标完整性证据\", \"reason\": \"合格残差不能单独证明最近模式或区间完整性；未认证状态必须保留。\", \"prerequisites\": [\"候选维数大于目标数量并满足当前后端限制\", \"预估与运行监控均满足冻结资源预算\", \"使用原问题残差和独立向量验证\", \"模式簇边界及目标数量保持冻结\"]}]}"
+          }
+        ]
+      },
+      "request_sha256": "0c654809aaa958ae3bb3df8736745839d7bdd2762f2b8e77b2e2d47b83cebd27",
+      "response_sha256": "5fa14e91f15c342e31b6daaffdd709b255fc118acaba164fac462f77f2639954",
+      "response": {
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": "{\"summary\": \"需要检查目标完整性证据。\", \"items\": [{\"rule_id\": \"target_unverified\", \"text\": \"检查目标完整性证据，如残差、向量验证等，以验证最近的模式或区间完整性。需要满足候选维数、预估、运行监控等条件，且目标数量和冻结资源预算必须满足。\"}]}"
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 505,
+          "completion_tokens": 77,
+          "total_tokens": 582,
+          "prompt_tokens_details": {
+            "cached_tokens": 411
+          }
+        },
+        "model": "default_model"
+      },
+      "explanation": {
+        "source": "local_model",
+        "summary": "需要检查目标完整性证据。",
+        "items": [
+          {
+            "rule_id": "target_unverified",
+            "text": "检查目标完整性证据，如残差、向量验证等，以验证最近的模式或区间完整性。需要满足候选维数、预估、运行监控等条件，且目标数量和冻结资源预算必须满足。"
+          }
+        ],
+        "model": {
+          "id": "default_model",
+          "version": "mlx-community/Qwen2.5-0.5B-Instruct-4bit@a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+          "license_id": "Apache-2.0",
+          "license_approved": true
+        },
+        "template_version": "diagnosis_explanation_v3",
+        "fallback_reason": null
+      },
+      "authoritative_rules_unchanged": true,
+      "input_status_unchanged": true,
+      "ai_available": true
+    },
+    {
+      "case": "license_not_approved",
+      "model_contacted": false,
+      "explanation": {
+        "source": "rules",
+        "summary": "分解接近奇异；保持原目标中心并记录每次工作位移。",
+        "items": [
+          {
+            "rule_id": "near_singular",
+            "text": "分解接近奇异；保持原目标中心并记录每次工作位移。"
+          }
+        ],
+        "model": {
+          "id": "default_model",
+          "version": "mlx-community/Qwen2.5-0.5B-Instruct-4bit@a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+          "license_id": "Apache-2.0",
+          "license_approved": false
+        },
+        "template_version": "diagnosis_explanation_v3",
+        "fallback_reason": "license_not_approved"
+      },
+      "authoritative_rules_unchanged": true
+    },
+    {
+      "case": "not_configured",
+      "model_contacted": false,
+      "explanation": {
+        "source": "rules",
+        "summary": "分解接近奇异；保持原目标中心并记录每次工作位移。",
+        "items": [
+          {
+            "rule_id": "near_singular",
+            "text": "分解接近奇异；保持原目标中心并记录每次工作位移。"
+          }
+        ],
+        "model": null,
+        "template_version": "diagnosis_explanation_v3",
+        "fallback_reason": "not_configured"
+      },
+      "authoritative_rules_unchanged": true
+    },
+    {
+      "case": "unavailable_loopback",
+      "model_contacted": true,
+      "explanation": {
+        "source": "rules",
+        "summary": "分解接近奇异；保持原目标中心并记录每次工作位移。",
+        "items": [
+          {
+            "rule_id": "near_singular",
+            "text": "分解接近奇异；保持原目标中心并记录每次工作位移。"
+          }
+        ],
+        "model": {
+          "id": "default_model",
+          "version": "mlx-community/Qwen2.5-0.5B-Instruct-4bit@a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+          "license_id": "Apache-2.0",
+          "license_approved": true
+        },
+        "template_version": "diagnosis_explanation_v3",
+        "fallback_reason": "unavailable"
+      },
+      "authoritative_rules_unchanged": true
+    }
+  ],
+  "quality_score": null,
+  "interpretation": "Actual local inference and structured parser acceptance only; no model-quality or numerical-certification claim."
+}

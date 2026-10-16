@@ -1,0 +1,389 @@
+{
+  "version": "0.3.0",
+  "platform": "macOS arm64",
+  "storage_schema": 2,
+  "preexisting_entities": 28,
+  "preexisting_entity_bodies_unchanged": true,
+  "preexisting_events": 84,
+  "preexisting_events_unchanged": true,
+  "batches": [
+    {
+      "id": "b_18719336d0fd4d1c87877913078f196a",
+      "experiment_plan_id": "ep_18719336d0fd4d1c87877913078f196a",
+      "hash": "0c5ccfcf1b442bc6b4e0c66f41fd2536032dac0d668adc42ce0a7c1e4e2f1d7e",
+      "budget": {
+        "max_runs": 100,
+        "max_total_walltime_seconds": 7200.0,
+        "max_total_disk_gib": 200.0,
+        "total_runs": 8,
+        "total_walltime_seconds": 2400.0,
+        "total_disk_gib": 16.0,
+        "peak_memory_limit_gib": 16.0
+      },
+      "summary": {
+        "total": 8,
+        "terminal": 8,
+        "failed": 0,
+        "partial": 0,
+        "certified": 8,
+        "time_median_seconds": 0.7937102080322802,
+        "time_range_seconds": [
+          0.7833874589996412,
+          0.9000727090169676
+        ],
+        "timing_denominator": 8,
+        "aggregation_scope": "All recorded completed timings including failures; all rows retained",
+        "certified_time_median_seconds": 0.7937102080322802,
+        "certified_time_range_seconds": [
+          0.7833874589996412,
+          0.9000727090169676
+        ],
+        "certified_timing_denominator": 8
+      },
+      "groups": [
+        {
+          "cell_id": "c001",
+          "parameters": {
+            "k": 4,
+            "sigma": 0.0,
+            "threads": 1,
+            "memory_limit_gib": 16.0,
+            "adaptive_shift": true
+          },
+          "matrix_id": "m_77c7146bd27c476eb1c60b284be80a01",
+          "job_ids": [
+            "j_942e553729c24b98aef109b6c1581314",
+            "j_bd4fa6b2012f44cba9d1eec36fb646bc"
+          ],
+          "summary": {
+            "total": 2,
+            "terminal": 2,
+            "failed": 0,
+            "partial": 0,
+            "certified": 2,
+            "time_median_seconds": 0.8472229585167952,
+            "time_range_seconds": [
+              0.7943732080166228,
+              0.9000727090169676
+            ],
+            "timing_denominator": 2,
+            "aggregation_scope": "All recorded completed timings including failures; all rows retained",
+            "certified_time_median_seconds": 0.8472229585167952,
+            "certified_time_range_seconds": [
+              0.7943732080166228,
+              0.9000727090169676
+            ],
+            "certified_timing_denominator": 2
+          },
+          "configuration_diff": []
+        },
+        {
+          "cell_id": "c002",
+          "parameters": {
+            "k": 4,
+            "sigma": 0.0,
+            "threads": 1,
+            "memory_limit_gib": 16.0,
+            "adaptive_shift": false
+          },
+          "matrix_id": "m_77c7146bd27c476eb1c60b284be80a01",
+          "job_ids": [
+            "j_af86dc80e457471fa56f9a086bfa4f5a",
+            "j_86b91093b1ce4b92ab4a483016296678"
+          ],
+          "summary": {
+            "total": 2,
+            "terminal": 2,
+            "failed": 0,
+            "partial": 0,
+            "certified": 2,
+            "time_median_seconds": 0.784700875490671,
+            "time_range_seconds": [
+              0.7833874589996412,
+              0.7860142919817008
+            ],
+            "timing_denominator": 2,
+            "aggregation_scope": "All recorded completed timings including failures; all rows retained",
+            "certified_time_median_seconds": 0.784700875490671,
+            "certified_time_range_seconds": [
+              0.7833874589996412,
+              0.7860142919817008
+            ],
+            "certified_timing_denominator": 2
+          },
+          "configuration_diff": [
+            {
+              "path": "solver.adaptive_shift.enabled",
+              "before": true,
+              "after": false
+            }
+          ]
+        },
+        {
+          "cell_id": "c003",
+          "parameters": {
+            "k": 6,
+            "sigma": 0.0,
+            "threads": 1,
+            "memory_limit_gib": 16.0,
+            "adaptive_shift": true
+          },
+          "matrix_id": "m_77c7146bd27c476eb1c60b284be80a01",
+          "job_ids": [
+            "j_be2b30f061e8434bb54c64f92a573f4d",
+            "j_acd713a385d04341be88c23c012a4275"
+          ],
+          "summary": {
+            "total": 2,
+            "terminal": 2,
+            "failed": 0,
+            "partial": 0,
+            "certified": 2,
+            "time_median_seconds": 0.7907796665094793,
+            "time_range_seconds": [
+              0.7858779579983093,
+              0.7956813750206493
+            ],
+            "timing_denominator": 2,
+            "aggregation_scope": "All recorded completed timings including failures; all rows retained",
+            "certified_time_median_seconds": 0.7907796665094793,
+            "certified_time_range_seconds": [
+              0.7858779579983093,
+              0.7956813750206493
+            ],
+            "certified_timing_denominator": 2
+          },
+          "configuration_diff": [
+            {
+              "path": "target.k",
+              "before": 4,
+              "after": 6
+            }
+          ]
+        },
+        {
+          "cell_id": "c004",
+          "parameters": {
+            "k": 6,
+            "sigma": 0.0,
+            "threads": 1,
+            "memory_limit_gib": 16.0,
+            "adaptive_shift": false
+          },
+          "matrix_id": "m_77c7146bd27c476eb1c60b284be80a01",
+          "job_ids": [
+            "j_d9e4706bdaa34403bbd97f12460fe2de",
+            "j_e25ffe8abd44403297d80b36067e8a93"
+          ],
+          "summary": {
+            "total": 2,
+            "terminal": 2,
+            "failed": 0,
+            "partial": 0,
+            "certified": 2,
+            "time_median_seconds": 0.7985314995166846,
+            "time_range_seconds": [
+              0.7930472080479376,
+              0.8040157909854315
+            ],
+            "timing_denominator": 2,
+            "aggregation_scope": "All recorded completed timings including failures; all rows retained",
+            "certified_time_median_seconds": 0.7985314995166846,
+            "certified_time_range_seconds": [
+              0.7930472080479376,
+              0.8040157909854315
+            ],
+            "certified_timing_denominator": 2
+          },
+          "configuration_diff": [
+            {
+              "path": "solver.adaptive_shift.enabled",
+              "before": true,
+              "after": false
+            },
+            {
+              "path": "target.k",
+              "before": 4,
+              "after": 6
+            }
+          ]
+        }
+      ],
+      "job_ids": [
+        "j_942e553729c24b98aef109b6c1581314",
+        "j_bd4fa6b2012f44cba9d1eec36fb646bc",
+        "j_af86dc80e457471fa56f9a086bfa4f5a",
+        "j_86b91093b1ce4b92ab4a483016296678",
+        "j_be2b30f061e8434bb54c64f92a573f4d",
+        "j_acd713a385d04341be88c23c012a4275",
+        "j_d9e4706bdaa34403bbd97f12460fe2de",
+        "j_e25ffe8abd44403297d80b36067e8a93"
+      ]
+    },
+    {
+      "id": "b_a77b32cf58414f41b96aa8d243b23d78",
+      "experiment_plan_id": "ep_a77b32cf58414f41b96aa8d243b23d78",
+      "hash": "a2b7c6ee8179b8448ddd1301ef09cecc319b37378572b4dba706fcc9e989a0e6",
+      "budget": {
+        "max_runs": 100,
+        "max_total_walltime_seconds": 7200.0,
+        "max_total_disk_gib": 200.0,
+        "total_runs": 20,
+        "total_walltime_seconds": 6000.0,
+        "total_disk_gib": 40.0,
+        "peak_memory_limit_gib": 16.0
+      },
+      "summary": {
+        "total": 20,
+        "terminal": 20,
+        "failed": 15,
+        "partial": 0,
+        "certified": 5,
+        "time_median_seconds": 0.8057897294929717,
+        "time_range_seconds": [
+          0.1766558340168558,
+          0.9277458330034278
+        ],
+        "timing_denominator": 6,
+        "aggregation_scope": "All recorded completed timings including failures; all rows retained",
+        "certified_time_median_seconds": 0.8150982920196839,
+        "certified_time_range_seconds": [
+          0.7852123330230825,
+          0.9277458330034278
+        ],
+        "certified_timing_denominator": 5
+      },
+      "groups": [
+        {
+          "cell_id": "c001",
+          "parameters": {
+            "k": 4,
+            "sigma": 0.0,
+            "threads": 1,
+            "memory_limit_gib": 16.0,
+            "adaptive_shift": true
+          },
+          "matrix_id": "m_77c7146bd27c476eb1c60b284be80a01",
+          "job_ids": [
+            "j_809811b9c4224efcb6fc2e734ee33984",
+            "j_b6ce946c9cd949f4aa234786f31367e9",
+            "j_fecfcf03dd394f9695057d358ee0a069",
+            "j_55688042e173436bbb16f8d0c9701b35",
+            "j_c745c1093c9d4c37925c9c3052f70c63",
+            "j_e3834bed71ed4f05ae537068aa9e4f52",
+            "j_fea45f878e764ab6ae51ab60aee88e6e",
+            "j_f6bb2d861f4f44b78001907c56442439",
+            "j_0a8733de646f4f879042ebfbc5f1d317",
+            "j_94e591b5ce2c46caaaa65c0a61e21b37"
+          ],
+          "summary": {
+            "total": 10,
+            "terminal": 10,
+            "failed": 5,
+            "partial": 0,
+            "certified": 5,
+            "time_median_seconds": 0.8057897294929717,
+            "time_range_seconds": [
+              0.1766558340168558,
+              0.9277458330034278
+            ],
+            "timing_denominator": 6,
+            "aggregation_scope": "All recorded completed timings including failures; all rows retained",
+            "certified_time_median_seconds": 0.8150982920196839,
+            "certified_time_range_seconds": [
+              0.7852123330230825,
+              0.9277458330034278
+            ],
+            "certified_timing_denominator": 5
+          },
+          "configuration_diff": []
+        },
+        {
+          "cell_id": "c002",
+          "parameters": {
+            "k": 4,
+            "sigma": 0.0,
+            "threads": 1,
+            "memory_limit_gib": 16.0,
+            "adaptive_shift": false
+          },
+          "matrix_id": "m_77c7146bd27c476eb1c60b284be80a01",
+          "job_ids": [
+            "j_02e7709706a04fe7a858c7d0df0b1a4c",
+            "j_40342b64bc334c07a0f8a7bb6c73c5f9",
+            "j_fc571c4a8af64ed58ceb00dc8157ec52",
+            "j_401f73f69c734bbea140519299285590",
+            "j_230723f918764a13b7e6ed6f93a8b22d",
+            "j_fb4f17acc3b54d1a93b40dcfea9724f9",
+            "j_118bb9773ed54fb7ae68a0dee411cae2",
+            "j_bc19ca1823a846fd857c5baeba291b84",
+            "j_5520ac841f81436983df0682331e6f1b",
+            "j_3994b632a31047e29c4f60a16e0796f5"
+          ],
+          "summary": {
+            "total": 10,
+            "terminal": 10,
+            "failed": 10,
+            "partial": 0,
+            "certified": 0,
+            "time_median_seconds": null,
+            "time_range_seconds": null,
+            "timing_denominator": 0,
+            "aggregation_scope": "All recorded completed timings including failures; all rows retained",
+            "certified_time_median_seconds": null,
+            "certified_time_range_seconds": null,
+            "certified_timing_denominator": 0
+          },
+          "configuration_diff": [
+            {
+              "path": "solver.adaptive_shift.enabled",
+              "before": true,
+              "after": false
+            }
+          ]
+        }
+      ],
+      "job_ids": [
+        "j_809811b9c4224efcb6fc2e734ee33984",
+        "j_b6ce946c9cd949f4aa234786f31367e9",
+        "j_fecfcf03dd394f9695057d358ee0a069",
+        "j_55688042e173436bbb16f8d0c9701b35",
+        "j_c745c1093c9d4c37925c9c3052f70c63",
+        "j_e3834bed71ed4f05ae537068aa9e4f52",
+        "j_fea45f878e764ab6ae51ab60aee88e6e",
+        "j_f6bb2d861f4f44b78001907c56442439",
+        "j_0a8733de646f4f879042ebfbc5f1d317",
+        "j_94e591b5ce2c46caaaa65c0a61e21b37",
+        "j_02e7709706a04fe7a858c7d0df0b1a4c",
+        "j_40342b64bc334c07a0f8a7bb6c73c5f9",
+        "j_fc571c4a8af64ed58ceb00dc8157ec52",
+        "j_401f73f69c734bbea140519299285590",
+        "j_230723f918764a13b7e6ed6f93a8b22d",
+        "j_fb4f17acc3b54d1a93b40dcfea9724f9",
+        "j_118bb9773ed54fb7ae68a0dee411cae2",
+        "j_bc19ca1823a846fd857c5baeba291b84",
+        "j_5520ac841f81436983df0682331e6f1b",
+        "j_3994b632a31047e29c4f60a16e0796f5"
+      ]
+    }
+  ],
+  "report": {
+    "id": "report_1d8588b1d7e54952aadc84359ba13473",
+    "hash": "38d23e960ccdd6768cad82cc34956c138a8203c6b1bab78c7667b420162211cf",
+    "all_8_job_ids_present": true,
+    "configuration_fields_retained": true,
+    "http_status": 200
+  },
+  "browser_checks": {
+    "edit_revokes_preview": true,
+    "duplicate_axis_values_deduplicated": true,
+    "repeated_submit_same_batch": true,
+    "real_solver_runs": true,
+    "batch_cancel_preserves_completed": true,
+    "terminal_polling": {
+      "elapsed_seconds": 79.02831387519836,
+      "additional_detail_requests": 0
+    },
+    "download_capture": "Report POST201/GET200 and bytes validated; browser download-event API timed out, local browser save location not verified."
+  }
+}

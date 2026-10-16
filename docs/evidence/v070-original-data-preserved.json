@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "scope": "Original frozen business records, events, audit and idempotency rows unchanged. Derived project_storage counters may increase for new runs. Raw initial strict comparison is retained separately.",
+  "tables": {
+    "entities": {
+      "baseline_rows": 98,
+      "current_rows": 107,
+      "raw_changed_keys": [
+        [
+          271
+        ],
+        [
+          285
+        ]
+      ],
+      "unexpected_changed_keys": [],
+      "frozen_records_preserved": true
+    },
+    "events": {
+      "baseline_rows": 328,
+      "current_rows": 398,
+      "raw_changed_keys": [],
+      "unexpected_changed_keys": [],
+      "frozen_records_preserved": true
+    },
+    "audit": {
+      "baseline_rows": 83,
+      "current_rows": 87,
+      "raw_changed_keys": [],
+      "unexpected_changed_keys": [],
+      "frozen_records_preserved": true
+    },
+    "idempotency": {
+      "baseline_rows": 35,
+      "current_rows": 38,
+      "raw_changed_keys": [],
+      "unexpected_changed_keys": [],
+      "frozen_records_preserved": true
+    }
+  },
+  "derived_counter_changes": [
+    {
+      "project_id": "p_311283e67fc94334819c2c0504eb5527",
+      "before": {
+        "id": "p_311283e67fc94334819c2c0504eb5527",
+        "project_id": "p_311283e67fc94334819c2c0504eb5527",
+        "input_bytes": 3118,
+        "output_bytes": 43891,
+        "updated_at": "2026-10-16T02:35:04.605427+00:00"
+      },
+      "after": {
+        "id": "p_311283e67fc94334819c2c0504eb5527",
+        "project_id": "p_311283e67fc94334819c2c0504eb5527",
+        "input_bytes": 3118,
+        "output_bytes": 203532,
+        "updated_at": "2026-10-16T06:16:36.212688+00:00"
+      },
+      "reason": "New authorized UI runs added output artifacts"
+    },
+    {
+      "project_id": "p_988e59bc9ddc48cfa05f2750a8477d8e",
+      "before": {
+        "id": "p_988e59bc9ddc48cfa05f2750a8477d8e",
+        "project_id": "p_988e59bc9ddc48cfa05f2750a8477d8e",
+        "input_bytes": 23927,
+        "output_bytes": 776199,
+        "updated_at": "2026-10-16T02:47:39.723913+00:00"
+      },
+      "after": {
+        "id": "p_988e59bc9ddc48cfa05f2750a8477d8e",
+        "project_id": "p_988e59bc9ddc48cfa05f2750a8477d8e",
+        "input_bytes": 23927,
+        "output_bytes": 867085,
+        "updated_at": "2026-10-16T06:07:07.666084+00:00"
+      },
+      "reason": "New authorized UI runs added output artifacts"
+    }
+  ],
+  "macos_installed_68_modules_match_source": true
+}

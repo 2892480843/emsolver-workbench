@@ -1,0 +1,9 @@
+openmpi-bin	4.1.4-3+b1
+python3	3.11.2-1+b1
+python3-mpi4py	3.1.4-2+b2
+python3-numpy	1:1.24.2-1+deb12u1
+python3-petsc4py-complex	3.18.5-1
+python3-petsc4py-real	3.18.5-1
+python3-scipy	1.10.1-2
+python3-slepc4py-complex	3.18.2-1
+python3-slepc4py-real	3.18.2-1

@@ -1,0 +1,38 @@
+schema_version: '1.0'
+repeats: 3
+cases:
+  - name: indefinite
+    kind: indefinite
+    n: 600
+    k: 8
+    expected_status: [PARTIAL, SUCCEEDED]
+  - name: zero_cluster
+    kind: clustered
+    n: 600
+    k: 8
+    expected_status: [PARTIAL, SUCCEEDED]
+  - name: repeated_modes
+    kind: repeated
+    n: 600
+    k: 8
+    expected_status: [PARTIAL, SUCCEEDED]
+  - name: near_singular
+    kind: near_singular
+    n: 600
+    k: 8
+    expected_status: [PARTIAL, SUCCEEDED]
+  - name: complex_hermitian
+    kind: complex
+    n: 600
+    k: 8
+    expected_status: [PARTIAL, SUCCEEDED]
+  - name: memory_guard
+    kind: complex
+    n: 600
+    k: 8
+    repeats: 1
+    config:
+      resources:
+        memory_limit_gib: 0.01
+    expected_status: [FAILED]
+    expected_error_code: RESOURCE_EXHAUSTED

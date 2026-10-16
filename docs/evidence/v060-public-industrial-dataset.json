@@ -1,0 +1,206 @@
+{
+  "schema_version": "1.0",
+  "observed_date": "2026-10-16",
+  "purpose": "Acquire and preserve a complete unmodified real symmetric microwave finite-element matrix for subsequent industrial solver validation. Acquisition and matrix checks only; no eigensolver acceptance or performance claim.",
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.13",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "interpreter": ".venv-emsolver/bin/python"
+  },
+  "identity": "Dziekonski/gsm_106857",
+  "attribution": {
+    "matrix_authors": [
+      "A. Dziekonski",
+      "A. Lamecki",
+      "M. Mrozowski"
+    ],
+    "matrix_editor": "T. Davis",
+    "matrix_year": 2010,
+    "original_research_doi": "10.1109/LMWC.2010.2089974",
+    "original_research_title": "GPU Acceleration of Multilevel Solvers for Analysis of Microwave Components With Finite Element Method",
+    "original_research_citation_verified_at_author_institution": "IEEE Microwave and Wireless Components Letters 21(1), pp. 1-3, January 2011",
+    "citation_discrepancy": "Original Matrix Market and collection metadata say volume 20 no.12 December 2010. The author university lists volume 21 no.1 January 2011. Raw original header retained unchanged; DOI and authors agree.",
+    "collection_citations": [
+      "Davis and Hu (2011), DOI:10.1145/2049662.2049663",
+      "Kolodziej et al. (2019), DOI:10.21105/joss.01244"
+    ]
+  },
+  "license_evidence": {
+    "spdx": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "collection_license_source": "https://sparse.tamu.edu/about",
+    "verified_date": "2026-10-16",
+    "scope": "SuiteSparse collection matrices. Retain the original archive and original Matrix Market author header and disclose the format conversion.",
+    "boundary": "License is stated by the collection maintainer. Current TAMU and legacy UF pages are one collection lineage, not independent institutional validation. Hashes are locally computed over TLS-acquired files, not upstream signed checksums."
+  },
+  "official_sources": [
+    {
+      "url": "https://sparse.tamu.edu/Dziekonski/gsm_106857",
+      "role": "Current collection metadata: 589446 square, 21758924 full nonzeros, real symmetric, not positive definite, ninth-order microwave combline filter."
+    },
+    {
+      "url": "https://www.cise.ufl.edu/research/sparse/matrices/Dziekonski/gsm_106857.html",
+      "role": "Original official UF metadata and download mirror; same collection lineage."
+    },
+    {
+      "url": "https://sparse.tamu.edu/about",
+      "role": "Collection CC-BY-4.0 license and preservation/citation requirements."
+    },
+    {
+      "url": "https://eti.pg.edu.pl/kima/nauka-i-badania/wicomms-gpu-research-center",
+      "role": "Author university independently identifies the research paper and corrected 2011 bibliographic citation; it does not independently authenticate this archive or its numeric coefficients."
+    }
+  ],
+  "acquisition": {
+    "source_url": "https://sparse.tamu.edu/Dziekonski/gsm_106857",
+    "download_url": "https://www.cise.ufl.edu/research/sparse/MM/Dziekonski/gsm_106857.tar.gz",
+    "download_bytes": 152679272,
+    "transport": "curl HTTPS only; TLS verification enabled; one Range resume after early disconnect",
+    "network_observation": {
+      "initial_exit_code": 18,
+      "initial_received_bytes": 113952263,
+      "resume_count": 1,
+      "resume_exit_code": 0,
+      "connect_timeout_seconds": 15,
+      "maximum_seconds_per_request": 600,
+      "maximum_compressed_bytes": 499999999,
+      "gzip_integrity_check": "PASS"
+    },
+    "license": "CC-BY-4.0",
+    "license_source": "https://sparse.tamu.edu/about",
+    "public": true,
+    "description": "Format conversion only: original Matrix Market preserved, declared symmetric storage reconstructed, duplicate entries combined, CSR indices sorted. No coefficient edits, symmetrization, subsetting or reference answers.",
+    "n": 589446,
+    "nnz": 21758924,
+    "dtype": "float64",
+    "hermitian_candidate": true,
+    "archive_sha256": "8095cadbdb2ddd654693a32a1fe30f72d3bfd61d87815cdefd56ed6f866c09a1",
+    "matrix_market_sha256": "8e375d8c3a4663127dc147b81864caf822d410f18a6351255bb1d2f423e4c150",
+    "npz_sha256": "b56c5bac7fde872951153508eb0641b17e0f52876445d59d4ec8d3ff7687f268",
+    "citation": "Davis and Hu (2011), doi:10.1145/2049662.2049663; Kolodziej et al. (2019), doi:10.21105/joss.01244; retain the original Matrix Market header for author citations."
+  },
+  "archive_members": [
+    {
+      "name": "gsm_106857/gsm_106857.mtx",
+      "bytes": 381166735,
+      "regular_file": true
+    },
+    {
+      "name": "gsm_106857/gsm_106857_b.mtx",
+      "bytes": 1188179,
+      "regular_file": true
+    }
+  ],
+  "matrix_market_original_header": [
+    "%%MatrixMarket matrix coordinate real symmetric",
+    "%-------------------------------------------------------------------------------",
+    "% UF Sparse Matrix Collection, Tim Davis",
+    "% http://www.cise.ufl.edu/research/sparse/matrices/Dziekonski/gsm_106857",
+    "% name: Dziekonski/gsm_106857",
+    "% [High-order vector finite element method in EM]",
+    "% id: 2329",
+    "% date: 2010",
+    "% author: A. Dziekonski, A. Lamecki, M. Mrozowski",
+    "% ed: T. Davis",
+    "% fields: name title A b id date author ed kind notes",
+    "% kind: electromagnetics problem",
+    "%-------------------------------------------------------------------------------",
+    "% notes:",
+    "% High order vector finite element method in electromagnetics     ",
+    "%                                                                 ",
+    "% The matrices came from analysis of a 9-th order microwave       ",
+    "% combline filter with second order (LT\\QN) vector finite elements",
+    "% with different mesh quality. The matrices were used as an       ",
+    "% example in our paper [1].                                       ",
+    "%                                                                 ",
+    "% gsm_106857 - real symmetric matrix (589446 x 589446) and        ",
+    "%     21758924 nonzero elements. First 98577 unknowns corresponds ",
+    "%     to lowest level (CT\\LN) base functions.                     ",
+    "%                                                                 ",
+    "% All matrices are sparse and come with right-hand-sides.         ",
+    "%                                                                 ",
+    "% [1] GPU Acceleration of Multilevel Solvers for Analysis of      ",
+    "% Microwave Components with Finite Element Method, A. Dziekonski, ",
+    "% A. Lamecki, A., and M. Mrozowski, M., IEEE Microwave and        ",
+    "% Wireless Components Letters, vol 20, number 12,                 ",
+    "% Dec 2010.  http://dx.doi.org/10.1109/LMWC.2010.2089974          ",
+    "%-------------------------------------------------------------------------------",
+    "589446 589446 11174185"
+  ],
+  "local_matrix_verification": {
+    "shape": [
+      589446,
+      589446
+    ],
+    "nnz": 21758924,
+    "dtype": "float64",
+    "indices_dtype": "int32",
+    "indptr_dtype": "int32",
+    "csr_buffer_bytes": 263464876,
+    "all_coefficients_finite": true,
+    "hermitian_difference_nnz": 0,
+    "matrix_inf_norm": 51.46419321341725,
+    "hermitian_relative_inf_error": 0.0,
+    "zero_rows": 0,
+    "coefficient_min": -5.0843013658124185,
+    "coefficient_max": 13.342091222953092,
+    "seconds": 10.039246208034456,
+    "child_peak_rss_bytes": 999702528,
+    "eigensolver_started": false
+  },
+  "conversion_monitor": {
+    "wall_budget_seconds": 180,
+    "memory_budget_bytes": 2147483648,
+    "guard": "100ms external RSS polling; soft boundary",
+    "peak_observed_rss_bytes": 981549056,
+    "wall_seconds": 10.724028458003886,
+    "exit_code": 0,
+    "failure": null
+  },
+  "files": {
+    "gsm_106857.tar.gz": {
+      "bytes": 152679272,
+      "sha256": "8095cadbdb2ddd654693a32a1fe30f72d3bfd61d87815cdefd56ed6f866c09a1"
+    },
+    "gsm_106857.mtx": {
+      "bytes": 381166735,
+      "sha256": "8e375d8c3a4663127dc147b81864caf822d410f18a6351255bb1d2f423e4c150"
+    },
+    "gsm_106857.npz": {
+      "bytes": 204819649,
+      "sha256": "b56c5bac7fde872951153508eb0641b17e0f52876445d59d4ec8d3ff7687f268"
+    }
+  },
+  "local_private_artifact_directory": "artifacts/public-dataset-v060/Dziekonski_gsm_106857",
+  "source_and_helper_hashes": {
+    "scripts/fetch_dataset.py": "231a728cde70a4530fd7b15cb542d75a9570772b97cc5e9bc21050e49f7d5732",
+    "tests/test_fetch_dataset.py": "67be89a1c00d3b61f61d1442b6a93a22e1a0c94d38160d15db4e15097d9c90d1",
+    "artifacts/public-dataset-v060/prepare_gsm.py": "91ff4f4fe496773a4a1ce88d58d98e8adb59c1173b1938876b6a5f347df45ef8"
+  },
+  "transformations": [
+    "Original compressed archive and Matrix Market are preserved byte-for-byte; only the exact expected regular .mtx archive member is copied.",
+    "Matrix Market real symmetric triangular storage (11174185 entries) is reconstructed as specified by the format to the complete 21758924-entry matrix.",
+    "CSR format conversion, duplicate combination and index sorting only. No coefficient editing, symmetrization by averaging, real-part extraction, cropping, principal submatrix selection or reference answer generation."
+  ],
+  "retrieval_and_conversion_tests": {
+    "command": ".venv-emsolver/bin/python -m pytest tests/test_fetch_dataset.py -q",
+    "result": "12 passed, 3 SciPy future-default deprecation warnings",
+    "red_baseline_observed": true,
+    "scope": "Offline mocked network boundary and real small Matrix Market conversion: official mirror fallback after connection failure and partial read, header/stream byte budgets, pre-request HTTPS downgrade refusal, exact regular-member copying, duplicate/symlink/budget rejection, original preservation, shape/nnz validation and no overwrite."
+  },
+  "resource_interpretation": {
+    "retained_three_data_files_bytes": 738665656,
+    "csr_buffer_bytes": 263464876,
+    "legacy_uf_amd_lu_nnz_without_partial_pivoting": 367607452,
+    "legacy_uf_colamd_qr_r_upper_bound_nnz": 1001317649,
+    "warning": "Ordering statistics are published estimates, not a measured eigensolver run. Sparse direct-factorization fill can exceed the raw CSR storage by a large factor; factorization memory and shifted-system performance have not been validated on this host."
+  },
+  "numerical_acceptance": {
+    "eigensolver_started": false,
+    "residual_acceptance": "NOT_RUN",
+    "spectral_completeness": "NOT_CERTIFIED",
+    "claim_boundary": "Real microwave input acquisition and exact Hermitian structure validation are complete. No eigenpair result or industrial performance score is asserted in this evidence file."
+  }
+}

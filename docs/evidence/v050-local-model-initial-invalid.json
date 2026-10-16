@@ -1,0 +1,383 @@
+{
+  "schema_version": "1.0",
+  "observed_at": "2026-10-16T02:11:50.093937+00:00",
+  "model": {
+    "schema_version": "1.0",
+    "repository": "mlx-community/Qwen2.5-0.5B-Instruct-4bit",
+    "revision": "a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+    "source": "https://huggingface.co/mlx-community/Qwen2.5-0.5B-Instruct-4bit/tree/a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+    "upstream": "Qwen/Qwen2.5-0.5B-Instruct",
+    "upstream_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "license": "Apache-2.0",
+    "license_source": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct/blob/7ae557604adf67be50417f59c2c2f167def9a775/LICENSE",
+    "quantization": {
+      "bits": 4,
+      "group_size": 64
+    },
+    "remote_code": false,
+    "files": {
+      "model.safetensors": "ddffab9cbc7bf6dde941c6724841eeca8981fcfa81ca20ff8efff1396326d153",
+      "tokenizer_config.json": "f7c61e32b7a17d19bf8e7037dcb74079a833e53ea9801f24008cac68458f03b7",
+      "special_tokens_map.json": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd",
+      "config.json": "b045e57ea90b8f1b35f89f954b176a5c1faa02bd0af2c89bcec191239d66cef4",
+      "tokenizer.json": "a8506e7111b80c6d8635951a02eab0f4e1a8e4e5772da83846579e97b16f61bf",
+      "README.md": "8cd48183a9d10279e02291f12f03a2db5585c222a0cf77f97dca3c87f79bd5e1",
+      "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+      "LICENSE.upstream": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    }
+  },
+  "runtime": {
+    "python": "3.12.13",
+    "system": "Darwin",
+    "machine": "arm64",
+    "mlx": "0.32.4",
+    "mlx_lm": "0.32.1",
+    "metal_available": true,
+    "default_device": "Device(gpu, 0)"
+  },
+  "offline_flags": {
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "HF_HUB_DISABLE_IMPLICIT_TOKEN": "1",
+    "HF_HUB_DISABLE_TELEMETRY": "1"
+  },
+  "transport": "real loopback HTTP _request; witness only records bytes, never changes request or generated response",
+  "successful_model_explanations": 0,
+  "cases": [
+    {
+      "case": "review",
+      "duration_seconds": 1.3894882499589585,
+      "model_contacted": true,
+      "request": {
+        "model": "default_model",
+        "temperature": 0,
+        "max_tokens": 1200,
+        "response_format": {
+          "type": "json_object"
+        },
+        "messages": [
+          {
+            "role": "system",
+            "content": "Explain the supplied diagnostic rules in Simplified Chinese. Return only JSON with summary:string and items:[{rule_id:string,text:string}]. Refer only to supplied rule IDs. No code, commands, markup, new configuration, numerical answers or pass/fail claims. Keep all prerequisites. You cannot change numerical status."
+          },
+          {
+            "role": "user",
+            "content": "{\"rule_version\": \"diagnosis_v2\", \"rules\": [{\"id\": \"review\", \"title\": \"检查验证与运行证据\", \"reason\": \"未触发已登记的故障规则；这不构成数值通过声明。\", \"prerequisites\": [\"实对称或复厄密结构已通过输入检查\", \"上、下三角存储由用户明确声明\"]}]}"
+          }
+        ]
+      },
+      "request_sha256": "1fc717f927f4bcbc8b651e1c5efad0ca29f2cd7a130be98c56b8ea9f3c70935f",
+      "response_sha256": "cd3898387ee94e7fa8005f26c44011abf4d8c155ec46d5f5d07e2937b3892fcb",
+      "response": {
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"rule_id\": \"review\",\n  \"text\": \"检查验证与运行证据\",\n  \"reason\": \"未触发已登记的故障规则；这不构成数值通过声明。\",\n  \"prerequisites\": [\"实对称或复厄密结构已通过输入检查\", \"上、下三角存储由用户明确声明\"]\n}"
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 155,
+          "completion_tokens": 73,
+          "total_tokens": 228,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "model": "default_model"
+      },
+      "explanation": {
+        "source": "rules",
+        "summary": "未触发已登记的故障规则；这不构成数值通过声明。",
+        "items": [
+          {
+            "rule_id": "review",
+            "text": "未触发已登记的故障规则；这不构成数值通过声明。"
+          }
+        ],
+        "model": {
+          "id": "default_model",
+          "version": "mlx-community/Qwen2.5-0.5B-Instruct-4bit@a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+          "license_id": "Apache-2.0",
+          "license_approved": true
+        },
+        "template_version": "diagnosis_explanation_v1",
+        "fallback_reason": "invalid_response"
+      },
+      "authoritative_rules_unchanged": true,
+      "input_status_unchanged": true,
+      "ai_available": false
+    },
+    {
+      "case": "near_singular",
+      "duration_seconds": 0.23012620798544958,
+      "model_contacted": true,
+      "request": {
+        "model": "default_model",
+        "temperature": 0,
+        "max_tokens": 1200,
+        "response_format": {
+          "type": "json_object"
+        },
+        "messages": [
+          {
+            "role": "system",
+            "content": "Explain the supplied diagnostic rules in Simplified Chinese. Return only JSON with summary:string and items:[{rule_id:string,text:string}]. Refer only to supplied rule IDs. No code, commands, markup, new configuration, numerical answers or pass/fail claims. Keep all prerequisites. You cannot change numerical status."
+          },
+          {
+            "role": "user",
+            "content": "{\"rule_version\": \"diagnosis_v2\", \"rules\": [{\"id\": \"near_singular\", \"title\": \"启用有界工作位移恢复\", \"reason\": \"分解接近奇异；保持原目标中心并记录每次工作位移。\", \"prerequisites\": [\"移位线性方程可稳定求解\", \"目标中心与工作位移分别记录\"]}]}"
+          }
+        ]
+      },
+      "request_sha256": "9df45a0951f59eda033df3db1ec53e766a5020a0ddde3a944e7adc6b8e9e7f0e",
+      "response_sha256": "992352deb0d4290165a67417cbcec0e54a9f08783e654ca71a6b1194bc5c7049",
+      "response": {
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"rule_id\": \"near_singular\",\n  \"text\": \"启用有界工作位移恢复\",\n  \"reason\": \"分解接近奇异；保持原目标中心并记录每次工作位移。\"\n}"
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 155,
+          "completion_tokens": 46,
+          "total_tokens": 201,
+          "prompt_tokens_details": {
+            "cached_tokens": 88
+          }
+        },
+        "model": "default_model"
+      },
+      "explanation": {
+        "source": "rules",
+        "summary": "分解接近奇异；保持原目标中心并记录每次工作位移。",
+        "items": [
+          {
+            "rule_id": "near_singular",
+            "text": "分解接近奇异；保持原目标中心并记录每次工作位移。"
+          }
+        ],
+        "model": {
+          "id": "default_model",
+          "version": "mlx-community/Qwen2.5-0.5B-Instruct-4bit@a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+          "license_id": "Apache-2.0",
+          "license_approved": true
+        },
+        "template_version": "diagnosis_explanation_v1",
+        "fallback_reason": "invalid_response"
+      },
+      "authoritative_rules_unchanged": true,
+      "input_status_unchanged": true,
+      "ai_available": false
+    },
+    {
+      "case": "timeout_diagnosis",
+      "duration_seconds": 0.5325682500260882,
+      "model_contacted": true,
+      "request": {
+        "model": "default_model",
+        "temperature": 0,
+        "max_tokens": 1200,
+        "response_format": {
+          "type": "json_object"
+        },
+        "messages": [
+          {
+            "role": "system",
+            "content": "Explain the supplied diagnostic rules in Simplified Chinese. Return only JSON with summary:string and items:[{rule_id:string,text:string}]. Refer only to supplied rule IDs. No code, commands, markup, new configuration, numerical answers or pass/fail claims. Keep all prerequisites. You cannot change numerical status."
+          },
+          {
+            "role": "user",
+            "content": "{\"rule_version\": \"diagnosis_v2\", \"rules\": [{\"id\": \"timeout\", \"title\": \"限制下一次数值尝试\", \"reason\": \"运行超过冻结时限；新实验减少外层尝试，目标、误差与时限保持不变。\", \"prerequisites\": [\"候选维数大于目标数量并满足当前后端限制\", \"预估与运行监控均满足冻结资源预算\"]}]}"
+          }
+        ]
+      },
+      "request_sha256": "6cb4c481d8a8ff3343c10cc04ed387e6c67e208218a74bd9f20839ee49aecb5a",
+      "response_sha256": "48c23a439c4d800e268f889cb5930098b29adb885dbd0911960677c76a19f775",
+      "response": {
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"rule_id\": \"timeout\",\n  \"text\": \"限制下一次数值尝试\",\n  \"rule_version\": \"diagnosis_v2\",\n  \"reason\": \"运行超过冻结时限；新实验减少外层尝试，目标、误差与时限保持不变。\",\n  \"prerequisites\": [\"候选维数大于目标数量并满足当前后端限制\", \"预估与运行监控均满足冻结资源预算\"]\n}"
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 161,
+          "completion_tokens": 90,
+          "total_tokens": 251,
+          "prompt_tokens_details": {
+            "cached_tokens": 88
+          }
+        },
+        "model": "default_model"
+      },
+      "explanation": {
+        "source": "rules",
+        "summary": "运行超过冻结时限；新实验减少外层尝试，目标、误差与时限保持不变。",
+        "items": [
+          {
+            "rule_id": "timeout",
+            "text": "运行超过冻结时限；新实验减少外层尝试，目标、误差与时限保持不变。"
+          }
+        ],
+        "model": {
+          "id": "default_model",
+          "version": "mlx-community/Qwen2.5-0.5B-Instruct-4bit@a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+          "license_id": "Apache-2.0",
+          "license_approved": true
+        },
+        "template_version": "diagnosis_explanation_v1",
+        "fallback_reason": "invalid_response"
+      },
+      "authoritative_rules_unchanged": true,
+      "input_status_unchanged": true,
+      "ai_available": false
+    },
+    {
+      "case": "target_unverified",
+      "duration_seconds": 0.5471110829967074,
+      "model_contacted": true,
+      "request": {
+        "model": "default_model",
+        "temperature": 0,
+        "max_tokens": 1200,
+        "response_format": {
+          "type": "json_object"
+        },
+        "messages": [
+          {
+            "role": "system",
+            "content": "Explain the supplied diagnostic rules in Simplified Chinese. Return only JSON with summary:string and items:[{rule_id:string,text:string}]. Refer only to supplied rule IDs. No code, commands, markup, new configuration, numerical answers or pass/fail claims. Keep all prerequisites. You cannot change numerical status."
+          },
+          {
+            "role": "user",
+            "content": "{\"rule_version\": \"diagnosis_v2\", \"rules\": [{\"id\": \"target_unverified\", \"title\": \"检查目标完整性证据\", \"reason\": \"合格残差不能单独证明最近模式或区间完整性；未认证状态必须保留。\", \"prerequisites\": [\"候选维数大于目标数量并满足当前后端限制\", \"预估与运行监控均满足冻结资源预算\", \"使用原问题残差和独立向量验证\", \"模式簇边界及目标数量保持冻结\"]}]}"
+          }
+        ]
+      },
+      "request_sha256": "08fe6a1ef55c0aa6a2cf70c75a94c07c0b057c8173edfd31aad3f2d32fd65b45",
+      "response_sha256": "1588d4a128a9ee419c36c2031e7a95d2e5e4a3f0861445e388e69e6a179c4fe1",
+      "response": {
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": "```json\n[\n    {\n        \"id\": \"target_unverified\",\n        \"title\": \"检查目标完整性证据\",\n        \"text\": \"合格残差不能单独证明最近模式或区间完整性；未认证状态必须保留。\",\n        \"prerequisites\": [\n            \"候选维数大于目标数量并满足当前后端限制\",\n            \"预估与运行监控均满足冻结资源预算\",\n            \"使用原问题残差和独立向量验证\",\n            \"模式簇边界及目标数量保持冻结\"\n        ]\n    }\n]\n```"
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 182,
+          "completion_tokens": 114,
+          "total_tokens": 296,
+          "prompt_tokens_details": {
+            "cached_tokens": 88
+          }
+        },
+        "model": "default_model"
+      },
+      "explanation": {
+        "source": "rules",
+        "summary": "合格残差不能单独证明最近模式或区间完整性；未认证状态必须保留。",
+        "items": [
+          {
+            "rule_id": "target_unverified",
+            "text": "合格残差不能单独证明最近模式或区间完整性；未认证状态必须保留。"
+          }
+        ],
+        "model": {
+          "id": "default_model",
+          "version": "mlx-community/Qwen2.5-0.5B-Instruct-4bit@a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+          "license_id": "Apache-2.0",
+          "license_approved": true
+        },
+        "template_version": "diagnosis_explanation_v1",
+        "fallback_reason": "invalid_response"
+      },
+      "authoritative_rules_unchanged": true,
+      "input_status_unchanged": true,
+      "ai_available": false
+    },
+    {
+      "case": "license_not_approved",
+      "model_contacted": false,
+      "explanation": {
+        "source": "rules",
+        "summary": "分解接近奇异；保持原目标中心并记录每次工作位移。",
+        "items": [
+          {
+            "rule_id": "near_singular",
+            "text": "分解接近奇异；保持原目标中心并记录每次工作位移。"
+          }
+        ],
+        "model": {
+          "id": "default_model",
+          "version": "mlx-community/Qwen2.5-0.5B-Instruct-4bit@a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+          "license_id": "Apache-2.0",
+          "license_approved": false
+        },
+        "template_version": "diagnosis_explanation_v1",
+        "fallback_reason": "license_not_approved"
+      },
+      "authoritative_rules_unchanged": true
+    },
+    {
+      "case": "not_configured",
+      "model_contacted": false,
+      "explanation": {
+        "source": "rules",
+        "summary": "分解接近奇异；保持原目标中心并记录每次工作位移。",
+        "items": [
+          {
+            "rule_id": "near_singular",
+            "text": "分解接近奇异；保持原目标中心并记录每次工作位移。"
+          }
+        ],
+        "model": null,
+        "template_version": "diagnosis_explanation_v1",
+        "fallback_reason": "not_configured"
+      },
+      "authoritative_rules_unchanged": true
+    },
+    {
+      "case": "unavailable_loopback",
+      "model_contacted": true,
+      "explanation": {
+        "source": "rules",
+        "summary": "分解接近奇异；保持原目标中心并记录每次工作位移。",
+        "items": [
+          {
+            "rule_id": "near_singular",
+            "text": "分解接近奇异；保持原目标中心并记录每次工作位移。"
+          }
+        ],
+        "model": {
+          "id": "default_model",
+          "version": "mlx-community/Qwen2.5-0.5B-Instruct-4bit@a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+          "license_id": "Apache-2.0",
+          "license_approved": true
+        },
+        "template_version": "diagnosis_explanation_v1",
+        "fallback_reason": "unavailable"
+      },
+      "authoritative_rules_unchanged": true
+    }
+  ],
+  "quality_score": null,
+  "interpretation": "Actual local inference and structured parser acceptance only; no model-quality or numerical-certification claim."
+}

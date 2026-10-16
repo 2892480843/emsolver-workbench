@@ -1,0 +1,125 @@
+{
+  "available": true,
+  "supported": true,
+  "methods": [
+    "krylovschur"
+  ],
+  "tested_combinations": [
+    {
+      "scalar": "float64",
+      "mpi_ranks": 1,
+      "threads_per_rank": 1,
+      "method": "krylovschur",
+      "transform": "shift_invert",
+      "linear_solver": "preonly_lu_mumps",
+      "self_test": {
+        "passed": true,
+        "n": 12,
+        "k": 2,
+        "absolute_residual_bound": 1e-10,
+        "eigenvalue_error_bound": 1e-10
+      }
+    },
+    {
+      "scalar": "float64",
+      "mpi_ranks": 2,
+      "threads_per_rank": 1,
+      "method": "krylovschur",
+      "transform": "shift_invert",
+      "linear_solver": "preonly_lu_mumps",
+      "self_test": {
+        "passed": true,
+        "n": 12,
+        "k": 2,
+        "absolute_residual_bound": 1e-10,
+        "eigenvalue_error_bound": 1e-10
+      }
+    },
+    {
+      "scalar": "complex128",
+      "mpi_ranks": 1,
+      "threads_per_rank": 1,
+      "method": "krylovschur",
+      "transform": "shift_invert",
+      "linear_solver": "preonly_lu_mumps",
+      "self_test": {
+        "passed": true,
+        "n": 12,
+        "k": 2,
+        "absolute_residual_bound": 1e-10,
+        "eigenvalue_error_bound": 1e-10
+      }
+    },
+    {
+      "scalar": "complex128",
+      "mpi_ranks": 2,
+      "threads_per_rank": 1,
+      "method": "krylovschur",
+      "transform": "shift_invert",
+      "linear_solver": "preonly_lu_mumps",
+      "self_test": {
+        "passed": true,
+        "n": 12,
+        "k": 2,
+        "absolute_residual_bound": 1e-10,
+        "eigenvalue_error_bound": 1e-10
+      }
+    }
+  ],
+  "gpu": {
+    "available": false,
+    "supported": false,
+    "reason": "No CUDA device/backend has been validated."
+  },
+  "scalar_types": [
+    "float64",
+    "complex128"
+  ],
+  "mpi_ranks": [
+    1,
+    2
+  ],
+  "threads_per_rank": [
+    1
+  ],
+  "image_id": "sha256:04a9337651ebae49cffb40b0fdce800aadb5cbc15325de53ba73acbbbb486f11",
+  "architecture": "arm64",
+  "driver_sha256": "d885ae408596fcfa5b8015c3bbd8f37fe81778f28cb3759f099c531d8633072a",
+  "versions": {
+    "petsc_version": [
+      3,
+      18,
+      5
+    ],
+    "slepc_version": [
+      3,
+      18,
+      2
+    ],
+    "mpi_library": "Open MPI v4.1.4, package: Debian OpenMPI, ident: 4.1.4, repo rev: v4.1.4, May 26, 2022",
+    "integer_dtype": "int32",
+    "platform": {
+      "system": "Linux",
+      "machine": "aarch64",
+      "python": "3.11.2"
+    }
+  },
+  "target_modes": [
+    "nearest_k"
+  ],
+  "problem_types": [
+    "standard_hermitian"
+  ],
+  "devices": [
+    "cpu"
+  ],
+  "limits": {
+    "max_matrix_dimension": 1000000,
+    "max_subspace": 1024,
+    "max_candidate_columns": 512,
+    "max_candidate_bytes": 536870912,
+    "max_random_seed": 9223372036854775807
+  },
+  "certification": "Only candidates; independent original-problem validation and target certification remain required.",
+  "matrix_loading": "Input CSR is replicated within MPI ranks; PETSc matrix ownership is distributed."
+}

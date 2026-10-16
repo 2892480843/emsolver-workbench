@@ -1,0 +1,338 @@
+
+> emsolver-workbench@0.4.0 test
+> tsc -p tsconfig.test.json && node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: rank histories use measured residuals, original event sequence and explicit lock indices
+ok 1 - rank histories use measured residuals, original event sequence and explicit lock indices
+  ---
+  duration_ms: 0.855084
+  type: 'test'
+  ...
+# Subtest: bounded curves retain narrow per-bucket residual spikes and troughs
+ok 2 - bounded curves retain narrow per-bucket residual spikes and troughs
+  ---
+  duration_ms: 1.012625
+  type: 'test'
+  ...
+# Subtest: failures, shifts, lock changes, restarts and fallback markers are never decimated
+ok 3 - failures, shifts, lock changes, restarts and fallback markers are never decimated
+  ---
+  duration_ms: 0.423084
+  type: 'test'
+  ...
+# Subtest: ARPACK attempt maxima do not invent per-mode histories or lock status
+ok 4 - ARPACK attempt maxima do not invent per-mode histories or lock status
+  ---
+  duration_ms: 0.155
+  type: 'test'
+  ...
+# Subtest: only explicit stagnation observations produce intervals; absent values remain unavailable
+ok 5 - only explicit stagnation observations produce intervals; absent values remain unavailable
+  ---
+  duration_ms: 0.214042
+  type: 'test'
+  ...
+# Subtest: rank paging includes later ranks and ignores malformed numeric fields without fabricating zeros
+ok 6 - rank paging includes later ranks and ignores malformed numeric fields without fabricating zeros
+  ---
+  duration_ms: 0.07775
+  type: 'test'
+  ...
+# Subtest: restart closes the observed stagnation interval and preserves its actual reason
+ok 7 - restart closes the observed stagnation interval and preserves its actual reason
+  ---
+  duration_ms: 0.20075
+  type: 'test'
+  ...
+# Subtest: a changed lock set is visible even when the aggregate count stays unchanged
+ok 8 - a changed lock set is visible even when the aggregate count stays unchanged
+  ---
+  duration_ms: 0.111042
+  type: 'test'
+  ...
+# Subtest: number axes trim tokens and deduplicate numeric values in input order
+ok 9 - number axes trim tokens and deduplicate numeric values in input order
+  ---
+  duration_ms: 1.465208
+  type: 'test'
+  ...
+# Subtest: number axes reject empty tokens, partial numbers and non-finite values
+ok 10 - number axes reject empty tokens, partial numbers and non-finite values
+  ---
+  duration_ms: 0.485958
+  type: 'test'
+  ...
+# Subtest: integer axes accept inclusive bounds and reject fractional or out-of-range values
+ok 11 - integer axes accept inclusive bounds and reject fractional or out-of-range values
+  ---
+  duration_ms: 0.330166
+  type: 'test'
+  ...
+# Subtest: fractional axes apply inclusive numeric limits
+ok 12 - fractional axes apply inclusive numeric limits
+  ---
+  duration_ms: 0.127667
+  type: 'test'
+  ...
+# Subtest: number axes enforce the default and custom token limits before deduplication
+ok 13 - number axes enforce the default and custom token limits before deduplication
+  ---
+  duration_ms: 0.141125
+  type: 'test'
+  ...
+# Subtest: configuration differences recurse into objects and sort full dot paths
+ok 14 - configuration differences recurse into objects and sort full dot paths
+  ---
+  duration_ms: 0.259375
+  type: 'test'
+  ...
+# Subtest: configuration additions and deletions preserve leaf values and use null for absence
+ok 15 - configuration additions and deletions preserve leaf values and use null for absence
+  ---
+  duration_ms: 0.206875
+  type: 'test'
+  ...
+# Subtest: configuration arrays are compared as leaves while equal content produces no difference
+ok 16 - configuration arrays are compared as leaves while equal content produces no difference
+  ---
+  duration_ms: 0.649958
+  type: 'test'
+  ...
+# Subtest: batch polling follows every active job status even when the batch reports terminal
+ok 17 - batch polling follows every active job status even when the batch reports terminal
+  ---
+  duration_ms: 0.425333
+  type: 'test'
+  ...
+# Subtest: batch polling honors active summary counts, derived counts and active batch status
+ok 18 - batch polling honors active summary counts, derived counts and active batch status
+  ---
+  duration_ms: 0.532166
+  type: 'test'
+  ...
+# Subtest: failed and fully terminal batches stop polling
+ok 19 - failed and fully terminal batches stop polling
+  ---
+  duration_ms: 0.216083
+  type: 'test'
+  ...
+# Subtest: benchmark detail reads forward the abort signal and encode the batch id
+ok 20 - benchmark detail reads forward the abort signal and encode the batch id
+  ---
+  duration_ms: 0.15675
+  type: 'test'
+  ...
+# Subtest: benchmark detail reads stop scheduling after a terminal response
+ok 21 - benchmark detail reads stop scheduling after a terminal response
+  ---
+  duration_ms: 0.1035
+  type: 'test'
+  ...
+# Subtest: benchmark detail reads cannot publish a response after selection cancellation
+ok 22 - benchmark detail reads cannot publish a response after selection cancellation
+  ---
+  duration_ms: 0.211125
+  type: 'test'
+  ...
+# Subtest: benchmark page paths encode project and cursor with a fixed page limit
+ok 23 - benchmark page paths encode project and cursor with a fixed page limit
+  ---
+  duration_ms: 0.883333
+  type: 'test'
+  ...
+# Subtest: experiment summaries preserve explicit timing denominators including failed measurements
+ok 24 - experiment summaries preserve explicit timing denominators including failed measurements
+  ---
+  duration_ms: 0.1385
+  type: 'test'
+  ...
+# Subtest: experiment summaries default missing counters to zero without guessing timing denominators
+ok 25 - experiment summaries default missing counters to zero without guessing timing denominators
+  ---
+  duration_ms: 0.07225
+  type: 'test'
+  ...
+# Subtest: experiment summaries derive nonnegative active counts only when active is absent
+ok 26 - experiment summaries derive nonnegative active counts only when active is absent
+  ---
+  duration_ms: 0.058333
+  type: 'test'
+  ...
+# Subtest: row histogram preserves actual edge ranges, row counts and inclusive final endpoint
+ok 27 - row histogram preserves actual edge ranges, row counts and inclusive final endpoint
+  ---
+  duration_ms: 1.140458
+  type: 'test'
+  ...
+# Subtest: histogram refuses malformed or oversized bins without drawing invented data
+ok 28 - histogram refuses malformed or oversized bins without drawing invented data
+  ---
+  duration_ms: 0.253542
+  type: 'test'
+  ...
+# Subtest: event window sorts, deduplicates and retains the newest 1000 sequences
+ok 29 - event window sorts, deduplicates and retains the newest 1000 sequences
+  ---
+  duration_ms: 2.104125
+  type: 'test'
+  ...
+# Subtest: server filter path encodes project and cursor, while ALL omits status
+ok 30 - server filter path encodes project and cursor, while ALL omits status
+  ---
+  duration_ms: 0.299625
+  type: 'test'
+  ...
+# Subtest: refreshes first page, preserves loaded history and removes filter mismatches
+ok 31 - refreshes first page, preserves loaded history and removes filter mismatches
+  ---
+  duration_ms: 0.478792
+  type: 'test'
+  ...
+# Subtest: event catch-up reads at most five pages per cycle and schedules a short continuation
+ok 32 - event catch-up reads at most five pages per cycle and schedules a short continuation
+  ---
+  duration_ms: 0.288583
+  type: 'test'
+  ...
+# Subtest: terminal job drains all events and reads numerical result before stopping
+ok 33 - terminal job drains all events and reads numerical result before stopping
+  ---
+  duration_ms: 0.098875
+  type: 'test'
+  ...
+# Subtest: failed/cancelled/timeout 404 or 409 is a settled result, successful job errors retry
+ok 34 - failed/cancelled/timeout 404 or 409 is a settled result, successful job errors retry
+  ---
+  duration_ms: 0.828458
+  type: 'test'
+  ...
+# Subtest: switch cancellation reaches every fetch and cannot publish a completed old cycle
+ok 35 - switch cancellation reaches every fetch and cannot publish a completed old cycle
+  ---
+  duration_ms: 0.0905
+  type: 'test'
+  ...
+# Subtest: idle list polling slows down when workspace has no active jobs
+ok 36 - idle list polling slows down when workspace has no active jobs
+  ---
+  duration_ms: 0.310916
+  type: 'test'
+  ...
+# Subtest: first-page refresh wins over stale overlapping history and append updates without duplication
+ok 37 - first-page refresh wins over stale overlapping history and append updates without duplication
+  ---
+  duration_ms: 0.349541
+  type: 'test'
+  ...
+# Subtest: incremental cycles resume after the last sequence and a replay never creates duplicate rows
+ok 38 - incremental cycles resume after the last sequence and a replay never creates duplicate rows
+  ---
+  duration_ms: 0.546875
+  type: 'test'
+  ...
+# Subtest: a stalled event cursor and unexpected failed-result errors surface instead of silently stopping
+ok 39 - a stalled event cursor and unexpected failed-result errors surface instead of silently stopping
+  ---
+  duration_ms: 0.2945
+  type: 'test'
+  ...
+# Subtest: terminal event drain observes events published with the terminal job state before stopping
+ok 40 - terminal event drain observes events published with the terminal job state before stopping
+  ---
+  duration_ms: 0.148208
+  type: 'test'
+  ...
+# Subtest: matrix metadata trims editable fields and excludes unknown/private properties
+ok 41 - matrix metadata trims editable fields and excludes unknown/private properties
+  ---
+  duration_ms: 1.076667
+  type: 'test'
+  ...
+# Subtest: project patches validate finite quotas, preserve role distinctions and encode search text
+ok 42 - project patches validate finite quotas, preserve role distinctions and encode search text
+  ---
+  duration_ms: 0.876875
+  type: 'test'
+  ...
+# Subtest: import reads poll only unfinished tasks and reject an asynchronously cancelled response
+ok 43 - import reads poll only unfinished tasks and reject an asynchronously cancelled response
+  ---
+  duration_ms: 0.281416
+  type: 'test'
+  ...
+# Subtest: public matrix metadata requires a license and only permits supported frequency mappings
+ok 44 - public matrix metadata requires a license and only permits supported frequency mappings
+  ---
+  duration_ms: 0.247416
+  type: 'test'
+  ...
+# Subtest: source URLs reject active protocols and malformed addresses
+ok 45 - source URLs reject active protocols and malformed addresses
+  ---
+  duration_ms: 0.111042
+  type: 'test'
+  ...
+# Subtest: project roles fail closed until identity is known and distinguish analysts from administrators
+ok 46 - project roles fail closed until identity is known and distinguish analysts from administrators
+  ---
+  duration_ms: 0.077875
+  type: 'test'
+  ...
+# Subtest: declared nullspace coordinates are bounded original nonnegative integer indices
+ok 47 - declared nullspace coordinates are bounded original nonnegative integer indices
+  ---
+  duration_ms: 0.447042
+  type: 'test'
+  ...
+# Subtest: mode matching sends explicitly chosen computed-run IDs and rejects an obsolete response
+ok 48 - mode matching sends explicitly chosen computed-run IDs and rejects an obsolete response
+  ---
+  duration_ms: 0.422042
+  type: 'test'
+  ...
+# Subtest: method changes make the linear solver coherent without changing target or hard limits
+ok 49 - method changes make the linear solver coherent without changing target or hard limits
+  ---
+  duration_ms: 0.50825
+  type: 'test'
+  ...
+# Subtest: warm starts require a finished supported method and intact artifact state
+ok 50 - warm starts require a finished supported method and intact artifact state
+  ---
+  duration_ms: 0.288792
+  type: 'test'
+  ...
+# Subtest: leaving JD disables approximate correction precision while preserving the original contract
+ok 51 - leaving JD disables approximate correction precision while preserving the original contract
+  ---
+  duration_ms: 0.192916
+  type: 'test'
+  ...
+# Subtest: cleanup enables execution for expired job outputs even without temporary file candidates
+ok 52 - cleanup enables execution for expired job outputs even without temporary file candidates
+  ---
+  duration_ms: 0.606875
+  type: 'test'
+  ...
+# Subtest: recording advice effects uses explicit POST then reads the current detail
+ok 53 - recording advice effects uses explicit POST then reads the current detail
+  ---
+  duration_ms: 0.205333
+  type: 'test'
+  ...
+# Subtest: operations identity grants no project role and policy edits contain only opaque id and quotas
+ok 54 - operations identity grants no project role and policy edits contain only opaque id and quotas
+  ---
+  duration_ms: 0.243583
+  type: 'test'
+  ...
+1..54
+# tests 54
+# suites 0
+# pass 54
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 61.869166

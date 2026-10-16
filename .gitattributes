@@ -1,0 +1,11 @@
+* text=auto eol=lf
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.npz binary
+*.npy binary
+*.gz binary
+*.zip binary
+# Historical raw test output is evidence; do not rewrite its whitespace.
+*.log whitespace=-blank-at-eol,-blank-at-eof

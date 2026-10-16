@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "review_id": "v090-residual-norm-independent-review",
+  "review_date": "2026-10-16",
+  "reviewer": "independent development subagent industrial_sources; not external institution or human attestation",
+  "status": "RESEARCH_ENCLOSURE_MATH_REVIEW_PASSED",
+  "source_files": {
+    "artifacts/v090-count-reference-research/residual_norm_bounds.c": "876f4c4016c8a607ec293f1df8626056a85b1ab4bd139867d0a4cb1386c6ecfa",
+    "artifacts/v090-count-reference-research/residual_norm_bounds.py": "c246fe3dd3911f2f5496fb1affe12877b6d963d184ae96162df20887269fee71",
+    "artifacts/v090-count-reference-research/residual-build.json": "254a65b2bf127baa9fe4c678e5d481ae929575cda90dc22fe8eeb317650c4ccb",
+    "artifacts/v090-count-reference-research/libresearch_residual_norm.dylib": "5619a8394775fb7c77276f80436bc3a79248dec7e03e5c05374d3cfdf59a60e0",
+    "artifacts/v090-count-reference-research/gsm_candidate_enclosure_worker.py": "b6b456ab28d522b86aedda8a4ca249827763fed628da2a12809fb0eda410672d",
+    "artifacts/v090-count-reference-research/run_gsm_enclosures_frozen.py": "340de4d7e38a739dcb94c8e236157f796f9e41905ea4c5cf166a9b248c3be90d"
+  },
+  "findings": [],
+  "math_checks": {
+    "dot_product": "Each explicit FMA update uses exact stored operands and introduces at most one full upward ulp of its saved finite result; nonnegative local errors outward-summed. No product rounding is omitted because multiplication is fused.",
+    "complex": "Reviewed all four real/complex A/X combinations. Real/imaginary products and final theta subtraction are separately bounded; real X with complex A correctly has no imaginary theta update.",
+    "residual_components": "Saved rr/ri absolute magnitude plus accumulated error, outward-added, bounds the true exact original-coordinate residual component. Nonfinite intermediate results propagate to rejection.",
+    "norm_upper": "Scale by largest nonnegative component bound, round division/square/sum/sqrt/product upward; componentwise dominance gives a strict residual 2-norm upper bound without unscaled-square overflow.",
+    "norm_lower": "Scale exact stored vector real/imag components by their exact largest magnitude; round each operation toward zero for nonnegative operands. Maximum of this lower result and exact max component remains a valid positive lower norm, including subnormal underflow.",
+    "spectral_existence": "For separately verified exact Hermitian A and nonzero x, radius=R2upper/X2lower bounds distance from theta to some eigenvalue. It does not establish nearest-k, absence of missing roots, multiplicity or target completeness.",
+    "theta": "Wrapper accepts only finite exactly representable binary64 theta; nonrepresentable Fraction values refuse rather than silently changing equation. Full experiment values are frozen float64.",
+    "index_abi": "32-bit and 64-bit entrypoints share identical numerical implementation and differ only in CSR integer reads; bounds/shape/indices are validated separately.",
+    "symmetry_check": "Full real input checker validates all CSR structure/sorted unique entries/finiteness before reverse binary searches; upper-only/lower-only nonzero entries reject, exact signed zeros are harmless.",
+    "platform": "Current macOS arm64 binary64 FE_TONEAREST/gradual-underflow checks and compiler flags reviewed; correctly rounded FMA/sqrt/nextafter required. No cross-platform or formal machine-proof claim."
+  },
+  "verification": {
+    "command": ".venv-emsolver/bin/python -m pytest artifacts/v090-source-audit/test_residual_norm_independent_review.py artifacts/v090-count-reference-research/test_residual_norm_bounds.py -q",
+    "result": "94 passed in 0.23s",
+    "log": "artifacts/v090-source-audit/residual-norm-independent-tests.log",
+    "independent_new_cases": 66,
+    "details": [
+      "64 independent exact Gaussian-rational squared-norm checks over separate matrix/vector scales, all real/complex combinations",
+      "nonbinary64 requested theta rejection",
+      "smallest subnormal nonzero vector lower bound"
+    ]
+  },
+  "full_experiment_gate": {
+    "read_only_review_complete": true,
+    "may_run_only_under_root_existing_authorization": true,
+    "scope": "One frozen original real GSM candidate-inclusion experiment; not a count and not industrial PASS",
+    "worker": "artifacts/v090-count-reference-research/gsm_candidate_enclosure_worker.py",
+    "supervisor": "artifacts/v090-count-reference-research/run_gsm_enclosures_frozen.py",
+    "declared_limits": {
+      "max_n": 1000000,
+      "max_nnz": 30000000,
+      "max_modes": 2,
+      "rss_sample_limit_bytes": 536870912,
+      "wall_seconds": 30
+    },
+    "resource_boundary": "20ms sampled native process-tree RSS soft boundary and timed supervisor, not kernel memory sandbox. Root owns scheduling.",
+    "input_binding": "Frozen per-file hash/ABI checks, exact-symmetry scan, original source NPZ hash metadata and job vector file hashes; source and input hashes checked again at finish. Derivation of array snapshot from original source remains bound to the separate input-conversion experiment provenance.",
+    "output_status_must_remain": "UNVERIFIED for target certification, regardless of interval width/existence success"
+  },
+  "production_enabled": false,
+  "reviewer_loaded_industrial_input": false,
+  "reviewer_heavy_compute": false,
+  "industrial_acceptance_claim": false,
+  "completed_full_experiment_read_only_check": {
+    "status": "RESULT_ARITHMETIC_AND_FROZEN_SOURCE_BINDINGS_MATCH",
+    "files": {
+      "artifacts/v090-count-reference-research/gsm-candidate-enclosures-v1/protocol.json": "a0999ad1a490897a6f9404b847aaec3be556ff68ce63042dd63a9e380250bfb0",
+      "artifacts/v090-count-reference-research/gsm-candidate-enclosures-v1/result.json": "af2662a6ab430109f1ebcc2ad42eccfaf967f467773dbfbf4942bd5194d64018",
+      "artifacts/v090-count-reference-research/gsm-candidate-enclosures-v1/supervisor.json": "ebd74eed9ea61355dc018cd9d7a9935fc98a30304a310b4902ceb6a097c55ba1"
+    },
+    "candidate_job_id": "j_b29d2f56d06d4e829e128c553dd1b493",
+    "n": 589446,
+    "nnz": 21758924,
+    "radius_display_float": [
+      4.728021456126067e-15,
+      6.207765062454101e-15
+    ],
+    "exact_fraction_radius_and_interval_endpoints_verified": true,
+    "existing_value_fidelity_budget_verified": true,
+    "intervals_disjoint": true,
+    "proved_distinct_eigenvalues_at_least": 2,
+    "target_certification": "UNVERIFIED",
+    "worker_frozen_source_binary_hashes_independently_rechecked": true,
+    "original_input_bytes_rehashed_by_reviewer": false,
+    "input_binding_boundary": "Worker and supervisor report matching all input hashes before and after. This follow-up independently checks recorded input identities and small frozen sources, without rereading industrial arrays.",
+    "supervisor_elapsed_seconds": 0.9626337499994406,
+    "sampled_process_tree_peak_bytes": 312197120,
+    "memory_guard": "20ms process-tree RSS sampling; soft boundary; no kernel hard-limit claim",
+    "reviewer_reran_industrial_input": false,
+    "boundary": "Per-interval existence and at least two distinct roots only; no nearest-k ordering, missing-root exclusion, global count, engineering validation, external human review or industrial PASS."
+  }
+}

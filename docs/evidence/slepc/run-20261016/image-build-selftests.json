@@ -1,0 +1,206 @@
+[
+  {
+    "schema_version": "1.0",
+    "driver_sha256": "d885ae408596fcfa5b8015c3bbd8f37fe81778f28cb3759f099c531d8633072a",
+    "platform": {
+      "system": "Linux",
+      "machine": "aarch64",
+      "python": "3.11.2"
+    },
+    "available": true,
+    "self_test_passed": true,
+    "petsc_version": [
+      3,
+      18,
+      5
+    ],
+    "slepc_version": [
+      3,
+      18,
+      2
+    ],
+    "scalar_dtype": "float64",
+    "integer_dtype": "int32",
+    "mpi_size": 1,
+    "mpi_library": "Open MPI v4.1.4, package: Debian OpenMPI, ident: 4.1.4, repo rev: v4.1.4, May 26, 2022",
+    "mumps_available": true,
+    "self_test": {
+      "n": 12,
+      "k": 2,
+      "max_absolute_residual": 7.92832428582061e-14,
+      "max_eigenvalue_error": 2.498001805406602e-16,
+      "reference_scope": "bounded 12x12 self-test only; no user/reference mount"
+    },
+    "metrics": {
+      "backend": "slepc",
+      "method": "krylovschur",
+      "outer_iterations": 3,
+      "converged_reason": 1,
+      "n_converged": 2,
+      "mpi_ranks": 1,
+      "threads_per_rank": 1,
+      "solve_seconds": 0.009083582990569994,
+      "events_emitted": 0,
+      "events_dropped": 0,
+      "secondary_observation_enabled": false,
+      "linear_method": "preonly",
+      "preconditioner": "lu",
+      "factor_solver": "mumps",
+      "matrix_loading": "replicated safe CSR input; distributed PETSc ownership and operator",
+      "candidate_collection": "rank-zero gather of candidate vectors only"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "driver_sha256": "d885ae408596fcfa5b8015c3bbd8f37fe81778f28cb3759f099c531d8633072a",
+    "platform": {
+      "system": "Linux",
+      "machine": "aarch64",
+      "python": "3.11.2"
+    },
+    "available": true,
+    "self_test_passed": true,
+    "petsc_version": [
+      3,
+      18,
+      5
+    ],
+    "slepc_version": [
+      3,
+      18,
+      2
+    ],
+    "scalar_dtype": "float64",
+    "integer_dtype": "int32",
+    "mpi_size": 2,
+    "mpi_library": "Open MPI v4.1.4, package: Debian OpenMPI, ident: 4.1.4, repo rev: v4.1.4, May 26, 2022",
+    "mumps_available": true,
+    "self_test": {
+      "n": 12,
+      "k": 2,
+      "max_absolute_residual": 7.952368235977341e-14,
+      "max_eigenvalue_error": 3.608224830031759e-16,
+      "reference_scope": "bounded 12x12 self-test only; no user/reference mount"
+    },
+    "metrics": {
+      "backend": "slepc",
+      "method": "krylovschur",
+      "outer_iterations": 3,
+      "converged_reason": 1,
+      "n_converged": 2,
+      "mpi_ranks": 2,
+      "threads_per_rank": 1,
+      "solve_seconds": 0.00551133300177753,
+      "events_emitted": 0,
+      "events_dropped": 0,
+      "secondary_observation_enabled": false,
+      "linear_method": "preonly",
+      "preconditioner": "lu",
+      "factor_solver": "mumps",
+      "matrix_loading": "replicated safe CSR input; distributed PETSc ownership and operator",
+      "candidate_collection": "rank-zero gather of candidate vectors only"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "driver_sha256": "d885ae408596fcfa5b8015c3bbd8f37fe81778f28cb3759f099c531d8633072a",
+    "platform": {
+      "system": "Linux",
+      "machine": "aarch64",
+      "python": "3.11.2"
+    },
+    "available": true,
+    "self_test_passed": true,
+    "petsc_version": [
+      3,
+      18,
+      5
+    ],
+    "slepc_version": [
+      3,
+      18,
+      2
+    ],
+    "scalar_dtype": "complex128",
+    "integer_dtype": "int32",
+    "mpi_size": 1,
+    "mpi_library": "Open MPI v4.1.4, package: Debian OpenMPI, ident: 4.1.4, repo rev: v4.1.4, May 26, 2022",
+    "mumps_available": true,
+    "self_test": {
+      "n": 12,
+      "k": 2,
+      "max_absolute_residual": 3.033711269339204e-14,
+      "max_eigenvalue_error": 3.0531133177191805e-16,
+      "reference_scope": "bounded 12x12 self-test only; no user/reference mount"
+    },
+    "metrics": {
+      "backend": "slepc",
+      "method": "krylovschur",
+      "outer_iterations": 3,
+      "converged_reason": 1,
+      "n_converged": 2,
+      "mpi_ranks": 1,
+      "threads_per_rank": 1,
+      "solve_seconds": 0.0032140420225914568,
+      "events_emitted": 0,
+      "events_dropped": 0,
+      "secondary_observation_enabled": false,
+      "linear_method": "preonly",
+      "preconditioner": "lu",
+      "factor_solver": "mumps",
+      "matrix_loading": "replicated safe CSR input; distributed PETSc ownership and operator",
+      "candidate_collection": "rank-zero gather of candidate vectors only"
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "driver_sha256": "d885ae408596fcfa5b8015c3bbd8f37fe81778f28cb3759f099c531d8633072a",
+    "platform": {
+      "system": "Linux",
+      "machine": "aarch64",
+      "python": "3.11.2"
+    },
+    "available": true,
+    "self_test_passed": true,
+    "petsc_version": [
+      3,
+      18,
+      5
+    ],
+    "slepc_version": [
+      3,
+      18,
+      2
+    ],
+    "scalar_dtype": "complex128",
+    "integer_dtype": "int32",
+    "mpi_size": 2,
+    "mpi_library": "Open MPI v4.1.4, package: Debian OpenMPI, ident: 4.1.4, repo rev: v4.1.4, May 26, 2022",
+    "mumps_available": true,
+    "self_test": {
+      "n": 12,
+      "k": 2,
+      "max_absolute_residual": 3.0185935935704834e-14,
+      "max_eigenvalue_error": 1.942890293094024e-16,
+      "reference_scope": "bounded 12x12 self-test only; no user/reference mount"
+    },
+    "metrics": {
+      "backend": "slepc",
+      "method": "krylovschur",
+      "outer_iterations": 3,
+      "converged_reason": 1,
+      "n_converged": 2,
+      "mpi_ranks": 2,
+      "threads_per_rank": 1,
+      "solve_seconds": 0.006574291997822002,
+      "events_emitted": 0,
+      "events_dropped": 0,
+      "secondary_observation_enabled": false,
+      "linear_method": "preonly",
+      "preconditioner": "lu",
+      "factor_solver": "mumps",
+      "matrix_loading": "replicated safe CSR input; distributed PETSc ownership and operator",
+      "candidate_collection": "rank-zero gather of candidate vectors only"
+    }
+  }
+]

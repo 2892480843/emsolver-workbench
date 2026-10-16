@@ -1,0 +1,19 @@
+{
+  "version": "0.4.0",
+  "module_from_installed_wheel": true,
+  "installed_distribution": "0.4.0",
+  "python": "3.12.13",
+  "platform": "Darwin",
+  "architecture": "arm64",
+  "install_network": "--no-index --find-links wheels",
+  "runtime_network": "loopback HTTP only; OS network not disabled",
+  "installer_selected_recorded_python": "3.12",
+  "installer_started_live_service": true,
+  "health": {
+    "version": "0.4.0",
+    "service_alive": true,
+    "queue_available": true,
+    "backend_runnable": true,
+    "storage_writable": true
+  }
+}

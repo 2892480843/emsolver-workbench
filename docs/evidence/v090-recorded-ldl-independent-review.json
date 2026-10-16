@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "review_id": "v090-recorded-ldl-independent-review",
+  "review_date": "2026-10-16",
+  "timezone": "Asia/Shanghai",
+  "reviewer": "independent development subagent industrial_sources, not external human or institution",
+  "status": "RESEARCH_MATH_REVIEW_PASSED_SHIFT_BINDING_FINDING_FIXED",
+  "scope": "Real binary64 research provider only, <=4096 rows; no production enablement or industrial matrix execution",
+  "source_files": {
+    "artifacts/v090-count-reference-research/recorded_ldl.c": "e638fb1c1e72411d1eabad569d2058bfd1684465a292266ecbe6886ad37553c6",
+    "artifacts/v090-count-reference-research/recorded_ldl_provider.py": "2c3afbe4a3e7840d34c7e0ebc55a46252251813c7b999064040a27aeb72c0974",
+    "artifacts/v090-count-reference-research/build_recorded_provider.py": "470a481fe2565450d2c190eaf853a32dcc2fc5897415926d4a6921c8fd9dd986",
+    "artifacts/v090-count-reference-research/recorded-provider-build.json": "97afbf62bb1daebd92372dadfa816f5d3d15fc4e53fa2313c74a9403b38a2b0d",
+    "artifacts/v090-count-reference-research/test_recorded_ldl_provider.py": "3243a6e93d8f6d5a4f63c903077962d1b1656029eeeb71e31227524554cac60a"
+  },
+  "binary": {
+    "path": "artifacts/v090-count-reference-research/suitesparse-v7.10.1/libresearch_recorded_ldl.dylib",
+    "sha256": "e40d9f2b6bd80f0c42c781b344d9ccce538f7014cc9947adcc1b316d4bf5e54c"
+  },
+  "findings": [
+    {
+      "priority": "P1_FOR_FUTURE_RECORDED_BOUND_CONSUMER",
+      "id": "requested_shift_rounding_unrecorded",
+      "before": "Provider silently converted exact rational requested shift to float and only bounded subtraction of that effective float. On n1 A=nextafter(1,+inf), requested=1+2^-54, D=2^-52, returned bound about4.93e-32 while exact requested-shift residual is2^-54 about5.55e-17.",
+      "production_impact": "None: provider disabled in production; separate exact residual verifier recomputes original requested-shift residual and would reject.",
+      "fix": "Preserve requested shift as Fraction, bound absolute requested/effective conversion defect by nextafter to +infinity, outward-add it to every diagonal seed error, return both requested_shift and effective_shift.",
+      "status": "FIXED_AND_INDEPENDENTLY_VERIFIED",
+      "owner_red_evidence": "artifacts/v090-count-reference-research/provider-shift-review-red.log",
+      "independent_regression": "artifacts/v090-source-audit/test_recorded_provider_independent_review.py::test_requested_fraction_shift_regression"
+    }
+  ],
+  "math_checks": {
+    "offdiagonal_identity": "For actual saved yi and lki, ei=yi-Di*lki. Expanding the numerical update sequence yields each original offdiagonal residual as current division defect plus earlier saved L coefficients times earlier division defects plus the local update rounding defects. Recorded Yerr_i already sums those terms.",
+    "no_Yerr_i_propagation": "No additional propagation of Yerr_i is needed: subsequent updates use the actual stored yi, rather than an uncertain ideal yi. The exact difference between that actual yi and Di*lki is ei. Propagating Yerr_i again would double-count earlier residual terms.",
+    "diagonal_identity": "Original diagonal minus requested shift minus sum(lki^2 Di) minus stored Dk equals shift/subtraction defect plus sum of diagonal FMA rounding defects plus sum(lki*ei), up to irrelevant sign convention for the rounding defects. Triangle bounds cover signs.",
+    "rounding_bound": "Under stated correctly rounded binary64 operations and FE_TONEAREST, a full upward ulp of the stored FMA result conservatively bounds the local rounding error, including zero and gradual underflow; max-finite outward step produces infinity and rejection.",
+    "division_defect": "abs(fma(-Di,lki,yi)) then nextafter(+inf) encloses absolute exact division defect for the actual saved lki; no relative-error assumption or good pivot conditioning is needed.",
+    "upper_accumulation": "All nonnegative bound sums/products take nextafter(+inf). Underflow to zero is inflated to minimum positive subnormal; overflow/nonfinite bounds refuse.",
+    "shift_binding": "Reviewed requested rational to effective binary64 defect is now included in every original diagonal bound; permutation of seed_errors follows original-row mapping. Independently checked nonrepresentable decimal rational shifts at extreme scales and shift2^-1200 underflowing to0.",
+    "symmetry": "Exact symmetric stored input required; unique sorted entries verified from buffers, not cached canonical flag. Each offdiagonal residual upper bound is added to both corresponding factor-order row sums.",
+    "permutation_and_storage": "Parent/P/Pinv and L column layout match the official left-looking LDL algorithm; random permutations checked against independent exact original-coordinate row residuals.",
+    "environment_and_build": "Inspected Apple local fma/nextafter manuals and build flags; binary64/round-to-nearest/gradual-underflow runtime checks, -fno-fast-math and -ffp-contract=off, C/Python/binary hashes bind the local build. This is conditional execution evidence, not formal machine verification or adversarially authenticated source provenance."
+  },
+  "verification": [
+    {
+      "command": ".venv-emsolver/bin/python -m pytest artifacts/v090-source-audit/test_recorded_provider_independent_review.py artifacts/v090-count-reference-research/test_recorded_ldl_provider.py -q",
+      "result": "78 passed in 1.07s",
+      "log": "artifacts/v090-source-audit/recorded-provider-independent-tests.log",
+      "independent_new_cases": 34,
+      "independent_details": [
+        "30 n9 real indefinite matrices with random permutations and exact rational requested shifts2^exponent/10, exponents -1000,-400,0,400,1000; every row bound independently compared with Fraction residual",
+        "original n1 requested-shift counterexample",
+        "unrepresentably small rational shift2^-1200",
+        "extreme pivot growth",
+        "division underflow preserving offdiagonal error"
+      ],
+      "test_oracle_scope": "Dense conversion/triple products only for <=9-row independent test oracles, never production or industrial matrix."
+    }
+  ],
+  "remaining_limitations": [
+    "No numerical pivoting: zero or poor pivots can refuse or produce unusably large bounds",
+    "Only real arithmetic and the tested macOS arm64 build reviewed; complex and other floating/compiler/platform environments not established",
+    "No cancellation callback or hard process/disk guard in research C call; bounded input/fill/operations do not replace production supervision",
+    "Existing memmap export still constructs bounded CSR factor copies; not a large-scale zero-copy or full OOC implementation",
+    "User-supplied bound arrays must never be accepted directly as certificates; rerun trusted bound computation or independently verify explicit factors",
+    "Endpoint inertia composition still needs target order, multiplicity, rank and original-candidate residual checks",
+    "No GSM factorization residual certificate or industrial complete-mode claim from these tests"
+  ],
+  "production_modified_by_reviewer": false,
+  "industrial_input_loaded": false,
+  "industrial_acceptance_claim": false,
+  "external_human_attestation": null
+}

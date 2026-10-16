@@ -1,0 +1,554 @@
+{
+  "schema_version": "1.0",
+  "switch": "observability.enabled",
+  "repeats": 7,
+  "input_sha256": "14eaf09f902a51024e621365dcf5abe6bda9210ae1c1a68b41474db309da4c68",
+  "input_unchanged": true,
+  "numerical_config_hash": "3bd43bce9c23efa981cb64ae5eba84ff0afd6de9484809b41c2d4574091f10bf",
+  "scope": "Local paired real solver runs with alternating order, JSONL callbacks and a bounded secondary sample buffer; excludes HTTP, UI and external exporters. Not a performance guarantee.",
+  "timing_scope": "run_solver including local callback and numerical exports; independent verification is outside the timed region",
+  "runs": [
+    {
+      "repeat": 1,
+      "order": 1,
+      "enabled": false,
+      "seconds": 0.051003667002078146,
+      "status": "SUCCEEDED",
+      "error_code": null,
+      "config_hash": "ebc091ba32942fa34f3b0b3ad71e23493751c215831e86e958e75cbd6d906b2e",
+      "event_count": 9,
+      "secondary": {
+        "accepted": 0,
+        "exported": 0,
+        "dropped": 0,
+        "exporter_failures": 0,
+        "ignored_critical": 0,
+        "in_flight": 0,
+        "queued": 0,
+        "capacity": 256,
+        "closed": false
+      },
+      "correctness": {
+        "numerical_status": "PASSED",
+        "target_certification": "CERTIFIED",
+        "n_accepted": 4,
+        "residual_max": 2.4935111451331537e-17,
+        "independent_numerical_status": "PASSED",
+        "independent_target_certification": "CERTIFIED"
+      },
+      "observation_metrics": {
+        "events_emitted": 9,
+        "secondary_observation_enabled": false,
+        "events_suppressed": 1,
+        "event_emission_seconds": 0.00955887499731034
+      }
+    },
+    {
+      "repeat": 1,
+      "order": 2,
+      "enabled": true,
+      "seconds": 0.03973924997262657,
+      "status": "SUCCEEDED",
+      "error_code": null,
+      "config_hash": "44ad739c8c55793f43c30c4e1a7f0111d05302fb052afea65d30d2fd9588a475",
+      "event_count": 10,
+      "secondary": {
+        "accepted": 9,
+        "exported": 0,
+        "dropped": 0,
+        "exporter_failures": 0,
+        "ignored_critical": 1,
+        "in_flight": 0,
+        "queued": 9,
+        "capacity": 256,
+        "closed": false
+      },
+      "correctness": {
+        "numerical_status": "PASSED",
+        "target_certification": "CERTIFIED",
+        "n_accepted": 4,
+        "residual_max": 2.4935111451331537e-17,
+        "independent_numerical_status": "PASSED",
+        "independent_target_certification": "CERTIFIED"
+      },
+      "observation_metrics": {
+        "events_emitted": 10,
+        "secondary_observation_enabled": true,
+        "events_suppressed": 0,
+        "event_emission_seconds": 0.011578167031984776
+      }
+    },
+    {
+      "repeat": 2,
+      "order": 1,
+      "enabled": true,
+      "seconds": 0.030082750017754734,
+      "status": "SUCCEEDED",
+      "error_code": null,
+      "config_hash": "44ad739c8c55793f43c30c4e1a7f0111d05302fb052afea65d30d2fd9588a475",
+      "event_count": 10,
+      "secondary": {
+        "accepted": 9,
+        "exported": 0,
+        "dropped": 0,
+        "exporter_failures": 0,
+        "ignored_critical": 1,
+        "in_flight": 0,
+        "queued": 9,
+        "capacity": 256,
+        "closed": false
+      },
+      "correctness": {
+        "numerical_status": "PASSED",
+        "target_certification": "CERTIFIED",
+        "n_accepted": 4,
+        "residual_max": 2.4935111451331537e-17,
+        "independent_numerical_status": "PASSED",
+        "independent_target_certification": "CERTIFIED"
+      },
+      "observation_metrics": {
+        "events_emitted": 10,
+        "secondary_observation_enabled": true,
+        "events_suppressed": 0,
+        "event_emission_seconds": 0.010056208877358586
+      }
+    },
+    {
+      "repeat": 2,
+      "order": 2,
+      "enabled": false,
+      "seconds": 0.03330887499032542,
+      "status": "SUCCEEDED",
+      "error_code": null,
+      "config_hash": "ebc091ba32942fa34f3b0b3ad71e23493751c215831e86e958e75cbd6d906b2e",
+      "event_count": 9,
+      "secondary": {
+        "accepted": 0,
+        "exported": 0,
+        "dropped": 0,
+        "exporter_failures": 0,
+        "ignored_critical": 0,
+        "in_flight": 0,
+        "queued": 0,
+        "capacity": 256,
+        "closed": false
+      },
+      "correctness": {
+        "numerical_status": "PASSED",
+        "target_certification": "CERTIFIED",
+        "n_accepted": 4,
+        "residual_max": 2.4935111451331537e-17,
+        "independent_numerical_status": "PASSED",
+        "independent_target_certification": "CERTIFIED"
+      },
+      "observation_metrics": {
+        "events_emitted": 9,
+        "secondary_observation_enabled": false,
+        "events_suppressed": 1,
+        "event_emission_seconds": 0.010878372937440872
+      }
+    },
+    {
+      "repeat": 3,
+      "order": 1,
+      "enabled": false,
+      "seconds": 0.031226249993778765,
+      "status": "SUCCEEDED",
+      "error_code": null,
+      "config_hash": "ebc091ba32942fa34f3b0b3ad71e23493751c215831e86e958e75cbd6d906b2e",
+      "event_count": 9,
+      "secondary": {
+        "accepted": 0,
+        "exported": 0,
+        "dropped": 0,
+        "exporter_failures": 0,
+        "ignored_critical": 0,
+        "in_flight": 0,
+        "queued": 0,
+        "capacity": 256,
+        "closed": false
+      },
+      "correctness": {
+        "numerical_status": "PASSED",
+        "target_certification": "CERTIFIED",
+        "n_accepted": 4,
+        "residual_max": 2.4935111451331537e-17,
+        "independent_numerical_status": "PASSED",
+        "independent_target_certification": "CERTIFIED"
+      },
+      "observation_metrics": {
+        "events_emitted": 9,
+        "secondary_observation_enabled": false,
+        "events_suppressed": 1,
+        "event_emission_seconds": 0.009443374932743609
+      }
+    },
+    {
+      "repeat": 3,
+      "order": 2,
+      "enabled": true,
+      "seconds": 0.03536983404774219,
+      "status": "SUCCEEDED",
+      "error_code": null,
+      "config_hash": "44ad739c8c55793f43c30c4e1a7f0111d05302fb052afea65d30d2fd9588a475",
+      "event_count": 10,
+      "secondary": {
+        "accepted": 9,
+        "exported": 0,
+        "dropped": 0,
+        "exporter_failures": 0,
+        "ignored_critical": 1,
+        "in_flight": 0,
+        "queued": 9,
+        "capacity": 256,
+        "closed": false
+      },
+      "correctness": {
+        "numerical_status": "PASSED",
+        "target_certification": "CERTIFIED",
+        "n_accepted": 4,
+        "residual_max": 2.4935111451331537e-17,
+        "independent_numerical_status": "PASSED",
+        "independent_target_certification": "CERTIFIED"
+      },
+      "observation_metrics": {
+        "events_emitted": 10,
+        "secondary_observation_enabled": true,
+        "events_suppressed": 0,
+        "event_emission_seconds": 0.013444123906083405
+      }
+    },
+    {
+      "repeat": 4,
+      "order": 1,
+      "enabled": true,
+      "seconds": 0.044824166980106384,
+      "status": "SUCCEEDED",
+      "error_code": null,
+      "config_hash": "44ad739c8c55793f43c30c4e1a7f0111d05302fb052afea65d30d2fd9588a475",
+      "event_count": 10,
+      "secondary": {
+        "accepted": 9,
+        "exported": 0,
+        "dropped": 0,
+        "exporter_failures": 0,
+        "ignored_critical": 1,
+        "in_flight": 0,
+        "queued": 9,
+        "capacity": 256,
+        "closed": false
+      },
+      "correctness": {
+        "numerical_status": "PASSED",
+        "target_certification": "CERTIFIED",
+        "n_accepted": 4,
+        "residual_max": 2.4935111451331537e-17,
+        "independent_numerical_status": "PASSED",
+        "independent_target_certification": "CERTIFIED"
+      },
+      "observation_metrics": {
+        "events_emitted": 10,
+        "secondary_observation_enabled": true,
+        "events_suppressed": 0,
+        "event_emission_seconds": 0.011868704983498901
+      }
+    },
+    {
+      "repeat": 4,
+      "order": 2,
+      "enabled": false,
+      "seconds": 0.03338487498695031,
+      "status": "SUCCEEDED",
+      "error_code": null,
+      "config_hash": "ebc091ba32942fa34f3b0b3ad71e23493751c215831e86e958e75cbd6d906b2e",
+      "event_count": 9,
+      "secondary": {
+        "accepted": 0,
+        "exported": 0,
+        "dropped": 0,
+        "exporter_failures": 0,
+        "ignored_critical": 0,
+        "in_flight": 0,
+        "queued": 0,
+        "capacity": 256,
+        "closed": false
+      },
+      "correctness": {
+        "numerical_status": "PASSED",
+        "target_certification": "CERTIFIED",
+        "n_accepted": 4,
+        "residual_max": 2.4935111451331537e-17,
+        "independent_numerical_status": "PASSED",
+        "independent_target_certification": "CERTIFIED"
+      },
+      "observation_metrics": {
+        "events_emitted": 9,
+        "secondary_observation_enabled": false,
+        "events_suppressed": 1,
+        "event_emission_seconds": 0.013352207897696644
+      }
+    },
+    {
+      "repeat": 5,
+      "order": 1,
+      "enabled": false,
+      "seconds": 0.03316804097266868,
+      "status": "SUCCEEDED",
+      "error_code": null,
+      "config_hash": "ebc091ba32942fa34f3b0b3ad71e23493751c215831e86e958e75cbd6d906b2e",
+      "event_count": 9,
+      "secondary": {
+        "accepted": 0,
+        "exported": 0,
+        "dropped": 0,
+        "exporter_failures": 0,
+        "ignored_critical": 0,
+        "in_flight": 0,
+        "queued": 0,
+        "capacity": 256,
+        "closed": false
+      },
+      "correctness": {
+        "numerical_status": "PASSED",
+        "target_certification": "CERTIFIED",
+        "n_accepted": 4,
+        "residual_max": 2.4935111451331537e-17,
+        "independent_numerical_status": "PASSED",
+        "independent_target_certification": "CERTIFIED"
+      },
+      "observation_metrics": {
+        "events_emitted": 9,
+        "secondary_observation_enabled": false,
+        "events_suppressed": 1,
+        "event_emission_seconds": 0.009509374911431223
+      }
+    },
+    {
+      "repeat": 5,
+      "order": 2,
+      "enabled": true,
+      "seconds": 0.03952187497634441,
+      "status": "SUCCEEDED",
+      "error_code": null,
+      "config_hash": "44ad739c8c55793f43c30c4e1a7f0111d05302fb052afea65d30d2fd9588a475",
+      "event_count": 10,
+      "secondary": {
+        "accepted": 9,
+        "exported": 0,
+        "dropped": 0,
+        "exporter_failures": 0,
+        "ignored_critical": 1,
+        "in_flight": 0,
+        "queued": 9,
+        "capacity": 256,
+        "closed": false
+      },
+      "correctness": {
+        "numerical_status": "PASSED",
+        "target_certification": "CERTIFIED",
+        "n_accepted": 4,
+        "residual_max": 2.4935111451331537e-17,
+        "independent_numerical_status": "PASSED",
+        "independent_target_certification": "CERTIFIED"
+      },
+      "observation_metrics": {
+        "events_emitted": 10,
+        "secondary_observation_enabled": true,
+        "events_suppressed": 0,
+        "event_emission_seconds": 0.01445591711672023
+      }
+    },
+    {
+      "repeat": 6,
+      "order": 1,
+      "enabled": true,
+      "seconds": 0.030960500007495284,
+      "status": "SUCCEEDED",
+      "error_code": null,
+      "config_hash": "44ad739c8c55793f43c30c4e1a7f0111d05302fb052afea65d30d2fd9588a475",
+      "event_count": 10,
+      "secondary": {
+        "accepted": 9,
+        "exported": 0,
+        "dropped": 0,
+        "exporter_failures": 0,
+        "ignored_critical": 1,
+        "in_flight": 0,
+        "queued": 9,
+        "capacity": 256,
+        "closed": false
+      },
+      "correctness": {
+        "numerical_status": "PASSED",
+        "target_certification": "CERTIFIED",
+        "n_accepted": 4,
+        "residual_max": 2.4935111451331537e-17,
+        "independent_numerical_status": "PASSED",
+        "independent_target_certification": "CERTIFIED"
+      },
+      "observation_metrics": {
+        "events_emitted": 10,
+        "secondary_observation_enabled": true,
+        "events_suppressed": 0,
+        "event_emission_seconds": 0.01095658412668854
+      }
+    },
+    {
+      "repeat": 6,
+      "order": 2,
+      "enabled": false,
+      "seconds": 0.029958333994727582,
+      "status": "SUCCEEDED",
+      "error_code": null,
+      "config_hash": "ebc091ba32942fa34f3b0b3ad71e23493751c215831e86e958e75cbd6d906b2e",
+      "event_count": 9,
+      "secondary": {
+        "accepted": 0,
+        "exported": 0,
+        "dropped": 0,
+        "exporter_failures": 0,
+        "ignored_critical": 0,
+        "in_flight": 0,
+        "queued": 0,
+        "capacity": 256,
+        "closed": false
+      },
+      "correctness": {
+        "numerical_status": "PASSED",
+        "target_certification": "CERTIFIED",
+        "n_accepted": 4,
+        "residual_max": 2.4935111451331537e-17,
+        "independent_numerical_status": "PASSED",
+        "independent_target_certification": "CERTIFIED"
+      },
+      "observation_metrics": {
+        "events_emitted": 9,
+        "secondary_observation_enabled": false,
+        "events_suppressed": 1,
+        "event_emission_seconds": 0.0106667919899337
+      }
+    },
+    {
+      "repeat": 7,
+      "order": 1,
+      "enabled": false,
+      "seconds": 0.028135792003013194,
+      "status": "SUCCEEDED",
+      "error_code": null,
+      "config_hash": "ebc091ba32942fa34f3b0b3ad71e23493751c215831e86e958e75cbd6d906b2e",
+      "event_count": 9,
+      "secondary": {
+        "accepted": 0,
+        "exported": 0,
+        "dropped": 0,
+        "exporter_failures": 0,
+        "ignored_critical": 0,
+        "in_flight": 0,
+        "queued": 0,
+        "capacity": 256,
+        "closed": false
+      },
+      "correctness": {
+        "numerical_status": "PASSED",
+        "target_certification": "CERTIFIED",
+        "n_accepted": 4,
+        "residual_max": 2.4935111451331537e-17,
+        "independent_numerical_status": "PASSED",
+        "independent_target_certification": "CERTIFIED"
+      },
+      "observation_metrics": {
+        "events_emitted": 9,
+        "secondary_observation_enabled": false,
+        "events_suppressed": 1,
+        "event_emission_seconds": 0.008795292000286281
+      }
+    },
+    {
+      "repeat": 7,
+      "order": 2,
+      "enabled": true,
+      "seconds": 0.029224666999652982,
+      "status": "SUCCEEDED",
+      "error_code": null,
+      "config_hash": "44ad739c8c55793f43c30c4e1a7f0111d05302fb052afea65d30d2fd9588a475",
+      "event_count": 10,
+      "secondary": {
+        "accepted": 9,
+        "exported": 0,
+        "dropped": 0,
+        "exporter_failures": 0,
+        "ignored_critical": 1,
+        "in_flight": 0,
+        "queued": 9,
+        "capacity": 256,
+        "closed": false
+      },
+      "correctness": {
+        "numerical_status": "PASSED",
+        "target_certification": "CERTIFIED",
+        "n_accepted": 4,
+        "residual_max": 2.4935111451331537e-17,
+        "independent_numerical_status": "PASSED",
+        "independent_target_certification": "CERTIFIED"
+      },
+      "observation_metrics": {
+        "events_emitted": 10,
+        "secondary_observation_enabled": true,
+        "events_suppressed": 0,
+        "event_emission_seconds": 0.009034045098815113
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "repeat": 1,
+      "numerically_equivalent": true,
+      "enabled_to_disabled_ratio": 0.7791449577734751,
+      "difference_seconds": -0.011264417029451579
+    },
+    {
+      "repeat": 2,
+      "numerically_equivalent": true,
+      "enabled_to_disabled_ratio": 0.9031451835732154,
+      "difference_seconds": -0.0032261249725706875
+    },
+    {
+      "repeat": 3,
+      "numerically_equivalent": true,
+      "enabled_to_disabled_ratio": 1.132695538362402,
+      "difference_seconds": 0.004143584053963423
+    },
+    {
+      "repeat": 4,
+      "numerically_equivalent": true,
+      "enabled_to_disabled_ratio": 1.3426489390068868,
+      "difference_seconds": 0.011439291993156075
+    },
+    {
+      "repeat": 5,
+      "numerically_equivalent": true,
+      "enabled_to_disabled_ratio": 1.1915649467784803,
+      "difference_seconds": 0.006353834003675729
+    },
+    {
+      "repeat": 6,
+      "numerically_equivalent": true,
+      "enabled_to_disabled_ratio": 1.0334519941243754,
+      "difference_seconds": 0.0010021660127677023
+    },
+    {
+      "repeat": 7,
+      "numerically_equivalent": true,
+      "enabled_to_disabled_ratio": 1.038700705369274,
+      "difference_seconds": 0.0010888749966397882
+    }
+  ],
+  "summary": {
+    "median_enabled_seconds": 0.03536983404774219,
+    "median_disabled_seconds": 0.03316804097266868,
+    "enabled_to_disabled_ratio": 1.066382970187713,
+    "difference_percent": 6.6382970187713,
+    "median_paired_ratio": 1.038700705369274,
+    "all_pairs_numerically_equivalent": true
+  }
+}

@@ -1,0 +1,27 @@
+schema_version: '1.0'
+problem:
+  type: standard_hermitian
+  scalar: auto
+  storage: full
+target:
+  mode: nearest_k
+  k: 8
+  sigma: 0.0
+solver:
+  backend: scipy
+  method: arpack
+  transform: shift_invert
+  subspace_max: 100
+  adaptive_shift:
+    enabled: true
+    max_attempts: 4
+validation:
+  residual_scaled_max: 1.0e-8
+  orthogonality_max: 1.0e-6
+  completeness_required: true
+resources:
+  memory_limit_gib: 16
+  threads: 8
+  walltime_seconds: 1800
+output:
+  format: both

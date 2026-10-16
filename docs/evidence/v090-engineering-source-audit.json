@@ -1,0 +1,356 @@
+{
+  "schema_version": 1,
+  "audit_id": "v090-engineering-source-audit",
+  "audit_date": "2026-10-16",
+  "timezone": "Asia/Shanghai",
+  "platform_verified": "Darwin 25.6.0 arm64",
+  "scope": "Read-only public source, engineering identity, license and independent reference feasibility audit",
+  "status": "SOURCE_AUDIT_COMPLETE_NUMERICAL_ACCEPTANCE_NOT_ASSESSED",
+  "is_human_independent_review": false,
+  "human_review_issuer": null,
+  "human_review_signature": null,
+  "official_contest_acceptance": false,
+  "original_dataset_modified": false,
+  "large_downloads_performed": false,
+  "third_party_code_executed": false,
+  "contacts_or_messages_sent_to_external_people": false,
+  "sources": [
+    {
+      "id": "contest_pdf",
+      "kind": "user_supplied_primary_contest_document",
+      "url": null,
+      "path": "aig82Od5887V_EEoETPdQR0.pdf",
+      "sha256": "445dbeca89e06eeb05e64cd88fef68b4fc7370f5075f94b4ea4b9737f3ec8115",
+      "extracted_text": "artifacts/v090-source-audit/competition-source-extracted.txt",
+      "extracted_text_sha256": "f66aab4c0440350774ca5405d4758beacec2cb5c9bde24544e517a0bab69fc7a",
+      "verification": "pdftotext -layout, full body read",
+      "claims": [
+        "page 1 section 2: 100k-order non-positive-definite Hermitian sparse eigenproblem",
+        "page 2 section 3d-f: public EM datasets, failure verification, reproducibility",
+        "page 2 section 4: eigenvalue error, subspace angle, residual, runtime, memory, iteration metrics"
+      ],
+      "not_specified_in_source": [
+        "gsm_106857 required input",
+        "HMAC or external institution attestation",
+        "mandatory full CAD engineering signoff",
+        "a fixed numerical residual threshold of 1e-8"
+      ],
+      "limitation": "Audit of the supplied PDF only; this does not establish absence from additional unpublished judging rules."
+    },
+    {
+      "id": "gsm_collection",
+      "kind": "official_dataset_publisher",
+      "url": "https://sparse.tamu.edu/Dziekonski/gsm_106857",
+      "locators": "Rows/Cols/Nonzeros/Notes",
+      "license": "CC-BY-4.0 per collection about page",
+      "facts": {
+        "rows": 589446,
+        "cols": 589446,
+        "nnz": 21758924,
+        "real_symmetric": true,
+        "positive_definite": false,
+        "lowest_basis_prefix": 98577,
+        "source_problem": "ninth-order microwave combline filter FEM linear system with RHS"
+      },
+      "independence_group": "suitesparse_collection"
+    },
+    {
+      "id": "gsm_uf",
+      "kind": "official_dataset_original_mirror",
+      "url": "https://www.cise.ufl.edu/research/sparse/matrices/Dziekonski/gsm_106857.html",
+      "locators": "properties, additional fields, notes",
+      "facts": {
+        "additional_field": "b full 589446-by-1",
+        "amd_no_partial_pivot_lu_nnz": 367607452
+      },
+      "independence_group": "suitesparse_collection",
+      "limitation": "Same curation lineage as current collection; not independent reference eigenpairs or a measured local factorization."
+    },
+    {
+      "id": "collection_license",
+      "kind": "official_dataset_license_statement",
+      "url": "https://sparse.tamu.edu/about",
+      "locators": "License / Details",
+      "license": "CC-BY-4.0 for matrices; website MIT is separate",
+      "requirements": [
+        "Preserve metadata and citations",
+        "Identify modifications and change modified matrix name"
+      ],
+      "independence_group": "suitesparse_collection"
+    },
+    {
+      "id": "gsm_author_institution",
+      "kind": "author_university_primary_page",
+      "url": "https://eti.pg.edu.pl/en/kima-en/research/gpu-research-center",
+      "locators": "References [1], current research",
+      "facts": {
+        "original_paper_publication": "IEEE MWCL 21(1):1-3 Jan 2011",
+        "original_paper_doi": "10.1109/LMWC.2010.2089974"
+      },
+      "failed_pdf_link": "https://eti.pg.edu.pl/source/MWCL.pdf",
+      "failed_pdf_http_status": 404
+    },
+    {
+      "id": "gsm_author_paper",
+      "kind": "author_uploaded_primary_paper",
+      "url": "https://www.researchgate.net/publication/224203211_GPU_Acceleration_of_Multilevel_Solvers_for_Analysis_of_Microwave_Components_With_Finite_Element_Method",
+      "doi": "10.1109/LMWC.2010.2089974",
+      "author_upload_attribution": "A. Lamecki",
+      "locators": [
+        "section II, printed page 1",
+        "section IV-A, printed page 2",
+        "section IV-C, printed pages 2-3"
+      ],
+      "copyright": "IEEE 2011 personal-use statement; full paper not archived or redistributed",
+      "short_quote": "Instead of providing the dimensions of the filter",
+      "short_quote_words": 9,
+      "facts": {
+        "geometry_dimensions_intentionally_not_published": true,
+        "device": "9-pole GSM-band combline filter with three coaxial cross-couplings, drilled posts and screws",
+        "mesh": "Netgen curvilinear tetrahedral, hierarchical basis up to second order",
+        "boundary_description_level": "modal expansion at component ports; not full reproducible boundary assignment",
+        "problem": "forced linear FEM system A x=b, not a published complete standard eigenproblem reference",
+        "reported_speedup_context": "2.61x old GPU versus parallel CPU PCG linear solve, not our eigenvalue speedup"
+      },
+      "limitation": "Published device description is insufficient for exact CAD/material/mesh reconstruction; original author-domain PDF link is dead."
+    },
+    {
+      "id": "utah_metrics",
+      "kind": "university_researcher_primary_metrics",
+      "url": "https://users.cs.utah.edu/~khalid/matrix_eigen.html",
+      "locators": "gsm_106857 row",
+      "facts": {
+        "condition_estimate_displayed": "1.79E+11"
+      },
+      "limitation": "Page has statistics and a plot, no verified full target eigenpairs or target-count certificate located; numerical method, precision and dataset binding insufficient for trusted reference import."
+    },
+    {
+      "id": "tesla_original",
+      "kind": "original_manufacturing_and_measurement_paper",
+      "url": "https://arxiv.org/abs/physics/0003011",
+      "fulltext_url": "https://arxiv.org/pdf/physics/0003011",
+      "journal_doi": "10.1103/PhysRevSTAB.3.092001",
+      "title": "The Superconducting TESLA Cavities",
+      "authors": "B. Aune et al.",
+      "year": 2000,
+      "locators": [
+        "abstract: industrially produced 27+24 TTF cavities",
+        "section 3.1: 9-cell niobium structure, 1300 MHz",
+        "Table 2, PDF page 11 / printed page 11: design parameters",
+        "Figure 6 and Table 3, PDF page 12 / printed page 12: half-cell shape parameters"
+      ],
+      "paper_redistributed": false,
+      "license_assessment": "Publicly accessible primary paper; no blanket open redistribution license asserted; record factual numerical parameters in original project JSON, do not copy paper or artwork.",
+      "facts": {
+        "device_family": "TESLA/TTF superconducting RF accelerating cavity",
+        "real_industrial_manufacturing_evidence": true,
+        "nominal_frequency_Hz": 1300000000,
+        "frequency_status": "design/tuning target, not certified discrete eigenpair",
+        "material": "solid niobium wall, vacuum interior in intended lossless model"
+      }
+    },
+    {
+      "id": "tesla_independent_numerical_paper",
+      "kind": "independent_research_team_primary_paper",
+      "url": "https://arxiv.org/html/2310.15751v1",
+      "title": "Gradient-Based Eigenvalue Optimization for Electromagnetic Cavities with Built-in Mode Matching",
+      "locators": [
+        "section 2: Maxwell generalized eigenproblem",
+        "section 5.2: TTF nine-cell geometry, nominal end lengths 56/57 mm, equator arc 42 mm, 1.3 GHz target"
+      ],
+      "facts": {
+        "nominal_first_halfcell_mm": 56.0,
+        "nominal_last_halfcell_mm": 57.0,
+        "nominal_equator_arc_mm": 42.0,
+        "frequency_target_Hz": 1300000000,
+        "reference_discretization_dofs": 24960
+      },
+      "limitation": "Design target and numerical model evidence only; does not provide a certified eigenvector file for our new mesh."
+    },
+    {
+      "id": "cavsim2d",
+      "kind": "public_implementation_primary_repository",
+      "url": "https://github.com/Dark-Elektron/cavsim2d",
+      "commit": "c33acf48cb3f0697f191a9e01fa2f07f6e78de28",
+      "license": "MIT",
+      "snapshot_manifest": "artifacts/v090-source-audit/cavsim2d/source-manifest.json",
+      "executed": false,
+      "installed": false,
+      "facts": {
+        "model": "2D axisymmetric Fourier-mode finite-element Maxwell model",
+        "matrix_form": "K x = lambda M x with generally non-diagonal M",
+        "build_entrypoint": "NGSolveMEVP._build_system",
+        "assembly_solve_entrypoint": "NGSolveMEVP._solve_system",
+        "reference_algorithm": "PINVIT with mass-orthogonal gradient-kernel projection",
+        "outputs_inspected": [
+          "mesh.vol",
+          "gfu_E_vecs.npy",
+          "qois.json"
+        ],
+        "direct_npz_KM_export_located": false,
+        "readme_onecell_geometry_mm": {
+          "A": 42,
+          "B": 42,
+          "a": 12,
+          "b": 19,
+          "Ri": 35,
+          "L": 57.7,
+          "Req": 103.353
+        },
+        "readme_end_boundary": "mm magnetic-magnetic",
+        "test_TESLA_MID_mm": [
+          42,
+          42,
+          12,
+          19,
+          35,
+          57.652,
+          103.3536
+        ]
+      },
+      "limitation": "Not a pre-certified benchmark; freeze own geometry/boundary/mesh and independent computations. Existing standard Hermitian solver cannot assume M^-1 K Hermitian. ABCI binary not downloaded or reused."
+    },
+    {
+      "id": "sqdmetal_paper",
+      "kind": "author_primary_preprint",
+      "url": "https://arxiv.org/html/2511.01220v2",
+      "license": "CC-BY-4.0 as displayed by arXiv HTML",
+      "locators": [
+        "section III: cross-solver convergence",
+        "section IV.1 and Table 3: measured superconducting CPW resonators"
+      ],
+      "limitation": "Real fabricated device evidence exists, but no exact paper-device-to-current-repository-file binding established in this audit, and generalized/lossy/port formulations are beyond current standard Hermitian input."
+    },
+    {
+      "id": "sqdmetal_repository",
+      "kind": "laboratory_primary_repository",
+      "url": "https://github.com/sqdlab/SQDMetal",
+      "commit_observed": "aa249e260d8524014a685d7c25eee23f48da3455",
+      "license": "Apache-2.0",
+      "executed": false,
+      "installed": false,
+      "limitation": "No full source clone or performance run; cannot infer license of every separate external model merely from repository root."
+    },
+    {
+      "id": "palace_cylinder",
+      "kind": "official_solver_validation_example",
+      "url": "https://github.com/awslabs/palace/blob/main/docs/src/examples/cylinder.md",
+      "license": "Apache-2.0 source notice",
+      "classification": "canonical_validation_not_actual_industrial_device",
+      "limitation": "Useful analytic frequency validation only. Original lossy dielectric/impedance model is not directly a lossless standard Hermitian matrix."
+    },
+    {
+      "id": "zenodo_sensitivities",
+      "kind": "author_primary_software_deposit_metadata",
+      "url": "https://zenodo.org/records/7687757",
+      "api_url": "https://zenodo.org/api/records/7687757",
+      "doi": "10.5281/zenodo.7687757",
+      "license_observed": "other-open",
+      "metadata_path": "artifacts/v090-source-audit/zenodo-7687757-metadata.json",
+      "archive_downloaded": false,
+      "limitation": "Exact re-use license and full TESLA K/M availability not verified; not approved for source redistribution in this audit."
+    }
+  ],
+  "contest_policy_scope": {
+    "strict_issuer_hmac_gate": "product-defined stronger optional trust policy, not found in supplied contest PDF",
+    "full_geometric_signoff": "required for corresponding physical claims by our policy; not a universal PDF entry requirement",
+    "residual_1e_8": "product/run tolerance rather than a numeric requirement stated in the supplied PDF",
+    "allowed_next_step": "Explicit public reproducibility review policy may assess genuine published provenance and independently reproduced references while preserving legacy strict policy and clearly labeling no external-human signoff. It must not auto-accept arbitrary web declarations."
+  },
+  "recommended_prospective_benchmark": {
+    "name": "TESLA/TTF nominal geometry-derived lossless SRF cavity",
+    "identity_separate_from": "Dziekonski/gsm_106857",
+    "is_synthetic_random_matrix": false,
+    "is_serialized_manufactured_device_digital_twin": false,
+    "is_completed_benchmark": false,
+    "geometry_parameters_mm": {
+      "midcup": {
+        "Req": 103.3,
+        "Riris": 35,
+        "Rarc": 42.0,
+        "a": 12,
+        "b": 19,
+        "L": 57.7
+      },
+      "endcup_1": {
+        "Req": 103.3,
+        "Riris": 39,
+        "Rarc": 40.3,
+        "a": 10,
+        "b": 13.5,
+        "L": 56.0
+      },
+      "endcup_2": {
+        "Req": 103.3,
+        "Riris": 39,
+        "Rarc": 42.0,
+        "a": 9,
+        "b": 12.8,
+        "L": 57.0
+      }
+    },
+    "geometry_source": "tesla_original Table 3",
+    "preconditions": [
+      "Freeze actual selected cell count and exact boundary model; one-cell mm cuts and full nine-cell closed PEC are distinct",
+      "Generate all geometry from declared parameters and topology, never guessed image dimensions",
+      "Export full K/M, free DOF map, mesh and units with hashes; current repository does not directly provide frozen K/M NPZ",
+      "Handle generalized Hermitian problem explicitly or use a separately defined positive diagonal-mass discretization and original-coordinate verification",
+      "Use independent numerical reference on identical original problem and freeze reference access after candidate completion",
+      "Report mesh error separately from algebraic residual and from nominal 1300 MHz design target",
+      "Collect success-dependent fair performance metrics locally; no published cross-hardware speedup substitution"
+    ]
+  },
+  "search_audit": {
+    "first_choice_tools": "Grok/Context7 unavailable in exposed callable tools; official browser/web search and HTTPS/API fallback used",
+    "queries": [
+      "Dziekonski gsm_106857",
+      "Dziekonski GPU Acceleration Microwave Components finite element PDF",
+      "gsm_106857 eigenvalues frequency mesh geometry",
+      "TESLA cavity geometry gmsh github license dimensions",
+      "TESLA cavity benchmark mesh eigenvalue K M matrices",
+      "SQDMetal benchmark resonator geometry license"
+    ],
+    "failed_fetches": [
+      {
+        "url": "https://eti.pg.edu.pl/source/MWCL.pdf",
+        "outcome": "404 Not Found"
+      },
+      {
+        "url": "https://eti.pg.edu.pl/source/AWPL.pdf",
+        "outcome": "404 Not Found"
+      },
+      {
+        "url": "https://mwave.eti.pg.gda.pl/~adziekonski/downloads.html",
+        "outcome": "not accessible through web tool"
+      },
+      {
+        "url": "https://doi.org/10.1109/LMWC.2010.2089974",
+        "outcome": "web tool failed; DOI content crosschecked with university and author upload"
+      },
+      {
+        "url": "https://zenodo.org/records/7687757",
+        "outcome": "web tool failed; official API record retrieved successfully"
+      }
+    ],
+    "independence_note": "TAMU and UF metadata mirror the same curated dataset, rather than two independent numerical references. Author upload crosschecked against author institution for original paper identity; TESLA design crosschecked against a different research team numerical paper."
+  },
+  "local_reproducibility": {
+    "commands": [
+      "uname -srm",
+      "pdftotext -layout aig82Od5887V_EEoETPdQR0.pdf artifacts/v090-source-audit/competition-source-extracted.txt",
+      "Verify every source-manifest file SHA-256 against downloaded commit-pinned raw bytes"
+    ],
+    "source_excerpt_policy": "Only short original IEEE-paper quote stored; no full copyrighted PDF or artwork redistributed. MIT code snapshot retains LICENSE."
+  },
+  "original_gsm_public_release_contains": {
+    "A": true,
+    "b": true,
+    "full_CAD": false,
+    "materials_and_boundary_assignment": false,
+    "mesh_and_dof_to_geometry_mapping": false,
+    "independent_target_eigenpair_asset": false,
+    "independent_target_count_certificate": false,
+    "audited_eigenvalue_to_Hz_mapping": false,
+    "note": "False means not supplied/located in the inspected public release and source chain; it is not proof of global nonexistence."
+  }
+}

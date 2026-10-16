@@ -1,0 +1,20 @@
+{
+  "python3-slepc4py": [
+    "python3-slepc4py-real/copyright",
+    "python3-slepc4py-complex3.18/copyright",
+    "python3-slepc4py-real3.18/copyright",
+    "python3-slepc4py-complex/copyright"
+  ],
+  "python3-petsc4py": [
+    "python3-petsc4py-complex/copyright",
+    "python3-petsc4py-complex3.18/copyright",
+    "python3-petsc4py-real3.18/copyright",
+    "python3-petsc4py-real/copyright"
+  ],
+  "libopenmpi3": [
+    "libopenmpi3/copyright"
+  ],
+  "libmumps-5.5": [
+    "libmumps-5.5/copyright"
+  ]
+}

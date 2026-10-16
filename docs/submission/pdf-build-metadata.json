@@ -1,0 +1,24 @@
+{
+  "pdf": "EMSolver-project-introduction.pdf",
+  "page_count": 15,
+  "pdf_sha256": "22e7c0acdad67467fd24d66cc8fe8c57d52b5a30241aa6600ce6a19e8f980116",
+  "content_sha256": "85225f4c276ddd02d11b50e211b32fb03ebd8a9dd5e61cc040411075ff697b72",
+  "renderer_sha256": "5836124b9af83483a9e6653e78658d64acea2f0181e88015312f25b15c8dfbb9",
+  "reportlab": "4.4.9",
+  "pillow": "12.3.0",
+  "font": {
+    "font": "Noto Serif SC",
+    "license": "SIL Open Font License 1.1",
+    "source_revision": "bf7c667ae010c0ffb39944ae85097021478cb91d",
+    "font_sha256": "050080d9255a86808f2945bffac582b31ef32bc36411ce29563b4961670c66f9",
+    "raw_font_in_repository": false
+  },
+  "validation": {
+    "pages_rendered": 15,
+    "visual_review": true,
+    "all_66_feature_ids_present": true,
+    "missing_font_glyphs": 0,
+    "near_blank_pages": 0,
+    "required_sections_and_ratios_present": true
+  }
+}

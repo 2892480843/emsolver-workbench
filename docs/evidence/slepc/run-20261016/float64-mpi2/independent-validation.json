@@ -1,0 +1,28 @@
+{
+  "numerical_status": "PASSED",
+  "residual_definition": "scaled_inf_v1",
+  "residuals": [
+    1.4478649977490002e-17,
+    4.947029033137228e-17,
+    6.426709557838761e-17
+  ],
+  "absolute_residuals_2": [
+    1.7882816375804877e-16,
+    7.093215553231754e-16,
+    3.79847328935484e-16
+  ],
+  "orthogonality_error": 2.2475880791446017e-16,
+  "n_validated": 3,
+  "normalization": "unit_2_norm",
+  "target_certification": "CERTIFIED",
+  "certification_source": "tridiagonal_sturm_lapack_stebz",
+  "boundary_cluster_cut": false,
+  "expected_count": 3,
+  "missing_count": 0,
+  "endpoint_ambiguous": false,
+  "certification_window_count": 3,
+  "certification_absolute_tolerance": 7.155165349104208e-14,
+  "mode_subspace_angle_bound_max": 7.670869106578559e-06,
+  "mode_subspace_angle_threshold": 0.0001,
+  "artifact_integrity": "PASSED"
+}

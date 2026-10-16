@@ -1,0 +1,8 @@
+# Dependency image is built from requirements.lock; its digest is recorded by the harness.
+ARG BASE_IMAGE=emsolver-dependencies:py313
+FROM ${BASE_IMAGE}
+WORKDIR /app
+COPY emsolver/ ./emsolver/
+COPY LICENSE NOTICE.md ./
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 HOME=/tmp
+ENTRYPOINT ["python", "-m", "emsolver"]

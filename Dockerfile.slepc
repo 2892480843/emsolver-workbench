@@ -1,0 +1,16 @@
+ARG BASE_IMAGE=debian:bookworm-slim
+FROM ${BASE_IMAGE}
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    python3 python3-numpy python3-scipy python3-mpi4py \
+    python3-petsc4py-real python3-petsc4py-complex \
+    python3-slepc4py-real python3-slepc4py-complex openmpi-bin \
+    && rm -rf /var/lib/apt/lists/*
+COPY emsolver/numerics/slepc_driver.py /opt/emsolver/slepc_driver.py
+ENV OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
+ENV OMPI_ALLOW_RUN_AS_ROOT=1 OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
+RUN for scalar in real complex; do for ranks in 1 2; do \
+    /usr/bin/mpiexec -n "$ranks" /usr/bin/python3 /opt/emsolver/slepc_driver.py --probe --scalar "$scalar" \
+    > "/opt/emsolver/profile-${scalar}-${ranks}.json" || exit 1; \
+    done; done
+LABEL org.emsolver.slepc.protocol="1.0" org.emsolver.slepc.tested="float64:1,2;complex128:1,2"
+ENTRYPOINT ["/usr/bin/python3", "/opt/emsolver/slepc_driver.py"]

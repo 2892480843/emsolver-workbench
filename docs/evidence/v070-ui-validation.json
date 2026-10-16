@@ -1,0 +1,598 @@
+{
+  "version": "0.7.0",
+  "browser": "Codex In-app Browser via CUA",
+  "url": "http://127.0.0.1:8000/",
+  "checks": [
+    "ILUselectableoncpuJD",
+    "ILUforcesfloat64",
+    "mixedprecisiondisabledwithILU",
+    "switchGPUclearsILU",
+    "switchCPUandselectILUrestoresfloat64",
+    "realUIplanandjobsubmission",
+    "immutablecopiedconfiguration",
+    "numericalFAILED/PARTIAL/SUCCEEDEDdistinguished"
+  ],
+  "console_errors": [],
+  "jobs": [
+    {
+      "job_id": "j_8ce870d589784a77b00346b2126ba816",
+      "status": "FAILED",
+      "matrix_id": "m_77c7146bd27c476eb1c60b284be80a01",
+      "matrix_hash": "e33cb4c9287ababc53ada552e9d46aa5ed75a157c2b687b0cab5cf4e95938f15",
+      "config": {
+        "schema_version": "1.0",
+        "problem": {
+          "type": "standard_hermitian",
+          "matrix_id": "m_77c7146bd27c476eb1c60b284be80a01",
+          "matrix_b_id": null,
+          "storage": "full",
+          "scalar": "auto",
+          "hermitian_rtol": 1e-12,
+          "reordering": "none",
+          "nullspace": {
+            "basis_indices": [],
+            "interpretation": "unspecified",
+            "source": ""
+          }
+        },
+        "target": {
+          "mode": "nearest_k",
+          "k": 2,
+          "sigma": 0.1,
+          "interval": null,
+          "sort": "distance_then_value",
+          "cluster_policy": "fixed_k",
+          "max_modes": 200
+        },
+        "solver": {
+          "backend": "scipy",
+          "method": "jacobi_davidson",
+          "transform": "precond",
+          "subspace_max": 24,
+          "max_outer_iterations": 100,
+          "random_seed": 20261016,
+          "fallback_profiles": [],
+          "adaptive_shift": {
+            "enabled": true,
+            "max_attempts": 4,
+            "policy": "observed_ritz_gap_v2"
+          },
+          "linear": {
+            "method": "gmres",
+            "preconditioner": "ilu_budgeted_v1",
+            "rtol_initial": 0.001,
+            "max_iterations": 1000,
+            "adaptive_accuracy": {
+              "enabled": false,
+              "rtol_min": 1e-10,
+              "rtol_max": 0.01,
+              "forcing_factor": 0.1
+            },
+            "precision": "float64"
+          },
+          "block": {
+            "oversampling": 4,
+            "residual_check_interval": 1,
+            "max_restarts": 2,
+            "stagnation_checks": 20,
+            "checkpoint_interval": 0,
+            "checkpoint_kind": "subspace"
+          }
+        },
+        "validation": {
+          "residual_definition": "scaled_inf_v1",
+          "residual_scaled_max": 1e-08,
+          "absolute_residual_max": null,
+          "orthogonality_max": 1e-06,
+          "completeness_required": true
+        },
+        "resources": {
+          "memory_limit_gib": 1.0,
+          "threads": 2,
+          "mpi_ranks": 1,
+          "device": "cpu",
+          "walltime_seconds": 30.0,
+          "disk_limit_gib": 2.0
+        },
+        "observability": {
+          "enabled": true,
+          "metrics_interval_ms": 1000,
+          "redact_sensitive_fields": true
+        },
+        "output": {
+          "eigenvectors": true,
+          "format": "numpy",
+          "atomic_write": true
+        }
+      },
+      "validation": {
+        "numerical_status": "FAILED",
+        "residual_definition": "scaled_inf_v1",
+        "residuals": [],
+        "absolute_residuals_2": [],
+        "orthogonality_error": 0.0,
+        "n_validated": 0,
+        "normalization": "unit_2_norm",
+        "target_certification": "UNVERIFIED",
+        "certification_source": null,
+        "boundary_cluster_cut": false,
+        "expected_count": null,
+        "missing_count": null,
+        "endpoint_ambiguous": false
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "method": "jacobi_davidson",
+          "sigma_target": 0.1,
+          "sigma_work": null,
+          "status": "INNER_NOT_CONVERGED",
+          "error_code": "LINEAR_NO_CONVERGENCE",
+          "n_accepted": 0,
+          "seconds": 0.1530618749675341,
+          "outer_iterations": 2
+        }
+      ],
+      "eigenvalues": [],
+      "metrics": {
+        "preconditioner_factorizations": 1,
+        "preconditioner_factor_nnz": 2064,
+        "preconditioner_applications": 1710,
+        "linear_solves": 4,
+        "max_linear_residual": 0.8271462528963898,
+        "outer_iterations": 2,
+        "elapsed_seconds": 1.5569780840305611
+      },
+      "runtime": {
+        "python": "3.12.13",
+        "platform": "darwin",
+        "package": {
+          "name": "emsolver-workbench",
+          "version": "0.7.0"
+        },
+        "source": {
+          "tree_sha256": "0f57a8b1b9c3291f12e9d2b1e76be8848919d905feaac6cc096d238252b2d8e1",
+          "file_count": 103,
+          "scope": "emsolver/*.py recursively; web/src TS/TSX/CSS; Python and web dependency manifests",
+          "complete": true,
+          "git_commit": null,
+          "git_dirty": null
+        }
+      }
+    },
+    {
+      "job_id": "j_abf003b2deb04ea7a4e4b1cf11dbc82a",
+      "status": "PARTIAL",
+      "matrix_id": "m_1e9cf630a35b4ddc8d4f3d19d44b39ea",
+      "matrix_hash": "e0695ae279b8ec03deb96142783b65dbb706e5abce5a0ee4147c91ba8318819d",
+      "config": {
+        "schema_version": "1.0",
+        "problem": {
+          "type": "standard_hermitian",
+          "matrix_id": "m_1e9cf630a35b4ddc8d4f3d19d44b39ea",
+          "matrix_b_id": null,
+          "storage": "full",
+          "scalar": "auto",
+          "hermitian_rtol": 1e-12,
+          "reordering": "none",
+          "nullspace": {
+            "basis_indices": [],
+            "interpretation": "unspecified",
+            "source": ""
+          }
+        },
+        "target": {
+          "mode": "nearest_k",
+          "k": 2,
+          "sigma": 0.0,
+          "interval": null,
+          "sort": "distance_then_value",
+          "cluster_policy": "fixed_k",
+          "max_modes": 200
+        },
+        "solver": {
+          "backend": "scipy",
+          "method": "jacobi_davidson",
+          "transform": "precond",
+          "subspace_max": 15,
+          "max_outer_iterations": 100,
+          "random_seed": 20261016,
+          "fallback_profiles": [],
+          "adaptive_shift": {
+            "enabled": true,
+            "max_attempts": 4,
+            "policy": "observed_ritz_gap_v2"
+          },
+          "linear": {
+            "method": "gmres",
+            "preconditioner": "ilu_budgeted_v1",
+            "rtol_initial": 1e-06,
+            "max_iterations": 1000,
+            "adaptive_accuracy": {
+              "enabled": false,
+              "rtol_min": 1e-10,
+              "rtol_max": 0.01,
+              "forcing_factor": 0.1
+            },
+            "precision": "float64"
+          },
+          "block": {
+            "oversampling": 4,
+            "residual_check_interval": 1,
+            "max_restarts": 2,
+            "stagnation_checks": 20,
+            "checkpoint_interval": 0,
+            "checkpoint_kind": "subspace"
+          }
+        },
+        "validation": {
+          "residual_definition": "scaled_inf_v1",
+          "residual_scaled_max": 1e-08,
+          "absolute_residual_max": null,
+          "orthogonality_max": 1e-06,
+          "completeness_required": true
+        },
+        "resources": {
+          "memory_limit_gib": 1.0,
+          "threads": 2,
+          "mpi_ranks": 1,
+          "device": "cpu",
+          "walltime_seconds": 30.0,
+          "disk_limit_gib": 2.0
+        },
+        "observability": {
+          "enabled": true,
+          "metrics_interval_ms": 1000,
+          "redact_sensitive_fields": true
+        },
+        "output": {
+          "eigenvectors": true,
+          "format": "numpy",
+          "atomic_write": true
+        }
+      },
+      "validation": {
+        "numerical_status": "PASSED",
+        "residual_definition": "scaled_inf_v1",
+        "residuals": [
+          9.348670401072144e-15,
+          4.950651667618629e-13
+        ],
+        "absolute_residuals_2": [
+          9.00907532212579e-09,
+          5.671853112849682e-07
+        ],
+        "orthogonality_error": 1.1107390560289694e-16,
+        "n_validated": 2,
+        "normalization": "unit_2_norm",
+        "target_certification": "UNVERIFIED",
+        "certification_source": "bounded_exact_rational_inertia_v1",
+        "boundary_cluster_cut": false,
+        "expected_count": 2,
+        "missing_count": 0,
+        "endpoint_ambiguous": false,
+        "certification_limit": "candidate_value_enclosure_too_wide",
+        "certification_arithmetic": {
+          "arithmetic": "exact_binary64_gaussian_rationals",
+          "budgets": {
+            "max_n": 64,
+            "max_nnz": 4096,
+            "max_entries": 4096,
+            "max_bits": 16384,
+            "max_updates": 2000000,
+            "max_inertias": 256,
+            "max_seconds": 5.0
+          },
+          "inertia_evaluations": 0,
+          "schur_updates": 32,
+          "peak_entries": 64,
+          "peak_fraction_bits": 92,
+          "two_by_two_pivots": 0,
+          "seconds": 0.0005656249704770744
+        }
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "method": "jacobi_davidson",
+          "sigma_target": 0.0,
+          "sigma_work": null,
+          "status": "CONVERGED",
+          "n_accepted": 2,
+          "seconds": 0.010146874992642552,
+          "outer_iterations": 7
+        }
+      ],
+      "eigenvalues": [
+        119364.37851565784,
+        181864.37851565782
+      ],
+      "metrics": {
+        "preconditioner_factorizations": 1,
+        "preconditioner_factor_nnz": 166,
+        "preconditioner_applications": 152,
+        "linear_solves": 12,
+        "max_linear_residual": 3.922568161416296e-07,
+        "outer_iterations": 7,
+        "elapsed_seconds": 1.2735733750159852
+      },
+      "runtime": {
+        "python": "3.12.13",
+        "platform": "darwin",
+        "package": {
+          "name": "emsolver-workbench",
+          "version": "0.7.0"
+        },
+        "source": {
+          "tree_sha256": "0f57a8b1b9c3291f12e9d2b1e76be8848919d905feaac6cc096d238252b2d8e1",
+          "file_count": 103,
+          "scope": "emsolver/*.py recursively; web/src TS/TSX/CSS; Python and web dependency manifests",
+          "complete": true,
+          "git_commit": null,
+          "git_dirty": null
+        }
+      },
+      "fresh_bounded_verification": {
+        "numerical_status": "PASSED",
+        "residual_definition": "scaled_inf_v1",
+        "residuals": [
+          9.348670401072144e-15,
+          4.950651667618629e-13
+        ],
+        "absolute_residuals_2": [
+          9.00907532212579e-09,
+          5.671853112849682e-07
+        ],
+        "orthogonality_error": 1.1107390560289694e-16,
+        "n_validated": 2,
+        "normalization": "unit_2_norm",
+        "target_certification": "UNVERIFIED",
+        "certification_source": "bounded_exact_rational_inertia_v1",
+        "boundary_cluster_cut": false,
+        "expected_count": 2,
+        "missing_count": 0,
+        "endpoint_ambiguous": false,
+        "certification_limit": "candidate_value_enclosure_too_wide",
+        "certification_arithmetic": {
+          "arithmetic": "exact_binary64_gaussian_rationals",
+          "budgets": {
+            "max_n": 64,
+            "max_nnz": 4096,
+            "max_entries": 4096,
+            "max_bits": 16384,
+            "max_updates": 2000000,
+            "max_inertias": 256,
+            "max_seconds": 5.0
+          },
+          "inertia_evaluations": 0,
+          "schur_updates": 32,
+          "peak_entries": 64,
+          "peak_fraction_bits": 92,
+          "two_by_two_pivots": 0,
+          "seconds": 0.0005606249906122684
+        },
+        "artifact_integrity": "PASSED"
+      }
+    },
+    {
+      "job_id": "j_1a9c10206dab4fb9a7247dfc37327647",
+      "status": "SUCCEEDED",
+      "matrix_id": "m_1e9cf630a35b4ddc8d4f3d19d44b39ea",
+      "matrix_hash": "e0695ae279b8ec03deb96142783b65dbb706e5abce5a0ee4147c91ba8318819d",
+      "config": {
+        "schema_version": "1.0",
+        "problem": {
+          "type": "standard_hermitian",
+          "matrix_id": "m_1e9cf630a35b4ddc8d4f3d19d44b39ea",
+          "matrix_b_id": null,
+          "storage": "full",
+          "scalar": "auto",
+          "hermitian_rtol": 1e-12,
+          "reordering": "none",
+          "nullspace": {
+            "basis_indices": [],
+            "interpretation": "unspecified",
+            "source": ""
+          }
+        },
+        "target": {
+          "mode": "nearest_k",
+          "k": 2,
+          "sigma": 0.0,
+          "interval": null,
+          "sort": "distance_then_value",
+          "cluster_policy": "fixed_k",
+          "max_modes": 200
+        },
+        "solver": {
+          "backend": "scipy",
+          "method": "jacobi_davidson",
+          "transform": "precond",
+          "subspace_max": 15,
+          "max_outer_iterations": 100,
+          "random_seed": 20261016,
+          "fallback_profiles": [],
+          "adaptive_shift": {
+            "enabled": true,
+            "max_attempts": 4,
+            "policy": "observed_ritz_gap_v2"
+          },
+          "linear": {
+            "method": "gmres",
+            "preconditioner": "ilu_budgeted_v1",
+            "rtol_initial": 1e-06,
+            "max_iterations": 1000,
+            "adaptive_accuracy": {
+              "enabled": false,
+              "rtol_min": 1e-10,
+              "rtol_max": 0.01,
+              "forcing_factor": 0.1
+            },
+            "precision": "float64"
+          },
+          "block": {
+            "oversampling": 4,
+            "residual_check_interval": 1,
+            "max_restarts": 2,
+            "stagnation_checks": 20,
+            "checkpoint_interval": 0,
+            "checkpoint_kind": "subspace"
+          }
+        },
+        "validation": {
+          "residual_definition": "scaled_inf_v1",
+          "residual_scaled_max": 1e-14,
+          "absolute_residual_max": null,
+          "orthogonality_max": 1e-06,
+          "completeness_required": true
+        },
+        "resources": {
+          "memory_limit_gib": 1.0,
+          "threads": 2,
+          "mpi_ranks": 1,
+          "device": "cpu",
+          "walltime_seconds": 30.0,
+          "disk_limit_gib": 2.0
+        },
+        "observability": {
+          "enabled": true,
+          "metrics_interval_ms": 1000,
+          "redact_sensitive_fields": true
+        },
+        "output": {
+          "eigenvectors": true,
+          "format": "numpy",
+          "atomic_write": true
+        }
+      },
+      "validation": {
+        "numerical_status": "PASSED",
+        "residual_definition": "scaled_inf_v1",
+        "residuals": [
+          9.086067299918424e-15,
+          1.841698006149893e-16
+        ],
+        "absolute_residuals_2": [
+          8.991767102129266e-09,
+          1.5331394028693816e-10
+        ],
+        "orthogonality_error": 3.3498231073301606e-16,
+        "n_validated": 2,
+        "normalization": "unit_2_norm",
+        "target_certification": "CERTIFIED",
+        "certification_source": "bounded_exact_rational_inertia_v1",
+        "boundary_cluster_cut": false,
+        "expected_count": 2,
+        "missing_count": 0,
+        "endpoint_ambiguous": false,
+        "certification_window_count": 2,
+        "mode_subspace_angle_bound_max": 1.5258556235409006e-05,
+        "mode_subspace_angle_threshold": 0.0001,
+        "certification_arithmetic": {
+          "arithmetic": "exact_binary64_gaussian_rationals",
+          "budgets": {
+            "max_n": 64,
+            "max_nnz": 4096,
+            "max_entries": 4096,
+            "max_bits": 16384,
+            "max_updates": 2000000,
+            "max_inertias": 256,
+            "max_seconds": 5.0
+          },
+          "inertia_evaluations": 9,
+          "schur_updates": 1105,
+          "peak_entries": 66,
+          "peak_fraction_bits": 1692,
+          "two_by_two_pivots": 0,
+          "seconds": 0.014888208010233939
+        }
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "method": "jacobi_davidson",
+          "sigma_target": 0.0,
+          "sigma_work": null,
+          "status": "CONVERGED",
+          "n_accepted": 2,
+          "seconds": 0.011904707993380725,
+          "outer_iterations": 8
+        }
+      ],
+      "eigenvalues": [
+        119364.37851565784,
+        181864.3785156578
+      ],
+      "metrics": {
+        "preconditioner_factorizations": 1,
+        "preconditioner_factor_nnz": 166,
+        "preconditioner_applications": 164,
+        "linear_solves": 13,
+        "max_linear_residual": 3.922568161416296e-07,
+        "outer_iterations": 8,
+        "elapsed_seconds": 1.4958517919876613
+      },
+      "runtime": {
+        "python": "3.12.13",
+        "platform": "darwin",
+        "package": {
+          "name": "emsolver-workbench",
+          "version": "0.7.0"
+        },
+        "source": {
+          "tree_sha256": "0f57a8b1b9c3291f12e9d2b1e76be8848919d905feaac6cc096d238252b2d8e1",
+          "file_count": 103,
+          "scope": "emsolver/*.py recursively; web/src TS/TSX/CSS; Python and web dependency manifests",
+          "complete": true,
+          "git_commit": null,
+          "git_dirty": null
+        }
+      },
+      "fresh_bounded_verification": {
+        "numerical_status": "PASSED",
+        "residual_definition": "scaled_inf_v1",
+        "residuals": [
+          9.086067299918424e-15,
+          1.841698006149893e-16
+        ],
+        "absolute_residuals_2": [
+          8.991767102129266e-09,
+          1.5331394028693816e-10
+        ],
+        "orthogonality_error": 3.3498231073301606e-16,
+        "n_validated": 2,
+        "normalization": "unit_2_norm",
+        "target_certification": "CERTIFIED",
+        "certification_source": "bounded_exact_rational_inertia_v1",
+        "boundary_cluster_cut": false,
+        "expected_count": 2,
+        "missing_count": 0,
+        "endpoint_ambiguous": false,
+        "certification_window_count": 2,
+        "mode_subspace_angle_bound_max": 1.5258556235409006e-05,
+        "mode_subspace_angle_threshold": 0.0001,
+        "certification_arithmetic": {
+          "arithmetic": "exact_binary64_gaussian_rationals",
+          "budgets": {
+            "max_n": 64,
+            "max_nnz": 4096,
+            "max_entries": 4096,
+            "max_bits": 16384,
+            "max_updates": 2000000,
+            "max_inertias": 256,
+            "max_seconds": 5.0
+          },
+          "inertia_evaluations": 9,
+          "schur_updates": 1105,
+          "peak_entries": 66,
+          "peak_fraction_bits": 1692,
+          "two_by_two_pivots": 0,
+          "seconds": 0.014581124996766448
+        },
+        "artifact_integrity": "PASSED"
+      }
+    }
+  ],
+  "scope": "One 500-row synthetic failure and two 16-row teaching runs. The stricter teaching request uses residual1e-14; not evidence for original industrial matrix.",
+  "screenshot": "docs/evidence/v070-ui-result.png"
+}

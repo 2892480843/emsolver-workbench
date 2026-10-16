@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0",
+  "version": "0.5",
+  "recorded_at_utc": "2026-10-16 02:01:55 UTC",
+  "host": {
+    "system": "Darwin",
+    "release": "25.6.0",
+    "architecture": "arm64"
+  },
+  "verification": [
+    {
+      "name": "numerical_backend_configuration_recovery_and_gpu_gates",
+      "command": ".venv-emsolver/bin/python -m pytest tests/test_numerics_certification.py tests/test_numerics_exact_resume.py tests/test_backend_protocol.py tests/test_numerics.py tests/test_contracts.py tests/test_recovery.py tests/test_shift_policy.py tests/test_plan_actual_strategy.py tests/test_gpu_metal.py -q",
+      "passed": 180,
+      "skipped": 4,
+      "skip_scope": "Only actual Metal hardware tests skipped because this interpreter lacks optional MLX",
+      "observed_seconds": 10.1
+    },
+    {
+      "name": "linux_bounded_certification_and_exact_resume",
+      "command": "docker run --rm --platform linux/amd64 --mount type=bind,source=<workspace>,target=/workspace,readonly --tmpfs /tmp:rw,nosuid,size=1073741824 -w /workspace -e PYTHONPATH=/workspace -e PYTHONDONTWRITEBYTECODE=1 emsolver-dependencies:py313 python -m pytest tests/test_numerics_certification.py tests/test_numerics_exact_resume.py -q -p no:cacheprovider",
+      "passed": 37,
+      "skipped": 0,
+      "observed_seconds": 10.52,
+      "image_id": "sha256:3adbdfb917c0ad721ae731e91c8980089a0447743645a703625c006e082c4daf",
+      "python_version": "3.13.15",
+      "container_system": "Linux",
+      "container_architecture": "amd64",
+      "execution_boundary": "Linux amd64 Docker on Darwin arm64; translated execution, not a claim of native amd64 hardware validation"
+    },
+    {
+      "name": "actual_metal_sparse_and_jd_profile",
+      "command": ".venv-emsolver-model/bin/python -m pytest tests/test_gpu_metal.py -q",
+      "passed": 9,
+      "skipped": 0,
+      "observed_seconds": 0.69,
+      "scope": "Actual Apple Metal real/complex sparse multiplication and JD correction, plus budget/profile regressions; no speedup claim"
+    }
+  ],
+  "independent_inertia_review": {
+    "script": "docs/evidence/inertia-review.py",
+    "evidence": "docs/evidence/inertia-review.json",
+    "command": ".venv-emsolver/bin/python docs/evidence/inertia-review.py",
+    "seed": 2026101601,
+    "matrix_count": 112,
+    "checks": 448,
+    "passed": 448,
+    "reference": "numpy.linalg.eigvalsh on dense matrix, sign tolerance 1e-10; explicit ambiguity rejection for gaps between 1e-12 and 1e-8",
+    "matrix_distribution": "Strict upper real and optional imaginary integers in [-4,4]/8; conjugate transpose; even repeats diagonal integers in [-8,8]/8, odd repeats zero diagonal",
+    "n_range": [
+      2,
+      8
+    ],
+    "shifts": [
+      -2.125,
+      0.0,
+      0.375,
+      3.25
+    ],
+    "source_hash_matches": true,
+    "scope": "Independent bounded mathematical cross-check only; not proof of every certification budget or full application acceptance"
+  },
+  "features": {
+    "general_sparse_certificate": {
+      "source": "bounded_exact_rational_inertia_v1",
+      "max_n": 64,
+      "max_input_nnz": 4096,
+      "max_stored_entries": 4096,
+      "max_fraction_bits": 16384,
+      "max_updates": 2000000,
+      "max_inertias": 256,
+      "max_seconds": 5,
+      "no_candidate_eigensolver": true,
+      "no_original_matrix_densification": true,
+      "candidate_guards": [
+        "exact original-matrix residual enclosures",
+        "exact cluster multiplicity and target counts",
+        "root-free gap and angle bound",
+        "exact Gram rank and injective projection proof",
+        "relative eigenvalue enclosure guard"
+      ]
+    },
+    "exact_checkpoint": {
+      "kind": "exact_block",
+      "phase": "next_iteration_ready",
+      "profile": "SciPy CPU fixed-shift block_shift_invert, nearest_k, no fallback, periodic state",
+      "abrupt_exit_code": 9,
+      "new_real_worker_resume_test_passed": true,
+      "bitwise_saved_vectors_match_uninterrupted": true,
+      "actual_extra_factorization_counted": true,
+      "cumulative_iteration_and_time_budgets_preserved": true,
+      "bindings": [
+        "original input",
+        "normalized matrix",
+        "frozen config",
+        "permutation",
+        "source digests",
+        "normalized actual-loaded critical code digest",
+        "Python/NumPy/SciPy/platform/actual BLAS thread environment"
+      ],
+      "no_exact_arpack_jd_or_slepc_claim": true
+    },
+    "metal_budget": {
+      "preflight_before_coo_allocation": true,
+      "mlx_memory_limit_is_hard_cap": false,
+      "actual_active_peak_checked_after_evaluation": true,
+      "zero_candidate_gpu_calls_report_cpu_actual_strategy": true
+    }
+  },
+  "source_sha256": {
+    "emsolver/numerics/certification.py": "e039a3092e6c34385cd8cf2569b45550161616605121b59d9d01e11c1795e54c",
+    "emsolver/numerics/exact_checkpoint.py": "5dd460c546c6b6f12ee701b459efac66542b7f8bc7abdf3360fd440eee4d1fc2",
+    "emsolver/numerics/block.py": "fca40a6d310ea33f8af5e471b41a9d1c0a96e62110abe8c1a857b8a1fd0f467d",
+    "emsolver/numerics/checkpoint.py": "043944c48d199d6081c5ed5ad8aa6336c9ced154e4ee0372c0e8d7358af60528",
+    "emsolver/numerics/gpu.py": "b73d95058356431658629385d704ea92155e4a3298272f55dd962f923e6b8bd0",
+    "tests/test_numerics_certification.py": "fe08fad63c03b2fa7da8972f4ea84f12e445b6d7af2def1159e377dc2a325e04",
+    "tests/test_numerics_exact_resume.py": "78165b8e72777a65b91ca5054627d20a682a94d437d3887ad80d9b11142a9531"
+  },
+  "limitations": [
+    "General sparse certificates remain bounded; larger or unresolved inputs stay UNVERIFIED",
+    "Expanded cluster_complete with more than k candidate columns is conservatively unverified in this certificate",
+    "Exact continuation only for the stated fixed-shift owned-block profile and compatible source/math environment",
+    "The translated Linux proof does not verify non-child adoption on native Linux hardware",
+    "Metal is FP32/complex64 correction work with authoritative CPU64 validation; no all-GPU, CUDA, FP64-GPU or speedup claim"
+  ],
+  "final_verification": {
+    "macos_full_with_actual_optional_backends": {
+      "passed": 637,
+      "skipped": 0,
+      "evidence": "docs/evidence/v050-macos-tests.log"
+    },
+    "linux_full": {
+      "passed": 616,
+      "skipped": 21,
+      "evidence": "docs/evidence/v050-linux-tests.log"
+    },
+    "linux_exact_and_certification_after_environment_canonicalization": {
+      "passed": 42,
+      "evidence": "docs/evidence/v050-exact-linux-review.json"
+    },
+    "checkpoint_encoding": "Canonical typed code constants; independent of immutable object sharing and numerical-library discovery order; all actual source and environment fields remain bound"
+  },
+  "scope_note": "Earlier targeted entries describe their recorded execution. The final full suites cover subsequent canonical code-identity and threadpool-order repairs; no relaxed identity gate."
+}

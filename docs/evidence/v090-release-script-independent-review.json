@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "review_id": "v090-release-script-independent-review",
+  "review_date": "2026-10-16",
+  "reviewer": "independent development subagent industrial_sources; not external institution or human attestation",
+  "status": "READ_ONLY_REVIEW_PASSED_PUBLIC_RESEARCH_EVIDENCE_FINDING_FIXED",
+  "environment": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "release": "25.6.0"
+  },
+  "reviewed_scripts": {
+    "artifacts/build_release_v090.py": "db618bfc167a9492acf5cbf72ee9d2330cd516a9e0cdeba9834c41f3c6f11ee1",
+    "artifacts/verify_macos_v090_install.py": "1bb8b22f6ed8aea9b5e8c5568ac9de3be918421fec5e91116966c46213775114",
+    "artifacts/verify_linux_v090.py": "3667fe917ee0cb54fd285ac41c8a567ed85bbe9044498bb546482984400fb3ce"
+  },
+  "release_binding": {
+    "version": "0.9.0",
+    "freeze_sha256": "5a11a4c394d35d3c89e36641c90960366292e5d580aa0030d25789d79c8473c2",
+    "source_map_sha256": "280b2c209023fdcdd9e7e700c55d6a65b691b00261c7bc52d7a52aea766c1ed2",
+    "frozen_files": 104,
+    "wheel_sha256": "982211468aab5c7cbf97727ec55e940ce43aa8ba6934002158a48aa8ad00a5f3",
+    "frozen_source_wheel_equal": true
+  },
+  "findings": [
+    {
+      "priority": "P2",
+      "status": "FIXED_AND_INDEPENDENTLY_VERIFIED",
+      "summary": "Public source selection omitted independent source-audit tests/logs and the small MIT geometry/source snapshot referenced by shipped evidence.",
+      "fix": "Add v090-source-audit and industrial-v090-production-ooc directories; retain LICENSE/COPYING/.cff/.rst and collector/reference provenance.",
+      "verified_members": [
+        "artifacts/v090-source-audit/cavsim2d/LICENSE",
+        "artifacts/v090-source-audit/cavsim2d/CITATION.cff",
+        "artifacts/v090-source-audit/cavsim2d/docs/source/theory/eigenmode.rst",
+        "artifacts/collect_v090_evidence.py",
+        "artifacts/emsolver-gsm-reference-k2-v090.provenance.json"
+      ]
+    }
+  ],
+  "checks": {
+    "default_builder_is_plan_only": true,
+    "construction_requires_execute_or_explicit_prepare_stage": true,
+    "archives_refuse_overwrite": true,
+    "historical_v080_scripts_byte_equal_original_source_zip": true,
+    "source_wheel_modules_equal": true,
+    "public_text_actual_private_paths_absent": true,
+    "public_redaction_maps_original_and_export_hashes": true,
+    "small_npz_shape_and_nnz_guard_checked": true,
+    "raw_npy_full_gsm_and_native_binaries_absent": true,
+    "third_party_research_license_sources_present": true,
+    "stage_marked_with_freeze_and_wheel_hashes": true,
+    "stage_protected_file_count": 51,
+    "stage_protected_bytes_equal_marker": true,
+    "stage_refresh_scope": [
+      "docs/",
+      "README.md",
+      "public-evidence-map.json"
+    ],
+    "mac_verifier_checks_outside_source_site_packages_no_pythonpath_and_three_way_module_hashes": true,
+    "linux_verifier_checks_version_module_hashes_before_after_source_and_old_archive_preservation": true,
+    "linux_actual_cgroup_constraints_required": {
+      "memory.max": "2147483648",
+      "memory.swap.max": "0",
+      "pids.max": "128",
+      "cpu.max": "200000 100000"
+    },
+    "linux_inspects_network_none_readonly_capdrop_no_new_privileges": true,
+    "linux_save_load_image_id_equality_required": true,
+    "separate_arm64_ooc_not_claimed_in_amd64_cpu_package": true
+  },
+  "selection_snapshot": {
+    "public_members": 872,
+    "redacted_copies": 50,
+    "omitted_private_runners": 4,
+    "note": "Counts are a read-only snapshot; subsequently added prose/evidence may increase them without production source changes."
+  },
+  "execution_scope": {
+    "reviewer_builds": false,
+    "reviewer_installs": false,
+    "reviewer_containers": false,
+    "reviewer_heavy_compute": false,
+    "owner_executed_delivery_evidence": [
+      "docs/evidence/v090-macos-delivery.json",
+      "docs/evidence/v090-linux-delivery.json"
+    ],
+    "boundary": "This review approves script contracts and inspected current selected members, not an unbuilt final archive or independent native AMD64 performance."
+  },
+  "final_selection_followup": {
+    "scope": "Add artifacts/export_slepc_v090.py to the explicit public source selection; no production source or runtime behavior change.",
+    "previous_builder_sha256": "3e52f1806a198f300fcbbc690d7d4fc7d7c655356d6e7b1ac929196b3b0a6827",
+    "final_builder_sha256": "db618bfc167a9492acf5cbf72ee9d2330cd516a9e0cdeba9834c41f3c6f11ee1",
+    "selected_exporter": "artifacts/export_slepc_v090.py",
+    "exporter_sha256": "3170225ccaea6661acdfb534c59d2ffcaad53cc332bf4638f71013c735bafbc2",
+    "public_exporter_selected_and_not_omitted": true,
+    "builds_containers_or_compute_executed": false
+  }
+}

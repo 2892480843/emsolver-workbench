@@ -1,0 +1,265 @@
+{
+  "status": "SUCCEEDED",
+  "error_code": null,
+  "eigenvalues": [
+    0.11864406779661071,
+    -0.03389830508474566,
+    0.2711864406779664
+  ],
+  "residuals": [
+    1.3236844887158362e-17,
+    4.289399579560037e-17,
+    4.822037955555901e-17
+  ],
+  "validation": {
+    "numerical_status": "PASSED",
+    "residual_definition": "scaled_inf_v1",
+    "residuals": [
+      1.3236844887158362e-17,
+      4.289399579560037e-17,
+      4.822037955555901e-17
+    ],
+    "absolute_residuals_2": [
+      2.0270390243741043e-16,
+      2.991999214378298e-16,
+      6.846300900542235e-16
+    ],
+    "orthogonality_error": 9.351164645209916e-16,
+    "n_validated": 3,
+    "normalization": "unit_2_norm",
+    "target_certification": "CERTIFIED",
+    "certification_source": "tridiagonal_sturm_lapack_stebz",
+    "boundary_cluster_cut": false,
+    "expected_count": 3,
+    "missing_count": 0,
+    "endpoint_ambiguous": false,
+    "certification_window_count": 3,
+    "certification_absolute_tolerance": 7.155165349104208e-14,
+    "mode_subspace_angle_bound_max": 1.3562801436275567e-05,
+    "mode_subspace_angle_threshold": 0.0001
+  },
+  "metrics": {
+    "n": 60,
+    "nnz": 178,
+    "backend": "slepc",
+    "method": "krylovschur",
+    "prepare_seconds": 0.180791666964069,
+    "import_seconds": 0.0020304580102674663,
+    "solve_seconds": 0.017158000002382323,
+    "validation_seconds": 0.0008944579749368131,
+    "export_seconds": 0.06583216600120068,
+    "elapsed_seconds": 1.1439736249740236,
+    "peak_memory_bytes": 73416704,
+    "peak_memory_gib": 0.0683746337890625,
+    "memory_measurement": "sampled current process and descendants; worker enforces and samples full lifetime",
+    "event_history_limit": 4096,
+    "events_emitted": 7,
+    "event_history_byte_limit": 8388608,
+    "retained_event_bytes": 4226,
+    "secondary_observation_enabled": true,
+    "events_suppressed": 0,
+    "memory_sample_interval_seconds": 0.05,
+    "runtime_check_seconds": 0.20846562477527186,
+    "event_emission_seconds": 0.05598974897293374,
+    "events_retained": 7,
+    "events_dropped": 0,
+    "unavailable_metrics": {
+      "outer_iterations": null,
+      "linear_iterations": "Direct LU does not use iterative inner solves",
+      "matrix_vector_products": "Backend internal operator products are not fully observable"
+    },
+    "matrix_vector_products_scope": "Candidate iteration and candidate residual checks; final independent verifier excluded",
+    "matrix_vector_products_total": null,
+    "threads_requested": 1,
+    "effective_threadpools": [],
+    "outer_iterations": 1,
+    "converged_reason": 1,
+    "n_converged": 5,
+    "mpi_ranks": 2,
+    "threads_per_rank": 1,
+    "linear_method": "preonly",
+    "preconditioner": "lu",
+    "factor_solver": "mumps",
+    "matrix_loading": "replicated safe CSR input; distributed PETSc ownership and operator",
+    "candidate_collection": "rank-zero gather of candidate vectors only",
+    "container_image_id": "sha256:04a9337651ebae49cffb40b0fdce800aadb5cbc15325de53ba73acbbbb486f11",
+    "container_architecture": "arm64",
+    "container_memory_limit_bytes": 1073741824,
+    "host_memory_limit_bytes": 1073741824,
+    "total_job_memory_limit_bytes": 2147483648,
+    "memory_enforcement": "One job budget: host process tree and container each receive half; container swap capped at its memory share",
+    "container_memory_measurement": "Kernel cgroup hard limit; host process-tree RSS excludes container processes",
+    "scalar_dtype": "complex128",
+    "backend_raw_candidates": 5,
+    "backend_candidates_after_original_validation": 5,
+    "linear_iterations": null,
+    "matrix_vector_products": null,
+    "linear_solves": null,
+    "factorizations": null
+  },
+  "attempts": [
+    {
+      "method": "krylovschur",
+      "sigma_target": 0.1,
+      "sigma_work": 0.1,
+      "status": "CONVERGED",
+      "n_accepted": 5
+    }
+  ],
+  "n_accepted": 3,
+  "strategy": {
+    "schema_version": "1.0",
+    "backend_protocol": "prepare/solve/monitor/finalize",
+    "requested_backend": "slepc",
+    "requested_method": "krylovschur",
+    "actual_backend": "slepc",
+    "actual_method": "krylovschur",
+    "backend_version": [
+      3,
+      18,
+      2
+    ],
+    "problem_type": "standard_hermitian",
+    "precision": "float64_or_complex128",
+    "requested_device": "cpu",
+    "compute_device": "cpu",
+    "transform": "shift_invert",
+    "reordering": "reverse_cuthill_mckee",
+    "verification_input": "original_unpermuted_matrix",
+    "linear_solver": {
+      "method": "preonly",
+      "preconditioner": "lu",
+      "factor_solver": "mumps"
+    },
+    "mpi_ranks": 2,
+    "threads_per_rank": 1,
+    "image_id": "sha256:04a9337651ebae49cffb40b0fdce800aadb5cbc15325de53ba73acbbbb486f11",
+    "driver_sha256": "d885ae408596fcfa5b8015c3bbd8f37fe81778f28cb3759f099c531d8633072a",
+    "reference_isolation": {
+      "network": "none",
+      "reference_mounted": false,
+      "scope": "SLEPc candidate container"
+    },
+    "monitoring": {
+      "outer_iteration_count": true,
+      "outer_iteration_residual_history": false,
+      "backend_estimates_available": true,
+      "residual_scope": "SLEPc internal estimates; never substituted for original-problem validation"
+    },
+    "checkpoint": {
+      "exact_resume": false,
+      "warm_start": false,
+      "reason": "This SLEPc profile does not expose compatible continuation state"
+    },
+    "fallback_profiles": [],
+    "execution_profiles": [],
+    "fallback_history": [],
+    "adaptive_shift": {
+      "requested": true,
+      "applies": false,
+      "reason": "This SLEPc profile uses the frozen fixed target shift"
+    },
+    "limitations": [
+      "Replicated sparse input loading on each MPI rank",
+      "No validated GPU path",
+      "SLEPc backend error estimates do not replace original-problem verification"
+    ],
+    "shift_policy": {
+      "applies": false,
+      "reason": "This adapter uses one fixed ST shift; no project adaptive working-shift retry is executed"
+    },
+    "initial_space": {
+      "policy": "seeded_backend_input_row_order_random_vector",
+      "random_seed": 20261016
+    },
+    "device": "cpu",
+    "versions": {
+      "petsc_version": [
+        3,
+        18,
+        5
+      ],
+      "slepc_version": [
+        3,
+        18,
+        2
+      ],
+      "mpi_library": "Open MPI v4.1.4, package: Debian OpenMPI, ident: 4.1.4, repo rev: v4.1.4, May 26, 2022",
+      "integer_dtype": "int32",
+      "platform": {
+        "system": "Linux",
+        "machine": "aarch64",
+        "python": "3.11.2"
+      }
+    },
+    "candidate_certification": "Main worker must recompute original-problem residuals and target certification"
+  },
+  "memory_estimate": {
+    "schema_version": "1.0",
+    "n": 60,
+    "nnz": 178,
+    "components": {
+      "input_and_recovery_bytes": 7608,
+      "working_csr_bytes": 3804,
+      "csr_csc_conversion_bytes": 7608,
+      "scaled_matrix_bytes": 3804,
+      "permutation_bytes": 960,
+      "subspace_bytes": 115200,
+      "candidate_vectors_bytes": 5760,
+      "validation_bytes": 6192,
+      "inner_krylov_bytes": 0,
+      "projected_matrix_bytes": 36864,
+      "nullspace_diagnostic_bytes": 0,
+      "mixed_precision_matrix_bytes": 0,
+      "preconditioner_storage_bytes": 0,
+      "bounded_event_log_bytes": 33554432,
+      "gpu_coo_scratch_bytes": 0,
+      "mpi_replicated_input_bytes": 3804
+    },
+    "minimum_memory_bytes": 33746036,
+    "estimated_memory_range_bytes": [
+      33753644,
+      33822116
+    ],
+    "factorization_fill_in": {
+      "bounded": false,
+      "scenario_storage_multipliers": [
+        2,
+        20
+      ],
+      "reason": "Fill-in depends on graph, pivoting and ordering; scenarios are not bounds"
+    },
+    "budget_bytes": 1073741824,
+    "job_memory_partitions": {
+      "total_bytes": 2147483648,
+      "host_bytes": 1073741824,
+      "container_bytes": 1073741824
+    },
+    "minimum_fits_budget": true,
+    "risk": "factorization_fill_in_unknown",
+    "is_measured_peak": false,
+    "requires_runtime_process_tree_guard": true
+  },
+  "diagnostics": {
+    "matrix_layer": {
+      "original_n": 60,
+      "original_nnz": 178,
+      "normalization": null,
+      "hermitian_relative_error": 0.0,
+      "returned_near_zero_count": 0,
+      "near_zero_threshold": 3.853791109207327e-15
+    },
+    "nullspace": {
+      "basis_kind": "original_coordinate_vectors",
+      "declared_dimension": 0,
+      "verified_dimension": 0,
+      "scaled_column_residuals": [],
+      "metadata_status": "NOT_PROVIDED",
+      "physical_classification": "unverified",
+      "modes_removed": 0,
+      "interpretation": "unspecified",
+      "source": "",
+      "limitation": "Only declared coordinate basis vectors are checked; no spurious-mode classification without model evidence"
+    }
+  }
+}

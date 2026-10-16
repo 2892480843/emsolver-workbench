@@ -1,0 +1,19 @@
+# Offline runtime: build Dockerfile.dependencies as emsolver-dependencies:py313 first.
+# The build requires no network and uses the already verified frontend bundle.
+ARG BASE_IMAGE=emsolver-dependencies:py313
+FROM ${BASE_IMAGE}
+ARG WHEEL_DIR=build/runtime-wheel-v090
+WORKDIR /app
+COPY ${WHEEL_DIR}/*.whl /opt/emsolver-wheels/
+RUN pip install --no-index --no-deps /opt/emsolver-wheels/*.whl && rm -rf /opt/emsolver-wheels
+COPY web/dist/ ./web/dist/
+COPY docs/feature-coverage.json docs/dependency-inventory.json ./docs/
+COPY docs/third-party-licenses/ ./docs/third-party-licenses/
+COPY examples/ ./examples/
+COPY benchmarks/ ./benchmarks/
+COPY scripts/verify_offline_instance.py ./scripts/
+COPY LICENSE NOTICE.md README.md pyproject.toml requirements.lock ./
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 HOME=/tmp \
+    EMSOLVER_DATA_DIR=/data EMSOLVER_WEB_DIST=/app/web/dist EMSOLVER_RESOURCE_DIR=/app
+ENTRYPOINT ["python", "-m", "emsolver"]
+CMD ["serve", "--host", "127.0.0.1", "--port", "8000"]

@@ -1,0 +1,17 @@
+schema_version: '1.0'
+target:
+  mode: interval_all
+  k: null
+  sigma: null
+  interval:
+    lower: -0.1
+    upper: 0.1
+    closure: left_closed_right_open
+    boundary_atol: 1.0e-10
+  max_modes: 40
+  cluster_policy: cluster_complete
+solver:
+  backend: scipy
+  method: arpack
+output:
+  format: both

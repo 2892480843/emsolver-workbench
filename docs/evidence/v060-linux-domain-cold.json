@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "version": "0.6.0",
+  "installed_package": "/usr/local/lib/python3.13/site-packages/emsolver/__init__.py",
+  "scope": "Installed CPU wheel; diagonal teaching fixture, not industrial physics",
+  "candidate_status": "SUCCEEDED",
+  "reference_comparison": "PASS",
+  "industrial_status": "UNVERIFIED",
+  "restored_status": "UNVERIFIED",
+  "backup_restore": true,
+  "external_http_requests": 0,
+  "execution_environment": {
+    "image_config_id": "sha256:d3243ec924d73b2be47282db3f1cd12e2a15e5b2794c8228917f97dfd4057e25",
+    "exit_code": 0,
+    "network_mode": "none",
+    "readonly_rootfs": true,
+    "memory_bytes": 2147483648,
+    "memory_swap_bytes": 2147483648,
+    "nano_cpus": 2000000000,
+    "pids_limit": 128,
+    "cap_drop": [
+      "ALL"
+    ],
+    "security_options": [
+      "no-new-privileges"
+    ],
+    "mounts": [
+      {
+        "destination": "/proof",
+        "read_write": false
+      },
+      {
+        "destination": "/evidence",
+        "read_write": true
+      }
+    ],
+    "data_scope": "Fresh temporary in-container data only; no existing private project data or reference matrix mount"
+  },
+  "schema_version": "1.0",
+  "industrial_accepted": false,
+  "image_id": "sha256:d3243ec924d73b2be47282db3f1cd12e2a15e5b2794c8228917f97dfd4057e25",
+  "script": "docs/evidence/v060-linux-domain-cold.py",
+  "script_sha256": "d58104a8863fa8ba046786597634f930affa71acc12fac1d40f86e7bacc23057",
+  "original_script_sha256": "878b7069b3a0a0ad27d00efbecf2452eae506442077417e1d54f270e7b8240d7",
+  "script_adaptation": "Only installed-location assertion changed from macOS venv name to interpreter purelib/site-packages+version; all business assertions unchanged"
+}

@@ -1,0 +1,20 @@
+{
+  "endpoint": "127.0.0.1",
+  "version": "0.5.0",
+  "source": "local_model",
+  "template_version": "diagnosis_explanation_v3",
+  "summary": "验证与运行证据未触发故障规则。",
+  "items": [
+    {
+      "rule_id": "review",
+      "text": "验证与运行证据未触发故障规则。"
+    }
+  ],
+  "model": {
+    "id": "default_model",
+    "version": "mlx-community/Qwen2.5-0.5B-Instruct-4bit@a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+    "license_id": "Apache-2.0",
+    "license_approved": true
+  },
+  "numerical_authority": "Deterministic rules unchanged; display-only explanation"
+}

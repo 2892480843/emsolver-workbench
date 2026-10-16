@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0",
+  "image": "emsolver-runtime:0.5.0",
+  "image_id": "sha256:a5193cfe4c951bf148104170735ff817b0f30d75c8eabb8da0c81eb758a511c2",
+  "image_platform": {
+    "os": "linux",
+    "architecture": "amd64"
+  },
+  "input_sha256": "7f374a8a77b07da7f4c4ce89fe80ac536003deb51c5a909814d4c0b162332efb",
+  "config_sha256": "77408ac3bf9a2b78d057b4d67bec5b0a4abacf92a4f696f695e6760c5bcafe9b",
+  "reference_mounted": false,
+  "reference_evaluation_phase": "after_candidate_exit",
+  "scope": "Linux container functionality; host emulation is not native competition performance",
+  "access_probe": {
+    "reference": "DENIED",
+    "docker_socket": "DENIED",
+    "network_connect_errno": 101
+  },
+  "security": {
+    "NetworkMode": "none",
+    "ReadonlyRootfs": true,
+    "CapDrop": [
+      "ALL"
+    ],
+    "SecurityOpt": [
+      "no-new-privileges"
+    ],
+    "Memory": 1073741824,
+    "MemorySwap": 1073741824,
+    "NanoCpus": 1000000000,
+    "PidsLimit": 64,
+    "Privileged": false
+  },
+  "mounts": [
+    {
+      "destination": "/output",
+      "read_only": false,
+      "kind": "bind"
+    },
+    {
+      "destination": "/input/matrix.npz",
+      "read_only": true,
+      "kind": "bind"
+    },
+    {
+      "destination": "/input/config.yaml",
+      "read_only": true,
+      "kind": "bind"
+    }
+  ],
+  "container_exit_code": 0,
+  "oom_killed": false,
+  "end_to_end_seconds": 1.912930749997031,
+  "candidate_manifest_present": true,
+  "candidate_status": "SUCCEEDED",
+  "evaluation": {
+    "passed": true,
+    "matched_count": 4,
+    "candidate_count": 4,
+    "reference_count": 4,
+    "max_eigenvalue_absolute_error": 1.1102230246251565e-16,
+    "max_subspace_sine": 1.4190954673315407e-15,
+    "clusters": [
+      [
+        2
+      ],
+      [
+        0
+      ],
+      [
+        1
+      ],
+      [
+        3
+      ]
+    ],
+    "cluster_ranks_valid": true,
+    "orthogonality_error": 4.571314462484755e-16,
+    "matching": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "reference_scope": "provided target set only",
+    "limitations": [
+      "Reference accuracy and target coverage must be established independently; no feedback to solver"
+    ]
+  },
+  "independent_original_problem_validation": {
+    "numerical_status": "PASSED",
+    "residual_definition": "scaled_inf_v1",
+    "residuals": [
+      6.867643705723854e-18,
+      2.887695168992748e-17,
+      1.1230938335599498e-17,
+      1.453876696529619e-17
+    ],
+    "absolute_residuals_2": [
+      6.458306203584595e-17,
+      3.101616548503046e-16,
+      1.5226806080742447e-16,
+      1.6914318015704285e-16
+    ],
+    "orthogonality_error": 5.427058253321521e-16,
+    "n_validated": 4,
+    "normalization": "unit_2_norm",
+    "target_certification": "CERTIFIED",
+    "certification_source": "tridiagonal_sturm_lapack_stebz",
+    "boundary_cluster_cut": false,
+    "expected_count": 4,
+    "missing_count": 0,
+    "endpoint_ambiguous": false,
+    "certification_window_count": 4,
+    "certification_absolute_tolerance": 7.198592446972905e-14,
+    "mode_subspace_angle_bound_max": 2.936714329293302e-06,
+    "mode_subspace_angle_threshold": 0.0001,
+    "artifact_integrity": "PASSED"
+  },
+  "reference_generation": "After candidate container exited; NumPy dense eigh on bounded 40x40 original Hermitian matrix; reference never mounted",
+  "input_kind": {
+    "kind": "synthetic_non_diagonal_complex_hermitian",
+    "n": 40,
+    "seed": 20261016
+  },
+  "reference_sha256": {
+    "eigenvalues.npy": "08a6534de34d1ad221d8e1f3d33f995ace11eb5c6736e96c484aa68c062dca80",
+    "eigenvectors.npy": "c5cfbbd8e09388f997f2c7743941f560e6c41cc44d5dd08f1e82acac717aab88"
+  }
+}

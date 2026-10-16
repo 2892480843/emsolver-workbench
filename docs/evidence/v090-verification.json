@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0",
+  "version": "0.9.0",
+  "tests": [
+    {
+      "name": "macos_suite",
+      "passed": 831,
+      "skipped": 23,
+      "failed": 0,
+      "log": "artifacts/v090-independent-solver/macos-complete-tests.log",
+      "sha256": "b3490cf61690e3e4ec17e7dc1ee3a74b37c41e6d04ef13796b120d9d2b0a035d"
+    },
+    {
+      "name": "slepc_ooc_actual",
+      "passed": 67,
+      "skipped": 0,
+      "failed": 0,
+      "log": "artifacts/v090-solver-research/ooc-actual-budget-regression.log",
+      "sha256": "f55bc511703f960da876fa1eb4daa465a48557a1473abd83c9c2d0d5d3bfc55c"
+    },
+    {
+      "name": "metal_actual",
+      "passed": 9,
+      "skipped": 0,
+      "failed": 0,
+      "log": "docs/evidence/v090-metal-tests.log",
+      "sha256": "61ec84121d1b1f436e4d7dfe6c8b9453d1009e5eadfa736f23a6adafac5de0a3"
+    },
+    {
+      "name": "frontend",
+      "passed": 65,
+      "skipped": 0,
+      "failed": 0,
+      "log": "artifacts/v090-independent-solver/web-tests.log",
+      "sha256": "2a8523a0d0d0c1138c01f0c1a899f6ff0f9995a6d28af84e840e2c498e37c019"
+    },
+    {
+      "name": "delivery_checks",
+      "passed": 8,
+      "skipped": 0,
+      "failed": 0,
+      "log": "artifacts/v090-independent-solver/delivery-final-tests.log",
+      "sha256": "2344a4acf7757d68c1a715581b61899bdb7a875d5c81a1edf275b7d06166d0ec"
+    }
+  ],
+  "overlap_note": "Separate suites overlap; counts must not be added as a unique total. Explicit actual backend checks cover opt-in paths skipped by the baseline suite.",
+  "frontend_build": {
+    "passed": true,
+    "log": "artifacts/v090-independent-solver/web-build.log"
+  },
+  "material_checks": {
+    "passed": true,
+    "does_not_certify_functional_acceptance": true,
+    "path": "docs/evidence/v090-material-check.json"
+  },
+  "macos_cold_install": {
+    "evidence": "docs/evidence/v090-macos-delivery.json",
+    "passed": true,
+    "scope": "Darwin ARM64 Python3.12 no-index cold environment; 69 modules equal to frozen wheel/source; local fresh HTTP workflows, not OS network isolation"
+  },
+  "source_freeze": "artifacts/v090-source-freeze.json",
+  "production_industrial_evidence": "docs/evidence/v090-industrial-experiment.json",
+  "industrial_complete": false,
+  "official_submission": false,
+  "remaining": [
+    "Rigorous full GSM target count and no-missing-mode proof",
+    "Original GSM geometry/physical mapping not provided by authors",
+    "Matched certified-target industrial acceleration benchmark"
+  ],
+  "trust_policy_note": "External institutional signatures are optional enhanced policy, not original contest mandatory requirements.",
+  "linux_amd64": {
+    "passed": true,
+    "focused_tests_passed": 310,
+    "deselected": 5,
+    "failed": 0,
+    "module_count": 69,
+    "network_mode": "none",
+    "memory_limit_bytes": 2147483648,
+    "memory_swap_bytes": 2147483648,
+    "cpus": 2,
+    "cold_checks": 7,
+    "evidence": "docs/evidence/v090-linux-delivery.json",
+    "scope": "Translated AMD64 container on macOS ARM64; same frozen wheel, no native performance claim"
+  },
+  "optional_slepc_image_delivery": {
+    "passed": true,
+    "evidence": "docs/evidence/v090-slepc-image-delivery.json",
+    "os": "linux",
+    "architecture": "arm64",
+    "separate_dependency": true
+  },
+  "strict_full_matrix_candidate_enclosures": {
+    "passed": true,
+    "proved_distinct_roots_at_least": 2,
+    "radii": [
+      4.728021456126067e-15,
+      6.207765062454101e-15
+    ],
+    "target_certification": "UNVERIFIED",
+    "missing_modes_proved_absent": false,
+    "evidence": "artifacts/v090-count-reference-research/gsm-candidate-enclosures-v1/result.json",
+    "independent_review": "docs/evidence/v090-residual-norm-independent-review.json"
+  },
+  "research_tests": {
+    "passed": 198,
+    "failed": 0,
+    "log": "artifacts/v090-count-reference-research/final-combined-tests.log",
+    "scope": "Bounded proof components and independent exact-arithmetic reviews; no claim that full industrial count passed"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "rows": 20000,
+  "repeats": 7,
+  "scope": "Local warmed-cache synthetic query diagnostic; not solver or production performance.",
+  "samples_ms": {
+    "legacy_full_list_first": [
+      53.882959,
+      49.948625,
+      76.972084,
+      56.259792,
+      46.042666,
+      48.327917,
+      47.046125
+    ],
+    "indexed_first": [
+      0.120916,
+      0.101958,
+      14.018375,
+      0.101833,
+      0.091917,
+      0.109042,
+      0.090333
+    ],
+    "indexed_count": [
+      0.009041,
+      0.009375,
+      0.063458,
+      0.007208,
+      0.008625,
+      0.0085,
+      0.008084
+    ],
+    "indexed_page_50": [
+      0.680292,
+      0.494125,
+      4.300292,
+      0.5975,
+      0.53875,
+      0.81775,
+      0.503458
+    ]
+  },
+  "median_ms": {
+    "legacy_full_list_first": 49.948625,
+    "indexed_first": 0.101958,
+    "indexed_count": 0.008625,
+    "indexed_page_50": 0.5975
+  },
+  "decoded_json_records": {
+    "legacy_full_list_first": 20000,
+    "indexed_first": 1,
+    "indexed_count": 0,
+    "indexed_page_50": 50
+  },
+  "query_plans": {
+    "queue_first": [
+      "SEARCH entities USING INDEX entities_kind_status_seq (kind=? AND status=?)"
+    ],
+    "queue_count": [
+      "SEARCH entities USING COVERING INDEX entities_kind_status_seq (kind=? AND status=?)"
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "container_id": "14326094b967e3794eb2930ed935405e6b52dbbe4d78bc83df4caa58bf25e5f2",
+  "exit_code": 0,
+  "docker_start_exit_code": 0,
+  "oom_killed": false,
+  "seconds": 18.267914459000167,
+  "isolation": {
+    "network_mode": "none",
+    "readonly_rootfs": true,
+    "cap_drop": [
+      "ALL"
+    ],
+    "pids_limit": 128,
+    "memory_limit_bytes": 2147483648,
+    "memory_swap_bytes": 2147483648,
+    "nano_cpus": 2000000000,
+    "security_opt": [
+      "no-new-privileges"
+    ],
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/Users/a111/chen/竞赛/上海开源软件应用创新大赛/artifacts/v090-linux-delivery-data",
+        "Destination": "/data",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/Users/a111/chen/竞赛/上海开源软件应用创新大赛/tests",
+        "Destination": "/checks/tests",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  "command": [
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp=/tmp/pytest",
+    "--junitxml=/data/focused-tests.xml",
+    "-k",
+    "not test_actual_ooc",
+    "/checks/tests/test_ilu_preconditioning.py",
+    "/checks/tests/test_robust_preconditioning.py",
+    "/checks/tests/test_accuracy_refinement.py",
+    "/checks/tests/test_independent_counts.py",
+    "/checks/tests/test_weighted_counts.py",
+    "/checks/tests/test_certification_routing.py",
+    "/checks/tests/test_numerics_certification.py",
+    "/checks/tests/test_numerics.py",
+    "/checks/tests/test_backend_protocol.py",
+    "/checks/tests/test_contracts.py",
+    "/checks/tests/test_protocols.py",
+    "/checks/tests/test_shift_policy.py",
+    "/checks/tests/test_slepc_workspace_budget.py",
+    "/checks/tests/test_slepc_ooc.py",
+    "/checks/tests/test_slepc_driver.py"
+  ],
+  "log": "docs/evidence/v090-linux-focused-tests.log"
+}

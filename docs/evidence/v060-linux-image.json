@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "version": "0.6.0",
+  "passed": true,
+  "image": "emsolver-runtime:0.6.0",
+  "image_id": "sha256:d3243ec924d73b2be47282db3f1cd12e2a15e5b2794c8228917f97dfd4057e25",
+  "container_platform": {
+    "os": "linux",
+    "architecture": "amd64"
+  },
+  "host": {
+    "system": "Darwin",
+    "machine": "arm64"
+  },
+  "architecture_scope": "Linux amd64 under macOS arm64 translation; functional correctness only, no native performance or scaling claim",
+  "source": {
+    "tree_sha256": "02bbf89a89c64e6290d561ea417110b087f1999ab29411a2b1f9996135ecab53",
+    "file_count": 101,
+    "scope": "emsolver/*.py recursively; web/src TS/TSX/CSS; Python and web dependency manifests",
+    "complete": true,
+    "git_commit": null,
+    "git_dirty": null
+  },
+  "wheel": {
+    "path": "build/runtime-wheel-v060/emsolver_workbench-0.6.0-py3-none-any.whl",
+    "sha256": "d7fb48b7db4b841694a828ccc30d893658f332d1e9a5bbbc3f5734253b75a0c1",
+    "bytes": 230488,
+    "installed_and_current_source_modules_equal": 66
+  },
+  "build": {
+    "network_mode": "none",
+    "pull": false,
+    "wheel_directory_argument": "build/runtime-wheel-v060",
+    "command": "docker build --network=none --platform=linux/amd64 --pull=false -f Dockerfile.runtime -t emsolver-runtime:0.6.0 .",
+    "log": "docs/evidence/v060-linux-build.log"
+  },
+  "build_inputs_sha256": {
+    "Dockerfile.runtime": "9b0ffe2320a32de246038dd0b03a9a9d73fa18568cc78227eab260106c261073",
+    "scripts/verify_offline_instance.py": "7d4d5b71ddc5d6f92a8103702b0b65138d524987674f79e4cb9cbc59ce466a08",
+    "docs/feature-coverage.json": "bb0a1805e6db6fc687cbbf71113f7c81bd429bd7e201317261fb06edc8526c28",
+    "web/dist/index.html": "6de7d01464c9749f435b0200254366c85ced33437030bb3d2afb968b88cdd7e9"
+  },
+  "frontend": {
+    "index_sha256": "6de7d01464c9749f435b0200254366c85ced33437030bb3d2afb968b88cdd7e9",
+    "assets": [
+      {
+        "name": "assets/index-BQ-BdhYk.js",
+        "bytes": 443182,
+        "sha256": "affe8af434bfe40f52d1517583169e08612852f1a8ce5d2dd97087559d6da7bb"
+      },
+      {
+        "name": "assets/index-s5_B8g9A.css",
+        "bytes": 54487,
+        "sha256": "55cdb6be4e77df575469358f1eff7d47ff71c664189c7622bbe2c9ac2b74b543"
+      }
+    ],
+    "scope": "Actual served index and referenced built assets; no browser interaction is claimed"
+  },
+  "registry_sha256": "bb0a1805e6db6fc687cbbf71113f7c81bd429bd7e201317261fb06edc8526c28",
+  "focused_tests": {
+    "passed": 103,
+    "failed": 0,
+    "skipped": 0,
+    "warnings": 2,
+    "seconds": 77.47,
+    "python": "3.13.15",
+    "log": "docs/evidence/v060-linux-focused-tests.log",
+    "test_files": [
+      "test_backup_consistency.py",
+      "test_engineering_backup.py",
+      "test_evaluation.py",
+      "test_exact_resume_service.py",
+      "test_industrial.py",
+      "test_industrial_integration.py",
+      "test_industrial_numerical_status.py",
+      "test_industrial_reference.py",
+      "test_numerics_certification.py",
+      "test_numerics_exact_resume.py"
+    ],
+    "scope": "Installed wheel: industrial gates/reference assets/backup/evaluation/certification/exact resume; fixtures are synthetic/teaching and local test-authority data, not genuine industrial acceptance evidence",
+    "mount_scope": "Selected test source files only; no backend source or private project data mounted",
+    "hard_limits": {
+      "memory_bytes": 2147483648,
+      "cpus": 2,
+      "pids": 128
+    },
+    "warning_scope": "FastAPI/Starlette test-client deprecation and deliberately duplicated ZIP member negative fixture"
+  },
+  "runtime_cold": "docs/evidence/v060-linux-runtime-cold.json",
+  "domain_cold": "docs/evidence/v060-linux-domain-cold.json",
+  "industrial_acceptance_claim": false,
+  "real_industrial_validation": "NOT_PASSED; this software-flow proof does not promote the failed/unverified genuine industrial dataset result",
+  "archive": {
+    "path": "artifacts/emsolver-linux-amd64-0.6.0.docker.tar.gz",
+    "bytes": 124822280,
+    "sha256": "2f2901f4ab186cf8297e707fc8db22bd0b82e7405e9c52de4de817d5b1b852fb",
+    "docker_load_passed": true,
+    "loaded_image_id": "sha256:d3243ec924d73b2be47282db3f1cd12e2a15e5b2794c8228917f97dfd4057e25"
+  },
+  "previous_v050_image_and_archive_unchanged": true
+}

@@ -1,0 +1,62 @@
+{
+  "recorded_at": "2026-10-15T17:00:39.462821+00:00",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "architecture": "arm64",
+  "python": "3.12.13",
+  "tests": {
+    "command": ".venv-emsolver/bin/python -m pytest -q",
+    "passed": 91,
+    "failed": 0,
+    "warnings": 1,
+    "seconds": 22.88,
+    "warning": "Starlette testclient warns about future httpx migration; no runtime failure."
+  },
+  "frontend": {
+    "command": "cd web && npm run build",
+    "typescript": "passed",
+    "vite_build": "passed",
+    "js_bytes": 320150,
+    "gzip_js_bytes": 99370
+  },
+  "fixed_benchmark": {
+    "runs": 16,
+    "succeeded": 12,
+    "partial": 3,
+    "expected_resource_failure": 1,
+    "all_expected": true
+  },
+  "numerical_100k": {
+    "final_repeats": 7,
+    "all_succeeded": true,
+    "numerical_validation": "PASSED",
+    "target_certification": "CERTIFIED",
+    "artifact_hashes": "PASSED",
+    "scope": "Generated diagonal and Hermitian tridiagonal; not arbitrary industrial matrices."
+  },
+  "offline": {
+    "installation": "New macOS arm64/Python3.12 venv, pip --no-index --find-links wheels",
+    "web_health": "ok",
+    "static_html": "passed",
+    "matrix_n": 100000,
+    "accepted": 8,
+    "numerical": "PASSED",
+    "target": "CERTIFIED",
+    "hashes": "PASSED",
+    "physical_network_disconnection_tested": false
+  },
+  "browser": {
+    "engine": "Codex in-app browser",
+    "last_job_id": "j_1309cea90c",
+    "flow": "synthetic input -> immutable plan -> queue -> independent worker -> 12 certified modes",
+    "screenshot": "docs/screenshots/workbench-result.jpg",
+    "secondary_checks": "Desktop and390px,12 navigation sections, vector preview, rule adoption, benchmark report and downloads exercised by frontend reviewer."
+  },
+  "not_verified": [
+    "Linux and Docker execution",
+    "MPI/GPU/SLEPc",
+    "arbitrary sparse target completeness",
+    "public industrial matrix solve",
+    "full66 PRD acceptance",
+    "competition submission"
+  ]
+}

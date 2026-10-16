@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "scope": "Independent Linux x86_64 functional review, interim0.5.0 source/wheel; before fix evidence only",
+  "observed_failure": "tests/test_exact_resume_service.py::test_exact_resume_api_runs_actual_worker_and_preserves_original",
+  "actual_error_code": "EXACT_CHECKPOINT_MISMATCH",
+  "checkpoint_environment": {
+    "machine": "x86_64",
+    "numpy_version": "2.5.4",
+    "python_version": "3.13.15",
+    "scipy_version": "1.18.1",
+    "system": "Linux",
+    "threadpools": [
+      {
+        "architecture": "Nehalem",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "version": "0.3.34.106.0"
+      },
+      {
+        "architecture": "Nehalem",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "version": "0.3.31.dev"
+      }
+    ]
+  },
+  "worker_environment": {
+    "python_version": "3.13.15",
+    "numpy_version": "2.5.4",
+    "scipy_version": "1.18.1",
+    "system": "Linux",
+    "machine": "x86_64",
+    "threadpools": [
+      {
+        "internal_api": "openblas",
+        "prefix": "libscipy_openblas",
+        "version": "0.3.31.dev",
+        "architecture": "Nehalem",
+        "num_threads": 1
+      },
+      {
+        "internal_api": "openblas",
+        "prefix": "libscipy_openblas",
+        "version": "0.3.34.106.0",
+        "architecture": "Nehalem",
+        "num_threads": 1
+      }
+    ]
+  },
+  "checkpoint_loaded_algorithm_sha256": "5d3af811403de8c1dafdd790e310be625d340aa413f3b84403c650e18bf6476c",
+  "worker_loaded_algorithm_sha256": "5d3af811403de8c1dafdd790e310be625d340aa413f3b84403c650e18bf6476c",
+  "implementation_files_equal": true,
+  "environment_equal_after_threadpool_sort": true,
+  "diagnosis": "Order-sensitive threadpool list rejects identical loaded libraries when interpreter-start thread settings change import/load order",
+  "remediation_owner": "numerical agent; canonicalize list order while preserving all members, multiplicity, versions and thread counts",
+  "status": "FIXED_AND_VERIFIED",
+  "fixed_source_sha256": "f765da0b21bed259b0da0130ff51e4ac5d955645154f532e626105132fe2870b",
+  "regression": {
+    "command": "python -m pytest -q -p no:cacheprovider tests/test_numerics_exact_resume.py tests/test_exact_resume_service.py tests/test_numerics_certification.py",
+    "platform": "Linux x86_64 Python3.13.15, current frozen source",
+    "passed": 42,
+    "failed": 0,
+    "seconds": 11.46,
+    "original_failure_reproduced_then_passed": true,
+    "additional_fix": "Typed canonical loaded-code serialization, independent immutable constant-reference-layout regression"
+  },
+  "full_suite_regression": {
+    "passed": 616,
+    "failed": 0,
+    "skipped": 21,
+    "log": "docs/evidence/v050-linux-tests.log"
+  }
+}

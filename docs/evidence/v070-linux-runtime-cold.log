@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "passed": true,
+  "stage": "complete",
+  "checks": {
+    "frontend": {
+      "index_sha256": "3f59cf8e8e105418918d3148d5f81bca5efcb6a3d29b988c609b3ac5b7882f8f",
+      "assets": [
+        {
+          "name": "assets/index-DLxS6PE6.js",
+          "bytes": 445364,
+          "sha256": "d6a94f0250e8d2383261dc11e94b6fb30f891bdbe69f7fd7fddd6e859a845dbd"
+        },
+        {
+          "name": "assets/index-s5_B8g9A.css",
+          "bytes": 54487,
+          "sha256": "55cdb6be4e77df575469358f1eff7d47ff71c664189c7622bbe2c9ac2b74b543"
+        }
+      ],
+      "scope": "Actual served index and referenced built assets; no browser interaction is claimed"
+    },
+    "solver": {
+      "status": "SUCCEEDED",
+      "n": 40,
+      "k": 4,
+      "matrix_sha256": "09704e2fe398f255e9b8a3d929731e4da07035d387f7ccfcc45490d78c93c541",
+      "shift_policy": "observed_ritz_gap_v2"
+    },
+    "independent_validation": {
+      "numerical_status": "PASSED",
+      "target_certification": "CERTIFIED",
+      "artifact_integrity": "PASSED",
+      "n_validated": 4
+    },
+    "report": {
+      "sha256": "0614906f0f3684f96c806681bc60315eff36ccea69dbc464bf4c04adeae1b111",
+      "bytes": 41509
+    },
+    "public_bundle": {
+      "sha256": "f3af98470f5f7d8088a9d83c62e1bd323b8d5945f5c294f1fee4314e51c87839",
+      "members": 90,
+      "checksums_verified": true,
+      "runtime_scan_passed": true,
+      "runtime_members_scanned": 11
+    },
+    "backup_restore": {
+      "sha256": "3ef5f00b1648482845916bad2be44ae47d147a269296bb83329cfd437de060d2",
+      "members_verified": 18,
+      "restored": true,
+      "empty_destination": true,
+      "degraded": false
+    },
+    "restored_rerun": {
+      "status": "SUCCEEDED",
+      "new_job": true,
+      "numerical_status": "PASSED",
+      "target_certification": "CERTIFIED",
+      "artifact_integrity": "PASSED",
+      "n_validated": 4
+    }
+  },
+  "external_http_requests": 0,
+  "server_runs": 2,
+  "server_processes_stopped": true,
+  "runtime": {
+    "system": "Linux",
+    "machine": "x86_64",
+    "python": "3.13.15"
+  },
+  "scope": "Fresh installed local service and independent original-input validation. Caller must enforce --network=none for OS-level offline evidence; no browser or performance claim.",
+  "version": "0.7.0"
+}

@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "scope": "Fresh tree exported from the Git index; no business data, virtualenv, node_modules, compiled frontend or private configuration copied. Fresh npm ci and build; Python uses existing locked dependencies with source imports verified inside the clean tree.",
+  "python_dependency_install_repeated": false,
+  "source_import_verified": true,
+  "checks": [
+    {
+      "name": "checkout-npm-install",
+      "exit_code": 0,
+      "seconds": 1.8
+    },
+    {
+      "name": "checkout-frontend-tests",
+      "exit_code": 0,
+      "seconds": 0.902
+    },
+    {
+      "name": "checkout-frontend-build",
+      "exit_code": 0,
+      "seconds": 3.359
+    },
+    {
+      "name": "checkout-backend-tests",
+      "exit_code": 0,
+      "seconds": 80.852
+    },
+    {
+      "name": "checkout-material-check",
+      "exit_code": 0,
+      "seconds": 1.135
+    }
+  ],
+  "backend": {
+    "passed": 1071,
+    "skipped": 23,
+    "failed": 0,
+    "real_postgresql": true
+  },
+  "frontend": {
+    "passed": 78,
+    "production_build": true
+  },
+  "delivery": {
+    "source_delivery_complete": true,
+    "functional_acceptance": "NOT_CERTIFIED"
+  },
+  "live_port_8000_used": false,
+  "local_private_paths_published": false,
+  "final_frontend_rebuild_without_build_info_cache": true
+}

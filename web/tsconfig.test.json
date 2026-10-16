@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": ".test-build",
+    "allowImportingTsExtensions": false
+  },
+  "include": [
+    "src/models/jobs.ts",
+    "src/models/overview.ts",
+    "src/models/experiments.ts",
+    "src/models/workspace.ts",
+    "src/models/cluster.ts",
+    "src/components/convergence.ts",
+    "src/components/histogram.ts",
+    "src/api.ts",
+    "src/components/field-mapping.ts"
+  ]
+}

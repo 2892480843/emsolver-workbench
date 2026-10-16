@@ -1,0 +1,5 @@
+.env
+private/
+data/
+worker-data/
+*.token

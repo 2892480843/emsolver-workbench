@@ -1,0 +1,263 @@
+{
+  "schema_version": "1.0",
+  "observed_date": "2026-10-16",
+  "purpose": "F48 actual public electromagnetic data registration, provenance and non-Hermitian rejection; no microwave positive numerical acceptance claim.",
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.13",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "interpreter": ".venv-emsolver/bin/python"
+  },
+  "license_evidence": {
+    "spdx": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "collection_license_source": "https://sparse.tamu.edu/about",
+    "verified_date": "2026-10-16",
+    "scope": "SuiteSparse collection matrices; preserve original matrix headers and author credits; unchanged originals copied. Does not apply to separately downloaded NIST data.",
+    "evidence_boundary": "Official current collection pages, official legacy UF mirror, and downloaded headers agree. These are one collection lineage, not two independent institutions. SHA-256 is locally computed over TLS-downloaded files, not an upstream signed checksum.",
+    "collection_citations": [
+      "Davis and Hu (2011), DOI:10.1145/2049662.2049663",
+      "Kolodziej et al. (2019), DOI:10.21105/joss.01244"
+    ]
+  },
+  "network_observations": [
+    {
+      "requested_url": "https://suitesparse-collection-website.herokuapp.com/MM/Dziekonski/gsm_106857.tar.gz",
+      "http_status": 301,
+      "location": "http://sparse-files.engr.tamu.edu/MM/Dziekonski/gsm_106857.tar.gz",
+      "https_only_follow_result": "curl (1) Protocol http disabled (in redirect)",
+      "conclusion": "Previous HTTP 403 occurred after the official link downgraded to HTTP; HTTPS-only retrieval intentionally refuses downgrade."
+    },
+    {
+      "requested_url": "https://sparse-files.engr.tamu.edu/MM/Dziekonski/gsm_106857.tar.gz",
+      "timeout_seconds": 15,
+      "result": "curl (28) connection timed out; no data acquired from this host."
+    },
+    {
+      "requested_url": "https://www.cise.ufl.edu/research/sparse/MM/Dziekonski/gsm_106857.tar.gz",
+      "head_http_status": 200,
+      "content_length_bytes": 152679272,
+      "download_budget_bytes": 104857600,
+      "downloaded": false,
+      "reason": "Declared archive size exceeds the selected 100MiB budget; not fetched."
+    },
+    {
+      "requested_url": "https://www.cise.ufl.edu/research/sparse/MM/Lee/fem_filter.tar.gz",
+      "initial_max_time_seconds": 55,
+      "initial_exit_code": 28,
+      "initial_received_bytes": 18071889,
+      "resume_count": 1,
+      "resume_max_time_seconds": 50,
+      "resume_exit_code": 0,
+      "final_bytes": 26926887,
+      "transport": "HTTPS only, TLS verification enabled; no insecure fallback."
+    }
+  ],
+  "local_audit": {
+    "monitor": {
+      "wall_budget_seconds": 45,
+      "memory_budget_bytes": 1073741824,
+      "guard": "100ms external RSS polling; soft memory boundary",
+      "peak_observed_rss_bytes": 254050304,
+      "wall_seconds": 1.7459055000217631,
+      "exit_code": 0
+    },
+    "child_process_peak_rss_bytes": 243597312,
+    "tar_limits": {
+      "members": 1000,
+      "expanded_bytes": 536870912,
+      "extraction": "Only the exact expected regular matrix member is copied; no archive path extraction."
+    },
+    "hermitian_error_definition": "max_i sum_j |A_ij-conj(A_ji)| / max_i sum_j |A_ij|",
+    "hermitian_rtol": 1e-12,
+    "command": ".venv-emsolver/bin/python artifacts/public-dataset-v050/audit_downloads.py (external 45s/1GiB soft RSS monitor, threads=1)",
+    "local_audit_script_sha256": "9a331727c82fa35cb2a5e47bc194a318ce5eca8c232611cb100a6c1bac969174"
+  },
+  "datasets": [
+    {
+      "identity": "Bai/dwg961b",
+      "header": [
+        "%%MatrixMarket matrix coordinate complex symmetric",
+        "%-------------------------------------------------------------------------------",
+        "% UF Sparse Matrix Collection, Tim Davis",
+        "% http://www.cise.ufl.edu/research/sparse/matrices/Bai/dwg961b",
+        "% name: Bai/dwg961b",
+        "% [DISPERSIVE WAVEGUIDE STRUCTURES]",
+        "% id: 1619",
+        "% date: 1996",
+        "% author: S. Gedney and U. Navasariwala",
+        "% ed: Z. Bai, D. Day, J. Demmel, J. Dongarra",
+        "% fields: name title A id date author ed kind",
+        "% kind: electromagnetics problem",
+        "%-------------------------------------------------------------------------------",
+        "961 961 5776"
+      ],
+      "shape": [
+        961,
+        961
+      ],
+      "nnz": 10591,
+      "dtype": "complex128",
+      "hermitian_relative_inf_error": 1.9998401284130276,
+      "hermitian_relative_entry_error": 1.9998401290552725,
+      "diagnostics": {
+        "load_matrix_error": "NOT_HERMITIAN: relative infinity-norm error 1.99984",
+        "run_solver_error": "NOT_HERMITIAN: relative infinity-norm error 1.99984"
+      },
+      "solver_config": {
+        "target": {
+          "k": 3,
+          "sigma": 0.0
+        },
+        "resources": {
+          "threads": 1,
+          "memory_limit_gib": 1,
+          "walltime_seconds": 30,
+          "disk_limit_gib": 0.05
+        }
+      },
+      "manifest_published": false,
+      "eigenvalues_published": false,
+      "seconds": 0.09087404201272875,
+      "files": {
+        "dwg961b.tar.gz": {
+          "bytes": 36572,
+          "sha256": "7dacd01bc25822c8e9222a89b0888b2230a8bd757a92b7d74eab56ec2799f556"
+        },
+        "dwg961b.mtx": {
+          "bytes": 137021,
+          "sha256": "9ca38872ccea1b9843f94f959c9b92e0c6947dc9bb3101a6c1939b0528e3f49e"
+        },
+        "dwg961b.npz": {
+          "bytes": 57249,
+          "sha256": "e9104f7761650cb73424c9a4407df020e8b604b1d4b36071b61e8359dd3d4aeb"
+        }
+      },
+      "archive_members": [
+        {
+          "name": "dwg961b/dwg961b.mtx",
+          "bytes": 137021,
+          "regular_file": true
+        }
+      ],
+      "source_url": "https://sparse.tamu.edu/Bai/dwg961b",
+      "legacy_official_page": "https://www.cise.ufl.edu/research/sparse/matrices/Bai/dwg961b.html",
+      "download_url": "https://www.cise.ufl.edu/research/sparse/MM/Bai/dwg961b.tar.gz",
+      "license": "CC-BY-4.0",
+      "transformations": [
+        "Original archive and Matrix Market retained byte-for-byte.",
+        "SciPy Matrix Market parsing reconstructs the declared symmetric storage, without conjugation for complex symmetric input.",
+        "CSR conversion, duplicate combination and index sorting only; no coefficient edits, Hermitian averaging, real-part extraction, cropping or reference generation."
+      ],
+      "local_private_artifact_directory": "artifacts/public-dataset-v050/Bai_dwg961b",
+      "public_original_files": [
+        "examples/public-em/Bai_dwg961b/dwg961b.tar.gz",
+        "examples/public-em/Bai_dwg961b/dwg961b.mtx"
+      ],
+      "classification": "actual_public_electromagnetic_nonhermitian_rejection",
+      "proof_scope": "Input validation only. No eigensolver work or residual-verified eigenpairs; not an industrial success or performance score.",
+      "official_statistics_match_local_file": true
+    },
+    {
+      "identity": "Lee/fem_filter",
+      "header": [
+        "%%MatrixMarket matrix coordinate complex general",
+        "%-------------------------------------------------------------------------------",
+        "% UF Sparse Matrix Collection, Tim Davis",
+        "% http://www.cise.ufl.edu/research/sparse/matrices/Lee/fem_filter",
+        "% name: Lee/fem_filter",
+        "% [FEM bandpass microwave filter, 500MHz. Center for Comp. Electromag., UIUC]",
+        "% id: 1878",
+        "% date: 2008",
+        "% author: S.-H. Lee",
+        "% ed: T. Davis",
+        "% fields: name title A id date author ed kind notes",
+        "% kind: electromagnetics problem",
+        "%-------------------------------------------------------------------------------",
+        "% notes:",
+        "% From the Univ of Illinois at Urbana-Champaign, Center for Computational",
+        "% Electromagnetics (development and application of the finite element",
+        "% method for analyzing antennas, high-frequency circuits, high-speed",
+        "% circuits, and so on).  The governing equations are Maxwell's equations.",
+        "% The matrix results from the finite-element discretization of a bandpass",
+        "% microwave filter at 500 MHz. The first-order vector element is employed.",
+        "% The absorbing boundary condition is applied on the outer boundary of the",
+        "% structure for emulating the open space.  The port boundary condition is",
+        "% applied on each port of the circuit for the truncating the computational",
+        "% domain and exciting the circuit. Due to these boundary conditions, the",
+        "% finite-element system matrix is complex.",
+        "%-------------------------------------------------------------------------------",
+        "74062 74062 1731206"
+      ],
+      "shape": [
+        74062,
+        74062
+      ],
+      "nnz": 1731206,
+      "dtype": "complex128",
+      "hermitian_relative_inf_error": 0.00023323778362295208,
+      "hermitian_relative_entry_error": 0.00045672903649133107,
+      "diagnostics": {
+        "load_matrix_error": "NOT_HERMITIAN: relative infinity-norm error 0.000233238",
+        "run_solver_error": "NOT_HERMITIAN: relative infinity-norm error 0.000233238"
+      },
+      "solver_config": {
+        "target": {
+          "k": 3,
+          "sigma": 0.0
+        },
+        "resources": {
+          "threads": 1,
+          "memory_limit_gib": 1,
+          "walltime_seconds": 30,
+          "disk_limit_gib": 0.05
+        }
+      },
+      "manifest_published": false,
+      "eigenvalues_published": false,
+      "seconds": 1.234278500021901,
+      "files": {
+        "fem_filter.tar.gz": {
+          "bytes": 26926887,
+          "sha256": "4108cdd5782aa5a1b6d17e4a3c088951c727222a5ceb508afac2a3268cb5e04e"
+        },
+        "fem_filter.mtx": {
+          "bytes": 71388852,
+          "sha256": "f3959fe25c0101d796b6f5157d521cb05578048b9903425cd2a8c35a8bd0b3c3"
+        },
+        "fem_filter.npz": {
+          "bytes": 18347301,
+          "sha256": "4968fda5809bbb0caf1397ca86bab95d1932c6f9e626cd097843b6d6fd9be1ae"
+        }
+      },
+      "archive_members": [
+        {
+          "name": "fem_filter/fem_filter.mtx",
+          "bytes": 71388852,
+          "regular_file": true
+        }
+      ],
+      "source_url": "https://sparse.tamu.edu/Lee/fem_filter",
+      "legacy_official_page": "https://www.cise.ufl.edu/research/sparse/matrices/Lee/fem_filter.html",
+      "download_url": "https://www.cise.ufl.edu/research/sparse/MM/Lee/fem_filter.tar.gz",
+      "license": "CC-BY-4.0",
+      "transformations": [
+        "Original archive and Matrix Market retained byte-for-byte.",
+        "SciPy Matrix Market parsing reconstructs the declared symmetric storage, without conjugation for complex symmetric input.",
+        "CSR conversion, duplicate combination and index sorting only; no coefficient edits, Hermitian averaging, real-part extraction, cropping or reference generation."
+      ],
+      "local_private_artifact_directory": "artifacts/public-dataset-v050/Lee_fem_filter",
+      "public_original_files": [],
+      "classification": "actual_public_electromagnetic_nonhermitian_rejection",
+      "proof_scope": "Input validation only. No eigensolver work or residual-verified eigenpairs; not an industrial success or performance score.",
+      "official_statistics_match_local_file": true
+    }
+  ],
+  "remaining_conditions": [
+    "No positive original-problem eigensolve on a public Hermitian microwave matrix in this evidence.",
+    "gsm_106857 remains an unfetched large real-symmetric microwave candidate with possible sparse-factorization fill risk.",
+    "No claim that complex-symmetric dwg961b is Hermitian or that a single matrix solves a generalized waveguide pair.",
+    "No industrial accuracy, throughput, speedup or target-completeness claim from these input rejections."
+  ]
+}

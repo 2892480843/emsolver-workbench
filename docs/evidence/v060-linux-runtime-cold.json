@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "passed": true,
+  "stage": "complete",
+  "checks": {
+    "frontend": {
+      "index_sha256": "6de7d01464c9749f435b0200254366c85ced33437030bb3d2afb968b88cdd7e9",
+      "assets": [
+        {
+          "name": "assets/index-BQ-BdhYk.js",
+          "bytes": 443182,
+          "sha256": "affe8af434bfe40f52d1517583169e08612852f1a8ce5d2dd97087559d6da7bb"
+        },
+        {
+          "name": "assets/index-s5_B8g9A.css",
+          "bytes": 54487,
+          "sha256": "55cdb6be4e77df575469358f1eff7d47ff71c664189c7622bbe2c9ac2b74b543"
+        }
+      ],
+      "scope": "Actual served index and referenced built assets; no browser interaction is claimed"
+    },
+    "solver": {
+      "status": "SUCCEEDED",
+      "n": 40,
+      "k": 4,
+      "matrix_sha256": "09704e2fe398f255e9b8a3d929731e4da07035d387f7ccfcc45490d78c93c541",
+      "shift_policy": "observed_ritz_gap_v2"
+    },
+    "independent_validation": {
+      "numerical_status": "PASSED",
+      "target_certification": "CERTIFIED",
+      "artifact_integrity": "PASSED",
+      "n_validated": 4
+    },
+    "report": {
+      "sha256": "b777d87c58f4453116da527e23deb023c6bd9d2c71e28e8e053c1be5fdc8fbb8",
+      "bytes": 41151
+    },
+    "public_bundle": {
+      "sha256": "c0d8ff8b6aa3b6aa6c3931188148eacd8b9f7f3fc7691556450599ff29cebfd4",
+      "members": 88,
+      "checksums_verified": true,
+      "runtime_scan_passed": true,
+      "runtime_members_scanned": 11
+    },
+    "backup_restore": {
+      "sha256": "6a60068eb157a29d6fc3107684ccc76c4b7aae517480891aedf7e6542524a7f4",
+      "members_verified": 18,
+      "restored": true,
+      "empty_destination": true,
+      "degraded": false
+    },
+    "restored_rerun": {
+      "status": "SUCCEEDED",
+      "new_job": true,
+      "numerical_status": "PASSED",
+      "target_certification": "CERTIFIED",
+      "artifact_integrity": "PASSED",
+      "n_validated": 4
+    }
+  },
+  "external_http_requests": 0,
+  "server_runs": 2,
+  "server_processes_stopped": true,
+  "runtime": {
+    "system": "Linux",
+    "machine": "x86_64",
+    "python": "3.13.15"
+  },
+  "scope": "Fresh installed local service and independent original-input validation. Caller must enforce --network=none for OS-level offline evidence; no browser or performance claim.",
+  "version": "0.6.0",
+  "execution_environment": {
+    "image_config_id": "sha256:d3243ec924d73b2be47282db3f1cd12e2a15e5b2794c8228917f97dfd4057e25",
+    "exit_code": 0,
+    "network_mode": "none",
+    "readonly_rootfs": true,
+    "memory_bytes": 2147483648,
+    "memory_swap_bytes": 2147483648,
+    "nano_cpus": 2000000000,
+    "pids_limit": 128,
+    "cap_drop": [
+      "ALL"
+    ],
+    "security_options": [
+      "no-new-privileges"
+    ],
+    "mounts": [
+      {
+        "destination": "/evidence",
+        "read_write": true
+      }
+    ],
+    "data_scope": "Fresh temporary in-container data only; no existing private project data or reference matrix mount",
+    "image_id": "sha256:d3243ec924d73b2be47282db3f1cd12e2a15e5b2794c8228917f97dfd4057e25",
+    "installed_python_modules_equal_current_source_and_wheel": 66,
+    "version": "0.6.0",
+    "installed_package_location": "/usr/local/lib/python3.13/site-packages/emsolver",
+    "wheel_sha256": "d7fb48b7db4b841694a828ccc30d893658f332d1e9a5bbbc3f5734253b75a0c1"
+  }
+}

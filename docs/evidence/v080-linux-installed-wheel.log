@@ -1,0 +1,14 @@
+{
+  "version": "0.8.0",
+  "system": "Linux",
+  "machine": "x86_64",
+  "python": "3.13.15",
+  "package_path": "/usr/local/lib/python3.13/site-packages/emsolver",
+  "pythonpath": null,
+  "cgroup": {
+    "memory.max": "2147483648",
+    "memory.swap.max": "0",
+    "pids.max": "128",
+    "cpu.max": "200000 100000"
+  }
+}

@@ -1,0 +1,581 @@
+{
+  "schema_version": "1.0",
+  "version": "0.9.0",
+  "input": {
+    "name": "Dziekonski/gsm_106857",
+    "n": 589446,
+    "nnz": 21758924,
+    "sha256": "b56c5bac7fde872951153508eb0641b17e0f52876445d59d4ec8d3ff7687f268",
+    "unchanged_coefficients": true,
+    "is_synthetic": false
+  },
+  "production": {
+    "job_id": "j_b29d2f56d06d4e829e128c553dd1b493",
+    "project_id": "p_44e051036f48439484034f5866cac24b",
+    "profile": "mumps_ooc_symmetric_v1",
+    "status": "PARTIAL",
+    "error_code": "TARGET_UNVERIFIED",
+    "n_accepted": 2,
+    "eigenvalues": [
+      -3.4257738965869135e-05,
+      -3.513485928640408e-05
+    ],
+    "validation": {
+      "numerical_status": "PASSED",
+      "residual_definition": "scaled_inf_v1",
+      "residuals": [
+        1.7238669502480172e-17,
+        2.7080350328226995e-17
+      ],
+      "absolute_residuals_2": [
+        3.971723157765215e-15,
+        5.69157132778455e-15
+      ],
+      "orthogonality_error": 1.65263897026308e-14,
+      "n_validated": 2,
+      "normalization": "unit_2_norm",
+      "target_certification": "UNVERIFIED",
+      "certification_source": "exact_dyadic_weighted_gershgorin_v1",
+      "boundary_cluster_cut": false,
+      "expected_count": 2,
+      "missing_count": null,
+      "endpoint_ambiguous": false,
+      "certification_limit": "operation_budget",
+      "certification_arithmetic": {
+        "budgets": {
+          "max_n": 1000000,
+          "max_nnz": 30000000,
+          "max_modes": 16,
+          "max_vector_entries": 2000000,
+          "max_operations": 5000000,
+          "max_bits": 16384,
+          "max_count_calls": 32,
+          "max_seconds": 5.0
+        }
+      },
+      "preceding_certification": {
+        "source": "exact_dyadic_gapped_gershgorin_v1",
+        "limit": "too_many_disks_cover_target",
+        "seconds": 0.18210212499980116
+      },
+      "previous_certification_limit": "dimension_budget"
+    },
+    "metrics": {
+      "n": 589446,
+      "nnz": 21758924,
+      "backend": "slepc",
+      "method": "krylovschur",
+      "prepare_seconds": 1.0533395000002201,
+      "import_seconds": 0.8910093749991574,
+      "solve_seconds": 66.04802894800014,
+      "validation_seconds": 0.6246558749999167,
+      "export_seconds": 1.506319834000351,
+      "elapsed_seconds": 83.54299904199979,
+      "peak_memory_bytes": 1684258816,
+      "peak_memory_gib": 1.5685882568359375,
+      "memory_measurement": "sampled current process and descendants; worker enforces and samples full lifetime",
+      "event_history_limit": 4096,
+      "events_emitted": 13,
+      "event_history_byte_limit": 8388608,
+      "retained_event_bytes": 6783,
+      "secondary_observation_enabled": true,
+      "events_suppressed": 0,
+      "memory_sample_interval_seconds": 0.05,
+      "runtime_check_seconds": 11.694838386008996,
+      "event_emission_seconds": 0.032591126999250264,
+      "events_retained": 13,
+      "events_dropped": 0,
+      "unavailable_metrics": {
+        "outer_iterations": null,
+        "linear_iterations": "Direct LU does not use iterative inner solves",
+        "matrix_vector_products": "Backend internal operator products are not fully observable"
+      },
+      "matrix_vector_products_scope": "Candidate iteration and candidate residual checks; final independent verifier excluded",
+      "matrix_vector_products_total": null,
+      "threads_requested": 1,
+      "effective_threadpools": [],
+      "outer_iterations": 7,
+      "converged_reason": 1,
+      "n_converged": 3,
+      "mpi_ranks": 1,
+      "threads_per_rank": 1,
+      "linear_method": "preonly",
+      "preconditioner": "cholesky",
+      "factor_solver": "mumps",
+      "matrix_loading": "single-rank borrowed writable canonical CSR buffers",
+      "candidate_collection": "rank-zero gather of candidate vectors only",
+      "factor_profile": "mumps_ooc_symmetric_v1",
+      "mumps_symmetric_mode": 2,
+      "ooc_inertia_is_certificate": false,
+      "ooc_files_before_factor_destroy": 1,
+      "ooc_bytes_before_factor_destroy": 1223869928,
+      "mumps_icntl": {
+        "22": 1,
+        "23": 768
+      },
+      "mumps_infog": {
+        "1": 0,
+        "2": 0,
+        "12": 107878,
+        "16": 1712,
+        "17": 1712,
+        "20": 147203401,
+        "21": 250,
+        "22": 250,
+        "26": 259,
+        "27": 259,
+        "28": 0,
+        "29": 147203401
+      },
+      "factorization": "symmetric_indefinite_ldlt",
+      "assumes_positive_definite": false,
+      "container_image_id": "sha256:586b521134202f7e709ddf9c2353b7f85906dac22cc7e4685686acb0421ef592",
+      "container_architecture": "arm64",
+      "container_memory_limit_bytes": 4294967296,
+      "host_memory_limit_bytes": 4294967296,
+      "total_job_memory_limit_bytes": 8589934592,
+      "memory_enforcement": "One job budget: host process tree and container each receive half; container swap capped at its memory share",
+      "container_memory_measurement": "Kernel cgroup hard limit; host process-tree RSS excludes container processes",
+      "scalar_dtype": "float64",
+      "backend_raw_candidates": 3,
+      "backend_candidates_after_original_validation": 3,
+      "linear_iterations": null,
+      "matrix_vector_products": null,
+      "linear_solves": null,
+      "factorizations": null,
+      "walltime_seconds": 83.95493995800007,
+      "peak_rss_tree_bytes": 1688141824,
+      "disk_bytes": 14193346,
+      "sampling_interval_seconds": 0.1,
+      "measurement_scope": "worker process and descendants; sampled peak; excludes optional container",
+      "job_memory_partitions": {
+        "total_bytes": 8589934592,
+        "host_bytes": 4294967296,
+        "container_bytes": 4294967296
+      },
+      "recovery_observation_gap": false,
+      "peak_is_lower_bound": false
+    },
+    "runtime_package_version": "0.9.0"
+  },
+  "supervisor": {
+    "job_id": "j_b29d2f56d06d4e829e128c553dd1b493",
+    "elapsed_seconds": 84.18133949999992,
+    "worker_tree_peak_bytes": 1683668992,
+    "container_sampled_memory_peak_bytes": 2425372672,
+    "container_peak_includes_file_cache": true,
+    "minimum_host_available_bytes": 2276720640,
+    "external_termination": null,
+    "source_unchanged": true
+  },
+  "fresh_validation": {
+    "exit_code": 4,
+    "numerical_status": "PASSED",
+    "residual_definition": "scaled_inf_v1",
+    "residuals": [
+      1.7238669502480172e-17,
+      2.7080002131651123e-17
+    ],
+    "absolute_residuals_2": [
+      3.971723163529807e-15,
+      5.685760580780503e-15
+    ],
+    "orthogonality_error": 1.6574920059935925e-14,
+    "n_validated": 2,
+    "normalization": "unit_2_norm",
+    "target_certification": "UNVERIFIED",
+    "certification_source": "exact_dyadic_weighted_gershgorin_v1",
+    "boundary_cluster_cut": false,
+    "expected_count": 2,
+    "missing_count": null,
+    "endpoint_ambiguous": false,
+    "certification_limit": "operation_budget",
+    "certification_arithmetic": {
+      "budgets": {
+        "max_n": 1000000,
+        "max_nnz": 30000000,
+        "max_modes": 16,
+        "max_vector_entries": 2000000,
+        "max_operations": 5000000,
+        "max_bits": 16384,
+        "max_count_calls": 32,
+        "max_seconds": 5.0
+      }
+    },
+    "preceding_certification": {
+      "source": "exact_dyadic_gapped_gershgorin_v1",
+      "limit": "too_many_disks_cover_target",
+      "seconds": 0.24043387500023528
+    },
+    "previous_certification_limit": "dimension_budget",
+    "artifact_integrity": "PASSED"
+  },
+  "independent_reference": {
+    "raw": {
+      "schema_version": "1.0",
+      "status": "NUMERICALLY_VALID",
+      "certificate": false,
+      "method": "ARPACK_symmetric_Lanczos_with_MUMPS_symmetric_indefinite_OOC_inverse",
+      "independence": "Separate process, ARPACK implementation and seed from SLEPc candidate; shares PETSc/MUMPS inverse dependency; original matrix residual verified anew. No candidate files mounted.",
+      "scipy_version": "1.10.1",
+      "petsc": [
+        3,
+        18,
+        5
+      ],
+      "seed": 20261017,
+      "elapsed_seconds": 71.02317674100004,
+      "stage": "validation",
+      "mumps_icntl": {
+        "22": 1,
+        "23": 768
+      },
+      "inverse_applications": 94,
+      "eigenvalues": [
+        -3.425773896588674e-05,
+        -3.513485928640974e-05,
+        -3.523044150040326e-05,
+        -3.762528919815811e-05
+      ],
+      "scaled_inf_residuals": [
+        2.0675649229160978e-17,
+        2.621302218814922e-17,
+        2.003343870338292e-17,
+        2.3345034568506345e-17
+      ],
+      "absolute_residuals_2": [
+        2.085021964783026e-15,
+        1.6484599761674658e-15,
+        1.3258691256473295e-15,
+        1.368649620390507e-15
+      ],
+      "orthogonality_error": 2.1619799162585045e-14,
+      "mumps_infog": {
+        "1": 0,
+        "2": 0,
+        "12": 107878,
+        "16": 1712,
+        "17": 1712,
+        "20": 147203401,
+        "21": 250,
+        "22": 250,
+        "26": 259,
+        "27": 259,
+        "28": 0,
+        "29": 147203401
+      },
+      "ooc_files_before_destroy": {
+        "mumps_0_tuXPqD": 1223869928
+      }
+    },
+    "comparison": {
+      "passed": true,
+      "matched_count": 2,
+      "candidate_count": 2,
+      "reference_count": 2,
+      "max_eigenvalue_absolute_error": 1.7604732775733378e-17,
+      "max_subspace_sine": 3.878124415392481e-12,
+      "clusters": [
+        [
+          1
+        ],
+        [
+          0
+        ]
+      ],
+      "cluster_ranks_valid": true,
+      "orthogonality_error": 3.0098202661055034e-13,
+      "matching": [
+        0,
+        1
+      ],
+      "reference_scope": "provided target set only",
+      "limitations": [
+        "Reference accuracy and target coverage must be established independently; no feedback to solver"
+      ]
+    },
+    "shared_dependency": "PETSc/MUMPS symmetric-indefinite OOC inverse",
+    "target_certification": "UNVERIFIED"
+  },
+  "target_proof_feasibility": {
+    "status": "SYMBOLIC_ANALYSIS_COMPLETED",
+    "scope": "full original GSM sparsity graph only; no eigenvalue or inertia claim",
+    "n": 589446,
+    "nnz": 21758924,
+    "ordering": "AMD 2.4.6 default controls",
+    "ldl_version": "LDL 2.2.6 / Debian SuiteSparse 5.12.0",
+    "amd": {
+      "seconds": 0.42840195899998434,
+      "internal_memory_bytes": 122833548.0,
+      "estimated_factor_nnz": 183509003.0,
+      "estimated_multiply_subtract_pairs_ldl": 92792955523.0,
+      "control": [
+        10.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "info": [
+        0.0,
+        589446.0,
+        21758924.0,
+        1.0,
+        589446.0,
+        21169478.0,
+        0.0,
+        122833548.0,
+        0.0,
+        183509003.0,
+        183509003.0,
+        92792955523.0,
+        185402402043.0,
+        3182.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    "ldl": {
+      "seconds": 0.43693708299997525,
+      "factor_nnz_excluding_unit_diagonal": 183509003,
+      "factor_nnz_including_unit_diagonal": 184098449,
+      "factor_operation_estimate": 185769420049,
+      "max_column_nnz_excluding_diagonal": 3181,
+      "one_factor_float64_int64_raw_bytes": 2945575192,
+      "one_factor_float64_int32_raw_bytes": 2209181392
+    },
+    "numeric_coefficients_opened": false,
+    "numeric_factorization_called": false,
+    "factor_Li_Lx_allocated": false,
+    "input_graph_unchanged": true,
+    "input_graph_sha256": {
+      "indptr": "3151c4d884c17c224263d9433b23881ff026d6ee4b95e2e4faa2a6f189fc5f66",
+      "indices": "d9114d982e5fc01c56faf3439b0909d33ba2540672419633515e4e4c97328395"
+    },
+    "library_sha256": {
+      "amd": "15a38fd01e42b10ee5083e53be520f70b44cecdb2498f3501f8e96e342c47b48",
+      "ldl": "1e7ff59400ad8578e9fb2dcb47e367eca5e9e27dc30e624d658bdc75d0438ec7"
+    },
+    "elapsed_seconds": 1.2540348330003326,
+    "process_peak_rss_bytes": 337043456,
+    "cgroup_memory_peak_bytes": 331657216,
+    "cgroup_memory_limit_bytes": "536870912",
+    "interpretation": "Fill and operation feasibility only. No roots, numerical residual, strict inertia, target completeness, reference quality or industrial PASS follows."
+  },
+  "strict_candidate_enclosures": {
+    "status": "CANDIDATE_ENCLOSURES_AVAILABLE",
+    "scope": "strict residual and per-interval eigenvalue existence for the frozen original real Hermitian matrix only",
+    "profile": "frozen_real_gsm_candidate_enclosure_v1",
+    "n": 589446,
+    "nnz": 21758924,
+    "matrix_exact_real_symmetric": true,
+    "symmetry_check_seconds": 0.40426866599955247,
+    "candidates": [
+      {
+        "column": 0,
+        "theta": -3.4257738965869135e-05,
+        "residual_norm2_upper": 4.728021456029636e-15,
+        "vector_norm2_lower": 0.9999999999796043,
+        "radius": {
+          "numerator": "5993479236627915",
+          "denominator": "1267650600202374798985922609152"
+        },
+        "interval_lower": {
+          "numerator": "-5692043213885115048803045552341",
+          "denominator": "166153499469725669652682848226770944"
+        },
+        "interval_upper": {
+          "numerator": "-5692043212313960427796457402581",
+          "denominator": "166153499469725669652682848226770944"
+        },
+        "radius_display_float": 4.728021456126067e-15,
+        "value_fidelity_budget": {
+          "numerator": "744993423364337547543",
+          "denominator": "40564819207303340847894502572032"
+        },
+        "within_existing_value_fidelity_budget": true,
+        "fma_updates": 22348370,
+        "seconds": 0.09397733399964636
+      },
+      {
+        "column": 1,
+        "theta": -3.513485928640408e-05,
+        "residual_norm2_upper": 6.207765062327268e-15,
+        "vector_norm2_lower": 0.9999999999795687,
+        "radius": {
+          "numerator": "7869277107334993",
+          "denominator": "1267650600202329622252160548864"
+        },
+        "interval_lower": {
+          "numerator": "-11675559649687320904360492729073",
+          "denominator": "332306998939439496495670374921404416"
+        },
+        "interval_upper": {
+          "numerator": "-11675559645561553348310043919089",
+          "denominator": "332306998939439496495670374921404416"
+        },
+        "radius_display_float": 6.207765062454101e-15,
+        "value_fidelity_budget": {
+          "numerator": "382033956258478725201",
+          "denominator": "20282409603651670423947251286016"
+        },
+        "within_existing_value_fidelity_budget": true,
+        "fma_updates": 22348370,
+        "seconds": 0.09246858300048189
+      }
+    ],
+    "candidate_intervals_disjoint": true,
+    "proved_eigenvalue_existence_per_interval": true,
+    "proved_distinct_eigenvalues_at_least": 2,
+    "target_certification": "UNVERIFIED",
+    "missing_modes_proved_absent": false,
+    "reference_provenance_attested": false,
+    "input_and_source_unchanged": true,
+    "elapsed_seconds": 0.7907666659993993,
+    "process_peak_rss_bytes": 312197120,
+    "assumptions": "verified macOS arm64 IEEE binary64 nearest FMA and sqrt; outward nextafter bounds; frozen source/binary/input hashes",
+    "limit": "No strict global spectral count, nearest-k ordering proof, multiplicity/group proof, physics or industrial PASS follows."
+  },
+  "industrial_dossier": {
+    "case_id": "ic_ff26c6de205e4219bf2ec54fb9d2ee41",
+    "reference_asset_id": "ir_32fb8ec7ee7c428998ad87f0ea059a49",
+    "status": "UNVERIFIED",
+    "industrial_accepted": false,
+    "gates": [
+      {
+        "name": "declared_use",
+        "status": "PASS",
+        "reason": "INDUSTRIAL_DECLARATION",
+        "details": {}
+      },
+      {
+        "name": "frozen_binding",
+        "status": "PASS",
+        "reason": "FROZEN_JOB_AND_ENGINEERING_MATCH",
+        "details": {}
+      },
+      {
+        "name": "artifacts",
+        "status": "PASS",
+        "reason": "PUBLISHED_HASHES_MATCH",
+        "details": {}
+      },
+      {
+        "name": "residual",
+        "status": "PASS",
+        "reason": "FRESH_ORIGINAL_PROBLEM_VALIDATION",
+        "details": {
+          "residual_max": 2.7080002131651123e-17,
+          "threshold": 1e-08
+        }
+      },
+      {
+        "name": "target_coverage",
+        "status": "UNVERIFIED",
+        "reason": "ORIGINAL_TARGET_CERTIFICATION",
+        "details": {
+          "certification": "UNVERIFIED"
+        }
+      },
+      {
+        "name": "physical_review",
+        "status": "UNVERIFIED",
+        "reason": "PHYSICAL_MODEL_OR_REVIEW_INCOMPLETE_OR_TEACHING_ONLY",
+        "details": {}
+      },
+      {
+        "name": "reference_provenance",
+        "status": "UNVERIFIED",
+        "reason": "NO_TRUSTED_ATTESTATION",
+        "details": {
+          "method": "independent_solver",
+          "issuer": null
+        }
+      },
+      {
+        "name": "reference_comparison",
+        "status": "PASS",
+        "reason": "INDEPENDENT_REFERENCE_COMPARISON",
+        "details": {
+          "passed": true,
+          "matched_count": 2,
+          "candidate_count": 2,
+          "reference_count": 2,
+          "max_eigenvalue_absolute_error": 1.7604732775733378e-17,
+          "max_subspace_sine": 3.878124415392481e-12,
+          "clusters": [
+            [
+              1
+            ],
+            [
+              0
+            ]
+          ],
+          "cluster_ranks_valid": true,
+          "orthogonality_error": 3.0098202661055034e-13,
+          "matching": [
+            0,
+            1
+          ],
+          "reference_scope": "provided target set only",
+          "limitations": [
+            "Reference accuracy and target coverage must be established independently; no feedback to solver"
+          ]
+        }
+      },
+      {
+        "name": "frequency",
+        "status": "PASS",
+        "reason": "NO_FREQUENCY_CLAIM_MATRIX_SCOPE",
+        "details": {}
+      },
+      {
+        "name": "performance",
+        "status": "PASS",
+        "reason": "DECLARED_RESOURCE_AND_TIMING_LIMITS",
+        "details": {
+          "checks": [
+            {
+              "status": "PASS",
+              "reason": "walltime_seconds_LIMIT"
+            }
+          ],
+          "speedup": null
+        }
+      }
+    ]
+  },
+  "performance_claim": {
+    "measured_production_wall_seconds": 83.95493995800007,
+    "within_declared_300_second_limit": true,
+    "matched_speedup": null,
+    "reason": "Reference k4 differs from candidate k2; neither has rigorous target coverage. No industrial acceleration score claimed."
+  },
+  "scope_correction": "External institutional signatures and HMAC receipts are optional enhanced trust policy, not original contest requirements. GSM original authors withheld dimensions; no frequency or geometry reconstruction claimed.",
+  "artifacts_sha256": {
+    "artifacts/v090-source-freeze.json": "5a11a4c394d35d3c89e36641c90960366292e5d580aa0030d25789d79c8473c2",
+    "examples/slepc-ooc.yaml": "bd1fca465cc79a07fc9888a8e91b647653102d9b9172152dd6afe4da11a0fee5",
+    "artifacts/industrial-v090-production-ooc/protocol.json": "f1358a133830742c5d87128732b6706e5d7c303ee8509383326afcadfca96b8f",
+    "artifacts/industrial-v090-production-ooc/config.yaml": "7a6330997e0927a01bccd610e6a1712b20636546e25dc9f1c20a159ccb7289c6",
+    "artifacts/industrial-v090-production-ooc/job.json": "172313b5ada91d08cf8dbacf4209c8b7be8da3aea251c9ad46af9579dc177c63",
+    "artifacts/industrial-v090-production-ooc/supervisor.json": "1420cf172ccfbff575a69db26bb051d71cf0d247ae3deed0973f9adf115b55d3",
+    "artifacts/v090-independent-solver/production-fresh-validate.json": "70863e559b3acdcf889322456e1348b51c52e7b66705270702ed00a45e96e9ce",
+    "artifacts/v090-independent-solver/production-independent-comparison.json": "706755814e41cd39d1d09ee50e43f71d1e40d6d88d758422d4e119495d5b870a",
+    "artifacts/v090-independent-solver/acceptance-registration.json": "a480a682b67f5d91d51a07393b5bd21dc6ba7a8e2d3b125f4eebc1aba00ca325",
+    "artifacts/v090-independent-solver/arpack-gsm-output/protocol.json": "05d34e040c244ed6f48ca55e39a2938a051dbf8f8aae353a1f46934f6b62435b",
+    "artifacts/v090-independent-solver/arpack-gsm-output/summary.json": "3d92654bde5a038c726ae5cf02090c6927c6c34cdc68215972fbe23726abc114",
+    "artifacts/v090-independent-solver/arpack-gsm-output/supervisor.json": "8bb772258718521ff2ccef28bb34d142a2df7e6f4021b7254b9fe7b66c5d990b",
+    "artifacts/v090-count-reference-research/symbolic-gsm-graph-v1/result.json": "3c0c0c7ba85bbca3a4979493b4ff6e57f85d17098ff3da646889368cb52d2fd7",
+    "artifacts/v090-count-reference-research/symbolic-gsm-graph-v1/protocol.json": "542b5d38a28a63fe6916d8ecd23f9f12704b7166cad1ba970f38086326df80f5",
+    "artifacts/v090-count-reference-research/symbolic-gsm-graph-v1/supervisor.json": "205977f5f79694c8db58ddcf45ef86a57669c76425db539aaaf1046eb8936a0e",
+    "artifacts/v090-count-reference-research/gsm-candidate-enclosures-v1/result.json": "af2662a6ab430109f1ebcc2ad42eccfaf967f467773dbfbf4942bd5194d64018",
+    "artifacts/v090-count-reference-research/gsm-candidate-enclosures-v1/protocol.json": "a0999ad1a490897a6f9404b847aaec3be556ff68ce63042dd63a9e380250bfb0",
+    "artifacts/v090-count-reference-research/gsm-candidate-enclosures-v1/supervisor.json": "ebd74eed9ea61355dc018cd9d7a9935fc98a30304a310b4902ceb6a097c55ba1",
+    "docs/evidence/v090-industrial-result.png": "833e7f11e5b29cff06d1ab43e35bd8307a45bcb2ba520c5e2f66522595695049",
+    "docs/evidence/v090-ooc-config.png": "6b4caeafd0cbf6b4f400cac63054d858f35b356c90901e89a5c1126d76cb6616"
+  }
+}

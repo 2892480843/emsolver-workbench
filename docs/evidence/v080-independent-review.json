@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "reviewed_at_utc": "2026-10-16T08:34:01.455767+00:00",
+  "reviewer": "independent_subagent_v080_review",
+  "scope": "Read-only numerical integration, resource and cancellation review; no industrial matrix execution.",
+  "platform": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.12.13"
+  },
+  "result": "APPROVED_WITH_STATED_LIMITATIONS",
+  "blocking_findings": [],
+  "production_files_modified_by_reviewer": [],
+  "verified": [
+    "Shared exact value-fidelity formula is unchanged; floating readiness is only an iteration-control hint.",
+    "One-time exact certification probe enables refinement only for candidate_value_enclosure_too_wide; geometric refusals do not trigger precision chasing.",
+    "Iteration and restart exhaustion retain numerically valid candidates; final certification reruns on original matrix.",
+    "ILU v2 equilibration and compensation change only the approximate inverse; original FP64 correction residual remains the acceptance gate.",
+    "Constrained inverse computes cached BQ and Q*BQ once per outer block; current and preceding caches are included in storage planning.",
+    "Weighted certificate derives exact dyadic similarity weights from original coefficients and reuses original-matrix residual, multiplicity, rank and subspace checks.",
+    "Weighted fallback is limited to named uniform geometry refusals; impossible weight prepass refuses before full input scans and allocations.",
+    "_certify entry cancellation occurs before structural classification; targeted test forbids those scans when already cancelled."
+  ],
+  "limitations": [
+    "Small synthetic regression and code inspection do not certify the full GSM industrial matrix, physical resonance frequencies, or general indefinite convergence.",
+    "SuperLU fill_factor and allocation planning are not RSS bounds; native factorization still requires parent process-tree memory and walltime monitoring.",
+    "Retaining candidates on iteration/restart limits does not guarantee exporting candidates after a parent hard kill.",
+    "Each proof attempt has its own bounded cooperative budget; combined attempts remain subject to the shared parent deadline."
+  ],
+  "test_command": [
+    "/Users/a111/chen/竞赛/上海开源软件应用创新大赛/.venv-emsolver-model/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_accuracy_refinement.py",
+    "tests/test_certification_routing.py",
+    "tests/test_robust_preconditioning.py",
+    "tests/test_weighted_counts.py",
+    "tests/test_independent_counts.py",
+    "tests/test_ilu_preconditioning.py"
+  ],
+  "test_exit_code": 0,
+  "test_summary": "131 passed in 2.36s",
+  "test_log": "docs/evidence/v080-independent-review-tests.log",
+  "test_log_sha256": "6145cc05ec0d1292e0b80c27b403cb1a5ad204ff5a54a0c5fba1fe6ed6169b71",
+  "reviewed_file_sha256": {
+    "emsolver/numerics/accuracy.py": "1d1eb6807aa786aa9f1610aa4435ef1cd03c96564b50edcbc1659047c4649f3d",
+    "emsolver/numerics/correction.py": "426205168a5a9ca6373f869fa7b4e83980f40600054527c698f6ef513839334d",
+    "emsolver/numerics/preconditioning.py": "828762b6639e6e71413775125796d027e2b943ef854ac0e94fb6e46f8798b085",
+    "emsolver/numerics/core.py": "98022af483528f476ffc8258a9bd6c13e3d4ff8814e7d85f2f0c3518768a4700",
+    "emsolver/numerics/backend.py": "9d75665ee8003c3c4b657d639c6c314bbe618bc0eda0030268ddc6b1e189ce46",
+    "emsolver/numerics/certification.py": "95ba9494723be4d22538fb68adef2cd64e9585ca183c1da9f82ba2bc22faf752",
+    "emsolver/numerics/independent_counts.py": "9480a3c4447e75247bed5163a2525afa359050732d2f51f8df78ba954d24b071",
+    "tests/test_accuracy_refinement.py": "84e34081c0ca7772cb88903877a02bba5c7594fed1b362dd605db821a3bb7576",
+    "tests/test_certification_routing.py": "45d2692addceae4d0d4aa0d2a417ca1338ad0470bc582fa3710288012e1ba089",
+    "tests/test_robust_preconditioning.py": "8fe94c037d6221a8cb80d90d76069ba266f983c63368ac68ee661a0a533250a1",
+    "tests/test_weighted_counts.py": "5c77388b40d70ae7c89930da5b3cbf2ebec2d1e5b22d07d51d164c7db1a9bb85",
+    "tests/test_independent_counts.py": "a495c28cb7ca4de73695b2bbcf503bf74b6e31dbbe69a6067fffa7ec53d5d520",
+    "tests/test_ilu_preconditioning.py": "0c2c8ea41b471a848208969f6682b2f715098c51c5b29f6907898920ed07bcb2"
+  },
+  "source_unchanged_during_tests": true
+}

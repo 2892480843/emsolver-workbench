@@ -1,0 +1,7 @@
+Platform: macOS Darwin arm64 host, native Linux arm64 optional SLEPc image
+Image: emsolver-slepc:bookworm-arm64-v1
+Command: EMSOLVER_TEST_SLEPC=1 EMSOLVER_SLEPC_IMAGE=emsolver-slepc:bookworm-arm64-v1 EMSOLVER_DOCKER_SOCKET=<current-user-owned-local-unix-socket> .venv-emsolver/bin/python -m pytest tests/test_slepc_driver.py tests/test_optional_backends.py tests/test_slepc_integration.py tests/test_slepc_service.py -q
+Observed tool exit code: 0
+Observed final output: 44 passed in 19.20s
+Skipped: 0
+Scope: real Docker four scalar/rank combinations, authoritative original-problem validation, bounded controls, memory/disk/time/cancel, actual Service cancellation and parent cleanup, strict seeded worker profile.

@@ -1,0 +1,4171 @@
+{
+  "schema_version": "1.0",
+  "suite": "arpack",
+  "created_at": "2026-10-15T19:47:11.253052+00:00",
+  "scope": "Local n60 non-diagonal synthetic complex Hermitian functional feasibility; two input splits and two repeats; no general speed claim.",
+  "specification": {
+    "schema_version": "1.0",
+    "repeats": 2,
+    "base_config": {
+      "target": {
+        "k": 3,
+        "sigma": 0.1
+      },
+      "solver": {
+        "subspace_max": 30,
+        "max_outer_iterations": 100,
+        "random_seed": 20261016,
+        "block": {
+          "max_restarts": 2
+        },
+        "method": "arpack"
+      },
+      "validation": {
+        "residual_scaled_max": 1e-08
+      },
+      "resources": {
+        "threads": 1,
+        "memory_limit_gib": 2,
+        "walltime_seconds": 30,
+        "disk_limit_gib": 1
+      }
+    },
+    "cases": [
+      {
+        "id": "development-complex",
+        "split": "development",
+        "input": {
+          "kind": "complex",
+          "n": 60,
+          "seed": 20261016
+        }
+      },
+      {
+        "id": "holdout-complex",
+        "split": "holdout",
+        "input": {
+          "kind": "complex",
+          "n": 60,
+          "seed": 20261017
+        }
+      }
+    ],
+    "variants": [
+      {
+        "id": "baseline"
+      },
+      {
+        "id": "no-adaptive-shift",
+        "ablation": "adaptive_shift"
+      }
+    ]
+  },
+  "protocol": {
+    "schema_version": "1.0",
+    "inputs": [
+      {
+        "case_id": "development-complex",
+        "split": "development",
+        "path": "inputs/0000.npz",
+        "sha256": "1e8a3ce9b13bc973f2eb1e131568cab74faaeefd08498f028b23f447848a390f",
+        "bytes": 2668,
+        "origin": {
+          "type": "synthetic",
+          "license": "CC0-1.0",
+          "name": "complex_60",
+          "description": "Seeded synthetic Hermitian sparse matrix; no reference answers are read.",
+          "source": "synthetic",
+          "n": 60,
+          "nnz": 178,
+          "kind": "complex",
+          "seed": 20261016
+        }
+      },
+      {
+        "case_id": "holdout-complex",
+        "split": "holdout",
+        "path": "inputs/0001.npz",
+        "sha256": "cf6d7def0ff8345f12a574add3925e53c4c233cb09015ec058138c20add0642d",
+        "bytes": 2659,
+        "origin": {
+          "type": "synthetic",
+          "license": "CC0-1.0",
+          "name": "complex_60",
+          "description": "Seeded synthetic Hermitian sparse matrix; no reference answers are read.",
+          "source": "synthetic",
+          "n": 60,
+          "nnz": 178,
+          "kind": "complex",
+          "seed": 20261017
+        }
+      }
+    ],
+    "rows": [
+      {
+        "id": "row-00000",
+        "case_id": "development-complex",
+        "split": "development",
+        "variant_id": "baseline",
+        "ablation": null,
+        "repeat": 1,
+        "ablation_meaning": null,
+        "input_index": 0,
+        "config": {
+          "schema_version": "1.0",
+          "problem": {
+            "type": "standard_hermitian",
+            "matrix_id": "",
+            "matrix_b_id": null,
+            "storage": "full",
+            "scalar": "auto",
+            "hermitian_rtol": 1e-12,
+            "reordering": "none",
+            "nullspace": {
+              "basis_indices": [],
+              "interpretation": "unspecified",
+              "source": ""
+            }
+          },
+          "target": {
+            "mode": "nearest_k",
+            "k": 3,
+            "sigma": 0.1,
+            "interval": null,
+            "sort": "distance_then_value",
+            "cluster_policy": "fixed_k",
+            "max_modes": 200
+          },
+          "solver": {
+            "backend": "scipy",
+            "method": "arpack",
+            "transform": "shift_invert",
+            "subspace_max": 30,
+            "max_outer_iterations": 100,
+            "random_seed": 20261016,
+            "fallback_profiles": [],
+            "adaptive_shift": {
+              "enabled": true,
+              "max_attempts": 4,
+              "policy": "observed_ritz_gap_v2"
+            },
+            "linear": {
+              "method": "sparse_lu",
+              "preconditioner": "auto_budgeted",
+              "rtol_initial": 1e-10,
+              "max_iterations": 1000,
+              "adaptive_accuracy": {
+                "enabled": false,
+                "rtol_min": 1e-10,
+                "rtol_max": 0.01,
+                "forcing_factor": 0.1
+              },
+              "precision": "float64"
+            },
+            "block": {
+              "oversampling": 4,
+              "residual_check_interval": 1,
+              "max_restarts": 2,
+              "stagnation_checks": 20,
+              "checkpoint_interval": 0
+            }
+          },
+          "validation": {
+            "residual_definition": "scaled_inf_v1",
+            "residual_scaled_max": 1e-08,
+            "absolute_residual_max": null,
+            "orthogonality_max": 1e-06,
+            "completeness_required": true
+          },
+          "resources": {
+            "memory_limit_gib": 2.0,
+            "threads": 1,
+            "mpi_ranks": 1,
+            "device": "cpu",
+            "walltime_seconds": 30.0,
+            "disk_limit_gib": 1.0
+          },
+          "observability": {
+            "enabled": true,
+            "metrics_interval_ms": 1000,
+            "redact_sensitive_fields": true
+          },
+          "output": {
+            "eigenvectors": true,
+            "format": "numpy",
+            "atomic_write": true
+          }
+        },
+        "config_hash": "bf50df9a7a16eaa356c414e4531857355c914c5ed568ad6fe47e16b42fddf6c5",
+        "status": "READY",
+        "blocked_reason": null,
+        "expected_status": [
+          "SUCCEEDED",
+          "PARTIAL"
+        ],
+        "expected_error_code": null
+      },
+      {
+        "id": "row-00001",
+        "case_id": "development-complex",
+        "split": "development",
+        "variant_id": "baseline",
+        "ablation": null,
+        "repeat": 2,
+        "ablation_meaning": null,
+        "input_index": 0,
+        "config": {
+          "schema_version": "1.0",
+          "problem": {
+            "type": "standard_hermitian",
+            "matrix_id": "",
+            "matrix_b_id": null,
+            "storage": "full",
+            "scalar": "auto",
+            "hermitian_rtol": 1e-12,
+            "reordering": "none",
+            "nullspace": {
+              "basis_indices": [],
+              "interpretation": "unspecified",
+              "source": ""
+            }
+          },
+          "target": {
+            "mode": "nearest_k",
+            "k": 3,
+            "sigma": 0.1,
+            "interval": null,
+            "sort": "distance_then_value",
+            "cluster_policy": "fixed_k",
+            "max_modes": 200
+          },
+          "solver": {
+            "backend": "scipy",
+            "method": "arpack",
+            "transform": "shift_invert",
+            "subspace_max": 30,
+            "max_outer_iterations": 100,
+            "random_seed": 20261016,
+            "fallback_profiles": [],
+            "adaptive_shift": {
+              "enabled": true,
+              "max_attempts": 4,
+              "policy": "observed_ritz_gap_v2"
+            },
+            "linear": {
+              "method": "sparse_lu",
+              "preconditioner": "auto_budgeted",
+              "rtol_initial": 1e-10,
+              "max_iterations": 1000,
+              "adaptive_accuracy": {
+                "enabled": false,
+                "rtol_min": 1e-10,
+                "rtol_max": 0.01,
+                "forcing_factor": 0.1
+              },
+              "precision": "float64"
+            },
+            "block": {
+              "oversampling": 4,
+              "residual_check_interval": 1,
+              "max_restarts": 2,
+              "stagnation_checks": 20,
+              "checkpoint_interval": 0
+            }
+          },
+          "validation": {
+            "residual_definition": "scaled_inf_v1",
+            "residual_scaled_max": 1e-08,
+            "absolute_residual_max": null,
+            "orthogonality_max": 1e-06,
+            "completeness_required": true
+          },
+          "resources": {
+            "memory_limit_gib": 2.0,
+            "threads": 1,
+            "mpi_ranks": 1,
+            "device": "cpu",
+            "walltime_seconds": 30.0,
+            "disk_limit_gib": 1.0
+          },
+          "observability": {
+            "enabled": true,
+            "metrics_interval_ms": 1000,
+            "redact_sensitive_fields": true
+          },
+          "output": {
+            "eigenvectors": true,
+            "format": "numpy",
+            "atomic_write": true
+          }
+        },
+        "config_hash": "bf50df9a7a16eaa356c414e4531857355c914c5ed568ad6fe47e16b42fddf6c5",
+        "status": "READY",
+        "blocked_reason": null,
+        "expected_status": [
+          "SUCCEEDED",
+          "PARTIAL"
+        ],
+        "expected_error_code": null
+      },
+      {
+        "id": "row-00002",
+        "case_id": "development-complex",
+        "split": "development",
+        "variant_id": "no-adaptive-shift",
+        "ablation": "adaptive_shift",
+        "repeat": 1,
+        "ablation_meaning": "Disable bounded adaptive working-shift recovery; preserve the original target and hard budgets.",
+        "input_index": 0,
+        "config": {
+          "schema_version": "1.0",
+          "problem": {
+            "type": "standard_hermitian",
+            "matrix_id": "",
+            "matrix_b_id": null,
+            "storage": "full",
+            "scalar": "auto",
+            "hermitian_rtol": 1e-12,
+            "reordering": "none",
+            "nullspace": {
+              "basis_indices": [],
+              "interpretation": "unspecified",
+              "source": ""
+            }
+          },
+          "target": {
+            "mode": "nearest_k",
+            "k": 3,
+            "sigma": 0.1,
+            "interval": null,
+            "sort": "distance_then_value",
+            "cluster_policy": "fixed_k",
+            "max_modes": 200
+          },
+          "solver": {
+            "backend": "scipy",
+            "method": "arpack",
+            "transform": "shift_invert",
+            "subspace_max": 30,
+            "max_outer_iterations": 100,
+            "random_seed": 20261016,
+            "fallback_profiles": [],
+            "adaptive_shift": {
+              "enabled": false,
+              "max_attempts": 4,
+              "policy": "observed_ritz_gap_v2"
+            },
+            "linear": {
+              "method": "sparse_lu",
+              "preconditioner": "auto_budgeted",
+              "rtol_initial": 1e-10,
+              "max_iterations": 1000,
+              "adaptive_accuracy": {
+                "enabled": false,
+                "rtol_min": 1e-10,
+                "rtol_max": 0.01,
+                "forcing_factor": 0.1
+              },
+              "precision": "float64"
+            },
+            "block": {
+              "oversampling": 4,
+              "residual_check_interval": 1,
+              "max_restarts": 2,
+              "stagnation_checks": 20,
+              "checkpoint_interval": 0
+            }
+          },
+          "validation": {
+            "residual_definition": "scaled_inf_v1",
+            "residual_scaled_max": 1e-08,
+            "absolute_residual_max": null,
+            "orthogonality_max": 1e-06,
+            "completeness_required": true
+          },
+          "resources": {
+            "memory_limit_gib": 2.0,
+            "threads": 1,
+            "mpi_ranks": 1,
+            "device": "cpu",
+            "walltime_seconds": 30.0,
+            "disk_limit_gib": 1.0
+          },
+          "observability": {
+            "enabled": true,
+            "metrics_interval_ms": 1000,
+            "redact_sensitive_fields": true
+          },
+          "output": {
+            "eigenvectors": true,
+            "format": "numpy",
+            "atomic_write": true
+          }
+        },
+        "config_hash": "4257bb6594403c01a681e6e414c36ffa86254a3fc28913fa6ef0d34ce301f9ff",
+        "status": "READY",
+        "blocked_reason": null,
+        "expected_status": [
+          "SUCCEEDED",
+          "PARTIAL"
+        ],
+        "expected_error_code": null
+      },
+      {
+        "id": "row-00003",
+        "case_id": "development-complex",
+        "split": "development",
+        "variant_id": "no-adaptive-shift",
+        "ablation": "adaptive_shift",
+        "repeat": 2,
+        "ablation_meaning": "Disable bounded adaptive working-shift recovery; preserve the original target and hard budgets.",
+        "input_index": 0,
+        "config": {
+          "schema_version": "1.0",
+          "problem": {
+            "type": "standard_hermitian",
+            "matrix_id": "",
+            "matrix_b_id": null,
+            "storage": "full",
+            "scalar": "auto",
+            "hermitian_rtol": 1e-12,
+            "reordering": "none",
+            "nullspace": {
+              "basis_indices": [],
+              "interpretation": "unspecified",
+              "source": ""
+            }
+          },
+          "target": {
+            "mode": "nearest_k",
+            "k": 3,
+            "sigma": 0.1,
+            "interval": null,
+            "sort": "distance_then_value",
+            "cluster_policy": "fixed_k",
+            "max_modes": 200
+          },
+          "solver": {
+            "backend": "scipy",
+            "method": "arpack",
+            "transform": "shift_invert",
+            "subspace_max": 30,
+            "max_outer_iterations": 100,
+            "random_seed": 20261016,
+            "fallback_profiles": [],
+            "adaptive_shift": {
+              "enabled": false,
+              "max_attempts": 4,
+              "policy": "observed_ritz_gap_v2"
+            },
+            "linear": {
+              "method": "sparse_lu",
+              "preconditioner": "auto_budgeted",
+              "rtol_initial": 1e-10,
+              "max_iterations": 1000,
+              "adaptive_accuracy": {
+                "enabled": false,
+                "rtol_min": 1e-10,
+                "rtol_max": 0.01,
+                "forcing_factor": 0.1
+              },
+              "precision": "float64"
+            },
+            "block": {
+              "oversampling": 4,
+              "residual_check_interval": 1,
+              "max_restarts": 2,
+              "stagnation_checks": 20,
+              "checkpoint_interval": 0
+            }
+          },
+          "validation": {
+            "residual_definition": "scaled_inf_v1",
+            "residual_scaled_max": 1e-08,
+            "absolute_residual_max": null,
+            "orthogonality_max": 1e-06,
+            "completeness_required": true
+          },
+          "resources": {
+            "memory_limit_gib": 2.0,
+            "threads": 1,
+            "mpi_ranks": 1,
+            "device": "cpu",
+            "walltime_seconds": 30.0,
+            "disk_limit_gib": 1.0
+          },
+          "observability": {
+            "enabled": true,
+            "metrics_interval_ms": 1000,
+            "redact_sensitive_fields": true
+          },
+          "output": {
+            "eigenvectors": true,
+            "format": "numpy",
+            "atomic_write": true
+          }
+        },
+        "config_hash": "4257bb6594403c01a681e6e414c36ffa86254a3fc28913fa6ef0d34ce301f9ff",
+        "status": "READY",
+        "blocked_reason": null,
+        "expected_status": [
+          "SUCCEEDED",
+          "PARTIAL"
+        ],
+        "expected_error_code": null
+      },
+      {
+        "id": "row-00004",
+        "case_id": "holdout-complex",
+        "split": "holdout",
+        "variant_id": "baseline",
+        "ablation": null,
+        "repeat": 1,
+        "ablation_meaning": null,
+        "input_index": 1,
+        "config": {
+          "schema_version": "1.0",
+          "problem": {
+            "type": "standard_hermitian",
+            "matrix_id": "",
+            "matrix_b_id": null,
+            "storage": "full",
+            "scalar": "auto",
+            "hermitian_rtol": 1e-12,
+            "reordering": "none",
+            "nullspace": {
+              "basis_indices": [],
+              "interpretation": "unspecified",
+              "source": ""
+            }
+          },
+          "target": {
+            "mode": "nearest_k",
+            "k": 3,
+            "sigma": 0.1,
+            "interval": null,
+            "sort": "distance_then_value",
+            "cluster_policy": "fixed_k",
+            "max_modes": 200
+          },
+          "solver": {
+            "backend": "scipy",
+            "method": "arpack",
+            "transform": "shift_invert",
+            "subspace_max": 30,
+            "max_outer_iterations": 100,
+            "random_seed": 20261016,
+            "fallback_profiles": [],
+            "adaptive_shift": {
+              "enabled": true,
+              "max_attempts": 4,
+              "policy": "observed_ritz_gap_v2"
+            },
+            "linear": {
+              "method": "sparse_lu",
+              "preconditioner": "auto_budgeted",
+              "rtol_initial": 1e-10,
+              "max_iterations": 1000,
+              "adaptive_accuracy": {
+                "enabled": false,
+                "rtol_min": 1e-10,
+                "rtol_max": 0.01,
+                "forcing_factor": 0.1
+              },
+              "precision": "float64"
+            },
+            "block": {
+              "oversampling": 4,
+              "residual_check_interval": 1,
+              "max_restarts": 2,
+              "stagnation_checks": 20,
+              "checkpoint_interval": 0
+            }
+          },
+          "validation": {
+            "residual_definition": "scaled_inf_v1",
+            "residual_scaled_max": 1e-08,
+            "absolute_residual_max": null,
+            "orthogonality_max": 1e-06,
+            "completeness_required": true
+          },
+          "resources": {
+            "memory_limit_gib": 2.0,
+            "threads": 1,
+            "mpi_ranks": 1,
+            "device": "cpu",
+            "walltime_seconds": 30.0,
+            "disk_limit_gib": 1.0
+          },
+          "observability": {
+            "enabled": true,
+            "metrics_interval_ms": 1000,
+            "redact_sensitive_fields": true
+          },
+          "output": {
+            "eigenvectors": true,
+            "format": "numpy",
+            "atomic_write": true
+          }
+        },
+        "config_hash": "bf50df9a7a16eaa356c414e4531857355c914c5ed568ad6fe47e16b42fddf6c5",
+        "status": "READY",
+        "blocked_reason": null,
+        "expected_status": [
+          "SUCCEEDED",
+          "PARTIAL"
+        ],
+        "expected_error_code": null
+      },
+      {
+        "id": "row-00005",
+        "case_id": "holdout-complex",
+        "split": "holdout",
+        "variant_id": "baseline",
+        "ablation": null,
+        "repeat": 2,
+        "ablation_meaning": null,
+        "input_index": 1,
+        "config": {
+          "schema_version": "1.0",
+          "problem": {
+            "type": "standard_hermitian",
+            "matrix_id": "",
+            "matrix_b_id": null,
+            "storage": "full",
+            "scalar": "auto",
+            "hermitian_rtol": 1e-12,
+            "reordering": "none",
+            "nullspace": {
+              "basis_indices": [],
+              "interpretation": "unspecified",
+              "source": ""
+            }
+          },
+          "target": {
+            "mode": "nearest_k",
+            "k": 3,
+            "sigma": 0.1,
+            "interval": null,
+            "sort": "distance_then_value",
+            "cluster_policy": "fixed_k",
+            "max_modes": 200
+          },
+          "solver": {
+            "backend": "scipy",
+            "method": "arpack",
+            "transform": "shift_invert",
+            "subspace_max": 30,
+            "max_outer_iterations": 100,
+            "random_seed": 20261016,
+            "fallback_profiles": [],
+            "adaptive_shift": {
+              "enabled": true,
+              "max_attempts": 4,
+              "policy": "observed_ritz_gap_v2"
+            },
+            "linear": {
+              "method": "sparse_lu",
+              "preconditioner": "auto_budgeted",
+              "rtol_initial": 1e-10,
+              "max_iterations": 1000,
+              "adaptive_accuracy": {
+                "enabled": false,
+                "rtol_min": 1e-10,
+                "rtol_max": 0.01,
+                "forcing_factor": 0.1
+              },
+              "precision": "float64"
+            },
+            "block": {
+              "oversampling": 4,
+              "residual_check_interval": 1,
+              "max_restarts": 2,
+              "stagnation_checks": 20,
+              "checkpoint_interval": 0
+            }
+          },
+          "validation": {
+            "residual_definition": "scaled_inf_v1",
+            "residual_scaled_max": 1e-08,
+            "absolute_residual_max": null,
+            "orthogonality_max": 1e-06,
+            "completeness_required": true
+          },
+          "resources": {
+            "memory_limit_gib": 2.0,
+            "threads": 1,
+            "mpi_ranks": 1,
+            "device": "cpu",
+            "walltime_seconds": 30.0,
+            "disk_limit_gib": 1.0
+          },
+          "observability": {
+            "enabled": true,
+            "metrics_interval_ms": 1000,
+            "redact_sensitive_fields": true
+          },
+          "output": {
+            "eigenvectors": true,
+            "format": "numpy",
+            "atomic_write": true
+          }
+        },
+        "config_hash": "bf50df9a7a16eaa356c414e4531857355c914c5ed568ad6fe47e16b42fddf6c5",
+        "status": "READY",
+        "blocked_reason": null,
+        "expected_status": [
+          "SUCCEEDED",
+          "PARTIAL"
+        ],
+        "expected_error_code": null
+      },
+      {
+        "id": "row-00006",
+        "case_id": "holdout-complex",
+        "split": "holdout",
+        "variant_id": "no-adaptive-shift",
+        "ablation": "adaptive_shift",
+        "repeat": 1,
+        "ablation_meaning": "Disable bounded adaptive working-shift recovery; preserve the original target and hard budgets.",
+        "input_index": 1,
+        "config": {
+          "schema_version": "1.0",
+          "problem": {
+            "type": "standard_hermitian",
+            "matrix_id": "",
+            "matrix_b_id": null,
+            "storage": "full",
+            "scalar": "auto",
+            "hermitian_rtol": 1e-12,
+            "reordering": "none",
+            "nullspace": {
+              "basis_indices": [],
+              "interpretation": "unspecified",
+              "source": ""
+            }
+          },
+          "target": {
+            "mode": "nearest_k",
+            "k": 3,
+            "sigma": 0.1,
+            "interval": null,
+            "sort": "distance_then_value",
+            "cluster_policy": "fixed_k",
+            "max_modes": 200
+          },
+          "solver": {
+            "backend": "scipy",
+            "method": "arpack",
+            "transform": "shift_invert",
+            "subspace_max": 30,
+            "max_outer_iterations": 100,
+            "random_seed": 20261016,
+            "fallback_profiles": [],
+            "adaptive_shift": {
+              "enabled": false,
+              "max_attempts": 4,
+              "policy": "observed_ritz_gap_v2"
+            },
+            "linear": {
+              "method": "sparse_lu",
+              "preconditioner": "auto_budgeted",
+              "rtol_initial": 1e-10,
+              "max_iterations": 1000,
+              "adaptive_accuracy": {
+                "enabled": false,
+                "rtol_min": 1e-10,
+                "rtol_max": 0.01,
+                "forcing_factor": 0.1
+              },
+              "precision": "float64"
+            },
+            "block": {
+              "oversampling": 4,
+              "residual_check_interval": 1,
+              "max_restarts": 2,
+              "stagnation_checks": 20,
+              "checkpoint_interval": 0
+            }
+          },
+          "validation": {
+            "residual_definition": "scaled_inf_v1",
+            "residual_scaled_max": 1e-08,
+            "absolute_residual_max": null,
+            "orthogonality_max": 1e-06,
+            "completeness_required": true
+          },
+          "resources": {
+            "memory_limit_gib": 2.0,
+            "threads": 1,
+            "mpi_ranks": 1,
+            "device": "cpu",
+            "walltime_seconds": 30.0,
+            "disk_limit_gib": 1.0
+          },
+          "observability": {
+            "enabled": true,
+            "metrics_interval_ms": 1000,
+            "redact_sensitive_fields": true
+          },
+          "output": {
+            "eigenvectors": true,
+            "format": "numpy",
+            "atomic_write": true
+          }
+        },
+        "config_hash": "4257bb6594403c01a681e6e414c36ffa86254a3fc28913fa6ef0d34ce301f9ff",
+        "status": "READY",
+        "blocked_reason": null,
+        "expected_status": [
+          "SUCCEEDED",
+          "PARTIAL"
+        ],
+        "expected_error_code": null
+      },
+      {
+        "id": "row-00007",
+        "case_id": "holdout-complex",
+        "split": "holdout",
+        "variant_id": "no-adaptive-shift",
+        "ablation": "adaptive_shift",
+        "repeat": 2,
+        "ablation_meaning": "Disable bounded adaptive working-shift recovery; preserve the original target and hard budgets.",
+        "input_index": 1,
+        "config": {
+          "schema_version": "1.0",
+          "problem": {
+            "type": "standard_hermitian",
+            "matrix_id": "",
+            "matrix_b_id": null,
+            "storage": "full",
+            "scalar": "auto",
+            "hermitian_rtol": 1e-12,
+            "reordering": "none",
+            "nullspace": {
+              "basis_indices": [],
+              "interpretation": "unspecified",
+              "source": ""
+            }
+          },
+          "target": {
+            "mode": "nearest_k",
+            "k": 3,
+            "sigma": 0.1,
+            "interval": null,
+            "sort": "distance_then_value",
+            "cluster_policy": "fixed_k",
+            "max_modes": 200
+          },
+          "solver": {
+            "backend": "scipy",
+            "method": "arpack",
+            "transform": "shift_invert",
+            "subspace_max": 30,
+            "max_outer_iterations": 100,
+            "random_seed": 20261016,
+            "fallback_profiles": [],
+            "adaptive_shift": {
+              "enabled": false,
+              "max_attempts": 4,
+              "policy": "observed_ritz_gap_v2"
+            },
+            "linear": {
+              "method": "sparse_lu",
+              "preconditioner": "auto_budgeted",
+              "rtol_initial": 1e-10,
+              "max_iterations": 1000,
+              "adaptive_accuracy": {
+                "enabled": false,
+                "rtol_min": 1e-10,
+                "rtol_max": 0.01,
+                "forcing_factor": 0.1
+              },
+              "precision": "float64"
+            },
+            "block": {
+              "oversampling": 4,
+              "residual_check_interval": 1,
+              "max_restarts": 2,
+              "stagnation_checks": 20,
+              "checkpoint_interval": 0
+            }
+          },
+          "validation": {
+            "residual_definition": "scaled_inf_v1",
+            "residual_scaled_max": 1e-08,
+            "absolute_residual_max": null,
+            "orthogonality_max": 1e-06,
+            "completeness_required": true
+          },
+          "resources": {
+            "memory_limit_gib": 2.0,
+            "threads": 1,
+            "mpi_ranks": 1,
+            "device": "cpu",
+            "walltime_seconds": 30.0,
+            "disk_limit_gib": 1.0
+          },
+          "observability": {
+            "enabled": true,
+            "metrics_interval_ms": 1000,
+            "redact_sensitive_fields": true
+          },
+          "output": {
+            "eigenvectors": true,
+            "format": "numpy",
+            "atomic_write": true
+          }
+        },
+        "config_hash": "4257bb6594403c01a681e6e414c36ffa86254a3fc28913fa6ef0d34ce301f9ff",
+        "status": "READY",
+        "blocked_reason": null,
+        "expected_status": [
+          "SUCCEEDED",
+          "PARTIAL"
+        ],
+        "expected_error_code": null
+      }
+    ],
+    "source": {
+      "tree_sha256": "98dc55483ec40cb480fb6f0fff520a9b2dae6907c0c64919476f287504c72315",
+      "file_count": 74,
+      "scope": "emsolver/*.py recursively; web/src TS/TSX/CSS; Python and web dependency manifests",
+      "complete": true,
+      "git_commit": null,
+      "git_dirty": null
+    },
+    "source_hash": "e8a3be0a91d0d1312348cefad5d951e912ddaad60414502ce8074fccd396282c",
+    "runtime_code_hash": "43b4ae84c277f14f8787e66c767d754767547ecf2388bd901a6a00106c75f5fb",
+    "runtime_source_files": {
+      "__init__.py": "f3db1b1191307e42055616b4224f7ff19d0c465974cd0d52751a5dbc64db9b30",
+      "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "access.py": "99249902d7ed91a6a28db51cad71193f41d94d8d268757d76b84694e6e6bca16",
+      "advice.py": "db7b5522b2368fb0873d51c8ca39b00c89f3d44f78496d3df4e6467cf60332d0",
+      "ai_explainer.py": "930c34f2bd8a8a3df877a31ca445385a74592a57962267484caff0136c77795d",
+      "api.py": "575aa1e2fe526d15c3f4b3bd56976a3b06857f0e296acd734c1f2a3d84c86388",
+      "backup.py": "0ee67b3b43d7f25ea40e46e28741a8e85ddc61e9bc024f593028261f41e1a539",
+      "cli.py": "56a97e4067eab97bae0ffcc3332228c39e65d916afe5738e199326108e180310",
+      "contracts.py": "f93fcf061d980f8cf8b83fc4bf37e889dd79e8cbd81c74d22972e6c8b848016e",
+      "effects.py": "ea2f5298293c4533e2429b21ecb5cde21e09108865382f9dc6f68a61a8b83739",
+      "errors.py": "3bf8f9e3d7c623b6f37cad46ba729406824c10112ddbf8306a3eb1d1d97a338b",
+      "evaluation.py": "355f03721520d8356ba94a03c056b35ef7e84fc3391f4994206d8abee9a1811e",
+      "events.py": "763c520b5545072f4c2ba426cc0024de1fd675a4c30971076854de739c7bb25b",
+      "execution.py": "30f9c3de776b04778d889222acf564791141bde117ddab91fac57a8336a0c4e5",
+      "experiments.py": "7248a63824fb606e92fe85ebc016c89fa65760225229d2c44d60556c508163ab",
+      "governance.py": "b7549b3f6d77806ede34d79b7ed128637f7b6524552a30d30906928616ab575b",
+      "import_worker.py": "50b198b1021428ebf9d677483a4f419a93dfebff1249ba574b47cd367f1b1912",
+      "imports.py": "fe5fe7a6226ad98a5ac394fe141da4dbf380094ec0d93b25729e88f02fbd9f3a",
+      "integrity.py": "c5289d30b0c086ffb3ec06f02fb671976b7170cad274822cbede2c119683ef25",
+      "jobs.py": "879e29814ab8f50a650dd847bae1cf41fb25f95250c37176ed15d661bbcbc922",
+      "knowledge.py": "6740174e0b7d279f1f334c5dabdf2f25865548e00af87911b22706c04f7781c1",
+      "numerics/__init__.py": "fbe1afe23745b99f42e7aaa0a40bc874e99ec915093aa4eede4b98a5a3e136d9",
+      "numerics/backend.py": "0515eb0043c9db11d0dfbc49d55ef1de8a0b6b64915277dbc08e718f381e9a5e",
+      "numerics/block.py": "f1a69372ad442996b7001b4f225e448d27a385e244356943773229d5f46c9740",
+      "numerics/checkpoint.py": "5d4c5b2955059ca197acbf9d408690cbaa87bfaf995be9816ef7178ffb118246",
+      "numerics/core.py": "7860c7b21467aecb850bb8c6380742e5b799b10161fbd846c78a930ffe38a5db",
+      "numerics/correction.py": "3f8a3bbf9e943d97150d77c5ee101dc6f11f08625df6b37d708de19e8b91e83f",
+      "numerics/shift_control.py": "e733c0d7d6b36344e4e1a76d33f5b95facd7f192093a4a9a64e15f354e1f2650",
+      "numerics/shift_policy.py": "4adaf229a6366086a6981a5c72f3b152950cd65a085a33fb610df09ab3201e2e",
+      "operations.py": "f8b017172baaf412c7037bdd12b21c068a3e4b39a6bebde5cbaef8106bdd4d02",
+      "process_environment.py": "4244869e2b93863c7743ed2dd6f16374487fbaf5e6eb9ec628321fb166375f6f",
+      "protocols.py": "a85e6aab85b7b14218f6f44a05c44d0134001cb84e1d6cf815b4249689c9745d",
+      "provenance.py": "f5b09aaaef884f6fc7dcc127206514c1bc42da6b1af2e4c4d64cf13f1e050e3b",
+      "public_export.py": "96227e8b9399359e5279d7c06e66275689e9b58cb4669e743067507120f23ea9",
+      "reconcile.py": "ed1aa09ffe9e597056ae7883b47b9babe1aa05f67fb480ec70286f35dc88d632",
+      "recovery.py": "81d17bf30b4b5f3f5cd88eddfde03d5ce5ff2a6e64cd37201e9b77d63a178b95",
+      "reporting.py": "7359d682537712377ddf5741092c555ecfb59980d5739dbadfc95a3e250a5b57",
+      "resumption.py": "4f43d6c4f222ceb654614f9c5105184def75698d7cd5b197d370b88b00ce4648",
+      "retention.py": "b98e9a40edbfeee2f918e9c874133d39a9d73f72fa58d8498aa82dd503610a1b",
+      "service.py": "e6a9d1e86ce268343290b06f10b146a7ed19c7be5fcfe09a793e39b1d8484b06",
+      "store.py": "ce123bda52bec939264b4b8ead5bfe885faeecca75101cc0c332212f1fb7a5a8",
+      "telemetry.py": "6e361d4d76cc6c15e2f44d965b6933a8c5928fc9db2d851eac2753556ac5ec12",
+      "validation_process.py": "27d38e3bdb9e7331c9349b683e8e308ff1f91d0ffb5d40cbfcd3152d80970caa",
+      "validation_worker.py": "63394183df293b811dd533caa1aa2586f110eeab479436de72950b25510eb3a3",
+      "worker.py": "f2053037f6a473d4c6d00551ee6c09d867e30ae2f9d77aff7e39def0e4379cfe"
+    },
+    "environment": {
+      "package": {
+        "name": "emsolver-workbench",
+        "version": "0.4.0"
+      },
+      "python": {
+        "version": "3.12.13",
+        "implementation": "CPython"
+      },
+      "platform": {
+        "system": "Darwin",
+        "release": "25.6.0",
+        "machine": "arm64",
+        "python_platform": "darwin",
+        "cpu_count": 10
+      },
+      "dependencies": {
+        "numpy": "2.5.4",
+        "scipy": "1.18.1",
+        "fastapi": "0.143.2",
+        "uvicorn": "0.54.0",
+        "pydantic": "2.14.1",
+        "python-multipart": "0.0.32",
+        "psutil": "7.2.2",
+        "PyYAML": "6.0.3",
+        "threadpoolctl": "3.7.0"
+      },
+      "container": {
+        "status": "unknown",
+        "image_digest": null,
+        "evidence": "No verifiable image digest supplied"
+      }
+    },
+    "environment_hash": "f6bec6dfedc945ef493cfa832edf63e98e877e8f54068f68680a3aa719a5c977",
+    "capabilities": {
+      "scipy": {
+        "available": true,
+        "supported": true,
+        "version": "1.18.1",
+        "methods": [
+          "arpack",
+          "block_shift_invert",
+          "jacobi_davidson"
+        ],
+        "scalar_types": [
+          "float64",
+          "complex128"
+        ],
+        "target_certification": "diagonal_and_bounded_tridiagonal_spectral_windows"
+      },
+      "backend_protocol": "prepare/solve/monitor/finalize",
+      "block_shift_invert": {
+        "supported": true,
+        "target_modes": [
+          "nearest_k"
+        ],
+        "linear_method": "exact_sparse_lu",
+        "residual_monitoring": "original_problem",
+        "locking": "revalidated_soft_lock",
+        "checkpoint": "subspace_warm_start_new_task",
+        "exact_resume": false,
+        "adaptive_inner_precision": false,
+        "implementation": "emsolver/numerics/block.py"
+      },
+      "jacobi_davidson": {
+        "supported": true,
+        "target_modes": [
+          "nearest_k"
+        ],
+        "transform": "precond",
+        "linear_method": "gmres",
+        "preconditioners": [
+          "none",
+          "jacobi"
+        ],
+        "adaptive_inner_accuracy": true,
+        "mixed_precision": true,
+        "bounded_restarts": true,
+        "checkpoint": "periodic_subspace_warm_start_new_task",
+        "exact_resume": false,
+        "implementation": "emsolver/numerics/correction.py"
+      },
+      "reordering": {
+        "methods": [
+          "none",
+          "reverse_cuthill_mckee"
+        ],
+        "original_vector_order_restored": true
+      },
+      "fallback_profiles": {
+        "block_to_arpack_v1": {
+          "supported": true,
+          "from": "block_shift_invert",
+          "to": "arpack",
+          "max_executions": 1,
+          "preserves_target_and_validation": true
+        }
+      },
+      "adaptive_shift": {
+        "default_policy": "observed_ritz_gap_v2",
+        "policies": [
+          "observed_ritz_gap_v2",
+          "feedback_bounded_v1"
+        ],
+        "feedback_inputs": [
+          "refined_Ritz_gaps",
+          "linear_residual",
+          "failure_codes"
+        ],
+        "target_immutable": true,
+        "applicable_methods": [
+          "arpack",
+          "block_shift_invert"
+        ]
+      },
+      "slepc": {
+        "available": false,
+        "supported": false,
+        "reason": "No validated SLEPc adapter in this build"
+      },
+      "mpi": {
+        "available": false,
+        "supported": false,
+        "reason": "Distributed solver is not implemented"
+      },
+      "gpu": {
+        "available": false,
+        "supported": false,
+        "reason": "GPU eigensolver is not implemented"
+      },
+      "numpy_version": "2.5.4",
+      "python_version": "3.12.13",
+      "platform": "Darwin",
+      "machine": "arm64",
+      "cpu_count": 10,
+      "cpu_model": "arm",
+      "physical_cpu_count": 10,
+      "memory_total_bytes": 17179869184,
+      "threads": [],
+      "limits": {
+        "max_modes": 512,
+        "max_subspace": 1024
+      },
+      "limitations": [
+        "Nontridiagonal sparse targets remain unverified",
+        "No exact ARPACK checkpoint continuation",
+        "Direct sparse LU fill-in is not predictable; worker must enforce process-tree budgets",
+        "ARPACK outer iteration count is unavailable; solve and factorization counts are observed"
+      ]
+    },
+    "prescribed_runs": 8,
+    "split_policy": "Explicit disjoint input content hashes; labels and paths do not select solver settings.",
+    "hash": "130132ad7518e0def6f4114a4b619bef373592d8f34152e676c3949745cca5d4"
+  },
+  "results": {
+    "schema_version": "1.0",
+    "protocol_hash": "130132ad7518e0def6f4114a4b619bef373592d8f34152e676c3949745cca5d4",
+    "source_hash": "e8a3be0a91d0d1312348cefad5d951e912ddaad60414502ce8074fccd396282c",
+    "environment_hash": "f6bec6dfedc945ef493cfa832edf63e98e877e8f54068f68680a3aa719a5c977",
+    "runs": [
+      {
+        "id": "row-00000",
+        "case_id": "development-complex",
+        "split": "development",
+        "variant_id": "baseline",
+        "ablation": null,
+        "repeat": 1,
+        "ablation_meaning": null,
+        "input_index": 0,
+        "config": {
+          "schema_version": "1.0",
+          "problem": {
+            "type": "standard_hermitian",
+            "matrix_id": "",
+            "matrix_b_id": null,
+            "storage": "full",
+            "scalar": "auto",
+            "hermitian_rtol": 1e-12,
+            "reordering": "none",
+            "nullspace": {
+              "basis_indices": [],
+              "interpretation": "unspecified",
+              "source": ""
+            }
+          },
+          "target": {
+            "mode": "nearest_k",
+            "k": 3,
+            "sigma": 0.1,
+            "interval": null,
+            "sort": "distance_then_value",
+            "cluster_policy": "fixed_k",
+            "max_modes": 200
+          },
+          "solver": {
+            "backend": "scipy",
+            "method": "arpack",
+            "transform": "shift_invert",
+            "subspace_max": 30,
+            "max_outer_iterations": 100,
+            "random_seed": 20261016,
+            "fallback_profiles": [],
+            "adaptive_shift": {
+              "enabled": true,
+              "max_attempts": 4,
+              "policy": "observed_ritz_gap_v2"
+            },
+            "linear": {
+              "method": "sparse_lu",
+              "preconditioner": "auto_budgeted",
+              "rtol_initial": 1e-10,
+              "max_iterations": 1000,
+              "adaptive_accuracy": {
+                "enabled": false,
+                "rtol_min": 1e-10,
+                "rtol_max": 0.01,
+                "forcing_factor": 0.1
+              },
+              "precision": "float64"
+            },
+            "block": {
+              "oversampling": 4,
+              "residual_check_interval": 1,
+              "max_restarts": 2,
+              "stagnation_checks": 20,
+              "checkpoint_interval": 0
+            }
+          },
+          "validation": {
+            "residual_definition": "scaled_inf_v1",
+            "residual_scaled_max": 1e-08,
+            "absolute_residual_max": null,
+            "orthogonality_max": 1e-06,
+            "completeness_required": true
+          },
+          "resources": {
+            "memory_limit_gib": 2.0,
+            "threads": 1,
+            "mpi_ranks": 1,
+            "device": "cpu",
+            "walltime_seconds": 30.0,
+            "disk_limit_gib": 1.0
+          },
+          "observability": {
+            "enabled": true,
+            "metrics_interval_ms": 1000,
+            "redact_sensitive_fields": true
+          },
+          "output": {
+            "eigenvectors": true,
+            "format": "numpy",
+            "atomic_write": true
+          }
+        },
+        "config_hash": "bf50df9a7a16eaa356c414e4531857355c914c5ed568ad6fe47e16b42fddf6c5",
+        "status": "SUCCEEDED",
+        "blocked_reason": null,
+        "expected_status": [
+          "SUCCEEDED",
+          "PARTIAL"
+        ],
+        "expected_error_code": null,
+        "validation": {
+          "numerical_status": "PASSED",
+          "residual_definition": "scaled_inf_v1",
+          "residuals": [
+            1.5037235980637008e-17,
+            5.552273185156224e-17,
+            3.9270400677094793e-17
+          ],
+          "absolute_residuals_2": [
+            2.626638519194621e-16,
+            8.010056455000873e-16,
+            4.3196698332054447e-16
+          ],
+          "orthogonality_error": 2.8637764456252374e-16,
+          "n_validated": 3,
+          "normalization": "unit_2_norm",
+          "target_certification": "CERTIFIED",
+          "certification_source": "tridiagonal_sturm_lapack_stebz",
+          "boundary_cluster_cut": false,
+          "expected_count": 3,
+          "missing_count": 0,
+          "endpoint_ambiguous": false,
+          "certification_window_count": 3,
+          "certification_absolute_tolerance": 7.195710756458803e-14,
+          "mode_subspace_angle_bound_max": 8.67025898818208e-06,
+          "mode_subspace_angle_threshold": 0.0001
+        },
+        "metrics": {
+          "n": 60,
+          "nnz": 178,
+          "backend": "scipy",
+          "method": "arpack",
+          "prepare_seconds": 0.0016048329998739064,
+          "import_seconds": 0.0010074999881908298,
+          "solve_seconds": 0.0035835420130752027,
+          "validation_seconds": 0.0005635839770548046,
+          "export_seconds": 0.00853775005089119,
+          "elapsed_seconds": 0.023573917045723647,
+          "peak_memory_bytes": 65323008,
+          "peak_memory_gib": 0.0608367919921875,
+          "memory_measurement": "sampled current process and descendants; worker enforces and samples full lifetime",
+          "event_history_limit": 4096,
+          "events_emitted": 10,
+          "event_history_byte_limit": 8388608,
+          "retained_event_bytes": 6689,
+          "secondary_observation_enabled": true,
+          "events_suppressed": 0,
+          "memory_sample_interval_seconds": 0.05,
+          "runtime_check_seconds": 0.007865920255426317,
+          "event_emission_seconds": 0.008287333068437874,
+          "events_retained": 10,
+          "events_dropped": 0,
+          "unavailable_metrics": {
+            "outer_iterations": "SciPy ARPACK exposes no iteration counter",
+            "linear_iterations": "Direct LU does not use iterative inner solves",
+            "matrix_vector_products": "ARPACK internal operator products are not fully observable"
+          },
+          "matrix_vector_products_scope": "Candidate iteration and candidate residual checks; final independent verifier excluded",
+          "matrix_vector_products_total": null,
+          "threads_requested": 1,
+          "effective_threadpools": [],
+          "factorizations": 1,
+          "linear_solves": 31,
+          "matrix_vector_products": null,
+          "shifted_residual_matvecs": 31,
+          "outer_iterations": null,
+          "linear_iterations": null,
+          "max_linear_residual": 4.060680882104827e-17,
+          "fallbacks_executed": 0,
+          "warm_start": false,
+          "periodic_checkpoints_written": 0,
+          "end_to_end_seconds": 0.2513762920279987,
+          "process_tree_peak_bytes": 66322432,
+          "memory_limit_bytes": 2147483648
+        },
+        "reference_error": null,
+        "reference_certification": "NOT_AVAILABLE",
+        "error_code": null,
+        "elapsed_seconds": 0.25616133300354704,
+        "n_accepted": 3,
+        "residual_max": 5.552273185156224e-17,
+        "expectation_met": true
+      },
+      {
+        "id": "row-00001",
+        "case_id": "development-complex",
+        "split": "development",
+        "variant_id": "baseline",
+        "ablation": null,
+        "repeat": 2,
+        "ablation_meaning": null,
+        "input_index": 0,
+        "config": {
+          "schema_version": "1.0",
+          "problem": {
+            "type": "standard_hermitian",
+            "matrix_id": "",
+            "matrix_b_id": null,
+            "storage": "full",
+            "scalar": "auto",
+            "hermitian_rtol": 1e-12,
+            "reordering": "none",
+            "nullspace": {
+              "basis_indices": [],
+              "interpretation": "unspecified",
+              "source": ""
+            }
+          },
+          "target": {
+            "mode": "nearest_k",
+            "k": 3,
+            "sigma": 0.1,
+            "interval": null,
+            "sort": "distance_then_value",
+            "cluster_policy": "fixed_k",
+            "max_modes": 200
+          },
+          "solver": {
+            "backend": "scipy",
+            "method": "arpack",
+            "transform": "shift_invert",
+            "subspace_max": 30,
+            "max_outer_iterations": 100,
+            "random_seed": 20261016,
+            "fallback_profiles": [],
+            "adaptive_shift": {
+              "enabled": true,
+              "max_attempts": 4,
+              "policy": "observed_ritz_gap_v2"
+            },
+            "linear": {
+              "method": "sparse_lu",
+              "preconditioner": "auto_budgeted",
+              "rtol_initial": 1e-10,
+              "max_iterations": 1000,
+              "adaptive_accuracy": {
+                "enabled": false,
+                "rtol_min": 1e-10,
+                "rtol_max": 0.01,
+                "forcing_factor": 0.1
+              },
+              "precision": "float64"
+            },
+            "block": {
+              "oversampling": 4,
+              "residual_check_interval": 1,
+              "max_restarts": 2,
+              "stagnation_checks": 20,
+              "checkpoint_interval": 0
+            }
+          },
+          "validation": {
+            "residual_definition": "scaled_inf_v1",
+            "residual_scaled_max": 1e-08,
+            "absolute_residual_max": null,
+            "orthogonality_max": 1e-06,
+            "completeness_required": true
+          },
+          "resources": {
+            "memory_limit_gib": 2.0,
+            "threads": 1,
+            "mpi_ranks": 1,
+            "device": "cpu",
+            "walltime_seconds": 30.0,
+            "disk_limit_gib": 1.0
+          },
+          "observability": {
+            "enabled": true,
+            "metrics_interval_ms": 1000,
+            "redact_sensitive_fields": true
+          },
+          "output": {
+            "eigenvectors": true,
+            "format": "numpy",
+            "atomic_write": true
+          }
+        },
+        "config_hash": "bf50df9a7a16eaa356c414e4531857355c914c5ed568ad6fe47e16b42fddf6c5",
+        "status": "SUCCEEDED",
+        "blocked_reason": null,
+        "expected_status": [
+          "SUCCEEDED",
+          "PARTIAL"
+        ],
+        "expected_error_code": null,
+        "validation": {
+          "numerical_status": "PASSED",
+          "residual_definition": "scaled_inf_v1",
+          "residuals": [
+            1.5037235980637008e-17,
+            5.552273185156224e-17,
+            3.9270400677094793e-17
+          ],
+          "absolute_residuals_2": [
+            2.626638519194621e-16,
+            8.010056455000873e-16,
+            4.3196698332054447e-16
+          ],
+          "orthogonality_error": 2.8637764456252374e-16,
+          "n_validated": 3,
+          "normalization": "unit_2_norm",
+          "target_certification": "CERTIFIED",
+          "certification_source": "tridiagonal_sturm_lapack_stebz",
+          "boundary_cluster_cut": false,
+          "expected_count": 3,
+          "missing_count": 0,
+          "endpoint_ambiguous": false,
+          "certification_window_count": 3,
+          "certification_absolute_tolerance": 7.195710756458803e-14,
+          "mode_subspace_angle_bound_max": 8.67025898818208e-06,
+          "mode_subspace_angle_threshold": 0.0001
+        },
+        "metrics": {
+          "n": 60,
+          "nnz": 178,
+          "backend": "scipy",
+          "method": "arpack",
+          "prepare_seconds": 0.0023413749877363443,
+          "import_seconds": 0.0012166670057922602,
+          "solve_seconds": 0.008716833021026105,
+          "validation_seconds": 0.0018179169856011868,
+          "export_seconds": 0.01740308298030868,
+          "elapsed_seconds": 0.03923495800700039,
+          "peak_memory_bytes": 65470464,
+          "peak_memory_gib": 0.06097412109375,
+          "memory_measurement": "sampled current process and descendants; worker enforces and samples full lifetime",
+          "event_history_limit": 4096,
+          "events_emitted": 10,
+          "event_history_byte_limit": 8388608,
+          "retained_event_bytes": 6690,
+          "secondary_observation_enabled": true,
+          "events_suppressed": 0,
+          "memory_sample_interval_seconds": 0.05,
+          "runtime_check_seconds": 0.006915337929967791,
+          "event_emission_seconds": 0.007917167095001787,
+          "events_retained": 10,
+          "events_dropped": 0,
+          "unavailable_metrics": {
+            "outer_iterations": "SciPy ARPACK exposes no iteration counter",
+            "linear_iterations": "Direct LU does not use iterative inner solves",
+            "matrix_vector_products": "ARPACK internal operator products are not fully observable"
+          },
+          "matrix_vector_products_scope": "Candidate iteration and candidate residual checks; final independent verifier excluded",
+          "matrix_vector_products_total": null,
+          "threads_requested": 1,
+          "effective_threadpools": [],
+          "factorizations": 1,
+          "linear_solves": 31,
+          "matrix_vector_products": null,
+          "shifted_residual_matvecs": 31,
+          "outer_iterations": null,
+          "linear_iterations": null,
+          "max_linear_residual": 4.060680882104827e-17,
+          "fallbacks_executed": 0,
+          "warm_start": false,
+          "periodic_checkpoints_written": 0,
+          "end_to_end_seconds": 0.2881459170021117,
+          "process_tree_peak_bytes": 67485696,
+          "memory_limit_bytes": 2147483648
+        },
+        "reference_error": null,
+        "reference_certification": "NOT_AVAILABLE",
+        "error_code": null,
+        "elapsed_seconds": 0.2893775409902446,
+        "n_accepted": 3,
+        "residual_max": 5.552273185156224e-17,
+        "expectation_met": true
+      },
+      {
+        "id": "row-00002",
+        "case_id": "development-complex",
+        "split": "development",
+        "variant_id": "no-adaptive-shift",
+        "ablation": "adaptive_shift",
+        "repeat": 1,
+        "ablation_meaning": "Disable bounded adaptive working-shift recovery; preserve the original target and hard budgets.",
+        "input_index": 0,
+        "config": {
+          "schema_version": "1.0",
+          "problem": {
+            "type": "standard_hermitian",
+            "matrix_id": "",
+            "matrix_b_id": null,
+            "storage": "full",
+            "scalar": "auto",
+            "hermitian_rtol": 1e-12,
+            "reordering": "none",
+            "nullspace": {
+              "basis_indices": [],
+              "interpretation": "unspecified",
+              "source": ""
+            }
+          },
+          "target": {
+            "mode": "nearest_k",
+            "k": 3,
+            "sigma": 0.1,
+            "interval": null,
+            "sort": "distance_then_value",
+            "cluster_policy": "fixed_k",
+            "max_modes": 200
+          },
+          "solver": {
+            "backend": "scipy",
+            "method": "arpack",
+            "transform": "shift_invert",
+            "subspace_max": 30,
+            "max_outer_iterations": 100,
+            "random_seed": 20261016,
+            "fallback_profiles": [],
+            "adaptive_shift": {
+              "enabled": false,
+              "max_attempts": 4,
+              "policy": "observed_ritz_gap_v2"
+            },
+            "linear": {
+              "method": "sparse_lu",
+              "preconditioner": "auto_budgeted",
+              "rtol_initial": 1e-10,
+              "max_iterations": 1000,
+              "adaptive_accuracy": {
+                "enabled": false,
+                "rtol_min": 1e-10,
+                "rtol_max": 0.01,
+                "forcing_factor": 0.1
+              },
+              "precision": "float64"
+            },
+            "block": {
+              "oversampling": 4,
+              "residual_check_interval": 1,
+              "max_restarts": 2,
+              "stagnation_checks": 20,
+              "checkpoint_interval": 0
+            }
+          },
+          "validation": {
+            "residual_definition": "scaled_inf_v1",
+            "residual_scaled_max": 1e-08,
+            "absolute_residual_max": null,
+            "orthogonality_max": 1e-06,
+            "completeness_required": true
+          },
+          "resources": {
+            "memory_limit_gib": 2.0,
+            "threads": 1,
+            "mpi_ranks": 1,
+            "device": "cpu",
+            "walltime_seconds": 30.0,
+            "disk_limit_gib": 1.0
+          },
+          "observability": {
+            "enabled": true,
+            "metrics_interval_ms": 1000,
+            "redact_sensitive_fields": true
+          },
+          "output": {
+            "eigenvectors": true,
+            "format": "numpy",
+            "atomic_write": true
+          }
+        },
+        "config_hash": "4257bb6594403c01a681e6e414c36ffa86254a3fc28913fa6ef0d34ce301f9ff",
+        "status": "SUCCEEDED",
+        "blocked_reason": null,
+        "expected_status": [
+          "SUCCEEDED",
+          "PARTIAL"
+        ],
+        "expected_error_code": null,
+        "validation": {
+          "numerical_status": "PASSED",
+          "residual_definition": "scaled_inf_v1",
+          "residuals": [
+            1.5037235980637008e-17,
+            5.552273185156224e-17,
+            3.9270400677094793e-17
+          ],
+          "absolute_residuals_2": [
+            2.626638519194621e-16,
+            8.010056455000873e-16,
+            4.3196698332054447e-16
+          ],
+          "orthogonality_error": 2.8637764456252374e-16,
+          "n_validated": 3,
+          "normalization": "unit_2_norm",
+          "target_certification": "CERTIFIED",
+          "certification_source": "tridiagonal_sturm_lapack_stebz",
+          "boundary_cluster_cut": false,
+          "expected_count": 3,
+          "missing_count": 0,
+          "endpoint_ambiguous": false,
+          "certification_window_count": 3,
+          "certification_absolute_tolerance": 7.195710756458803e-14,
+          "mode_subspace_angle_bound_max": 8.67025898818208e-06,
+          "mode_subspace_angle_threshold": 0.0001
+        },
+        "metrics": {
+          "n": 60,
+          "nnz": 178,
+          "backend": "scipy",
+          "method": "arpack",
+          "prepare_seconds": 0.0020737500162795186,
+          "import_seconds": 0.0011793330195359886,
+          "solve_seconds": 0.003998875035904348,
+          "validation_seconds": 0.0006228749989531934,
+          "export_seconds": 0.009015667019411922,
+          "elapsed_seconds": 0.026838375022634864,
+          "peak_memory_bytes": 65568768,
+          "peak_memory_gib": 0.061065673828125,
+          "memory_measurement": "sampled current process and descendants; worker enforces and samples full lifetime",
+          "event_history_limit": 4096,
+          "events_emitted": 10,
+          "event_history_byte_limit": 8388608,
+          "retained_event_bytes": 6691,
+          "secondary_observation_enabled": true,
+          "events_suppressed": 0,
+          "memory_sample_interval_seconds": 0.05,
+          "runtime_check_seconds": 0.009437793109100312,
+          "event_emission_seconds": 0.009901000012177974,
+          "events_retained": 10,
+          "events_dropped": 0,
+          "unavailable_metrics": {
+            "outer_iterations": "SciPy ARPACK exposes no iteration counter",
+            "linear_iterations": "Direct LU does not use iterative inner solves",
+            "matrix_vector_products": "ARPACK internal operator products are not fully observable"
+          },
+          "matrix_vector_products_scope": "Candidate iteration and candidate residual checks; final independent verifier excluded",
+          "matrix_vector_products_total": null,
+          "threads_requested": 1,
+          "effective_threadpools": [],
+          "factorizations": 1,
+          "linear_solves": 31,
+          "matrix_vector_products": null,
+          "shifted_residual_matvecs": 31,
+          "outer_iterations": null,
+          "linear_iterations": null,
+          "max_linear_residual": 4.060680882104827e-17,
+          "fallbacks_executed": 0,
+          "warm_start": false,
+          "periodic_checkpoints_written": 0,
+          "end_to_end_seconds": 0.2876758750062436,
+          "process_tree_peak_bytes": 67371008,
+          "memory_limit_bytes": 2147483648
+        },
+        "reference_error": null,
+        "reference_certification": "NOT_AVAILABLE",
+        "error_code": null,
+        "elapsed_seconds": 0.28896712500136346,
+        "n_accepted": 3,
+        "residual_max": 5.552273185156224e-17,
+        "expectation_met": true
+      },
+      {
+        "id": "row-00003",
+        "case_id": "development-complex",
+        "split": "development",
+        "variant_id": "no-adaptive-shift",
+        "ablation": "adaptive_shift",
+        "repeat": 2,
+        "ablation_meaning": "Disable bounded adaptive working-shift recovery; preserve the original target and hard budgets.",
+        "input_index": 0,
+        "config": {
+          "schema_version": "1.0",
+          "problem": {
+            "type": "standard_hermitian",
+            "matrix_id": "",
+            "matrix_b_id": null,
+            "storage": "full",
+            "scalar": "auto",
+            "hermitian_rtol": 1e-12,
+            "reordering": "none",
+            "nullspace": {
+              "basis_indices": [],
+              "interpretation": "unspecified",
+              "source": ""
+            }
+          },
+          "target": {
+            "mode": "nearest_k",
+            "k": 3,
+            "sigma": 0.1,
+            "interval": null,
+            "sort": "distance_then_value",
+            "cluster_policy": "fixed_k",
+            "max_modes": 200
+          },
+          "solver": {
+            "backend": "scipy",
+            "method": "arpack",
+            "transform": "shift_invert",
+            "subspace_max": 30,
+            "max_outer_iterations": 100,
+            "random_seed": 20261016,
+            "fallback_profiles": [],
+            "adaptive_shift": {
+              "enabled": false,
+              "max_attempts": 4,
+              "policy": "observed_ritz_gap_v2"
+            },
+            "linear": {
+              "method": "sparse_lu",
+              "preconditioner": "auto_budgeted",
+              "rtol_initial": 1e-10,
+              "max_iterations": 1000,
+              "adaptive_accuracy": {
+                "enabled": false,
+                "rtol_min": 1e-10,
+                "rtol_max": 0.01,
+                "forcing_factor": 0.1
+              },
+              "precision": "float64"
+            },
+            "block": {
+              "oversampling": 4,
+              "residual_check_interval": 1,
+              "max_restarts": 2,
+              "stagnation_checks": 20,
+              "checkpoint_interval": 0
+            }
+          },
+          "validation": {
+            "residual_definition": "scaled_inf_v1",
+            "residual_scaled_max": 1e-08,
+            "absolute_residual_max": null,
+            "orthogonality_max": 1e-06,
+            "completeness_required": true
+          },
+          "resources": {
+            "memory_limit_gib": 2.0,
+            "threads": 1,
+            "mpi_ranks": 1,
+            "device": "cpu",
+            "walltime_seconds": 30.0,
+            "disk_limit_gib": 1.0
+          },
+          "observability": {
+            "enabled": true,
+            "metrics_interval_ms": 1000,
+            "redact_sensitive_fields": true
+          },
+          "output": {
+            "eigenvectors": true,
+            "format": "numpy",
+            "atomic_write": true
+          }
+        },
+        "config_hash": "4257bb6594403c01a681e6e414c36ffa86254a3fc28913fa6ef0d34ce301f9ff",
+        "status": "SUCCEEDED",
+        "blocked_reason": null,
+        "expected_status": [
+          "SUCCEEDED",
+          "PARTIAL"
+        ],
+        "expected_error_code": null,
+        "validation": {
+          "numerical_status": "PASSED",
+          "residual_definition": "scaled_inf_v1",
+          "residuals": [
+            1.5037235980637008e-17,
+            5.552273185156224e-17,
+            3.9270400677094793e-17
+          ],
+          "absolute_residuals_2": [
+            2.626638519194621e-16,
+            8.010056455000873e-16,
+            4.3196698332054447e-16
+          ],
+          "orthogonality_error": 2.8637764456252374e-16,
+          "n_validated": 3,
+          "normalization": "unit_2_norm",
+          "target_certification": "CERTIFIED",
+          "certification_source": "tridiagonal_sturm_lapack_stebz",
+          "boundary_cluster_cut": false,
+          "expected_count": 3,
+          "missing_count": 0,
+          "endpoint_ambiguous": false,
+          "certification_window_count": 3,
+          "certification_absolute_tolerance": 7.195710756458803e-14,
+          "mode_subspace_angle_bound_max": 8.67025898818208e-06,
+          "mode_subspace_angle_threshold": 0.0001
+        },
+        "metrics": {
+          "n": 60,
+          "nnz": 178,
+          "backend": "scipy",
+          "method": "arpack",
+          "prepare_seconds": 0.004251208971254528,
+          "import_seconds": 0.0012655840255320072,
+          "solve_seconds": 0.003541499958373606,
+          "validation_seconds": 0.0005888330051675439,
+          "export_seconds": 0.015132583968807012,
+          "elapsed_seconds": 0.035401125031057745,
+          "peak_memory_bytes": 65273856,
+          "peak_memory_gib": 0.060791015625,
+          "memory_measurement": "sampled current process and descendants; worker enforces and samples full lifetime",
+          "event_history_limit": 4096,
+          "events_emitted": 10,
+          "event_history_byte_limit": 8388608,
+          "retained_event_bytes": 6690,
+          "secondary_observation_enabled": true,
+          "events_suppressed": 0,
+          "memory_sample_interval_seconds": 0.05,
+          "runtime_check_seconds": 0.009904962091241032,
+          "event_emission_seconds": 0.010412622999865562,
+          "events_retained": 10,
+          "events_dropped": 0,
+          "unavailable_metrics": {
+            "outer_iterations": "SciPy ARPACK exposes no iteration counter",
+            "linear_iterations": "Direct LU does not use iterative inner solves",
+            "matrix_vector_products": "ARPACK internal operator products are not fully observable"
+          },
+          "matrix_vector_products_scope": "Candidate iteration and candidate residual checks; final independent verifier excluded",
+          "matrix_vector_products_total": null,
+          "threads_requested": 1,
+          "effective_threadpools": [],
+          "factorizations": 1,
+          "linear_solves": 31,
+          "matrix_vector_products": null,
+          "shifted_residual_matvecs": 31,
+          "outer_iterations": null,
+          "linear_iterations": null,
+          "max_linear_residual": 4.060680882104827e-17,
+          "fallbacks_executed": 0,
+          "warm_start": false,
+          "periodic_checkpoints_written": 0,
+          "end_to_end_seconds": 0.2474512080079876,
+          "process_tree_peak_bytes": 67338240,
+          "memory_limit_bytes": 2147483648
+        },
+        "reference_error": null,
+        "reference_certification": "NOT_AVAILABLE",
+        "error_code": null,
+        "elapsed_seconds": 0.24851291702361777,
+        "n_accepted": 3,
+        "residual_max": 5.552273185156224e-17,
+        "expectation_met": true
+      },
+      {
+        "id": "row-00004",
+        "case_id": "holdout-complex",
+        "split": "holdout",
+        "variant_id": "baseline",
+        "ablation": null,
+        "repeat": 1,
+        "ablation_meaning": null,
+        "input_index": 1,
+        "config": {
+          "schema_version": "1.0",
+          "problem": {
+            "type": "standard_hermitian",
+            "matrix_id": "",
+            "matrix_b_id": null,
+            "storage": "full",
+            "scalar": "auto",
+            "hermitian_rtol": 1e-12,
+            "reordering": "none",
+            "nullspace": {
+              "basis_indices": [],
+              "interpretation": "unspecified",
+              "source": ""
+            }
+          },
+          "target": {
+            "mode": "nearest_k",
+            "k": 3,
+            "sigma": 0.1,
+            "interval": null,
+            "sort": "distance_then_value",
+            "cluster_policy": "fixed_k",
+            "max_modes": 200
+          },
+          "solver": {
+            "backend": "scipy",
+            "method": "arpack",
+            "transform": "shift_invert",
+            "subspace_max": 30,
+            "max_outer_iterations": 100,
+            "random_seed": 20261016,
+            "fallback_profiles": [],
+            "adaptive_shift": {
+              "enabled": true,
+              "max_attempts": 4,
+              "policy": "observed_ritz_gap_v2"
+            },
+            "linear": {
+              "method": "sparse_lu",
+              "preconditioner": "auto_budgeted",
+              "rtol_initial": 1e-10,
+              "max_iterations": 1000,
+              "adaptive_accuracy": {
+                "enabled": false,
+                "rtol_min": 1e-10,
+                "rtol_max": 0.01,
+                "forcing_factor": 0.1
+              },
+              "precision": "float64"
+            },
+            "block": {
+              "oversampling": 4,
+              "residual_check_interval": 1,
+              "max_restarts": 2,
+              "stagnation_checks": 20,
+              "checkpoint_interval": 0
+            }
+          },
+          "validation": {
+            "residual_definition": "scaled_inf_v1",
+            "residual_scaled_max": 1e-08,
+            "absolute_residual_max": null,
+            "orthogonality_max": 1e-06,
+            "completeness_required": true
+          },
+          "resources": {
+            "memory_limit_gib": 2.0,
+            "threads": 1,
+            "mpi_ranks": 1,
+            "device": "cpu",
+            "walltime_seconds": 30.0,
+            "disk_limit_gib": 1.0
+          },
+          "observability": {
+            "enabled": true,
+            "metrics_interval_ms": 1000,
+            "redact_sensitive_fields": true
+          },
+          "output": {
+            "eigenvectors": true,
+            "format": "numpy",
+            "atomic_write": true
+          }
+        },
+        "config_hash": "bf50df9a7a16eaa356c414e4531857355c914c5ed568ad6fe47e16b42fddf6c5",
+        "status": "SUCCEEDED",
+        "blocked_reason": null,
+        "expected_status": [
+          "SUCCEEDED",
+          "PARTIAL"
+        ],
+        "expected_error_code": null,
+        "validation": {
+          "numerical_status": "PASSED",
+          "residual_definition": "scaled_inf_v1",
+          "residuals": [
+            1.3324085101042389e-17,
+            6.405435010694541e-17,
+            4.651925318840768e-17
+          ],
+          "absolute_residuals_2": [
+            2.1241275785473601e-16,
+            1.2217153784532434e-15,
+            6.457928585208589e-16
+          ],
+          "orthogonality_error": 5.3712321152655595e-16,
+          "n_validated": 3,
+          "normalization": "unit_2_norm",
+          "target_certification": "CERTIFIED",
+          "certification_source": "tridiagonal_sturm_lapack_stebz",
+          "boundary_cluster_cut": false,
+          "expected_count": 3,
+          "missing_count": 0,
+          "endpoint_ambiguous": false,
+          "certification_window_count": 3,
+          "certification_absolute_tolerance": 7.201961070417589e-14,
+          "mode_subspace_angle_bound_max": 1.2942818238449356e-05,
+          "mode_subspace_angle_threshold": 0.0001
+        },
+        "metrics": {
+          "n": 60,
+          "nnz": 178,
+          "backend": "scipy",
+          "method": "arpack",
+          "prepare_seconds": 0.001735583005938679,
+          "import_seconds": 0.0012446250184439123,
+          "solve_seconds": 0.003077167028095573,
+          "validation_seconds": 0.0009779169922694564,
+          "export_seconds": 0.008098042046185583,
+          "elapsed_seconds": 0.021338999969884753,
+          "peak_memory_bytes": 65519616,
+          "peak_memory_gib": 0.0610198974609375,
+          "memory_measurement": "sampled current process and descendants; worker enforces and samples full lifetime",
+          "event_history_limit": 4096,
+          "events_emitted": 10,
+          "event_history_byte_limit": 8388608,
+          "retained_event_bytes": 6687,
+          "secondary_observation_enabled": true,
+          "events_suppressed": 0,
+          "memory_sample_interval_seconds": 0.05,
+          "runtime_check_seconds": 0.005701078975107521,
+          "event_emission_seconds": 0.006129833171144128,
+          "events_retained": 10,
+          "events_dropped": 0,
+          "unavailable_metrics": {
+            "outer_iterations": "SciPy ARPACK exposes no iteration counter",
+            "linear_iterations": "Direct LU does not use iterative inner solves",
+            "matrix_vector_products": "ARPACK internal operator products are not fully observable"
+          },
+          "matrix_vector_products_scope": "Candidate iteration and candidate residual checks; final independent verifier excluded",
+          "matrix_vector_products_total": null,
+          "threads_requested": 1,
+          "effective_threadpools": [],
+          "factorizations": 1,
+          "linear_solves": 31,
+          "matrix_vector_products": null,
+          "shifted_residual_matvecs": 31,
+          "outer_iterations": null,
+          "linear_iterations": null,
+          "max_linear_residual": 4.97581507297049e-17,
+          "fallbacks_executed": 0,
+          "warm_start": false,
+          "periodic_checkpoints_written": 0,
+          "end_to_end_seconds": 0.21604179200949147,
+          "process_tree_peak_bytes": 67420160,
+          "memory_limit_bytes": 2147483648
+        },
+        "reference_error": null,
+        "reference_certification": "NOT_AVAILABLE",
+        "error_code": null,
+        "elapsed_seconds": 0.21714137500384822,
+        "n_accepted": 3,
+        "residual_max": 6.405435010694541e-17,
+        "expectation_met": true
+      },
+      {
+        "id": "row-00005",
+        "case_id": "holdout-complex",
+        "split": "holdout",
+        "variant_id": "baseline",
+        "ablation": null,
+        "repeat": 2,
+        "ablation_meaning": null,
+        "input_index": 1,
+        "config": {
+          "schema_version": "1.0",
+          "problem": {
+            "type": "standard_hermitian",
+            "matrix_id": "",
+            "matrix_b_id": null,
+            "storage": "full",
+            "scalar": "auto",
+            "hermitian_rtol": 1e-12,
+            "reordering": "none",
+            "nullspace": {
+              "basis_indices": [],
+              "interpretation": "unspecified",
+              "source": ""
+            }
+          },
+          "target": {
+            "mode": "nearest_k",
+            "k": 3,
+            "sigma": 0.1,
+            "interval": null,
+            "sort": "distance_then_value",
+            "cluster_policy": "fixed_k",
+            "max_modes": 200
+          },
+          "solver": {
+            "backend": "scipy",
+            "method": "arpack",
+            "transform": "shift_invert",
+            "subspace_max": 30,
+            "max_outer_iterations": 100,
+            "random_seed": 20261016,
+            "fallback_profiles": [],
+            "adaptive_shift": {
+              "enabled": true,
+              "max_attempts": 4,
+              "policy": "observed_ritz_gap_v2"
+            },
+            "linear": {
+              "method": "sparse_lu",
+              "preconditioner": "auto_budgeted",
+              "rtol_initial": 1e-10,
+              "max_iterations": 1000,
+              "adaptive_accuracy": {
+                "enabled": false,
+                "rtol_min": 1e-10,
+                "rtol_max": 0.01,
+                "forcing_factor": 0.1
+              },
+              "precision": "float64"
+            },
+            "block": {
+              "oversampling": 4,
+              "residual_check_interval": 1,
+              "max_restarts": 2,
+              "stagnation_checks": 20,
+              "checkpoint_interval": 0
+            }
+          },
+          "validation": {
+            "residual_definition": "scaled_inf_v1",
+            "residual_scaled_max": 1e-08,
+            "absolute_residual_max": null,
+            "orthogonality_max": 1e-06,
+            "completeness_required": true
+          },
+          "resources": {
+            "memory_limit_gib": 2.0,
+            "threads": 1,
+            "mpi_ranks": 1,
+            "device": "cpu",
+            "walltime_seconds": 30.0,
+            "disk_limit_gib": 1.0
+          },
+          "observability": {
+            "enabled": true,
+            "metrics_interval_ms": 1000,
+            "redact_sensitive_fields": true
+          },
+          "output": {
+            "eigenvectors": true,
+            "format": "numpy",
+            "atomic_write": true
+          }
+        },
+        "config_hash": "bf50df9a7a16eaa356c414e4531857355c914c5ed568ad6fe47e16b42fddf6c5",
+        "status": "SUCCEEDED",
+        "blocked_reason": null,
+        "expected_status": [
+          "SUCCEEDED",
+          "PARTIAL"
+        ],
+        "expected_error_code": null,
+        "validation": {
+          "numerical_status": "PASSED",
+          "residual_definition": "scaled_inf_v1",
+          "residuals": [
+            1.3324085101042389e-17,
+            6.405435010694541e-17,
+            4.651925318840768e-17
+          ],
+          "absolute_residuals_2": [
+            2.1241275785473601e-16,
+            1.2217153784532434e-15,
+            6.457928585208589e-16
+          ],
+          "orthogonality_error": 5.3712321152655595e-16,
+          "n_validated": 3,
+          "normalization": "unit_2_norm",
+          "target_certification": "CERTIFIED",
+          "certification_source": "tridiagonal_sturm_lapack_stebz",
+          "boundary_cluster_cut": false,
+          "expected_count": 3,
+          "missing_count": 0,
+          "endpoint_ambiguous": false,
+          "certification_window_count": 3,
+          "certification_absolute_tolerance": 7.201961070417589e-14,
+          "mode_subspace_angle_bound_max": 1.2942818238449356e-05,
+          "mode_subspace_angle_threshold": 0.0001
+        },
+        "metrics": {
+          "n": 60,
+          "nnz": 178,
+          "backend": "scipy",
+          "method": "arpack",
+          "prepare_seconds": 0.0016970839933492243,
+          "import_seconds": 0.0010335830156691372,
+          "solve_seconds": 0.0037848749780096114,
+          "validation_seconds": 0.0005772080039605498,
+          "export_seconds": 0.009694458043668419,
+          "elapsed_seconds": 0.02498158300295472,
+          "peak_memory_bytes": 65290240,
+          "peak_memory_gib": 0.0608062744140625,
+          "memory_measurement": "sampled current process and descendants; worker enforces and samples full lifetime",
+          "event_history_limit": 4096,
+          "events_emitted": 10,
+          "event_history_byte_limit": 8388608,
+          "retained_event_bytes": 6690,
+          "secondary_observation_enabled": true,
+          "events_suppressed": 0,
+          "memory_sample_interval_seconds": 0.05,
+          "runtime_check_seconds": 0.007760831154882908,
+          "event_emission_seconds": 0.008264831965789199,
+          "events_retained": 10,
+          "events_dropped": 0,
+          "unavailable_metrics": {
+            "outer_iterations": "SciPy ARPACK exposes no iteration counter",
+            "linear_iterations": "Direct LU does not use iterative inner solves",
+            "matrix_vector_products": "ARPACK internal operator products are not fully observable"
+          },
+          "matrix_vector_products_scope": "Candidate iteration and candidate residual checks; final independent verifier excluded",
+          "matrix_vector_products_total": null,
+          "threads_requested": 1,
+          "effective_threadpools": [],
+          "factorizations": 1,
+          "linear_solves": 31,
+          "matrix_vector_products": null,
+          "shifted_residual_matvecs": 31,
+          "outer_iterations": null,
+          "linear_iterations": null,
+          "max_linear_residual": 4.97581507297049e-17,
+          "fallbacks_executed": 0,
+          "warm_start": false,
+          "periodic_checkpoints_written": 0,
+          "end_to_end_seconds": 0.2558763749548234,
+          "process_tree_peak_bytes": 66387968,
+          "memory_limit_bytes": 2147483648
+        },
+        "reference_error": null,
+        "reference_certification": "NOT_AVAILABLE",
+        "error_code": null,
+        "elapsed_seconds": 0.2568978749914095,
+        "n_accepted": 3,
+        "residual_max": 6.405435010694541e-17,
+        "expectation_met": true
+      },
+      {
+        "id": "row-00006",
+        "case_id": "holdout-complex",
+        "split": "holdout",
+        "variant_id": "no-adaptive-shift",
+        "ablation": "adaptive_shift",
+        "repeat": 1,
+        "ablation_meaning": "Disable bounded adaptive working-shift recovery; preserve the original target and hard budgets.",
+        "input_index": 1,
+        "config": {
+          "schema_version": "1.0",
+          "problem": {
+            "type": "standard_hermitian",
+            "matrix_id": "",
+            "matrix_b_id": null,
+            "storage": "full",
+            "scalar": "auto",
+            "hermitian_rtol": 1e-12,
+            "reordering": "none",
+            "nullspace": {
+              "basis_indices": [],
+              "interpretation": "unspecified",
+              "source": ""
+            }
+          },
+          "target": {
+            "mode": "nearest_k",
+            "k": 3,
+            "sigma": 0.1,
+            "interval": null,
+            "sort": "distance_then_value",
+            "cluster_policy": "fixed_k",
+            "max_modes": 200
+          },
+          "solver": {
+            "backend": "scipy",
+            "method": "arpack",
+            "transform": "shift_invert",
+            "subspace_max": 30,
+            "max_outer_iterations": 100,
+            "random_seed": 20261016,
+            "fallback_profiles": [],
+            "adaptive_shift": {
+              "enabled": false,
+              "max_attempts": 4,
+              "policy": "observed_ritz_gap_v2"
+            },
+            "linear": {
+              "method": "sparse_lu",
+              "preconditioner": "auto_budgeted",
+              "rtol_initial": 1e-10,
+              "max_iterations": 1000,
+              "adaptive_accuracy": {
+                "enabled": false,
+                "rtol_min": 1e-10,
+                "rtol_max": 0.01,
+                "forcing_factor": 0.1
+              },
+              "precision": "float64"
+            },
+            "block": {
+              "oversampling": 4,
+              "residual_check_interval": 1,
+              "max_restarts": 2,
+              "stagnation_checks": 20,
+              "checkpoint_interval": 0
+            }
+          },
+          "validation": {
+            "residual_definition": "scaled_inf_v1",
+            "residual_scaled_max": 1e-08,
+            "absolute_residual_max": null,
+            "orthogonality_max": 1e-06,
+            "completeness_required": true
+          },
+          "resources": {
+            "memory_limit_gib": 2.0,
+            "threads": 1,
+            "mpi_ranks": 1,
+            "device": "cpu",
+            "walltime_seconds": 30.0,
+            "disk_limit_gib": 1.0
+          },
+          "observability": {
+            "enabled": true,
+            "metrics_interval_ms": 1000,
+            "redact_sensitive_fields": true
+          },
+          "output": {
+            "eigenvectors": true,
+            "format": "numpy",
+            "atomic_write": true
+          }
+        },
+        "config_hash": "4257bb6594403c01a681e6e414c36ffa86254a3fc28913fa6ef0d34ce301f9ff",
+        "status": "SUCCEEDED",
+        "blocked_reason": null,
+        "expected_status": [
+          "SUCCEEDED",
+          "PARTIAL"
+        ],
+        "expected_error_code": null,
+        "validation": {
+          "numerical_status": "PASSED",
+          "residual_definition": "scaled_inf_v1",
+          "residuals": [
+            1.3324085101042389e-17,
+            6.405435010694541e-17,
+            4.651925318840768e-17
+          ],
+          "absolute_residuals_2": [
+            2.1241275785473601e-16,
+            1.2217153784532434e-15,
+            6.457928585208589e-16
+          ],
+          "orthogonality_error": 5.3712321152655595e-16,
+          "n_validated": 3,
+          "normalization": "unit_2_norm",
+          "target_certification": "CERTIFIED",
+          "certification_source": "tridiagonal_sturm_lapack_stebz",
+          "boundary_cluster_cut": false,
+          "expected_count": 3,
+          "missing_count": 0,
+          "endpoint_ambiguous": false,
+          "certification_window_count": 3,
+          "certification_absolute_tolerance": 7.201961070417589e-14,
+          "mode_subspace_angle_bound_max": 1.2942818238449356e-05,
+          "mode_subspace_angle_threshold": 0.0001
+        },
+        "metrics": {
+          "n": 60,
+          "nnz": 178,
+          "backend": "scipy",
+          "method": "arpack",
+          "prepare_seconds": 0.0019134999602101743,
+          "import_seconds": 0.0011122500291094184,
+          "solve_seconds": 0.003425083006732166,
+          "validation_seconds": 0.0005930840270593762,
+          "export_seconds": 0.010746709012892097,
+          "elapsed_seconds": 0.02449079102370888,
+          "peak_memory_bytes": 65536000,
+          "peak_memory_gib": 0.06103515625,
+          "memory_measurement": "sampled current process and descendants; worker enforces and samples full lifetime",
+          "event_history_limit": 4096,
+          "events_emitted": 10,
+          "event_history_byte_limit": 8388608,
+          "retained_event_bytes": 6690,
+          "secondary_observation_enabled": true,
+          "events_suppressed": 0,
+          "memory_sample_interval_seconds": 0.05,
+          "runtime_check_seconds": 0.006231458217371255,
+          "event_emission_seconds": 0.006663790030870587,
+          "events_retained": 10,
+          "events_dropped": 0,
+          "unavailable_metrics": {
+            "outer_iterations": "SciPy ARPACK exposes no iteration counter",
+            "linear_iterations": "Direct LU does not use iterative inner solves",
+            "matrix_vector_products": "ARPACK internal operator products are not fully observable"
+          },
+          "matrix_vector_products_scope": "Candidate iteration and candidate residual checks; final independent verifier excluded",
+          "matrix_vector_products_total": null,
+          "threads_requested": 1,
+          "effective_threadpools": [],
+          "factorizations": 1,
+          "linear_solves": 31,
+          "matrix_vector_products": null,
+          "shifted_residual_matvecs": 31,
+          "outer_iterations": null,
+          "linear_iterations": null,
+          "max_linear_residual": 4.97581507297049e-17,
+          "fallbacks_executed": 0,
+          "warm_start": false,
+          "periodic_checkpoints_written": 0,
+          "end_to_end_seconds": 0.22408595797605813,
+          "process_tree_peak_bytes": 67403776,
+          "memory_limit_bytes": 2147483648
+        },
+        "reference_error": null,
+        "reference_certification": "NOT_AVAILABLE",
+        "error_code": null,
+        "elapsed_seconds": 0.22529220901196823,
+        "n_accepted": 3,
+        "residual_max": 6.405435010694541e-17,
+        "expectation_met": true
+      },
+      {
+        "id": "row-00007",
+        "case_id": "holdout-complex",
+        "split": "holdout",
+        "variant_id": "no-adaptive-shift",
+        "ablation": "adaptive_shift",
+        "repeat": 2,
+        "ablation_meaning": "Disable bounded adaptive working-shift recovery; preserve the original target and hard budgets.",
+        "input_index": 1,
+        "config": {
+          "schema_version": "1.0",
+          "problem": {
+            "type": "standard_hermitian",
+            "matrix_id": "",
+            "matrix_b_id": null,
+            "storage": "full",
+            "scalar": "auto",
+            "hermitian_rtol": 1e-12,
+            "reordering": "none",
+            "nullspace": {
+              "basis_indices": [],
+              "interpretation": "unspecified",
+              "source": ""
+            }
+          },
+          "target": {
+            "mode": "nearest_k",
+            "k": 3,
+            "sigma": 0.1,
+            "interval": null,
+            "sort": "distance_then_value",
+            "cluster_policy": "fixed_k",
+            "max_modes": 200
+          },
+          "solver": {
+            "backend": "scipy",
+            "method": "arpack",
+            "transform": "shift_invert",
+            "subspace_max": 30,
+            "max_outer_iterations": 100,
+            "random_seed": 20261016,
+            "fallback_profiles": [],
+            "adaptive_shift": {
+              "enabled": false,
+              "max_attempts": 4,
+              "policy": "observed_ritz_gap_v2"
+            },
+            "linear": {
+              "method": "sparse_lu",
+              "preconditioner": "auto_budgeted",
+              "rtol_initial": 1e-10,
+              "max_iterations": 1000,
+              "adaptive_accuracy": {
+                "enabled": false,
+                "rtol_min": 1e-10,
+                "rtol_max": 0.01,
+                "forcing_factor": 0.1
+              },
+              "precision": "float64"
+            },
+            "block": {
+              "oversampling": 4,
+              "residual_check_interval": 1,
+              "max_restarts": 2,
+              "stagnation_checks": 20,
+              "checkpoint_interval": 0
+            }
+          },
+          "validation": {
+            "residual_definition": "scaled_inf_v1",
+            "residual_scaled_max": 1e-08,
+            "absolute_residual_max": null,
+            "orthogonality_max": 1e-06,
+            "completeness_required": true
+          },
+          "resources": {
+            "memory_limit_gib": 2.0,
+            "threads": 1,
+            "mpi_ranks": 1,
+            "device": "cpu",
+            "walltime_seconds": 30.0,
+            "disk_limit_gib": 1.0
+          },
+          "observability": {
+            "enabled": true,
+            "metrics_interval_ms": 1000,
+            "redact_sensitive_fields": true
+          },
+          "output": {
+            "eigenvectors": true,
+            "format": "numpy",
+            "atomic_write": true
+          }
+        },
+        "config_hash": "4257bb6594403c01a681e6e414c36ffa86254a3fc28913fa6ef0d34ce301f9ff",
+        "status": "SUCCEEDED",
+        "blocked_reason": null,
+        "expected_status": [
+          "SUCCEEDED",
+          "PARTIAL"
+        ],
+        "expected_error_code": null,
+        "validation": {
+          "numerical_status": "PASSED",
+          "residual_definition": "scaled_inf_v1",
+          "residuals": [
+            1.3324085101042389e-17,
+            6.405435010694541e-17,
+            4.651925318840768e-17
+          ],
+          "absolute_residuals_2": [
+            2.1241275785473601e-16,
+            1.2217153784532434e-15,
+            6.457928585208589e-16
+          ],
+          "orthogonality_error": 5.3712321152655595e-16,
+          "n_validated": 3,
+          "normalization": "unit_2_norm",
+          "target_certification": "CERTIFIED",
+          "certification_source": "tridiagonal_sturm_lapack_stebz",
+          "boundary_cluster_cut": false,
+          "expected_count": 3,
+          "missing_count": 0,
+          "endpoint_ambiguous": false,
+          "certification_window_count": 3,
+          "certification_absolute_tolerance": 7.201961070417589e-14,
+          "mode_subspace_angle_bound_max": 1.2942818238449356e-05,
+          "mode_subspace_angle_threshold": 0.0001
+        },
+        "metrics": {
+          "n": 60,
+          "nnz": 178,
+          "backend": "scipy",
+          "method": "arpack",
+          "prepare_seconds": 0.0016795420087873936,
+          "import_seconds": 0.0010360839660279453,
+          "solve_seconds": 0.0036660409532487392,
+          "validation_seconds": 0.0005735419690608978,
+          "export_seconds": 0.008203000004868954,
+          "elapsed_seconds": 0.02113279199693352,
+          "peak_memory_bytes": 65404928,
+          "peak_memory_gib": 0.0609130859375,
+          "memory_measurement": "sampled current process and descendants; worker enforces and samples full lifetime",
+          "event_history_limit": 4096,
+          "events_emitted": 10,
+          "event_history_byte_limit": 8388608,
+          "retained_event_bytes": 6692,
+          "secondary_observation_enabled": true,
+          "events_suppressed": 0,
+          "memory_sample_interval_seconds": 0.05,
+          "runtime_check_seconds": 0.0055467477650381625,
+          "event_emission_seconds": 0.005970460013486445,
+          "events_retained": 10,
+          "events_dropped": 0,
+          "unavailable_metrics": {
+            "outer_iterations": "SciPy ARPACK exposes no iteration counter",
+            "linear_iterations": "Direct LU does not use iterative inner solves",
+            "matrix_vector_products": "ARPACK internal operator products are not fully observable"
+          },
+          "matrix_vector_products_scope": "Candidate iteration and candidate residual checks; final independent verifier excluded",
+          "matrix_vector_products_total": null,
+          "threads_requested": 1,
+          "effective_threadpools": [],
+          "factorizations": 1,
+          "linear_solves": 31,
+          "matrix_vector_products": null,
+          "shifted_residual_matvecs": 31,
+          "outer_iterations": null,
+          "linear_iterations": null,
+          "max_linear_residual": 4.97581507297049e-17,
+          "fallbacks_executed": 0,
+          "warm_start": false,
+          "periodic_checkpoints_written": 0,
+          "end_to_end_seconds": 0.24022162501933053,
+          "process_tree_peak_bytes": 67321856,
+          "memory_limit_bytes": 2147483648
+        },
+        "reference_error": null,
+        "reference_certification": "NOT_AVAILABLE",
+        "error_code": null,
+        "elapsed_seconds": 0.24127475003479049,
+        "n_accepted": 3,
+        "residual_max": 6.405435010694541e-17,
+        "expectation_met": true
+      }
+    ],
+    "summary": {
+      "prescribed_runs": 8,
+      "executed_runs": 8,
+      "blocked_runs": 0,
+      "failed_runs": 0,
+      "timeout_runs": 0,
+      "status_counts": {
+        "CANCELLED": 0,
+        "FAILED": 0,
+        "PARTIAL": 0,
+        "SUCCEEDED": 8,
+        "TIMED_OUT": 0,
+        "BLOCKED": 0,
+        "NOT_RUN": 0
+      },
+      "failed_or_timeout_rate_prescribed": 0.0,
+      "failed_or_timeout_rate_executed": 0.0,
+      "expectations_met": 8
+    }
+  },
+  "input_structure": [
+    {
+      "case_id": "development-complex",
+      "n": 60,
+      "nnz": 178,
+      "dtype": "complex128",
+      "is_diagonal": false
+    },
+    {
+      "case_id": "holdout-complex",
+      "n": 60,
+      "nnz": 178,
+      "dtype": "complex128",
+      "is_diagonal": false
+    }
+  ],
+  "observed_execution": [
+    {
+      "row_id": "row-00000",
+      "actual_strategy": {
+        "schema_version": "1.0",
+        "backend_protocol": "prepare/solve/monitor/finalize",
+        "requested_backend": "scipy",
+        "requested_method": "arpack",
+        "actual_backend": "scipy",
+        "actual_method": "arpack",
+        "backend_version": "1.18.1",
+        "problem_type": "standard_hermitian",
+        "precision": "float64_or_complex128",
+        "transform": "shift_invert",
+        "reordering": "none",
+        "verification_input": "original_unpermuted_matrix",
+        "linear_solver": {
+          "method": "SuperLU_sparse_LU",
+          "preconditioner": "exact_factorization",
+          "residual_tolerance": 1e-10,
+          "adaptive_tolerance": false,
+          "accuracy_policy": null,
+          "precision": "float64_or_complex128",
+          "mixed_precision": false,
+          "promotion_rule": null
+        },
+        "shift_policy": {
+          "enabled": true,
+          "max_attempts": 4,
+          "policy": "observed_ritz_gap_v2",
+          "applies": true,
+          "actual_controller": "observed_ritz_gap_v2"
+        },
+        "fallback_profiles": [],
+        "execution_profiles": [
+          {
+            "id": "primary",
+            "condition": "initial",
+            "config": {
+              "schema_version": "1.0",
+              "problem": {
+                "type": "standard_hermitian",
+                "matrix_id": "",
+                "matrix_b_id": null,
+                "storage": "full",
+                "scalar": "auto",
+                "hermitian_rtol": 1e-12,
+                "reordering": "none",
+                "nullspace": {
+                  "basis_indices": [],
+                  "interpretation": "unspecified",
+                  "source": ""
+                }
+              },
+              "target": {
+                "mode": "nearest_k",
+                "k": 3,
+                "sigma": 0.1,
+                "interval": null,
+                "sort": "distance_then_value",
+                "cluster_policy": "fixed_k",
+                "max_modes": 200
+              },
+              "solver": {
+                "backend": "scipy",
+                "method": "arpack",
+                "transform": "shift_invert",
+                "subspace_max": 30,
+                "max_outer_iterations": 100,
+                "random_seed": 20261016,
+                "fallback_profiles": [],
+                "adaptive_shift": {
+                  "enabled": true,
+                  "max_attempts": 4,
+                  "policy": "observed_ritz_gap_v2"
+                },
+                "linear": {
+                  "method": "sparse_lu",
+                  "preconditioner": "auto_budgeted",
+                  "rtol_initial": 1e-10,
+                  "max_iterations": 1000,
+                  "adaptive_accuracy": {
+                    "enabled": false,
+                    "rtol_min": 1e-10,
+                    "rtol_max": 0.01,
+                    "forcing_factor": 0.1
+                  },
+                  "precision": "float64"
+                },
+                "block": {
+                  "oversampling": 4,
+                  "residual_check_interval": 1,
+                  "max_restarts": 2,
+                  "stagnation_checks": 20,
+                  "checkpoint_interval": 0
+                }
+              },
+              "validation": {
+                "residual_definition": "scaled_inf_v1",
+                "residual_scaled_max": 1e-08,
+                "absolute_residual_max": null,
+                "orthogonality_max": 1e-06,
+                "completeness_required": true
+              },
+              "resources": {
+                "memory_limit_gib": 2.0,
+                "threads": 1,
+                "mpi_ranks": 1,
+                "device": "cpu",
+                "walltime_seconds": 30.0,
+                "disk_limit_gib": 1.0
+              },
+              "observability": {
+                "enabled": true,
+                "metrics_interval_ms": 1000,
+                "redact_sensitive_fields": true
+              },
+              "output": {
+                "eigenvectors": true,
+                "format": "numpy",
+                "atomic_write": true
+              }
+            }
+          }
+        ],
+        "fallback_history": [],
+        "monitoring": {
+          "original_residual_at_attempt_boundary": true,
+          "original_residual_at_output": true,
+          "outer_iteration_count": false,
+          "linear_solve_count": true,
+          "outer_iteration_residual_history": false,
+          "event_history_limit": 4096,
+          "residual_check_interval": null,
+          "locking": "backend_internal_unobservable",
+          "max_restarts": null,
+          "secondary_observation_enabled": true,
+          "event_history_byte_limit": 8388608
+        },
+        "checkpoint": {
+          "exact_resume": false,
+          "warm_start": false,
+          "periodic_interval": null,
+          "reason": "ARPACK does not expose serializable iteration state through this adapter"
+        },
+        "implementation": {
+          "candidate_solver": "SciPy ARPACK and SuperLU",
+          "project_code": [
+            "safe normalization",
+            "bounded shift control",
+            "cluster refinement",
+            "original-problem verification",
+            "conservative structural certification"
+          ]
+        },
+        "limitations": [
+          "Direct factorization fill-in has no guaranteed bound from sparsity statistics",
+          "General sparse nearest-target completeness requires additional independent evidence"
+        ]
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "sigma_target": 0.1,
+          "sigma_work": 0.1,
+          "status": "CONVERGED",
+          "shift_decision": {
+            "controller_version": "observed_ritz_gap_v2",
+            "reason": "original_target",
+            "attempt": 1,
+            "observed_values": 0,
+            "observed_gap_scaled": null,
+            "failures_observed": 0,
+            "radius_limit_scaled": 1.509049920432909e-07
+          },
+          "imaginary_rejected": 0,
+          "n_accepted": 3,
+          "seconds": 0.002988874970469624,
+          "method": "arpack"
+        }
+      ],
+      "accepted_eigenvalues": [
+        0.08108746484322629,
+        0.249566673933217,
+        -0.10056422889366654
+      ],
+      "published_manifest_sha256": "6ea5b364677a7a6f04e69e856dc68aa1ca80c1f7ad3bad862de6ed12113f7af3",
+      "summary_sha256": "79e9933078983ef7f5417484e48c2f198b1e61ef6a8db09989b3b3c7001acac8"
+    },
+    {
+      "row_id": "row-00001",
+      "actual_strategy": {
+        "schema_version": "1.0",
+        "backend_protocol": "prepare/solve/monitor/finalize",
+        "requested_backend": "scipy",
+        "requested_method": "arpack",
+        "actual_backend": "scipy",
+        "actual_method": "arpack",
+        "backend_version": "1.18.1",
+        "problem_type": "standard_hermitian",
+        "precision": "float64_or_complex128",
+        "transform": "shift_invert",
+        "reordering": "none",
+        "verification_input": "original_unpermuted_matrix",
+        "linear_solver": {
+          "method": "SuperLU_sparse_LU",
+          "preconditioner": "exact_factorization",
+          "residual_tolerance": 1e-10,
+          "adaptive_tolerance": false,
+          "accuracy_policy": null,
+          "precision": "float64_or_complex128",
+          "mixed_precision": false,
+          "promotion_rule": null
+        },
+        "shift_policy": {
+          "enabled": true,
+          "max_attempts": 4,
+          "policy": "observed_ritz_gap_v2",
+          "applies": true,
+          "actual_controller": "observed_ritz_gap_v2"
+        },
+        "fallback_profiles": [],
+        "execution_profiles": [
+          {
+            "id": "primary",
+            "condition": "initial",
+            "config": {
+              "schema_version": "1.0",
+              "problem": {
+                "type": "standard_hermitian",
+                "matrix_id": "",
+                "matrix_b_id": null,
+                "storage": "full",
+                "scalar": "auto",
+                "hermitian_rtol": 1e-12,
+                "reordering": "none",
+                "nullspace": {
+                  "basis_indices": [],
+                  "interpretation": "unspecified",
+                  "source": ""
+                }
+              },
+              "target": {
+                "mode": "nearest_k",
+                "k": 3,
+                "sigma": 0.1,
+                "interval": null,
+                "sort": "distance_then_value",
+                "cluster_policy": "fixed_k",
+                "max_modes": 200
+              },
+              "solver": {
+                "backend": "scipy",
+                "method": "arpack",
+                "transform": "shift_invert",
+                "subspace_max": 30,
+                "max_outer_iterations": 100,
+                "random_seed": 20261016,
+                "fallback_profiles": [],
+                "adaptive_shift": {
+                  "enabled": true,
+                  "max_attempts": 4,
+                  "policy": "observed_ritz_gap_v2"
+                },
+                "linear": {
+                  "method": "sparse_lu",
+                  "preconditioner": "auto_budgeted",
+                  "rtol_initial": 1e-10,
+                  "max_iterations": 1000,
+                  "adaptive_accuracy": {
+                    "enabled": false,
+                    "rtol_min": 1e-10,
+                    "rtol_max": 0.01,
+                    "forcing_factor": 0.1
+                  },
+                  "precision": "float64"
+                },
+                "block": {
+                  "oversampling": 4,
+                  "residual_check_interval": 1,
+                  "max_restarts": 2,
+                  "stagnation_checks": 20,
+                  "checkpoint_interval": 0
+                }
+              },
+              "validation": {
+                "residual_definition": "scaled_inf_v1",
+                "residual_scaled_max": 1e-08,
+                "absolute_residual_max": null,
+                "orthogonality_max": 1e-06,
+                "completeness_required": true
+              },
+              "resources": {
+                "memory_limit_gib": 2.0,
+                "threads": 1,
+                "mpi_ranks": 1,
+                "device": "cpu",
+                "walltime_seconds": 30.0,
+                "disk_limit_gib": 1.0
+              },
+              "observability": {
+                "enabled": true,
+                "metrics_interval_ms": 1000,
+                "redact_sensitive_fields": true
+              },
+              "output": {
+                "eigenvectors": true,
+                "format": "numpy",
+                "atomic_write": true
+              }
+            }
+          }
+        ],
+        "fallback_history": [],
+        "monitoring": {
+          "original_residual_at_attempt_boundary": true,
+          "original_residual_at_output": true,
+          "outer_iteration_count": false,
+          "linear_solve_count": true,
+          "outer_iteration_residual_history": false,
+          "event_history_limit": 4096,
+          "residual_check_interval": null,
+          "locking": "backend_internal_unobservable",
+          "max_restarts": null,
+          "secondary_observation_enabled": true,
+          "event_history_byte_limit": 8388608
+        },
+        "checkpoint": {
+          "exact_resume": false,
+          "warm_start": false,
+          "periodic_interval": null,
+          "reason": "ARPACK does not expose serializable iteration state through this adapter"
+        },
+        "implementation": {
+          "candidate_solver": "SciPy ARPACK and SuperLU",
+          "project_code": [
+            "safe normalization",
+            "bounded shift control",
+            "cluster refinement",
+            "original-problem verification",
+            "conservative structural certification"
+          ]
+        },
+        "limitations": [
+          "Direct factorization fill-in has no guaranteed bound from sparsity statistics",
+          "General sparse nearest-target completeness requires additional independent evidence"
+        ]
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "sigma_target": 0.1,
+          "sigma_work": 0.1,
+          "status": "CONVERGED",
+          "shift_decision": {
+            "controller_version": "observed_ritz_gap_v2",
+            "reason": "original_target",
+            "attempt": 1,
+            "observed_values": 0,
+            "observed_gap_scaled": null,
+            "failures_observed": 0,
+            "radius_limit_scaled": 1.509049920432909e-07
+          },
+          "imaginary_rejected": 0,
+          "n_accepted": 3,
+          "seconds": 0.007588125008624047,
+          "method": "arpack"
+        }
+      ],
+      "accepted_eigenvalues": [
+        0.08108746484322629,
+        0.249566673933217,
+        -0.10056422889366654
+      ],
+      "published_manifest_sha256": "9c0bbf31a05dca90f186e23c2a5e6f8575c53b20f24090254f4961bfcc0b43b0",
+      "summary_sha256": "9e8218f7514a16d23ad1a37fd59cc5e51e9ec8ced665225ba33496c635c01a24"
+    },
+    {
+      "row_id": "row-00002",
+      "actual_strategy": {
+        "schema_version": "1.0",
+        "backend_protocol": "prepare/solve/monitor/finalize",
+        "requested_backend": "scipy",
+        "requested_method": "arpack",
+        "actual_backend": "scipy",
+        "actual_method": "arpack",
+        "backend_version": "1.18.1",
+        "problem_type": "standard_hermitian",
+        "precision": "float64_or_complex128",
+        "transform": "shift_invert",
+        "reordering": "none",
+        "verification_input": "original_unpermuted_matrix",
+        "linear_solver": {
+          "method": "SuperLU_sparse_LU",
+          "preconditioner": "exact_factorization",
+          "residual_tolerance": 1e-10,
+          "adaptive_tolerance": false,
+          "accuracy_policy": null,
+          "precision": "float64_or_complex128",
+          "mixed_precision": false,
+          "promotion_rule": null
+        },
+        "shift_policy": {
+          "enabled": false,
+          "max_attempts": 4,
+          "policy": "observed_ritz_gap_v2",
+          "applies": true,
+          "actual_controller": "observed_ritz_gap_v2"
+        },
+        "fallback_profiles": [],
+        "execution_profiles": [
+          {
+            "id": "primary",
+            "condition": "initial",
+            "config": {
+              "schema_version": "1.0",
+              "problem": {
+                "type": "standard_hermitian",
+                "matrix_id": "",
+                "matrix_b_id": null,
+                "storage": "full",
+                "scalar": "auto",
+                "hermitian_rtol": 1e-12,
+                "reordering": "none",
+                "nullspace": {
+                  "basis_indices": [],
+                  "interpretation": "unspecified",
+                  "source": ""
+                }
+              },
+              "target": {
+                "mode": "nearest_k",
+                "k": 3,
+                "sigma": 0.1,
+                "interval": null,
+                "sort": "distance_then_value",
+                "cluster_policy": "fixed_k",
+                "max_modes": 200
+              },
+              "solver": {
+                "backend": "scipy",
+                "method": "arpack",
+                "transform": "shift_invert",
+                "subspace_max": 30,
+                "max_outer_iterations": 100,
+                "random_seed": 20261016,
+                "fallback_profiles": [],
+                "adaptive_shift": {
+                  "enabled": false,
+                  "max_attempts": 4,
+                  "policy": "observed_ritz_gap_v2"
+                },
+                "linear": {
+                  "method": "sparse_lu",
+                  "preconditioner": "auto_budgeted",
+                  "rtol_initial": 1e-10,
+                  "max_iterations": 1000,
+                  "adaptive_accuracy": {
+                    "enabled": false,
+                    "rtol_min": 1e-10,
+                    "rtol_max": 0.01,
+                    "forcing_factor": 0.1
+                  },
+                  "precision": "float64"
+                },
+                "block": {
+                  "oversampling": 4,
+                  "residual_check_interval": 1,
+                  "max_restarts": 2,
+                  "stagnation_checks": 20,
+                  "checkpoint_interval": 0
+                }
+              },
+              "validation": {
+                "residual_definition": "scaled_inf_v1",
+                "residual_scaled_max": 1e-08,
+                "absolute_residual_max": null,
+                "orthogonality_max": 1e-06,
+                "completeness_required": true
+              },
+              "resources": {
+                "memory_limit_gib": 2.0,
+                "threads": 1,
+                "mpi_ranks": 1,
+                "device": "cpu",
+                "walltime_seconds": 30.0,
+                "disk_limit_gib": 1.0
+              },
+              "observability": {
+                "enabled": true,
+                "metrics_interval_ms": 1000,
+                "redact_sensitive_fields": true
+              },
+              "output": {
+                "eigenvectors": true,
+                "format": "numpy",
+                "atomic_write": true
+              }
+            }
+          }
+        ],
+        "fallback_history": [],
+        "monitoring": {
+          "original_residual_at_attempt_boundary": true,
+          "original_residual_at_output": true,
+          "outer_iteration_count": false,
+          "linear_solve_count": true,
+          "outer_iteration_residual_history": false,
+          "event_history_limit": 4096,
+          "residual_check_interval": null,
+          "locking": "backend_internal_unobservable",
+          "max_restarts": null,
+          "secondary_observation_enabled": true,
+          "event_history_byte_limit": 8388608
+        },
+        "checkpoint": {
+          "exact_resume": false,
+          "warm_start": false,
+          "periodic_interval": null,
+          "reason": "ARPACK does not expose serializable iteration state through this adapter"
+        },
+        "implementation": {
+          "candidate_solver": "SciPy ARPACK and SuperLU",
+          "project_code": [
+            "safe normalization",
+            "bounded shift control",
+            "cluster refinement",
+            "original-problem verification",
+            "conservative structural certification"
+          ]
+        },
+        "limitations": [
+          "Direct factorization fill-in has no guaranteed bound from sparsity statistics",
+          "General sparse nearest-target completeness requires additional independent evidence"
+        ]
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "sigma_target": 0.1,
+          "sigma_work": 0.1,
+          "status": "CONVERGED",
+          "shift_decision": {
+            "controller_version": "observed_ritz_gap_v2",
+            "reason": "original_target",
+            "attempt": 1,
+            "observed_values": 0,
+            "observed_gap_scaled": null,
+            "failures_observed": 0,
+            "radius_limit_scaled": 1.509049920432909e-08
+          },
+          "imaginary_rejected": 0,
+          "n_accepted": 3,
+          "seconds": 0.003422708949074149,
+          "method": "arpack"
+        }
+      ],
+      "accepted_eigenvalues": [
+        0.08108746484322629,
+        0.249566673933217,
+        -0.10056422889366654
+      ],
+      "published_manifest_sha256": "86a5c08a5b54b59cde5b4971189d6040327a62c892eed47a298ca0faa74a992e",
+      "summary_sha256": "fb4fa5fe878e44e904af7f09846608b14ed7ec9062c49274d16825c62324bb26"
+    },
+    {
+      "row_id": "row-00003",
+      "actual_strategy": {
+        "schema_version": "1.0",
+        "backend_protocol": "prepare/solve/monitor/finalize",
+        "requested_backend": "scipy",
+        "requested_method": "arpack",
+        "actual_backend": "scipy",
+        "actual_method": "arpack",
+        "backend_version": "1.18.1",
+        "problem_type": "standard_hermitian",
+        "precision": "float64_or_complex128",
+        "transform": "shift_invert",
+        "reordering": "none",
+        "verification_input": "original_unpermuted_matrix",
+        "linear_solver": {
+          "method": "SuperLU_sparse_LU",
+          "preconditioner": "exact_factorization",
+          "residual_tolerance": 1e-10,
+          "adaptive_tolerance": false,
+          "accuracy_policy": null,
+          "precision": "float64_or_complex128",
+          "mixed_precision": false,
+          "promotion_rule": null
+        },
+        "shift_policy": {
+          "enabled": false,
+          "max_attempts": 4,
+          "policy": "observed_ritz_gap_v2",
+          "applies": true,
+          "actual_controller": "observed_ritz_gap_v2"
+        },
+        "fallback_profiles": [],
+        "execution_profiles": [
+          {
+            "id": "primary",
+            "condition": "initial",
+            "config": {
+              "schema_version": "1.0",
+              "problem": {
+                "type": "standard_hermitian",
+                "matrix_id": "",
+                "matrix_b_id": null,
+                "storage": "full",
+                "scalar": "auto",
+                "hermitian_rtol": 1e-12,
+                "reordering": "none",
+                "nullspace": {
+                  "basis_indices": [],
+                  "interpretation": "unspecified",
+                  "source": ""
+                }
+              },
+              "target": {
+                "mode": "nearest_k",
+                "k": 3,
+                "sigma": 0.1,
+                "interval": null,
+                "sort": "distance_then_value",
+                "cluster_policy": "fixed_k",
+                "max_modes": 200
+              },
+              "solver": {
+                "backend": "scipy",
+                "method": "arpack",
+                "transform": "shift_invert",
+                "subspace_max": 30,
+                "max_outer_iterations": 100,
+                "random_seed": 20261016,
+                "fallback_profiles": [],
+                "adaptive_shift": {
+                  "enabled": false,
+                  "max_attempts": 4,
+                  "policy": "observed_ritz_gap_v2"
+                },
+                "linear": {
+                  "method": "sparse_lu",
+                  "preconditioner": "auto_budgeted",
+                  "rtol_initial": 1e-10,
+                  "max_iterations": 1000,
+                  "adaptive_accuracy": {
+                    "enabled": false,
+                    "rtol_min": 1e-10,
+                    "rtol_max": 0.01,
+                    "forcing_factor": 0.1
+                  },
+                  "precision": "float64"
+                },
+                "block": {
+                  "oversampling": 4,
+                  "residual_check_interval": 1,
+                  "max_restarts": 2,
+                  "stagnation_checks": 20,
+                  "checkpoint_interval": 0
+                }
+              },
+              "validation": {
+                "residual_definition": "scaled_inf_v1",
+                "residual_scaled_max": 1e-08,
+                "absolute_residual_max": null,
+                "orthogonality_max": 1e-06,
+                "completeness_required": true
+              },
+              "resources": {
+                "memory_limit_gib": 2.0,
+                "threads": 1,
+                "mpi_ranks": 1,
+                "device": "cpu",
+                "walltime_seconds": 30.0,
+                "disk_limit_gib": 1.0
+              },
+              "observability": {
+                "enabled": true,
+                "metrics_interval_ms": 1000,
+                "redact_sensitive_fields": true
+              },
+              "output": {
+                "eigenvectors": true,
+                "format": "numpy",
+                "atomic_write": true
+              }
+            }
+          }
+        ],
+        "fallback_history": [],
+        "monitoring": {
+          "original_residual_at_attempt_boundary": true,
+          "original_residual_at_output": true,
+          "outer_iteration_count": false,
+          "linear_solve_count": true,
+          "outer_iteration_residual_history": false,
+          "event_history_limit": 4096,
+          "residual_check_interval": null,
+          "locking": "backend_internal_unobservable",
+          "max_restarts": null,
+          "secondary_observation_enabled": true,
+          "event_history_byte_limit": 8388608
+        },
+        "checkpoint": {
+          "exact_resume": false,
+          "warm_start": false,
+          "periodic_interval": null,
+          "reason": "ARPACK does not expose serializable iteration state through this adapter"
+        },
+        "implementation": {
+          "candidate_solver": "SciPy ARPACK and SuperLU",
+          "project_code": [
+            "safe normalization",
+            "bounded shift control",
+            "cluster refinement",
+            "original-problem verification",
+            "conservative structural certification"
+          ]
+        },
+        "limitations": [
+          "Direct factorization fill-in has no guaranteed bound from sparsity statistics",
+          "General sparse nearest-target completeness requires additional independent evidence"
+        ]
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "sigma_target": 0.1,
+          "sigma_work": 0.1,
+          "status": "CONVERGED",
+          "shift_decision": {
+            "controller_version": "observed_ritz_gap_v2",
+            "reason": "original_target",
+            "attempt": 1,
+            "observed_values": 0,
+            "observed_gap_scaled": null,
+            "failures_observed": 0,
+            "radius_limit_scaled": 1.509049920432909e-08
+          },
+          "imaginary_rejected": 0,
+          "n_accepted": 3,
+          "seconds": 0.0029304579948075116,
+          "method": "arpack"
+        }
+      ],
+      "accepted_eigenvalues": [
+        0.08108746484322629,
+        0.249566673933217,
+        -0.10056422889366654
+      ],
+      "published_manifest_sha256": "14cd1426450e9c1b14c2f050324e6711026242fcf9000fc290853c4eed5942de",
+      "summary_sha256": "47ceb1806ee9f4181055795a0f8fb72bde10a9232011a1fa2c7f456acdb5f26b"
+    },
+    {
+      "row_id": "row-00004",
+      "actual_strategy": {
+        "schema_version": "1.0",
+        "backend_protocol": "prepare/solve/monitor/finalize",
+        "requested_backend": "scipy",
+        "requested_method": "arpack",
+        "actual_backend": "scipy",
+        "actual_method": "arpack",
+        "backend_version": "1.18.1",
+        "problem_type": "standard_hermitian",
+        "precision": "float64_or_complex128",
+        "transform": "shift_invert",
+        "reordering": "none",
+        "verification_input": "original_unpermuted_matrix",
+        "linear_solver": {
+          "method": "SuperLU_sparse_LU",
+          "preconditioner": "exact_factorization",
+          "residual_tolerance": 1e-10,
+          "adaptive_tolerance": false,
+          "accuracy_policy": null,
+          "precision": "float64_or_complex128",
+          "mixed_precision": false,
+          "promotion_rule": null
+        },
+        "shift_policy": {
+          "enabled": true,
+          "max_attempts": 4,
+          "policy": "observed_ritz_gap_v2",
+          "applies": true,
+          "actual_controller": "observed_ritz_gap_v2"
+        },
+        "fallback_profiles": [],
+        "execution_profiles": [
+          {
+            "id": "primary",
+            "condition": "initial",
+            "config": {
+              "schema_version": "1.0",
+              "problem": {
+                "type": "standard_hermitian",
+                "matrix_id": "",
+                "matrix_b_id": null,
+                "storage": "full",
+                "scalar": "auto",
+                "hermitian_rtol": 1e-12,
+                "reordering": "none",
+                "nullspace": {
+                  "basis_indices": [],
+                  "interpretation": "unspecified",
+                  "source": ""
+                }
+              },
+              "target": {
+                "mode": "nearest_k",
+                "k": 3,
+                "sigma": 0.1,
+                "interval": null,
+                "sort": "distance_then_value",
+                "cluster_policy": "fixed_k",
+                "max_modes": 200
+              },
+              "solver": {
+                "backend": "scipy",
+                "method": "arpack",
+                "transform": "shift_invert",
+                "subspace_max": 30,
+                "max_outer_iterations": 100,
+                "random_seed": 20261016,
+                "fallback_profiles": [],
+                "adaptive_shift": {
+                  "enabled": true,
+                  "max_attempts": 4,
+                  "policy": "observed_ritz_gap_v2"
+                },
+                "linear": {
+                  "method": "sparse_lu",
+                  "preconditioner": "auto_budgeted",
+                  "rtol_initial": 1e-10,
+                  "max_iterations": 1000,
+                  "adaptive_accuracy": {
+                    "enabled": false,
+                    "rtol_min": 1e-10,
+                    "rtol_max": 0.01,
+                    "forcing_factor": 0.1
+                  },
+                  "precision": "float64"
+                },
+                "block": {
+                  "oversampling": 4,
+                  "residual_check_interval": 1,
+                  "max_restarts": 2,
+                  "stagnation_checks": 20,
+                  "checkpoint_interval": 0
+                }
+              },
+              "validation": {
+                "residual_definition": "scaled_inf_v1",
+                "residual_scaled_max": 1e-08,
+                "absolute_residual_max": null,
+                "orthogonality_max": 1e-06,
+                "completeness_required": true
+              },
+              "resources": {
+                "memory_limit_gib": 2.0,
+                "threads": 1,
+                "mpi_ranks": 1,
+                "device": "cpu",
+                "walltime_seconds": 30.0,
+                "disk_limit_gib": 1.0
+              },
+              "observability": {
+                "enabled": true,
+                "metrics_interval_ms": 1000,
+                "redact_sensitive_fields": true
+              },
+              "output": {
+                "eigenvectors": true,
+                "format": "numpy",
+                "atomic_write": true
+              }
+            }
+          }
+        ],
+        "fallback_history": [],
+        "monitoring": {
+          "original_residual_at_attempt_boundary": true,
+          "original_residual_at_output": true,
+          "outer_iteration_count": false,
+          "linear_solve_count": true,
+          "outer_iteration_residual_history": false,
+          "event_history_limit": 4096,
+          "residual_check_interval": null,
+          "locking": "backend_internal_unobservable",
+          "max_restarts": null,
+          "secondary_observation_enabled": true,
+          "event_history_byte_limit": 8388608
+        },
+        "checkpoint": {
+          "exact_resume": false,
+          "warm_start": false,
+          "periodic_interval": null,
+          "reason": "ARPACK does not expose serializable iteration state through this adapter"
+        },
+        "implementation": {
+          "candidate_solver": "SciPy ARPACK and SuperLU",
+          "project_code": [
+            "safe normalization",
+            "bounded shift control",
+            "cluster refinement",
+            "original-problem verification",
+            "conservative structural certification"
+          ]
+        },
+        "limitations": [
+          "Direct factorization fill-in has no guaranteed bound from sparsity statistics",
+          "General sparse nearest-target completeness requires additional independent evidence"
+        ]
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "sigma_target": 0.1,
+          "sigma_work": 0.1,
+          "status": "CONVERGED",
+          "shift_decision": {
+            "controller_version": "observed_ritz_gap_v2",
+            "reason": "original_target",
+            "attempt": 1,
+            "observed_values": 0,
+            "observed_gap_scaled": null,
+            "failures_observed": 0,
+            "radius_limit_scaled": 1.5103607062748388e-07
+          },
+          "imaginary_rejected": 0,
+          "n_accepted": 3,
+          "seconds": 0.0025687500019557774,
+          "method": "arpack"
+        }
+      ],
+      "accepted_eigenvalues": [
+        0.07988963778927095,
+        0.2415286108541053,
+        -0.08453306252142752
+      ],
+      "published_manifest_sha256": "a3ac8d41effa403c5defd552f6fbdb22847df476cbfde1418628ece9cbded437",
+      "summary_sha256": "cc7bcfe31b6f195d45bac6190a945b12f2838fd07499ca71a3ae448c71417301"
+    },
+    {
+      "row_id": "row-00005",
+      "actual_strategy": {
+        "schema_version": "1.0",
+        "backend_protocol": "prepare/solve/monitor/finalize",
+        "requested_backend": "scipy",
+        "requested_method": "arpack",
+        "actual_backend": "scipy",
+        "actual_method": "arpack",
+        "backend_version": "1.18.1",
+        "problem_type": "standard_hermitian",
+        "precision": "float64_or_complex128",
+        "transform": "shift_invert",
+        "reordering": "none",
+        "verification_input": "original_unpermuted_matrix",
+        "linear_solver": {
+          "method": "SuperLU_sparse_LU",
+          "preconditioner": "exact_factorization",
+          "residual_tolerance": 1e-10,
+          "adaptive_tolerance": false,
+          "accuracy_policy": null,
+          "precision": "float64_or_complex128",
+          "mixed_precision": false,
+          "promotion_rule": null
+        },
+        "shift_policy": {
+          "enabled": true,
+          "max_attempts": 4,
+          "policy": "observed_ritz_gap_v2",
+          "applies": true,
+          "actual_controller": "observed_ritz_gap_v2"
+        },
+        "fallback_profiles": [],
+        "execution_profiles": [
+          {
+            "id": "primary",
+            "condition": "initial",
+            "config": {
+              "schema_version": "1.0",
+              "problem": {
+                "type": "standard_hermitian",
+                "matrix_id": "",
+                "matrix_b_id": null,
+                "storage": "full",
+                "scalar": "auto",
+                "hermitian_rtol": 1e-12,
+                "reordering": "none",
+                "nullspace": {
+                  "basis_indices": [],
+                  "interpretation": "unspecified",
+                  "source": ""
+                }
+              },
+              "target": {
+                "mode": "nearest_k",
+                "k": 3,
+                "sigma": 0.1,
+                "interval": null,
+                "sort": "distance_then_value",
+                "cluster_policy": "fixed_k",
+                "max_modes": 200
+              },
+              "solver": {
+                "backend": "scipy",
+                "method": "arpack",
+                "transform": "shift_invert",
+                "subspace_max": 30,
+                "max_outer_iterations": 100,
+                "random_seed": 20261016,
+                "fallback_profiles": [],
+                "adaptive_shift": {
+                  "enabled": true,
+                  "max_attempts": 4,
+                  "policy": "observed_ritz_gap_v2"
+                },
+                "linear": {
+                  "method": "sparse_lu",
+                  "preconditioner": "auto_budgeted",
+                  "rtol_initial": 1e-10,
+                  "max_iterations": 1000,
+                  "adaptive_accuracy": {
+                    "enabled": false,
+                    "rtol_min": 1e-10,
+                    "rtol_max": 0.01,
+                    "forcing_factor": 0.1
+                  },
+                  "precision": "float64"
+                },
+                "block": {
+                  "oversampling": 4,
+                  "residual_check_interval": 1,
+                  "max_restarts": 2,
+                  "stagnation_checks": 20,
+                  "checkpoint_interval": 0
+                }
+              },
+              "validation": {
+                "residual_definition": "scaled_inf_v1",
+                "residual_scaled_max": 1e-08,
+                "absolute_residual_max": null,
+                "orthogonality_max": 1e-06,
+                "completeness_required": true
+              },
+              "resources": {
+                "memory_limit_gib": 2.0,
+                "threads": 1,
+                "mpi_ranks": 1,
+                "device": "cpu",
+                "walltime_seconds": 30.0,
+                "disk_limit_gib": 1.0
+              },
+              "observability": {
+                "enabled": true,
+                "metrics_interval_ms": 1000,
+                "redact_sensitive_fields": true
+              },
+              "output": {
+                "eigenvectors": true,
+                "format": "numpy",
+                "atomic_write": true
+              }
+            }
+          }
+        ],
+        "fallback_history": [],
+        "monitoring": {
+          "original_residual_at_attempt_boundary": true,
+          "original_residual_at_output": true,
+          "outer_iteration_count": false,
+          "linear_solve_count": true,
+          "outer_iteration_residual_history": false,
+          "event_history_limit": 4096,
+          "residual_check_interval": null,
+          "locking": "backend_internal_unobservable",
+          "max_restarts": null,
+          "secondary_observation_enabled": true,
+          "event_history_byte_limit": 8388608
+        },
+        "checkpoint": {
+          "exact_resume": false,
+          "warm_start": false,
+          "periodic_interval": null,
+          "reason": "ARPACK does not expose serializable iteration state through this adapter"
+        },
+        "implementation": {
+          "candidate_solver": "SciPy ARPACK and SuperLU",
+          "project_code": [
+            "safe normalization",
+            "bounded shift control",
+            "cluster refinement",
+            "original-problem verification",
+            "conservative structural certification"
+          ]
+        },
+        "limitations": [
+          "Direct factorization fill-in has no guaranteed bound from sparsity statistics",
+          "General sparse nearest-target completeness requires additional independent evidence"
+        ]
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "sigma_target": 0.1,
+          "sigma_work": 0.1,
+          "status": "CONVERGED",
+          "shift_decision": {
+            "controller_version": "observed_ritz_gap_v2",
+            "reason": "original_target",
+            "attempt": 1,
+            "observed_values": 0,
+            "observed_gap_scaled": null,
+            "failures_observed": 0,
+            "radius_limit_scaled": 1.5103607062748388e-07
+          },
+          "imaginary_rejected": 0,
+          "n_accepted": 3,
+          "seconds": 0.0032496670028194785,
+          "method": "arpack"
+        }
+      ],
+      "accepted_eigenvalues": [
+        0.07988963778927095,
+        0.2415286108541053,
+        -0.08453306252142752
+      ],
+      "published_manifest_sha256": "90aae461eb1dcb0acc46858e01f917b727ef87f833ee7c2e743a53e6dbd10b9a",
+      "summary_sha256": "ab20a400f6e39139836419860f1b9099499df74e2f5f72242a4c398480b141ca"
+    },
+    {
+      "row_id": "row-00006",
+      "actual_strategy": {
+        "schema_version": "1.0",
+        "backend_protocol": "prepare/solve/monitor/finalize",
+        "requested_backend": "scipy",
+        "requested_method": "arpack",
+        "actual_backend": "scipy",
+        "actual_method": "arpack",
+        "backend_version": "1.18.1",
+        "problem_type": "standard_hermitian",
+        "precision": "float64_or_complex128",
+        "transform": "shift_invert",
+        "reordering": "none",
+        "verification_input": "original_unpermuted_matrix",
+        "linear_solver": {
+          "method": "SuperLU_sparse_LU",
+          "preconditioner": "exact_factorization",
+          "residual_tolerance": 1e-10,
+          "adaptive_tolerance": false,
+          "accuracy_policy": null,
+          "precision": "float64_or_complex128",
+          "mixed_precision": false,
+          "promotion_rule": null
+        },
+        "shift_policy": {
+          "enabled": false,
+          "max_attempts": 4,
+          "policy": "observed_ritz_gap_v2",
+          "applies": true,
+          "actual_controller": "observed_ritz_gap_v2"
+        },
+        "fallback_profiles": [],
+        "execution_profiles": [
+          {
+            "id": "primary",
+            "condition": "initial",
+            "config": {
+              "schema_version": "1.0",
+              "problem": {
+                "type": "standard_hermitian",
+                "matrix_id": "",
+                "matrix_b_id": null,
+                "storage": "full",
+                "scalar": "auto",
+                "hermitian_rtol": 1e-12,
+                "reordering": "none",
+                "nullspace": {
+                  "basis_indices": [],
+                  "interpretation": "unspecified",
+                  "source": ""
+                }
+              },
+              "target": {
+                "mode": "nearest_k",
+                "k": 3,
+                "sigma": 0.1,
+                "interval": null,
+                "sort": "distance_then_value",
+                "cluster_policy": "fixed_k",
+                "max_modes": 200
+              },
+              "solver": {
+                "backend": "scipy",
+                "method": "arpack",
+                "transform": "shift_invert",
+                "subspace_max": 30,
+                "max_outer_iterations": 100,
+                "random_seed": 20261016,
+                "fallback_profiles": [],
+                "adaptive_shift": {
+                  "enabled": false,
+                  "max_attempts": 4,
+                  "policy": "observed_ritz_gap_v2"
+                },
+                "linear": {
+                  "method": "sparse_lu",
+                  "preconditioner": "auto_budgeted",
+                  "rtol_initial": 1e-10,
+                  "max_iterations": 1000,
+                  "adaptive_accuracy": {
+                    "enabled": false,
+                    "rtol_min": 1e-10,
+                    "rtol_max": 0.01,
+                    "forcing_factor": 0.1
+                  },
+                  "precision": "float64"
+                },
+                "block": {
+                  "oversampling": 4,
+                  "residual_check_interval": 1,
+                  "max_restarts": 2,
+                  "stagnation_checks": 20,
+                  "checkpoint_interval": 0
+                }
+              },
+              "validation": {
+                "residual_definition": "scaled_inf_v1",
+                "residual_scaled_max": 1e-08,
+                "absolute_residual_max": null,
+                "orthogonality_max": 1e-06,
+                "completeness_required": true
+              },
+              "resources": {
+                "memory_limit_gib": 2.0,
+                "threads": 1,
+                "mpi_ranks": 1,
+                "device": "cpu",
+                "walltime_seconds": 30.0,
+                "disk_limit_gib": 1.0
+              },
+              "observability": {
+                "enabled": true,
+                "metrics_interval_ms": 1000,
+                "redact_sensitive_fields": true
+              },
+              "output": {
+                "eigenvectors": true,
+                "format": "numpy",
+                "atomic_write": true
+              }
+            }
+          }
+        ],
+        "fallback_history": [],
+        "monitoring": {
+          "original_residual_at_attempt_boundary": true,
+          "original_residual_at_output": true,
+          "outer_iteration_count": false,
+          "linear_solve_count": true,
+          "outer_iteration_residual_history": false,
+          "event_history_limit": 4096,
+          "residual_check_interval": null,
+          "locking": "backend_internal_unobservable",
+          "max_restarts": null,
+          "secondary_observation_enabled": true,
+          "event_history_byte_limit": 8388608
+        },
+        "checkpoint": {
+          "exact_resume": false,
+          "warm_start": false,
+          "periodic_interval": null,
+          "reason": "ARPACK does not expose serializable iteration state through this adapter"
+        },
+        "implementation": {
+          "candidate_solver": "SciPy ARPACK and SuperLU",
+          "project_code": [
+            "safe normalization",
+            "bounded shift control",
+            "cluster refinement",
+            "original-problem verification",
+            "conservative structural certification"
+          ]
+        },
+        "limitations": [
+          "Direct factorization fill-in has no guaranteed bound from sparsity statistics",
+          "General sparse nearest-target completeness requires additional independent evidence"
+        ]
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "sigma_target": 0.1,
+          "sigma_work": 0.1,
+          "status": "CONVERGED",
+          "shift_decision": {
+            "controller_version": "observed_ritz_gap_v2",
+            "reason": "original_target",
+            "attempt": 1,
+            "observed_values": 0,
+            "observed_gap_scaled": null,
+            "failures_observed": 0,
+            "radius_limit_scaled": 1.5103607062748387e-08
+          },
+          "imaginary_rejected": 0,
+          "n_accepted": 3,
+          "seconds": 0.0029072919860482216,
+          "method": "arpack"
+        }
+      ],
+      "accepted_eigenvalues": [
+        0.07988963778927095,
+        0.2415286108541053,
+        -0.08453306252142752
+      ],
+      "published_manifest_sha256": "490332b48acfaf125831c314a9b5a6039195d43a4c862a150a04c20c4b9b03ee",
+      "summary_sha256": "05c523177ea807070a3afd32006613debad5eb4d9b31f8d3390c8d1edee84aa0"
+    },
+    {
+      "row_id": "row-00007",
+      "actual_strategy": {
+        "schema_version": "1.0",
+        "backend_protocol": "prepare/solve/monitor/finalize",
+        "requested_backend": "scipy",
+        "requested_method": "arpack",
+        "actual_backend": "scipy",
+        "actual_method": "arpack",
+        "backend_version": "1.18.1",
+        "problem_type": "standard_hermitian",
+        "precision": "float64_or_complex128",
+        "transform": "shift_invert",
+        "reordering": "none",
+        "verification_input": "original_unpermuted_matrix",
+        "linear_solver": {
+          "method": "SuperLU_sparse_LU",
+          "preconditioner": "exact_factorization",
+          "residual_tolerance": 1e-10,
+          "adaptive_tolerance": false,
+          "accuracy_policy": null,
+          "precision": "float64_or_complex128",
+          "mixed_precision": false,
+          "promotion_rule": null
+        },
+        "shift_policy": {
+          "enabled": false,
+          "max_attempts": 4,
+          "policy": "observed_ritz_gap_v2",
+          "applies": true,
+          "actual_controller": "observed_ritz_gap_v2"
+        },
+        "fallback_profiles": [],
+        "execution_profiles": [
+          {
+            "id": "primary",
+            "condition": "initial",
+            "config": {
+              "schema_version": "1.0",
+              "problem": {
+                "type": "standard_hermitian",
+                "matrix_id": "",
+                "matrix_b_id": null,
+                "storage": "full",
+                "scalar": "auto",
+                "hermitian_rtol": 1e-12,
+                "reordering": "none",
+                "nullspace": {
+                  "basis_indices": [],
+                  "interpretation": "unspecified",
+                  "source": ""
+                }
+              },
+              "target": {
+                "mode": "nearest_k",
+                "k": 3,
+                "sigma": 0.1,
+                "interval": null,
+                "sort": "distance_then_value",
+                "cluster_policy": "fixed_k",
+                "max_modes": 200
+              },
+              "solver": {
+                "backend": "scipy",
+                "method": "arpack",
+                "transform": "shift_invert",
+                "subspace_max": 30,
+                "max_outer_iterations": 100,
+                "random_seed": 20261016,
+                "fallback_profiles": [],
+                "adaptive_shift": {
+                  "enabled": false,
+                  "max_attempts": 4,
+                  "policy": "observed_ritz_gap_v2"
+                },
+                "linear": {
+                  "method": "sparse_lu",
+                  "preconditioner": "auto_budgeted",
+                  "rtol_initial": 1e-10,
+                  "max_iterations": 1000,
+                  "adaptive_accuracy": {
+                    "enabled": false,
+                    "rtol_min": 1e-10,
+                    "rtol_max": 0.01,
+                    "forcing_factor": 0.1
+                  },
+                  "precision": "float64"
+                },
+                "block": {
+                  "oversampling": 4,
+                  "residual_check_interval": 1,
+                  "max_restarts": 2,
+                  "stagnation_checks": 20,
+                  "checkpoint_interval": 0
+                }
+              },
+              "validation": {
+                "residual_definition": "scaled_inf_v1",
+                "residual_scaled_max": 1e-08,
+                "absolute_residual_max": null,
+                "orthogonality_max": 1e-06,
+                "completeness_required": true
+              },
+              "resources": {
+                "memory_limit_gib": 2.0,
+                "threads": 1,
+                "mpi_ranks": 1,
+                "device": "cpu",
+                "walltime_seconds": 30.0,
+                "disk_limit_gib": 1.0
+              },
+              "observability": {
+                "enabled": true,
+                "metrics_interval_ms": 1000,
+                "redact_sensitive_fields": true
+              },
+              "output": {
+                "eigenvectors": true,
+                "format": "numpy",
+                "atomic_write": true
+              }
+            }
+          }
+        ],
+        "fallback_history": [],
+        "monitoring": {
+          "original_residual_at_attempt_boundary": true,
+          "original_residual_at_output": true,
+          "outer_iteration_count": false,
+          "linear_solve_count": true,
+          "outer_iteration_residual_history": false,
+          "event_history_limit": 4096,
+          "residual_check_interval": null,
+          "locking": "backend_internal_unobservable",
+          "max_restarts": null,
+          "secondary_observation_enabled": true,
+          "event_history_byte_limit": 8388608
+        },
+        "checkpoint": {
+          "exact_resume": false,
+          "warm_start": false,
+          "periodic_interval": null,
+          "reason": "ARPACK does not expose serializable iteration state through this adapter"
+        },
+        "implementation": {
+          "candidate_solver": "SciPy ARPACK and SuperLU",
+          "project_code": [
+            "safe normalization",
+            "bounded shift control",
+            "cluster refinement",
+            "original-problem verification",
+            "conservative structural certification"
+          ]
+        },
+        "limitations": [
+          "Direct factorization fill-in has no guaranteed bound from sparsity statistics",
+          "General sparse nearest-target completeness requires additional independent evidence"
+        ]
+      },
+      "attempts": [
+        {
+          "attempt": 1,
+          "sigma_target": 0.1,
+          "sigma_work": 0.1,
+          "status": "CONVERGED",
+          "shift_decision": {
+            "controller_version": "observed_ritz_gap_v2",
+            "reason": "original_target",
+            "attempt": 1,
+            "observed_values": 0,
+            "observed_gap_scaled": null,
+            "failures_observed": 0,
+            "radius_limit_scaled": 1.5103607062748387e-08
+          },
+          "imaginary_rejected": 0,
+          "n_accepted": 3,
+          "seconds": 0.0031887919758446515,
+          "method": "arpack"
+        }
+      ],
+      "accepted_eigenvalues": [
+        0.07988963778927095,
+        0.2415286108541053,
+        -0.08453306252142752
+      ],
+      "published_manifest_sha256": "b5b5a9d70c9b1dbb1af8b0f7797487bed9d960b3f63e8a5aa3f9694938632dcb",
+      "summary_sha256": "fda7877ac589d758892fdea54987f21354bcf878dbc53169f3b2a795b929e89c"
+    }
+  ],
+  "source_environment_runtime_unchanged_after_execution": true,
+  "reference_boundary": "No separately supplied independent reference; original-problem residual validation and conservative target certification remain separate."
+}

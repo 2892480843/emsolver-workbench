@@ -1,0 +1,347 @@
+{
+  "version": "0.8.0",
+  "platform": "macOS ARM64",
+  "browser": "Codex in-app browser",
+  "project": "v0.5 教学验收示例",
+  "scope": "CC0 16-row PEC teaching model; not industrial performance",
+  "ui_checks": {
+    "v2_option_available": true,
+    "v2_select_forces_float64": true,
+    "gpu_change_clears_ilu": true,
+    "preflight_frozen": true,
+    "submitted_from_browser": true,
+    "result_visible_succeeded": true
+  },
+  "job_id": "j_3f476fa3668e4b989bdc8b2418ccbe2b",
+  "matrix_id": "m_1e9cf630a35b4ddc8d4f3d19d44b39ea",
+  "matrix_sha256": "e0695ae279b8ec03deb96142783b65dbb706e5abce5a0ee4147c91ba8318819d",
+  "config": {
+    "schema_version": "1.0",
+    "problem": {
+      "type": "standard_hermitian",
+      "matrix_id": "m_1e9cf630a35b4ddc8d4f3d19d44b39ea",
+      "matrix_b_id": null,
+      "storage": "full",
+      "scalar": "auto",
+      "hermitian_rtol": 1e-12,
+      "reordering": "none",
+      "nullspace": {
+        "basis_indices": [],
+        "interpretation": "unspecified",
+        "source": ""
+      }
+    },
+    "target": {
+      "mode": "nearest_k",
+      "k": 2,
+      "sigma": 0.0,
+      "interval": null,
+      "sort": "distance_then_value",
+      "cluster_policy": "fixed_k",
+      "max_modes": 200
+    },
+    "solver": {
+      "backend": "scipy",
+      "method": "jacobi_davidson",
+      "transform": "precond",
+      "subspace_max": 15,
+      "max_outer_iterations": 2000,
+      "random_seed": 20261016,
+      "fallback_profiles": [],
+      "adaptive_shift": {
+        "enabled": true,
+        "max_attempts": 4,
+        "policy": "observed_ritz_gap_v2"
+      },
+      "linear": {
+        "method": "gmres",
+        "preconditioner": "ilu_equilibrated_compensated_v2",
+        "rtol_initial": 1e-06,
+        "max_iterations": 1000,
+        "adaptive_accuracy": {
+          "enabled": false,
+          "rtol_min": 1e-10,
+          "rtol_max": 0.01,
+          "forcing_factor": 0.1
+        },
+        "precision": "float64"
+      },
+      "block": {
+        "oversampling": 4,
+        "residual_check_interval": 1,
+        "max_restarts": 2,
+        "stagnation_checks": 20,
+        "checkpoint_interval": 0,
+        "checkpoint_kind": "subspace"
+      }
+    },
+    "validation": {
+      "residual_definition": "scaled_inf_v1",
+      "residual_scaled_max": 1e-08,
+      "absolute_residual_max": null,
+      "orthogonality_max": 1e-06,
+      "completeness_required": true
+    },
+    "resources": {
+      "memory_limit_gib": 2.0,
+      "threads": 2,
+      "mpi_ranks": 1,
+      "device": "cpu",
+      "walltime_seconds": 300.0,
+      "disk_limit_gib": 2.0
+    },
+    "observability": {
+      "enabled": true,
+      "metrics_interval_ms": 1000,
+      "redact_sensitive_fields": true
+    },
+    "output": {
+      "eigenvectors": true,
+      "format": "numpy",
+      "atomic_write": true
+    }
+  },
+  "result": {
+    "status": "SUCCEEDED",
+    "eigenvalues": [
+      119364.37851565784,
+      181864.378515658
+    ],
+    "validation": {
+      "numerical_status": "PASSED",
+      "residual_definition": "scaled_inf_v1",
+      "residuals": [
+        1.3515306272711017e-14,
+        2.67883346349075e-16
+      ],
+      "absolute_residuals_2": [
+        1.3385805464938528e-08,
+        3.0841393126559275e-10
+      ],
+      "orthogonality_error": 2.310318935339294e-16,
+      "n_validated": 2,
+      "normalization": "unit_2_norm",
+      "target_certification": "CERTIFIED",
+      "certification_source": "bounded_exact_rational_inertia_v1",
+      "boundary_cluster_cut": false,
+      "expected_count": 2,
+      "missing_count": 0,
+      "endpoint_ambiguous": false,
+      "certification_window_count": 2,
+      "mode_subspace_angle_bound_max": 1.5258556235409006e-05,
+      "mode_subspace_angle_threshold": 0.0001,
+      "certification_arithmetic": {
+        "arithmetic": "exact_binary64_gaussian_rationals",
+        "budgets": {
+          "max_n": 64,
+          "max_nnz": 4096,
+          "max_entries": 4096,
+          "max_bits": 16384,
+          "max_updates": 2000000,
+          "max_inertias": 256,
+          "max_seconds": 5.0
+        },
+        "inertia_evaluations": 9,
+        "schur_updates": 1105,
+        "peak_entries": 66,
+        "peak_fraction_bits": 1706,
+        "two_by_two_pivots": 0,
+        "seconds": 0.01452562500003296
+      }
+    }
+  },
+  "metrics": {
+    "n": 16,
+    "nnz": 64,
+    "backend": "scipy",
+    "method": "jacobi_davidson",
+    "prepare_seconds": 0.0024241669998446014,
+    "import_seconds": 0.0009817500001645385,
+    "solve_seconds": 0.02331000000003769,
+    "validation_seconds": 0.014642874999935884,
+    "export_seconds": 1.3027626670000245,
+    "elapsed_seconds": 1.3480291670000497,
+    "peak_memory_bytes": 81772544,
+    "peak_memory_gib": 0.0761566162109375,
+    "memory_measurement": "sampled current process and descendants; worker enforces and samples full lifetime",
+    "event_history_limit": 4096,
+    "events_emitted": 33,
+    "event_history_byte_limit": 8388608,
+    "retained_event_bytes": 43894,
+    "secondary_observation_enabled": true,
+    "events_suppressed": 0,
+    "memory_sample_interval_seconds": 0.05,
+    "runtime_check_seconds": 0.0066043790006915515,
+    "event_emission_seconds": 0.00910778999991635,
+    "events_retained": 33,
+    "events_dropped": 0,
+    "unavailable_metrics": {
+      "outer_iterations": null,
+      "linear_iterations": null,
+      "matrix_vector_products": null
+    },
+    "matrix_vector_products_scope": "Candidate iteration and candidate residual checks; final independent verifier excluded",
+    "matrix_vector_products_total": null,
+    "threads_requested": 2,
+    "factorizations": 1,
+    "linear_solves": 13,
+    "linear_iterations": 138,
+    "outer_iterations": 8,
+    "matrix_vector_products": 418,
+    "shifted_residual_matvecs": 0,
+    "max_linear_residual": 7.214992298341187e-07,
+    "residual_checks": 8,
+    "residual_check_seconds": 0.0029122060000190686,
+    "restarts": 1,
+    "soft_locked_modes": 2,
+    "warm_start": false,
+    "inner_tolerance_min_used": 1e-06,
+    "inner_tolerance_max_used": 1e-06,
+    "inner_failures": 0,
+    "inner_accuracy_adaptive": false,
+    "float32_linear_solves": 0,
+    "float64_linear_solves": 13,
+    "float32_failures": 0,
+    "precision_promotions": 0,
+    "preconditioner_applications": 178,
+    "matrix_vector_products_float32": 0,
+    "inner_precision_policy": "float64",
+    "accuracy_refinement_checks": 4,
+    "accuracy_refinement_iterations": 1,
+    "accuracy_refinement_pending": 0,
+    "accuracy_certification_probes": 1,
+    "accuracy_certification_probe_seconds": 0.0015675829999963753,
+    "preconditioner_policy": {
+      "id": "ilu_equilibrated_compensated_v2",
+      "drop_tol": 0.001,
+      "fill_factor": 2.0,
+      "drop_rule": "basic,area",
+      "permc_spec": "COLAMD",
+      "reuse": "one_factorization_per_solve_fixed_target_shift",
+      "shift_policy": "target_scaled_plus_sqrt_epsilon_norm_floor",
+      "factor_storage_bound": false,
+      "equilibration_sweeps": 4,
+      "equilibration": "symmetric_max_norm_Ruiz",
+      "scaling_step_clip": [
+        1e-100,
+        1e+100
+      ],
+      "diagonal_row_l1_floor": 0.01,
+      "zero_diagonal_sign": "positive",
+      "constraint": "cached_block_projected_inverse",
+      "constraint_schur_condition_max": 1000000000000.0,
+      "constraint_orthogonality_max": 1e-08,
+      "retry_or_profile_fallback": false
+    },
+    "preconditioner_target_shift_scaled": 0.0,
+    "preconditioner_work_shift_scaled": 2.9802322387695312e-08,
+    "preconditioner_factorizations": 1,
+    "preconditioner_factor_nnz": 166,
+    "preconditioner_factorization_seconds": 0.0008912079999845446,
+    "preconditioner_setup_seconds": 0.002157165999960853,
+    "preconditioner_apply_seconds": 0.000516169000775335,
+    "preconditioner_factor_solves": 178,
+    "preconditioner_scaling_applications": 356,
+    "preconditioner_equilibration_passes": 4,
+    "preconditioner_equilibration_nonzero_scalings": 512,
+    "preconditioner_constraint_builds": 7,
+    "preconditioner_constraint_setup_factor_solves": 14,
+    "preconditioner_constraint_solves": 164,
+    "preconditioner_constraint_setup_seconds": 0.0015472089996819705,
+    "preconditioner_constraint_apply_seconds": 0.0024777509984232893,
+    "preconditioner_constraint_schur_condition_max": 1.9960895605594082,
+    "preconditioner_equilibration_history": [
+      {
+        "pass": 1,
+        "row_max_min_before": 0.9999999701976776,
+        "row_max_max_before": 0.9999999701976776,
+        "step_scale_min": 1.0000000149011616,
+        "step_scale_max": 1.0000000149011616
+      },
+      {
+        "pass": 2,
+        "row_max_min_before": 1.0000000000000002,
+        "row_max_max_before": 1.0000000000000002,
+        "step_scale_min": 1.0,
+        "step_scale_max": 1.0
+      },
+      {
+        "pass": 3,
+        "row_max_min_before": 1.0000000000000002,
+        "row_max_max_before": 1.0000000000000002,
+        "step_scale_min": 1.0,
+        "step_scale_max": 1.0
+      },
+      {
+        "pass": 4,
+        "row_max_min_before": 1.0000000000000002,
+        "row_max_max_before": 1.0000000000000002,
+        "step_scale_min": 1.0,
+        "step_scale_max": 1.0
+      }
+    ],
+    "preconditioner_scaling_min": 1.0000000149011616,
+    "preconditioner_scaling_max": 1.0000000149011616,
+    "preconditioner_compensated_rows": 0,
+    "preconditioner_compensation_max": 0.0,
+    "fallbacks_executed": 0,
+    "periodic_checkpoints_written": 0,
+    "walltime_seconds": 1.6140864169999531,
+    "peak_rss_tree_bytes": 93863936,
+    "disk_bytes": 131318,
+    "sampling_interval_seconds": 0.1,
+    "measurement_scope": "worker process and descendants; sampled peak; excludes optional container",
+    "job_memory_partitions": {
+      "total_bytes": 2147483648,
+      "host_bytes": 2147483648,
+      "container_bytes": 0
+    },
+    "recovery_observation_gap": false,
+    "peak_is_lower_bound": false
+  },
+  "fresh_independent_verification": {
+    "numerical_status": "PASSED",
+    "residual_definition": "scaled_inf_v1",
+    "residuals": [
+      1.3515306272711017e-14,
+      2.67883346349075e-16
+    ],
+    "absolute_residuals_2": [
+      1.3385805464938528e-08,
+      3.0841393126559275e-10
+    ],
+    "orthogonality_error": 2.310318935339294e-16,
+    "n_validated": 2,
+    "normalization": "unit_2_norm",
+    "target_certification": "CERTIFIED",
+    "certification_source": "bounded_exact_rational_inertia_v1",
+    "boundary_cluster_cut": false,
+    "expected_count": 2,
+    "missing_count": 0,
+    "endpoint_ambiguous": false,
+    "certification_window_count": 2,
+    "mode_subspace_angle_bound_max": 1.5258556235409006e-05,
+    "mode_subspace_angle_threshold": 0.0001,
+    "certification_arithmetic": {
+      "arithmetic": "exact_binary64_gaussian_rationals",
+      "budgets": {
+        "max_n": 64,
+        "max_nnz": 4096,
+        "max_entries": 4096,
+        "max_bits": 16384,
+        "max_updates": 2000000,
+        "max_inertias": 256,
+        "max_seconds": 5.0
+      },
+      "inertia_evaluations": 9,
+      "schur_updates": 1105,
+      "peak_entries": 66,
+      "peak_fraction_bits": 1706,
+      "two_by_two_pivots": 0,
+      "seconds": 0.013840625000057116
+    },
+    "artifact_integrity": "PASSED"
+  },
+  "screenshot": "docs/evidence/v080-ui-result.png",
+  "startup_note": "Initial submit rejected after Docker capabilities changed; created a fresh plan and submitted successfully. Previous plan retained."
+}

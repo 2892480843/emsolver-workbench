@@ -1,0 +1,59 @@
+{
+  "version": "0.2.0",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "architecture": "arm64",
+  "backend": {
+    "passed": 183,
+    "failed": 0,
+    "warnings": 1,
+    "seconds": 13.7,
+    "evidence": "architecture-tests.log"
+  },
+  "frontend": {
+    "passed": 12,
+    "failed": 0,
+    "production_build": "passed",
+    "evidence": "architecture-build.log"
+  },
+  "live_migration": {
+    "before_schema": 0,
+    "after_schema": 2,
+    "entity_rows": 24,
+    "raw_json_and_order_identical": true,
+    "events_preserved": 71,
+    "migration_seconds": 0.004272042016964406,
+    "backup_sha256": "8de4ac8690ed5bf3b7b42fcc1851c87368cc3c5a0b30b20f25f66d1d9ff6bece",
+    "rollback_backup": "artifacts/architecture-baseline/pre-migration.sqlite3"
+  },
+  "browser": {
+    "real_job_prefix": "j_a711f224a0",
+    "status": "SUCCEEDED",
+    "accepted": 12,
+    "pagination": {
+      "first_page": 50,
+      "after_load_more": 53,
+      "total": 53,
+      "scope": "isolated test instance; requests submitted then cancelled"
+    },
+    "terminal_observation_seconds": 32.061762291996274,
+    "detail_requests_after_terminal": 0,
+    "screenshot": "docs/screenshots/workbench-architecture-v020.jpg"
+  },
+  "installed_package_upgrade": {
+    "version": "0.2.0",
+    "no_index": true,
+    "legacy_schema_upgraded": true,
+    "n": 100000,
+    "accepted": 8,
+    "numerical": "PASSED",
+    "target": "CERTIFIED",
+    "artifact_hashes": "PASSED"
+  },
+  "review": "architecture-review.md",
+  "not_verified": [
+    "Linux/Docker execution",
+    "multiuser RBAC",
+    "GPU/MPI/SLEPc",
+    "all66 PRD acceptance"
+  ]
+}

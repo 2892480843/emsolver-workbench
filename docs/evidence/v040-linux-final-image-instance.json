@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "passed": true,
+  "stage": "complete",
+  "checks": {
+    "frontend": {
+      "index_sha256": "fcb38e5cff37706c11478a4ffeea63b5ab3fd73c0d147525bfa37c750512787f",
+      "assets": [
+        {
+          "name": "assets/index-Cq5a9jHQ.js",
+          "bytes": 408024,
+          "sha256": "61f9c9f77ef81193dfe8de21209a80069db89b75af6755f4991e7fcbe3e6f29a"
+        },
+        {
+          "name": "assets/index-w8qe4rVE.css",
+          "bytes": 52132,
+          "sha256": "25765314f731d8e31f5c19ca371b63eddaef7ca099ea5d35626b63eea25b223b"
+        }
+      ],
+      "scope": "Actual served index and referenced built assets; no browser interaction is claimed"
+    },
+    "solver": {
+      "status": "SUCCEEDED",
+      "n": 40,
+      "k": 4,
+      "matrix_sha256": "09704e2fe398f255e9b8a3d929731e4da07035d387f7ccfcc45490d78c93c541",
+      "shift_policy": "observed_ritz_gap_v2"
+    },
+    "independent_validation": {
+      "numerical_status": "PASSED",
+      "target_certification": "CERTIFIED",
+      "artifact_integrity": "PASSED",
+      "n_validated": 4
+    },
+    "report": {
+      "sha256": "b88f771297f68e19613fbd07a1a5b30f6dd22bf985d46047320541761c144154",
+      "bytes": 38978
+    },
+    "public_bundle": {
+      "sha256": "adf59ea23ee0bb022ce4a9c09f7ea3957110bbe814e09fde85afeca9f69dd006",
+      "members": 67,
+      "checksums_verified": true,
+      "runtime_scan_passed": true,
+      "runtime_members_scanned": 11
+    },
+    "backup_restore": {
+      "sha256": "b3cbbe3628da94253fec21421a4196b6cd46d9af51e1ceb887f985ee84e96afc",
+      "members_verified": 18,
+      "restored": true,
+      "empty_destination": true,
+      "degraded": false
+    },
+    "restored_rerun": {
+      "status": "SUCCEEDED",
+      "new_job": true,
+      "numerical_status": "PASSED",
+      "target_certification": "CERTIFIED",
+      "artifact_integrity": "PASSED",
+      "n_validated": 4
+    }
+  },
+  "external_http_requests": 0,
+  "server_runs": 2,
+  "server_processes_stopped": true,
+  "runtime": {
+    "system": "Linux",
+    "machine": "x86_64",
+    "python": "3.13.15"
+  },
+  "scope": "Fresh installed local service and independent original-input validation. Caller must enforce --network=none for OS-level offline evidence; no browser or performance claim.",
+  "version": "0.4.0",
+  "container_enforcement": {
+    "image_id": "sha256:eeb7523a8e9db57fedf7ca0770599157d31cb50b1d7a35f2ef7e2a885b9221b9",
+    "image_os": "linux",
+    "image_architecture": "amd64",
+    "network": "none",
+    "read_only_root": true,
+    "cap_drop": [
+      "ALL"
+    ],
+    "no_new_privileges": true,
+    "pids_limit": 128,
+    "memory_limit_bytes": 2147483648,
+    "host_context": "Docker Linux amd64 on macOS arm64 with translation; not native competition performance"
+  }
+}

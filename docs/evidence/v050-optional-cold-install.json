@@ -1,0 +1,56 @@
+{
+  "version": "0.5.0",
+  "installed_package_only": true,
+  "installation": "no-index local wheelhouse",
+  "model_files_verified": true,
+  "repository": "mlx-community/Qwen2.5-0.5B-Instruct-4bit",
+  "revision": "a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+  "explanation": {
+    "source": "local_model",
+    "summary": "需要重新检查工作位移的合理性。",
+    "items": [
+      {
+        "rule_id": "near_singular",
+        "text": "重新检查工作位移的合理性，确保目标中心和工作位移的记录准确。"
+      }
+    ],
+    "model": {
+      "id": "default_model",
+      "version": "mlx-community/Qwen2.5-0.5B-Instruct-4bit@a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+      "license_id": "Apache-2.0",
+      "license_approved": true
+    },
+    "template_version": "diagnosis_explanation_v3",
+    "fallback_reason": null
+  },
+  "metal": {
+    "available": true,
+    "supported": true,
+    "backend": "MLX_Metal",
+    "cuda_supported": false,
+    "gpu_precision": "float32_or_complex64",
+    "authoritative_validation": "CPU_float64_original_problem",
+    "profiles": [
+      "metal_jd_correction_v1"
+    ],
+    "version": "0.32.4",
+    "reason": null
+  },
+  "numerical_gpu_product": {
+    "gpu_backend": "MLX_Metal_sparse_COO",
+    "gpu_profile": "metal_jd_correction_v1",
+    "gpu_precision": "float32_or_complex64",
+    "gpu_matvec_calls": 1,
+    "gpu_nnz": 28,
+    "gpu_seconds": 0.03721545799635351,
+    "gpu_peak_allocated_bytes": 532,
+    "gpu_memory_limit_bytes": 536870912,
+    "gpu_memory_enforcement": "MLX guideline plus measured allocation guard after each evaluated operation",
+    "gpu_estimated_working_bytes": 1760,
+    "gpu_full_matrix_dense": false,
+    "cpu_authoritative_precision": "float64_or_complex128"
+  },
+  "os_network_disabled": false,
+  "loopback_model_endpoint": true,
+  "server_stopped_after_verification": true
+}

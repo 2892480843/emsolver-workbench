@@ -1,0 +1,13 @@
+
+> emsolver-workbench@0.5.0 build
+> tsc -b && vite build
+
+vite v6.4.4 building for production...
+transforming...
+✓ 1605 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.59 kB │ gzip:   0.41 kB
+dist/assets/index-CggSa4hZ.css   53.07 kB │ gzip:  11.91 kB
+dist/assets/index-DqS9U9VS.js   428.23 kB │ gzip: 134.98 kB
+✓ built in 826ms

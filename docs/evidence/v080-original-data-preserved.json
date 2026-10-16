@@ -1,0 +1,50 @@
+{
+  "scope": "Original frozen SQL business records preserved; new runs may update only derived project_storage usage fields. No schema migration.",
+  "tables": {
+    "entities": {
+      "baseline_rows": 107,
+      "current_rows": 112,
+      "missing_keys": [],
+      "raw_changed_keys": [
+        [
+          271
+        ]
+      ],
+      "unexpected_changed_keys": []
+    },
+    "events": {
+      "baseline_rows": 398,
+      "current_rows": 435,
+      "missing_keys": [],
+      "raw_changed_keys": [],
+      "unexpected_changed_keys": []
+    },
+    "audit": {
+      "baseline_rows": 87,
+      "current_rows": 89,
+      "missing_keys": [],
+      "raw_changed_keys": [],
+      "unexpected_changed_keys": []
+    },
+    "idempotency": {
+      "baseline_rows": 38,
+      "current_rows": 39,
+      "missing_keys": [],
+      "raw_changed_keys": [],
+      "unexpected_changed_keys": []
+    }
+  },
+  "derived_changes": [
+    {
+      "entity_id": "p_311283e67fc94334819c2c0504eb5527",
+      "changed_fields": [
+        "updated_at",
+        "output_bytes"
+      ],
+      "reason": "New authorized UI run outputs changed derived usage counters"
+    }
+  ],
+  "passed": true,
+  "all_66_original_prd_requirements_unchanged": true,
+  "original_prd_document_unchanged": true
+}

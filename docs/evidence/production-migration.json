@@ -1,0 +1,10 @@
+{
+  "before_schema": 0,
+  "after_schema": 2,
+  "entity_rows": 24,
+  "raw_json_and_order_identical": true,
+  "events_preserved": 71,
+  "migration_seconds": 0.004272042016964406,
+  "backup_sha256": "8de4ac8690ed5bf3b7b42fcc1851c87368cc3c5a0b30b20f25f66d1d9ff6bece",
+  "rollback_backup": "artifacts/architecture-baseline/pre-migration.sqlite3"
+}

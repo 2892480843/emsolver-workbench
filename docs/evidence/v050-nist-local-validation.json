@@ -1,0 +1,13 @@
+{
+  "dataset": "NIST MHD1280B",
+  "source_url": "https://math.nist.gov/MatrixMarket/data/NEP/mhd/mhd1280b.html",
+  "license": "Redistribution unconfirmed; no raw inputs or vectors included",
+  "problem_scope": "B alone as standard Hermitian; not original generalized MHD problem, not a microwave device",
+  "version": "0.5.0",
+  "status": "PARTIAL",
+  "numerical_status": "PASSED",
+  "target_certification": "UNVERIFIED",
+  "n_validated": 6,
+  "max_scaled_residual": 7.507572979071919e-17,
+  "orthogonality_error": 8.967329487729412e-16
+}

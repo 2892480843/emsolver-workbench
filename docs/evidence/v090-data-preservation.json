@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "baseline_entities": 112,
+  "current_entities": 118,
+  "baseline_rows_removed": 0,
+  "baseline_rows_changed": [
+    {
+      "kind": "project_storage",
+      "id": "p_44e051036f48439484034f5866cac24b"
+    }
+  ],
+  "added_entities": [
+    {
+      "kind": "industrial_reference_assets",
+      "id": "ir_32fb8ec7ee7c428998ad87f0ea059a49"
+    },
+    {
+      "kind": "industrial_checks",
+      "id": "ick_088f1a9eabe74623914fd07c58a31b39"
+    },
+    {
+      "kind": "configs",
+      "id": "c_200ee2d966824308b9600364fcc32034"
+    },
+    {
+      "kind": "jobs",
+      "id": "j_b29d2f56d06d4e829e128c553dd1b493"
+    },
+    {
+      "kind": "industrial_cases",
+      "id": "ic_ff26c6de205e4219bf2ec54fb9d2ee41"
+    },
+    {
+      "kind": "plans",
+      "id": "plan_2e06784d67ce4c27b9979c17d8da90dd"
+    }
+  ],
+  "all_original_business_records_unchanged": true,
+  "derived_storage_counters_updated_only": true,
+  "all_66_prd_requirements_unchanged": true,
+  "feature_status_counts": {
+    "implemented": 65,
+    "conditional": 1
+  }
+}
