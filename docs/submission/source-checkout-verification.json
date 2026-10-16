@@ -7,31 +7,31 @@
     {
       "name": "checkout-npm-install",
       "exit_code": 0,
-      "seconds": 1.493
+      "seconds": 1.76
     },
     {
       "name": "checkout-frontend-tests",
       "exit_code": 0,
-      "seconds": 1.08
+      "seconds": 0.872
     },
     {
       "name": "checkout-frontend-build",
       "exit_code": 0,
-      "seconds": 4.133
+      "seconds": 3.316
     },
     {
       "name": "checkout-backend-tests",
       "exit_code": 0,
-      "seconds": 90.911
+      "seconds": 83.227
     },
     {
       "name": "checkout-material-check",
       "exit_code": 0,
-      "seconds": 1.197
+      "seconds": 1.21
     }
   ],
   "backend": {
-    "passed": 1073,
+    "passed": 1074,
     "skipped": 23,
     "failed": 0,
     "real_postgresql": true

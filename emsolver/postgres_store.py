@@ -4,8 +4,9 @@ The legacy service performs read/modify/write operations rather than row-level
 compare-and-swap. Every outer write transaction therefore acquires one advisory
 lock per database/schema. This intentionally serializes legacy writers across
 processes and machines; snapshot readers proceed concurrently. Callers must keep
-external work outside transactions. Connections belong to individual threads and
-are all released by close(); instances must be created after process forks.
+external work outside transactions. Connections belong to individual threads;
+new owners reclaim connections left by exited threads. Remaining connections
+are released by close(); instances must be created after process forks.
 
 Only trusted application SQL is accepted by ``db``. The bounded compatibility
 adapter supports qmark parameters and the JSON scalar paths used by this project;
@@ -173,6 +174,7 @@ class PostgresStore(Store):
         self.lock = threading.RLock()
         self._connections_lock = threading.Lock()
         self._connections = []
+        self._connection_owners = {}
         self._local = threading.local()
         self._closed = False
         self._pid = os.getpid()
@@ -197,9 +199,22 @@ class PostgresStore(Store):
             # never replayed because a write's commit outcome may be unknown.
             with self._connections_lock:
                 if connection in self._connections: self._connections.remove(connection)
+                self._connection_owners.pop(connection, None)
             self._local.connection = None
             connection = None
         if connection is None:
+            with self._connections_lock:
+                if self._closed:
+                    raise RuntimeError('PostgreSQL store is closed')
+                # AnyIO may retire idle request threads. Keeping their sessions
+                # until shutdown eventually exhausts max_connections even with
+                # little concurrency. Reap only exited owners; live transactions
+                # retain their thread-affine connection and are never replayed.
+                for stale, owner in list(self._connection_owners.items()):
+                    if not owner.is_alive():
+                        stale.close()
+                        self._connections.remove(stale)
+                        del self._connection_owners[stale]
             try:
                 connection = self._psycopg.connect(self._dsn, autocommit=True, connect_timeout=10)
                 connection.execute(self._psycopg.sql.SQL('SET search_path TO {}, pg_catalog').format(self._psycopg.sql.Identifier(self.schema)))
@@ -212,6 +227,7 @@ class PostgresStore(Store):
                     connection.close()
                     raise RuntimeError('PostgreSQL store is closed')
                 self._connections.append(connection)
+                self._connection_owners[connection] = threading.current_thread()
             self._local.connection = connection
         return connection
 
@@ -359,6 +375,7 @@ class PostgresStore(Store):
             for connection in self._connections:
                 connection.close()
             self._connections.clear()
+            self._connection_owners.clear()
 
 
 def _row_order(table, columns):

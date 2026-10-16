@@ -6,475 +6,475 @@ TAP version 13
 # Subtest: worker enrollment sends only explicit projects and reviewed capacity fields
 ok 1 - worker enrollment sends only explicit projects and reviewed capacity fields
   ---
-  duration_ms: 1.840041
+  duration_ms: 2.1795
   type: 'test'
   ...
 # Subtest: worker enrollment rejects empty, wildcard, duplicate and unavailable project scopes
 ok 2 - worker enrollment rejects empty, wildcard, duplicate and unavailable project scopes
   ---
-  duration_ms: 0.256875
+  duration_ms: 0.196125
   type: 'test'
   ...
 # Subtest: worker enrollment rejects invalid names and nonfinite or nonpositive budgets
 ok 3 - worker enrollment rejects invalid names and nonfinite or nonpositive budgets
   ---
-  duration_ms: 1.336333
+  duration_ms: 0.790834
   type: 'test'
   ...
 # Subtest: revoked credentials remain revoked despite a recent heartbeat or active row
 ok 4 - revoked credentials remain revoked despite a recent heartbeat or active row
   ---
-  duration_ms: 0.147667
+  duration_ms: 0.1075
   type: 'test'
   ...
 # Subtest: worker status distinguishes valid execution, expired lease and stale observation
 ok 5 - worker status distinguishes valid execution, expired lease and stale observation
   ---
-  duration_ms: 0.062292
+  duration_ms: 0.050583
   type: 'test'
   ...
 # Subtest: worker time does not invent dates for missing or invalid observations
 ok 6 - worker time does not invent dates for missing or invalid observations
   ---
-  duration_ms: 10.889333
+  duration_ms: 38.624542
   type: 'test'
   ...
 # Subtest: rank histories use measured residuals, original event sequence and explicit lock indices
 ok 7 - rank histories use measured residuals, original event sequence and explicit lock indices
   ---
-  duration_ms: 1.1145
+  duration_ms: 1.75675
   type: 'test'
   ...
 # Subtest: bounded curves retain narrow per-bucket residual spikes and troughs
 ok 8 - bounded curves retain narrow per-bucket residual spikes and troughs
   ---
-  duration_ms: 0.818584
+  duration_ms: 1.099083
   type: 'test'
   ...
 # Subtest: failures, shifts, lock changes, restarts and fallback markers are never decimated
 ok 9 - failures, shifts, lock changes, restarts and fallback markers are never decimated
   ---
-  duration_ms: 0.844459
+  duration_ms: 0.714666
   type: 'test'
   ...
 # Subtest: ARPACK attempt maxima do not invent per-mode histories or lock status
 ok 10 - ARPACK attempt maxima do not invent per-mode histories or lock status
   ---
-  duration_ms: 0.29475
+  duration_ms: 0.088833
   type: 'test'
   ...
 # Subtest: only explicit stagnation observations produce intervals; absent values remain unavailable
 ok 11 - only explicit stagnation observations produce intervals; absent values remain unavailable
   ---
-  duration_ms: 0.433958
+  duration_ms: 0.172667
   type: 'test'
   ...
 # Subtest: rank paging includes later ranks and ignores malformed numeric fields without fabricating zeros
 ok 12 - rank paging includes later ranks and ignores malformed numeric fields without fabricating zeros
   ---
-  duration_ms: 0.577958
+  duration_ms: 0.089292
   type: 'test'
   ...
 # Subtest: restart closes the observed stagnation interval and preserves its actual reason
 ok 13 - restart closes the observed stagnation interval and preserves its actual reason
   ---
-  duration_ms: 0.385083
+  duration_ms: 0.159917
   type: 'test'
   ...
 # Subtest: a changed lock set is visible even when the aggregate count stays unchanged
 ok 14 - a changed lock set is visible even when the aggregate count stays unchanged
   ---
-  duration_ms: 0.166875
+  duration_ms: 0.268708
   type: 'test'
   ...
 # Subtest: a new UI draft fits a single CPU and does not mutate another draft
 ok 15 - a new UI draft fits a single CPU and does not mutate another draft
   ---
-  duration_ms: 0.352666
+  duration_ms: 0.899333
   type: 'test'
   ...
 # Subtest: number axes trim tokens and deduplicate numeric values in input order
 ok 16 - number axes trim tokens and deduplicate numeric values in input order
   ---
-  duration_ms: 0.988
+  duration_ms: 1.273917
   type: 'test'
   ...
 # Subtest: number axes reject empty tokens, partial numbers and non-finite values
 ok 17 - number axes reject empty tokens, partial numbers and non-finite values
   ---
-  duration_ms: 0.269625
+  duration_ms: 0.544417
   type: 'test'
   ...
 # Subtest: integer axes accept inclusive bounds and reject fractional or out-of-range values
 ok 18 - integer axes accept inclusive bounds and reject fractional or out-of-range values
   ---
-  duration_ms: 0.194916
+  duration_ms: 0.37925
   type: 'test'
   ...
 # Subtest: fractional axes apply inclusive numeric limits
 ok 19 - fractional axes apply inclusive numeric limits
   ---
-  duration_ms: 0.074709
+  duration_ms: 0.180083
   type: 'test'
   ...
 # Subtest: number axes enforce the default and custom token limits before deduplication
 ok 20 - number axes enforce the default and custom token limits before deduplication
   ---
-  duration_ms: 0.080875
+  duration_ms: 0.176625
   type: 'test'
   ...
 # Subtest: configuration differences recurse into objects and sort full dot paths
 ok 21 - configuration differences recurse into objects and sort full dot paths
   ---
-  duration_ms: 0.148334
+  duration_ms: 0.886041
   type: 'test'
   ...
 # Subtest: configuration additions and deletions preserve leaf values and use null for absence
 ok 22 - configuration additions and deletions preserve leaf values and use null for absence
   ---
-  duration_ms: 0.104792
+  duration_ms: 0.313459
   type: 'test'
   ...
 # Subtest: configuration arrays are compared as leaves while equal content produces no difference
 ok 23 - configuration arrays are compared as leaves while equal content produces no difference
   ---
-  duration_ms: 0.0765
+  duration_ms: 0.478625
   type: 'test'
   ...
 # Subtest: batch polling follows every active job status even when the batch reports terminal
 ok 24 - batch polling follows every active job status even when the batch reports terminal
   ---
-  duration_ms: 0.612834
+  duration_ms: 0.367542
   type: 'test'
   ...
 # Subtest: batch polling honors active summary counts, derived counts and active batch status
 ok 25 - batch polling honors active summary counts, derived counts and active batch status
   ---
-  duration_ms: 0.327708
+  duration_ms: 0.995125
   type: 'test'
   ...
 # Subtest: failed and fully terminal batches stop polling
 ok 26 - failed and fully terminal batches stop polling
   ---
-  duration_ms: 0.126292
+  duration_ms: 0.760583
   type: 'test'
   ...
 # Subtest: benchmark detail reads forward the abort signal and encode the batch id
 ok 27 - benchmark detail reads forward the abort signal and encode the batch id
   ---
-  duration_ms: 0.133666
+  duration_ms: 0.667209
   type: 'test'
   ...
 # Subtest: benchmark detail reads stop scheduling after a terminal response
 ok 28 - benchmark detail reads stop scheduling after a terminal response
   ---
-  duration_ms: 0.06375
+  duration_ms: 0.373708
   type: 'test'
   ...
 # Subtest: benchmark detail reads cannot publish a response after selection cancellation
 ok 29 - benchmark detail reads cannot publish a response after selection cancellation
   ---
-  duration_ms: 0.106709
+  duration_ms: 0.13775
   type: 'test'
   ...
 # Subtest: benchmark page paths encode project and cursor with a fixed page limit
 ok 30 - benchmark page paths encode project and cursor with a fixed page limit
   ---
-  duration_ms: 1.304459
+  duration_ms: 2.776875
   type: 'test'
   ...
 # Subtest: experiment summaries preserve explicit timing denominators including failed measurements
 ok 31 - experiment summaries preserve explicit timing denominators including failed measurements
   ---
-  duration_ms: 0.15575
+  duration_ms: 0.275583
   type: 'test'
   ...
 # Subtest: experiment summaries default missing counters to zero without guessing timing denominators
 ok 32 - experiment summaries default missing counters to zero without guessing timing denominators
   ---
-  duration_ms: 0.074875
+  duration_ms: 0.053416
   type: 'test'
   ...
 # Subtest: experiment summaries derive nonnegative active counts only when active is absent
 ok 33 - experiment summaries derive nonnegative active counts only when active is absent
   ---
-  duration_ms: 0.0605
+  duration_ms: 0.033542
   type: 'test'
   ...
 # Subtest: field projections use supplied coordinates, preserve spatial aspect and signed measurements
 ok 34 - field projections use supplied coordinates, preserve spatial aspect and signed measurements
   ---
-  duration_ms: 0.794834
+  duration_ms: 0.717083
   type: 'test'
   ...
 # Subtest: coincident geometry stays finite without invented displacement; missing phase and invalid samples rejected
 ok 35 - coincident geometry stays finite without invented displacement; missing phase and invalid samples rejected
   ---
-  duration_ms: 1.79725
+  duration_ms: 0.623959
   type: 'test'
   ...
 # Subtest: field selection requires a frozen model and available terminal payload
 ok 36 - field selection requires a frozen model and available terminal payload
   ---
-  duration_ms: 0.25775
+  duration_ms: 0.160208
   type: 'test'
   ...
 # Subtest: engineering upload requires explicit authorization and exact original matrix hash
 ok 37 - engineering upload requires explicit authorization and exact original matrix hash
   ---
-  duration_ms: 6.066833
+  duration_ms: 8.608125
   type: 'test'
   ...
 # Subtest: a supplied collinear mesh retains distance along its nonconstant axis
 ok 38 - a supplied collinear mesh retains distance along its nonconstant axis
   ---
-  duration_ms: 0.12525
+  duration_ms: 0.550042
   type: 'test'
   ...
 # Subtest: row histogram preserves actual edge ranges, row counts and inclusive final endpoint
 ok 39 - row histogram preserves actual edge ranges, row counts and inclusive final endpoint
   ---
-  duration_ms: 1.04875
+  duration_ms: 1.028083
   type: 'test'
   ...
 # Subtest: histogram refuses malformed or oversized bins without drawing invented data
 ok 40 - histogram refuses malformed or oversized bins without drawing invented data
   ---
-  duration_ms: 0.437709
+  duration_ms: 0.191292
   type: 'test'
   ...
 # Subtest: event window sorts, deduplicates and retains the newest 1000 sequences
 ok 41 - event window sorts, deduplicates and retains the newest 1000 sequences
   ---
-  duration_ms: 2.7255
+  duration_ms: 4.552208
   type: 'test'
   ...
 # Subtest: server filter path encodes project and cursor, while ALL omits status
 ok 42 - server filter path encodes project and cursor, while ALL omits status
   ---
-  duration_ms: 0.597166
+  duration_ms: 0.59225
   type: 'test'
   ...
 # Subtest: refreshes first page, preserves loaded history and removes filter mismatches
 ok 43 - refreshes first page, preserves loaded history and removes filter mismatches
   ---
-  duration_ms: 1.06725
+  duration_ms: 0.796
   type: 'test'
   ...
 # Subtest: event catch-up reads at most five pages per cycle and schedules a short continuation
 ok 44 - event catch-up reads at most five pages per cycle and schedules a short continuation
   ---
-  duration_ms: 0.347958
+  duration_ms: 0.608375
   type: 'test'
   ...
 # Subtest: terminal job drains all events and reads numerical result before stopping
 ok 45 - terminal job drains all events and reads numerical result before stopping
   ---
-  duration_ms: 0.115875
+  duration_ms: 0.220333
   type: 'test'
   ...
 # Subtest: failed/cancelled/timeout 404 or 409 is a settled result, successful job errors retry
 ok 46 - failed/cancelled/timeout 404 or 409 is a settled result, successful job errors retry
   ---
-  duration_ms: 0.506917
+  duration_ms: 1.131541
   type: 'test'
   ...
 # Subtest: switch cancellation reaches every fetch and cannot publish a completed old cycle
 ok 47 - switch cancellation reaches every fetch and cannot publish a completed old cycle
   ---
-  duration_ms: 0.087375
+  duration_ms: 0.13425
   type: 'test'
   ...
 # Subtest: idle list polling slows down when workspace has no active jobs
 ok 48 - idle list polling slows down when workspace has no active jobs
   ---
-  duration_ms: 0.1045
+  duration_ms: 0.425792
   type: 'test'
   ...
 # Subtest: first-page refresh wins over stale overlapping history and append updates without duplication
 ok 49 - first-page refresh wins over stale overlapping history and append updates without duplication
   ---
-  duration_ms: 0.265333
+  duration_ms: 0.256084
   type: 'test'
   ...
 # Subtest: incremental cycles resume after the last sequence and a replay never creates duplicate rows
 ok 50 - incremental cycles resume after the last sequence and a replay never creates duplicate rows
   ---
-  duration_ms: 0.457583
+  duration_ms: 0.755459
   type: 'test'
   ...
 # Subtest: a stalled event cursor and unexpected failed-result errors surface instead of silently stopping
 ok 51 - a stalled event cursor and unexpected failed-result errors surface instead of silently stopping
   ---
-  duration_ms: 0.18175
+  duration_ms: 0.197958
   type: 'test'
   ...
 # Subtest: terminal event drain observes events published with the terminal job state before stopping
 ok 52 - terminal event drain observes events published with the terminal job state before stopping
   ---
-  duration_ms: 0.098083
+  duration_ms: 0.171083
   type: 'test'
   ...
 # Subtest: unrecognized chart categories cannot issue unsupported API filter values
 ok 53 - unrecognized chart categories cannot issue unsupported API filter values
   ---
-  duration_ms: 0.521292
+  duration_ms: 0.518542
   type: 'test'
   ...
 # Subtest: missing summary is unavailable, while a confirmed zero-job summary is empty
 ok 54 - missing summary is unavailable, while a confirmed zero-job summary is empty
   ---
-  duration_ms: 0.294042
+  duration_ms: 0.149666
   type: 'test'
   ...
 # Subtest: status counts come from the summary and retain unfamiliar server statuses
 ok 55 - status counts come from the summary and retain unfamiliar server statuses
   ---
-  duration_ms: 0.694125
+  duration_ms: 0.975375
   type: 'test'
   ...
 # Subtest: inconsistent totals and invalid counts remain explicit rather than producing a rate
 ok 56 - inconsistent totals and invalid counts remain explicit rather than producing a rate
   ---
-  duration_ms: 1.066916
+  duration_ms: 1.86925
   type: 'test'
   ...
 # Subtest: activity sorts valid creation instants newest first without mutating the loaded page
 ok 57 - activity sorts valid creation instants newest first without mutating the loaded page
   ---
-  duration_ms: 0.311625
+  duration_ms: 0.328
   type: 'test'
   ...
 # Subtest: activity reports loaded-page scope until the full result set is known
 ok 58 - activity reports loaded-page scope until the full result set is known
   ---
-  duration_ms: 0.325583
+  duration_ms: 0.308875
   type: 'test'
   ...
 # Subtest: matrix lookup preserves the first duplicate, missing entries and input order
 ok 59 - matrix lookup preserves the first duplicate, missing entries and input order
   ---
-  duration_ms: 0.970458
+  duration_ms: 2.056083
   type: 'test'
   ...
 # Subtest: matrix metadata trims editable fields and excludes unknown/private properties
 ok 60 - matrix metadata trims editable fields and excludes unknown/private properties
   ---
-  duration_ms: 0.265792
+  duration_ms: 0.383958
   type: 'test'
   ...
 # Subtest: project patches validate finite quotas, preserve role distinctions and encode search text
 ok 61 - project patches validate finite quotas, preserve role distinctions and encode search text
   ---
-  duration_ms: 0.573083
+  duration_ms: 0.630333
   type: 'test'
   ...
 # Subtest: import reads poll only unfinished tasks and reject an asynchronously cancelled response
 ok 62 - import reads poll only unfinished tasks and reject an asynchronously cancelled response
   ---
-  duration_ms: 0.290625
+  duration_ms: 0.210167
   type: 'test'
   ...
 # Subtest: public matrix metadata requires a license and only permits supported frequency mappings
 ok 63 - public matrix metadata requires a license and only permits supported frequency mappings
   ---
-  duration_ms: 0.253
+  duration_ms: 0.185709
   type: 'test'
   ...
 # Subtest: source URLs reject active protocols and malformed addresses
 ok 64 - source URLs reject active protocols and malformed addresses
   ---
-  duration_ms: 0.119166
+  duration_ms: 0.101583
   type: 'test'
   ...
 # Subtest: project roles fail closed until identity is known and distinguish analysts from administrators
 ok 65 - project roles fail closed until identity is known and distinguish analysts from administrators
   ---
-  duration_ms: 0.113916
+  duration_ms: 0.100584
   type: 'test'
   ...
 # Subtest: declared nullspace coordinates are bounded original nonnegative integer indices
 ok 66 - declared nullspace coordinates are bounded original nonnegative integer indices
   ---
-  duration_ms: 1.074834
+  duration_ms: 0.362459
   type: 'test'
   ...
 # Subtest: mode matching sends explicitly chosen computed-run IDs and rejects an obsolete response
 ok 67 - mode matching sends explicitly chosen computed-run IDs and rejects an obsolete response
   ---
-  duration_ms: 0.290542
+  duration_ms: 0.96425
   type: 'test'
   ...
 # Subtest: method changes make the linear solver coherent without changing target or hard limits
 ok 68 - method changes make the linear solver coherent without changing target or hard limits
   ---
-  duration_ms: 0.397417
+  duration_ms: 0.550667
   type: 'test'
   ...
 # Subtest: warm starts require a finished supported method and intact artifact state
 ok 69 - warm starts require a finished supported method and intact artifact state
   ---
-  duration_ms: 0.107
+  duration_ms: 0.1095
   type: 'test'
   ...
 # Subtest: leaving JD disables approximate correction precision while preserving the original contract
 ok 70 - leaving JD disables approximate correction precision while preserving the original contract
   ---
-  duration_ms: 0.056875
+  duration_ms: 0.059583
   type: 'test'
   ...
 # Subtest: valid CPU double JD preserves ILU and method/device changes reset incompatible choices
 ok 71 - valid CPU double JD preserves ILU and method/device changes reset incompatible choices
   ---
-  duration_ms: 0.153958
+  duration_ms: 0.174708
   type: 'test'
   ...
 # Subtest: explicit capability-gated ILU selection promotes CPU correction precision without changing hard limits
 ok 72 - explicit capability-gated ILU selection promotes CPU correction precision without changing hard limits
   ---
-  duration_ms: 0.09025
+  duration_ms: 0.111542
   type: 'test'
   ...
 # Subtest: imported unsupported ILU combinations are visible errors and switching profiles removes them
 ok 73 - imported unsupported ILU combinations are visible errors and switching profiles removes them
   ---
-  duration_ms: 0.119
+  duration_ms: 0.109584
   type: 'test'
   ...
 # Subtest: cleanup enables execution for expired job outputs even without temporary file candidates
 ok 74 - cleanup enables execution for expired job outputs even without temporary file candidates
   ---
-  duration_ms: 0.033542
+  duration_ms: 0.032208
   type: 'test'
   ...
 # Subtest: recording advice effects uses explicit POST then reads the current detail
 ok 75 - recording advice effects uses explicit POST then reads the current detail
   ---
-  duration_ms: 0.073791
+  duration_ms: 0.06325
   type: 'test'
   ...
 # Subtest: operations identity grants no project role and policy edits contain only opaque id and quotas
 ok 76 - operations identity grants no project role and policy edits contain only opaque id and quotas
   ---
-  duration_ms: 0.226292
+  duration_ms: 0.185625
   type: 'test'
   ...
 # Subtest: Metal profile selects compatible JD while method changes reset device and MPI
 ok 77 - Metal profile selects compatible JD while method changes reset device and MPI
   ---
-  duration_ms: 0.303708
+  duration_ms: 0.128583
   type: 'test'
   ...
 # Subtest: robust ILU v2 retains its explicit identity and enforces CPU float64 across switches
 ok 78 - robust ILU v2 retains its explicit identity and enforces CPU float64 across switches
   ---
-  duration_ms: 0.198333
+  duration_ms: 0.044416
   type: 'test'
   ...
 # Subtest: SLEPc disk factor profile requires verified capability and preserves target semantics
 ok 79 - SLEPc disk factor profile requires verified capability and preserves target semantics
   ---
-  duration_ms: 0.613125
+  duration_ms: 0.264541
   type: 'test'
   ...
 1..79
@@ -485,4 +485,4 @@ ok 79 - SLEPc disk factor profile requires verified capability and preserves tar
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 83.133875
+# duration_ms 95.1825

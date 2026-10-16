@@ -311,3 +311,29 @@ def test_lost_connection_inside_transaction_never_starts_an_independent_write(pg
             pg_store.put('jobs', 'after', {'id': 'after'})
     assert pg_store.get('jobs', 'before') is None
     assert pg_store.get('jobs', 'after') is None
+
+
+def test_exited_request_threads_do_not_accumulate_database_sessions(pg_store):
+    retired_pids = []
+    failures = []
+
+    def request():
+        try:
+            retired_pids.append(pg_store.db.execute('SELECT pg_backend_pid()').fetchone()[0])
+        except Exception as error:
+            failures.append(type(error).__name__)
+
+    # Short-lived request threads must not each retain a PostgreSQL backend until
+    # application shutdown. This observes server sessions, not the registry.
+    for _ in range(12):
+        thread = threading.Thread(target=request)
+        thread.start()
+        thread.join(timeout=10)
+        assert not thread.is_alive()
+    assert not failures
+    remaining = pg_store.db.execute(
+        'SELECT count(*) FROM pg_stat_activity WHERE pid = ANY(?)',
+        (retired_pids,),
+    ).fetchone()[0]
+    assert remaining <= 1
+    assert pg_store.db.execute('SELECT 1').fetchone() == (1,)
